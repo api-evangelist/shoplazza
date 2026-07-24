@@ -1,0 +1,526 @@
+openapi: 3.1.0
+info:
+  title: SPZ Admin Access Gift Card API
+  version: '2022.01'
+servers:
+- url: https://{subdomain}.myshoplaza.com
+  variables:
+    subdomain:
+      default: developer
+security:
+- sec0: []
+tags:
+- name: Gift Card
+paths:
+  /openapi/2022-01/gift_cards:
+    get:
+      tags:
+      - Gift Card
+      summary: Authentication
+      description: ''
+      operationId: authentication
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"gift_cards\": [\n        {\n            \"id\": \"179882653468593874\",\n            \"last_characters\": \"abcd\",\n            \"balance\": \"108.99\",\n            \"initial_value\": \"200.00\",\n            \"note\": \"Note\",\n            \"expires_on\": \"2022-11-05T12:00:00Z\",\n            \"disabled_at\": null,\n            \"enabled\": true,\n            \"created_at\": \"2022-11-01T10:00:00Z\",\n            \"updated_at\": \"2022-11-03T10:00:00Z\",\n            \"status\": \"enable\",\n            \"currency\": \"USD\",\n            \"line_item_id\": \"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\",\n            \"order_id\": \"1121890668917975533\",\n            \"user_id\": \"b9664ac3-daf1-41ff-8235-1523012b1b47\",\n            \"template_suffix\": \"new_customer\",\n            \"customer_id\": \"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\"\n        }\n    ],\n    \"total\": \"1\"\n}"
+              schema:
+                type: object
+                properties:
+                  gift_cards:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: '179882653468593874'
+                        last_characters:
+                          type: string
+                          example: abcd
+                        balance:
+                          type: string
+                          example: '108.99'
+                        initial_value:
+                          type: string
+                          example: '200.00'
+                        note:
+                          type: string
+                          example: Note
+                        expires_on:
+                          type: string
+                          example: '2022-11-05T12:00:00Z'
+                        disabled_at: {}
+                        enabled:
+                          type: boolean
+                          example: true
+                          default: true
+                        created_at:
+                          type: string
+                          example: '2022-11-01T10:00:00Z'
+                        updated_at:
+                          type: string
+                          example: '2022-11-03T10:00:00Z'
+                        status:
+                          type: string
+                          example: enable
+                        currency:
+                          type: string
+                          example: USD
+                        line_item_id:
+                          type: string
+                          example: db4469f3-5e56-4c69-a2b6-03e81d24d5b5
+                        order_id:
+                          type: string
+                          example: '1121890668917975533'
+                        user_id:
+                          type: string
+                          example: b9664ac3-daf1-41ff-8235-1523012b1b47
+                        template_suffix:
+                          type: string
+                          example: new_customer
+                        customer_id:
+                          type: string
+                          example: db4469f3-5e56-4c69-a2b6-03e81d24d5b5
+                  total:
+                    type: string
+                    example: '1'
+      deprecated: false
+    post:
+      tags:
+      - Gift Card
+      summary: Create Gift Card
+      description: ''
+      operationId: create-gift-card
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - gift_card
+              properties:
+                gift_card:
+                  type: object
+                  description: Gift card informations.
+                  required:
+                  - code
+                  - initial_value
+                  properties:
+                    code:
+                      type: string
+                      description: 'The gift card code, which is a string of alphanumeric characters.(minimum: 8 characters, maximum: 20 characters)'
+                    initial_value:
+                      type: string
+                      description: The initial value of the gift card when it was created. e.g. `200.00`
+                    expires_on:
+                      type: string
+                      description: The date (ISO-8601 format) when the gift card expires. e.g. `2022-11-01T00:00:00Z`
+                    note:
+                      type: string
+                      description: An optional note that a merchant can attach to the gift card that isn't visible to customers.
+                    customer_id:
+                      type: string
+                      description: The ID of the customer associated with this gift card. e.g `db4469f3-5e56-4c69-a2b6-03e81d24d5b5`
+                    template_suffix:
+                      type: string
+                      description: The suffix of the Liquid template that's used to render the gift card online.
+                    send_email:
+                      type: boolean
+                      description: Send notification email to customer, true is default.
+                      default: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"gift_card\": {\n        \"id\": \"179882653468593874\",\n        \"last_characters\": \"4da7\",\n        \"balance\": \"200.00\",\n        \"initial_value\": \"200.00\",\n        \"note\": \"Note\",\n        \"expires_on\": \"2022-11-05T12:00:00Z\",\n        \"disabled_at\": null,\n        \"enabled\": true,\n        \"created_at\": \"2022-11-01T10:00:00Z\",\n        \"updated_at\": \"2022-11-03T10:00:00Z\",\n        \"status\": \"enable\",\n        \"currency\": \"USD\",\n        \"line_item_id\": \"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\",\n        \"order_id\": \"1121890668917975533\",\n        \"user_id\": \"b9664ac3-daf1-41ff-8235-1523012b1b47\",\n        \"template_suffix\": \"new_customer\",\n        \"code\": \"a4f44da7\",\n        \"customer_id\": \"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\"\n    }\n}"
+              schema:
+                type: object
+                properties:
+                  gift_card:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: '179882653468593874'
+                      last_characters:
+                        type: string
+                        example: 4da7
+                      balance:
+                        type: string
+                        example: '200.00'
+                      initial_value:
+                        type: string
+                        example: '200.00'
+                      note:
+                        type: string
+                        example: Note
+                      expires_on:
+                        type: string
+                        example: '2022-11-05T12:00:00Z'
+                      disabled_at: {}
+                      enabled:
+                        type: boolean
+                        example: true
+                        default: true
+                      created_at:
+                        type: string
+                        example: '2022-11-01T10:00:00Z'
+                      updated_at:
+                        type: string
+                        example: '2022-11-03T10:00:00Z'
+                      status:
+                        type: string
+                        example: enable
+                      currency:
+                        type: string
+                        example: USD
+                      line_item_id:
+                        type: string
+                        example: db4469f3-5e56-4c69-a2b6-03e81d24d5b5
+                      order_id:
+                        type: string
+                        example: '1121890668917975533'
+                      user_id:
+                        type: string
+                        example: b9664ac3-daf1-41ff-8235-1523012b1b47
+                      template_suffix:
+                        type: string
+                        example: new_customer
+                      code:
+                        type: string
+                        example: a4f44da7
+                      customer_id:
+                        type: string
+                        example: db4469f3-5e56-4c69-a2b6-03e81d24d5b5
+      deprecated: false
+  /openapi/2022-01/gift_cards/{id}:
+    get:
+      tags:
+      - Gift Card
+      summary: Get Gift Card Details
+      description: ''
+      operationId: get-gift-card-detail
+      parameters:
+      - name: id
+        in: path
+        description: Gift card's ID
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"gift_card\": {\n        \"id\": \"179882653468593874\",\n        \"last_characters\": \"abcd\",\n        \"balance\": \"108.99\",\n        \"initial_value\": \"200.00\",\n        \"note\": \"Note\",\n        \"expires_on\": \"2022-11-05T12:00:00Z\",\n        \"disabled_at\": null,\n        \"enabled\": true,\n        \"created_at\": \"2022-11-01T10:00:00Z\",\n        \"updated_at\": \"2022-11-03T10:00:00Z\",\n        \"status\": \"enable\",\n        \"currency\": \"USD\",\n        \"line_item_id\": \"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\",\n        \"order_id\": \"1121890668917975533\",\n        \"user_id\": \"b9664ac3-daf1-41ff-8235-1523012b1b47\",\n        \"template_suffix\": \"new_customer\",\n        \"customer_id\": \"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\"\n    }\n}"
+              schema:
+                type: object
+                properties:
+                  gift_card:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: '179882653468593874'
+                      last_characters:
+                        type: string
+                        example: abcd
+                      balance:
+                        type: string
+                        example: '108.99'
+                      initial_value:
+                        type: string
+                        example: '200.00'
+                      note:
+                        type: string
+                        example: Note
+                      expires_on:
+                        type: string
+                        example: '2022-11-05T12:00:00Z'
+                      disabled_at: {}
+                      enabled:
+                        type: boolean
+                        example: true
+                        default: true
+                      created_at:
+                        type: string
+                        example: '2022-11-01T10:00:00Z'
+                      updated_at:
+                        type: string
+                        example: '2022-11-03T10:00:00Z'
+                      status:
+                        type: string
+                        example: enable
+                      currency:
+                        type: string
+                        example: USD
+                      line_item_id:
+                        type: string
+                        example: db4469f3-5e56-4c69-a2b6-03e81d24d5b5
+                      order_id:
+                        type: string
+                        example: '1121890668917975533'
+                      user_id:
+                        type: string
+                        example: b9664ac3-daf1-41ff-8235-1523012b1b47
+                      template_suffix:
+                        type: string
+                        example: new_customer
+                      customer_id:
+                        type: string
+                        example: db4469f3-5e56-4c69-a2b6-03e81d24d5b5
+        '404':
+          description: '404'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"errors\": [\"Record not found\"]\n}"
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: string
+                      example: Record not found
+      deprecated: false
+    put:
+      tags:
+      - Gift Card
+      summary: Update Gift Card
+      description: ''
+      operationId: update-gift-card
+      parameters:
+      - name: id
+        in: path
+        description: Gift card's ID
+        schema:
+          type: string
+        required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - gift_card
+              properties:
+                gift_card:
+                  type: object
+                  description: Gift card informations to update
+                  properties:
+                    expires_on:
+                      type: string
+                      description: The date (ISO-8601 format) when the gift card expires. e.g. `2022-11-01T00:00:00Z`
+                    note:
+                      type: string
+                      description: An optional note that a merchant can attach to the gift card that isn't visible to customers.
+                    template_suffix:
+                      type: string
+                      description: The suffix of the Liquid template that's used to render the gift card online.
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"gift_card\": {\n        \"id\": \"179882653468593874\",\n        \"last_characters\": \"abcd\",\n        \"balance\": \"200.00\",\n        \"initial_value\": \"200.00\",\n        \"note\": \"Note\",\n        \"expires_on\": \"2022-11-05T12:00:00Z\",\n        \"disabled_at\": null,\n        \"enabled\": true,\n        \"created_at\": \"2022-11-01T10:00:00Z\",\n        \"updated_at\": \"2022-11-03T10:00:00Z\",\n        \"status\": \"enable\",\n        \"currency\": \"USD\",\n        \"line_item_id\": \"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\",\n        \"order_id\": \"1121890668917975533\",\n        \"user_id\": \"b9664ac3-daf1-41ff-8235-1523012b1b47\",\n        \"template_suffix\": \"new_customer\",\n        \"customer_id\": \"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\"\n    }\n}"
+              schema:
+                type: object
+                properties:
+                  gift_card:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: '179882653468593874'
+                      last_characters:
+                        type: string
+                        example: abcd
+                      balance:
+                        type: string
+                        example: '200.00'
+                      initial_value:
+                        type: string
+                        example: '200.00'
+                      note:
+                        type: string
+                        example: Note
+                      expires_on:
+                        type: string
+                        example: '2022-11-05T12:00:00Z'
+                      disabled_at: {}
+                      enabled:
+                        type: boolean
+                        example: true
+                        default: true
+                      created_at:
+                        type: string
+                        example: '2022-11-01T10:00:00Z'
+                      updated_at:
+                        type: string
+                        example: '2022-11-03T10:00:00Z'
+                      status:
+                        type: string
+                        example: enable
+                      currency:
+                        type: string
+                        example: USD
+                      line_item_id:
+                        type: string
+                        example: db4469f3-5e56-4c69-a2b6-03e81d24d5b5
+                      order_id:
+                        type: string
+                        example: '1121890668917975533'
+                      user_id:
+                        type: string
+                        example: b9664ac3-daf1-41ff-8235-1523012b1b47
+                      template_suffix:
+                        type: string
+                        example: new_customer
+                      customer_id:
+                        type: string
+                        example: db4469f3-5e56-4c69-a2b6-03e81d24d5b5
+        '404':
+          description: '404'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"errors\": [\"Record not found\"]\n}"
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: string
+                      example: Record not found
+      deprecated: false
+  /openapi/2022-01/gift_cards/{id}/disable:
+    post:
+      tags:
+      - Gift Card
+      summary: Disable Gift Card
+      description: ''
+      operationId: disable-gift-card
+      parameters:
+      - name: id
+        in: path
+        description: Gift card's ID
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"gift_card\": {\n        \"id\": \"179882653468593874\",\n        \"last_characters\": \"abcd\",\n        \"balance\": \"200.00\",\n        \"initial_value\": \"200.00\",\n        \"note\": \"Note\",\n        \"expires_on\": \"2022-11-05T12:00:00Z\",\n        \"disabled_at\": \"2022-11-04T12:00:00Z\",\n        \"enabled\": true,\n        \"created_at\": \"2022-11-01T10:00:00Z\",\n        \"updated_at\": \"2022-11-03T10:00:00Z\",\n        \"status\": \"disable\",\n        \"currency\": \"USD\",\n        \"line_item_id\": \"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\",\n        \"order_id\": \"1121890668917975533\",\n        \"user_id\": \"b9664ac3-daf1-41ff-8235-1523012b1b47\",\n        \"template_suffix\": \"new_customer\",\n        \"customer_id\": \"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\"\n    }\n}"
+              schema:
+                type: object
+                properties:
+                  gift_card:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: '179882653468593874'
+                      last_characters:
+                        type: string
+                        example: abcd
+                      balance:
+                        type: string
+                        example: '200.00'
+                      initial_value:
+                        type: string
+                        example: '200.00'
+                      note:
+                        type: string
+                        example: Note
+                      expires_on:
+                        type: string
+                        example: '2022-11-05T12:00:00Z'
+                      disabled_at:
+                        type: string
+                        example: '2022-11-04T12:00:00Z'
+                      enabled:
+                        type: boolean
+                        example: true
+                        default: true
+                      created_at:
+                        type: string
+                        example: '2022-11-01T10:00:00Z'
+                      updated_at:
+                        type: string
+                        example: '2022-11-03T10:00:00Z'
+                      status:
+                        type: string
+                        example: disable
+                      currency:
+                        type: string
+                        example: USD
+                      line_item_id:
+                        type: string
+                        example: db4469f3-5e56-4c69-a2b6-03e81d24d5b5
+                      order_id:
+                        type: string
+                        example: '1121890668917975533'
+                      user_id:
+                        type: string
+                        example: b9664ac3-daf1-41ff-8235-1523012b1b47
+                      template_suffix:
+                        type: string
+                        example: new_customer
+                      customer_id:
+                        type: string
+                        example: db4469f3-5e56-4c69-a2b6-03e81d24d5b5
+        '404':
+          description: '404'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"errors\": [\"Record not found\"]\n}"
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: string
+                      example: Record not found
+      deprecated: false
+components:
+  securitySchemes:
+    sec0:
+      type: apiKey
+      in: header
+      name: access-token
+      x-default: WPMSdB6M8Cpum4X1GoMYOKZpiESd8d2x7dZW8d79ZeQ
+    apikey-header-access-token:
+      type: apiKey
+      in: header
+      name: access-token
+      x-default: WPMSdB6M8Cpum4X1GoMYOKZpiESd8d2x7dZW8d79ZeQ
+x-standalone-page:
+  title: Standalone Page
+  content: Information that should be on a standalone page...
+x-readme:
+  headers: []
+  explorer-enabled: true
+  proxy-enabled: true
+  samples-enabled: true

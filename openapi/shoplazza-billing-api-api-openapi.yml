@@ -1,0 +1,1752 @@
+openapi: 3.1.0
+info:
+  title: SPZ Admin Access Billing API API
+  version: '2022.01'
+servers:
+- url: https://{subdomain}.myshoplaza.com
+  variables:
+    subdomain:
+      default: developer
+security:
+- sec0: []
+tags:
+- name: Billing API
+  description: ''
+paths:
+  /openapi/2022-01/payments_apps/complete_callbacks:
+    post:
+      tags:
+      - Billing API
+      summary: Complete Payment
+      description: ''
+      operationId: payment-session
+      parameters:
+      - name: Access-Token
+        in: header
+        description: Oauth's Access Token
+        required: true
+        schema:
+          type: string
+      - name: Shoplazza-Shop-Domain
+        in: header
+        description: Shoplazza's store domain
+        required: true
+        schema:
+          type: string
+      - name: Shoplazza-Hmac-Sha256
+        in: header
+        description: the hmac signature for this request
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - app_id
+              - payment_id
+              - amount
+              - currency
+              - transaction_no
+              - type
+              - test
+              - status
+              - timestamp
+              properties:
+                app_id:
+                  type: string
+                  description: Payment App's ID
+                payment_id:
+                  type: string
+                  description: Payment ID
+                amount:
+                  type: number
+                  description: Order's total price
+                  format: float
+                currency:
+                  type: string
+                  description: Three-letter ISO 4217 currency code
+                transaction_no:
+                  type: string
+                  description: Payment App's transaction number for reference
+                type:
+                  type: string
+                  description: Either `sale` or `authorization`. If you support payment authorization, then this value is set based on the merchant's configuration. If you don't support separate authorization and capture, then the value is always `sale`. For sale transactions, you need to capture the funds instantly with this request. For authorization transactions, you must place a hold on the funds and capture them later when Shoplazza sends a capture request.
+                test:
+                  type: boolean
+                  description: Indicates whether the payment is in test or live mode. Refer to Test mode for more information.
+                status:
+                  type: string
+                  description: Payment status from Payment App
+                  enum:
+                  - paid
+                  - failed
+                extension:
+                  type: object
+                  description: Customize object from Payment App
+                  properties: {}
+                timestamp:
+                  type: string
+                  description: 'ISO-8601 format timestamp, eg: `2021-09-01T18:32:20Z`'
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{ "redirect_url": "https://developer.myshoplaza.com/products/test_product" }'
+              schema:
+                type: object
+                properties:
+                  redirect_url:
+                    type: string
+                    example: https://developer.myshoplaza.com/products/test_product
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      security: []
+  /openapi/2022-01/payments_apps/notify_callbacks:
+    post:
+      tags:
+      - Billing API
+      summary: Notify Payment
+      description: ''
+      operationId: notify-payment
+      parameters:
+      - name: Access-Token
+        in: header
+        description: Oauth's Access Token
+        required: true
+        schema:
+          type: string
+      - name: Shoplazza-Shop-Domain
+        in: header
+        description: Shoplazza's store domain
+        required: true
+        schema:
+          type: string
+      - name: Shoplazza-Hmac-Sha256
+        in: header
+        description: the hmac signature for this request
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - app_id
+              - payment_id
+              - amount
+              - status
+              - currency
+              - transaction_no
+              - type
+              - test
+              - timestamp
+              properties:
+                app_id:
+                  type: string
+                  description: Payment App's ID
+                payment_id:
+                  type: string
+                  description: Payment ID
+                amount:
+                  type: number
+                  description: Order's total price
+                  format: float
+                status:
+                  type: string
+                  description: Payment status from Payment App
+                  enum:
+                  - paid
+                  - failed
+                currency:
+                  type: string
+                  description: Three-letter ISO 4217 currency code
+                transaction_no:
+                  type: string
+                  description: Payment App's transaction number for reference
+                type:
+                  type: string
+                  description: Either `sale` or `authorization`. If you support payment authorization, then this value is set based on the merchant's configuration. If you don't support separate authorization and capture, then the value is always `sale`. For sale transactions, you need to capture the funds instantly with this request. For authorization transactions, you must place a hold on the funds and capture them later when Shoplazza sends a capture request.
+                message:
+                  type: string
+                  description: fail reason describe here while payment fail
+                error_code:
+                  type: string
+                  description: payment error code from Payment App
+                test:
+                  type: boolean
+                  description: Indicates whether the payment is in test or live mode. Refer to Test mode for more information.
+                extension:
+                  type: object
+                  description: Customize object from Payment App
+                  properties: {}
+                timestamp:
+                  type: string
+                  description: 'ISO-8601 format timestamp, eg: `2021-09-01T18:32:20Z`'
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      security: []
+  /openapi/2022-01/application_charges:
+    post:
+      tags:
+      - Billing API
+      summary: Create application charge
+      description: Create application charge
+      operationId: creates-an-application-charge
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                application_charge:
+                  type: object
+                  required:
+                  - name
+                  - price
+                  properties:
+                    name:
+                      type: string
+                      description: The application charge name.
+                    price:
+                      type: string
+                      description: The price of the application charge.
+                    return_url:
+                      type: string
+                      description: The URL where the merchant is redirected after accepting a charge.
+                    test:
+                      type: boolean
+                      description: Whether the application charge is a test transaction.
+            examples:
+              Request Example:
+                value:
+                  application_charge:
+                    name: test
+                    price: '2000'
+                    return_url: https://shoplazza.com
+                    test: false
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"id\": \"675931192\",\n  \"name\": \"Super Duper Expensive action\",\n  \"price\": \"100.00\",\n  \"return_url\": \"http://test.myshoplaza.com\",\n  \"status\": \"pending\",\n  \"test\": false,\n  \"created_at\": \"2022-06-27T08:48:27Z\",\n  \"updated_at\": \"2022-12-27T08:47:27Z\"\n}"
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: '675931192'
+                  name:
+                    type: string
+                    example: Super Duper Expensive action
+                  price:
+                    type: string
+                    example: '100.00'
+                  confirm_url:
+                    type: string
+                    example: https://{subdomain}.myshoplaza.com/admin/smart_apps/angora/app_store/charges/s1deCNrkHePwO3HDDZb_zfWJAge07nzNckPyfM_Hvp0/356714323462063172/recurring/confirm?signature=69c827b70e05c772d7b8d3472b4b2fe2
+                  return_url:
+                    type: string
+                    example: http://test.myshoplaza.com
+                  status:
+                    type: string
+                    example: pending
+                  test:
+                    type: boolean
+                    example: false
+                    default: true
+                  created_at:
+                    type: string
+                    example: '2022-06-27T08:48:27Z'
+                  updated_at:
+                    type: string
+                    example: '2022-12-27T08:47:27Z'
+        '422':
+          description: '422'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n\t\"errors\":[\"The chargetype configuration in the plan does not match with the listing, please check \"]\n}"
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: string
+                      example: 'The chargetype configuration in the plan does not match with the listing, please check '
+      deprecated: false
+    get:
+      tags:
+      - Billing API
+      summary: Get Application Charge List
+      description: get application charge list
+      operationId: application-charge-list
+      parameters:
+      - name: per_page
+        in: query
+        schema:
+          type: integer
+          format: int32
+          default: 10
+      - name: since_id
+        in: query
+        description: Restrict results to after the specified ID.
+        schema:
+          type: string
+      - name: charges_status
+        in: query
+        description: 'Filter charges by charges status, separated by comma, for example: `pending,accepted,declined,active,expired,frozen,cancelled,paid_failed,paying`'
+        schema:
+          type: string
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"count\": 1,\n    \"application_charges\": [\n        {\n            \"id\": \"196935770592782247\",\n            \"application_id\": \"Cg5za12Pp3pwNA9Zw3t4Up5PFQGBsgYW_dyqs8wsiBg\",\n            \"name\": \"one time charge\",\n            \"price\": \"200\",\n            \"confirm_url\": \"https://test.dev.myshoplaza.com/admin/smart_apps/angora/app_store/charges/Cg5za12Pp3pwNA9Zw3t4Up5PFQGBsgYW_dyqs8wsiBg/196935770592782247/one-time/confirm?signature=a636857cb3ed214c67026905d31c9f51\",\n            \"return_url\": \"https://www.myshoplazza.com\",\n            \"status\": \"active\",\n            \"test\": false,\n            \"created_at\": \"2022-12-26T10:32:27Z\",\n            \"updated_at\": \"2022-12-26T10:32:38Z\"\n        }\n    ]\n}"
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 1
+                    default: 0
+                  application_charges:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: '196935770592782247'
+                        application_id:
+                          type: string
+                          example: Cg5za12Pp3pwNA9Zw3t4Up5PFQGBsgYW_dyqs8wsiBg
+                        name:
+                          type: string
+                          example: one time charge
+                        price:
+                          type: string
+                          example: '200'
+                        confirm_url:
+                          type: string
+                          example: https://test.dev.myshoplaza.com/admin/smart_apps/angora/app_store/charges/Cg5za12Pp3pwNA9Zw3t4Up5PFQGBsgYW_dyqs8wsiBg/196935770592782247/one-time/confirm?signature=a636857cb3ed214c67026905d31c9f51
+                        return_url:
+                          type: string
+                          example: https://www.myshoplazza.com
+                        status:
+                          type: string
+                          example: active
+                        test:
+                          type: boolean
+                          example: false
+                          default: true
+                        created_at:
+                          type: string
+                          example: '2022-12-26T10:32:27Z'
+                        updated_at:
+                          type: string
+                          example: '2022-12-26T10:32:38Z'
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+  /openapi/2022-01/application_charges/{charge_id}:
+    get:
+      tags:
+      - Billing API
+      summary: Get Application Charge Detail
+      description: get application charge detail
+      operationId: get-application-charge-detail
+      parameters:
+      - name: charge_id
+        in: path
+        description: the application charge id
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"application_charge\": {\n        \"id\": \"19693577059278247\",\n        \"application_id\": \"Cg5za12Pp3pwNA9Zw3t4Up5PFQGBsgYW_dyqs8wsiBg\",\n        \"name\": \"one time charge\",\n        \"price\": \"200\",\n        \"confirm_url\": \"https://test.dev.myshoplaza.com/admin/smart_apps/angora/app_store/charges/Cg5za12Pp3pwNA9Zw3t4Up5PFQGBsgYW_dyqs8wsiBg/196935770592782247/one-time/confirm?signature=a636857cb3ed214c67026905d31c9f51\",\n        \"return_url\": \"https://www.myshoplazza.com\",\n        \"status\": \"active\",\n        \"test\": false,\n        \"created_at\": \"2022-12-26T10:32:27Z\",\n        \"updated_at\": \"2022-12-26T10:32:38Z\"\n    }\n}"
+              schema:
+                type: object
+                properties:
+                  application_charge:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: '19693577059278247'
+                      application_id:
+                        type: string
+                        example: Cg5za12Pp3pwNA9Zw3t4Up5PFQGBsgYW_dyqs8wsiBg
+                      name:
+                        type: string
+                        example: one time charge
+                      price:
+                        type: string
+                        example: '200'
+                      confirm_url:
+                        type: string
+                        example: https://test.dev.myshoplaza.com/admin/smart_apps/angora/app_store/charges/Cg5za12Pp3pwNA9Zw3t4Up5PFQGBsgYW_dyqs8wsiBg/196935770592782247/one-time/confirm?signature=a636857cb3ed214c67026905d31c9f51
+                      return_url:
+                        type: string
+                        example: https://www.myshoplazza.com
+                      status:
+                        type: string
+                        example: active
+                      test:
+                        type: boolean
+                        example: false
+                        default: true
+                      created_at:
+                        type: string
+                        example: '2022-12-26T10:32:27Z'
+                      updated_at:
+                        type: string
+                        example: '2022-12-26T10:32:38Z'
+        '404':
+          description: '404'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n\t\"errors\":[\"record not found\"]\n}"
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: string
+                      example: record not found
+      deprecated: false
+  /openapi/2022-01/recurring_application_charges:
+    post:
+      tags:
+      - Billing API
+      summary: Create Recurring Aplication Charge
+      description: create recurring application charge
+      operationId: create-recurring-aplication-charge
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                recurring_application_charge:
+                  type: object
+                  required:
+                  - name
+                  - price
+                  - return_url
+                  properties:
+                    name:
+                      type: string
+                      description: The recurring application charge name.
+                    price:
+                      type: string
+                      description: The price of the recurring application charge.
+                    return_url:
+                      type: string
+                      description: The URL where the merchant is redirected after accepting a charge.
+                    trial_days:
+                      type: integer
+                      description: The number of days that the customer is eligible for a free trial.
+                      format: int32
+                    capped_amount:
+                      type: string
+                      description: The limit a customer can be charged for usage based billing. If this property is provided, then you must also provide the terms property. See usage charges for more information.
+                    terms:
+                      type: string
+                      description: The terms and conditions of usage based billing charges. Must be present in order to create usage charges, for example when the capped_amount property is provided. Presented to the merchant when they approve an app's usage charges.
+                    test:
+                      type: boolean
+                      description: Whether the application charge is a test transaction.
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"id\": \"197305863545821979\",\n    \"name\": \"Super Duper Plan\",\n    \"price\": \"10.00\",\n    \"status\": \"pending\",\n    \"return_url\": \"http://test.myshoplazza.com/\",\n    \"billing_on\": null,\n    \"created_at\": \"2022-10-03T12:52:58Z\",\n    \"updated_at\": \"2022-10-03T12:52:58Z\",\n    \"test\": true,\n    \"capped_amount\": \"0\",\n    \"terms\": \"\",\n    \"activated_on\": null,\n    \"cancelled_on\": null,\n    \"trial_days\": 0,\n    \"trial_ends_on\": null,\n    \"confirmation_url\": \"https://test.myshoplaza.com/admin/smart_apps/angora/app_store/charges/JRmYDxJEutAwkQFpaw8PDRfPIrgUBpJOJZYaOKg3kPU/197305863545821979/recurring/confirm?signature=eba7691fe062b6fa9357398a115d4e01\"\n }"
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: '197305863545821979'
+                  name:
+                    type: string
+                    example: Super Duper Plan
+                  price:
+                    type: string
+                    example: '10.00'
+                  status:
+                    type: string
+                    example: pending
+                  return_url:
+                    type: string
+                    example: http://test.myshoplazza.com/
+                  billing_on: {}
+                  created_at:
+                    type: string
+                    example: '2022-10-03T12:52:58Z'
+                  updated_at:
+                    type: string
+                    example: '2022-10-03T12:52:58Z'
+                  test:
+                    type: boolean
+                    example: true
+                    default: true
+                  capped_amount:
+                    type: string
+                    example: '0'
+                  terms:
+                    type: string
+                    example: ''
+                  activated_on: {}
+                  cancelled_on: {}
+                  trial_days:
+                    type: integer
+                    example: 0
+                    default: 0
+                  trial_ends_on: {}
+                  confirmation_url:
+                    type: string
+                    example: https://test.myshoplaza.com/admin/smart_apps/angora/app_store/charges/JRmYDxJEutAwkQFpaw8PDRfPIrgUBpJOJZYaOKg3kPU/197305863545821979/recurring/confirm?signature=eba7691fe062b6fa9357398a115d4e01
+        '422':
+          description: '422'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n\t\"errors\":[\"The chargetype configuration in the plan does not match with the listing, please check\"]\n}"
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: string
+                      example: The chargetype configuration in the plan does not match with the listing, please check
+      deprecated: false
+    get:
+      tags:
+      - Billing API
+      summary: Get Recurring Application Charge List
+      description: get recurring application charge list
+      operationId: get-recurring-application-charge-list
+      parameters:
+      - name: per_page
+        in: query
+        schema:
+          type: integer
+          format: int32
+          default: 10
+      - name: since_id
+        in: query
+        description: Restrict results to after the specified ID.
+        schema:
+          type: string
+      - name: charges_status
+        in: query
+        description: 'Filter charges by charges status, separated by comma, for example: `pending,accepted,declined,active,expired,frozen,cancelled,paid_failed,paying`'
+        schema:
+          type: string
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"count\": 1,\n    \"recurring_application_charges\": [{\n    \"id\": \"197305863545821979\",\n    \"name\": \"Super Duper Plan\",\n    \"price\": \"10.00\",\n    \"status\": \"pending\",\n    \"return_url\": \"http://test.myshoplazza.com/\",\n    \"billing_on\": null,\n    \"created_at\": \"2022-10-03T12:52:58Z\",\n    \"updated_at\": \"2022-10-03T12:52:58Z\",\n    \"test\": true,\n    \"activated_on\": null,\n    \"cancelled_on\": null,\n    \"trial_days\": 0,\n    \"trial_ends_on\": null,\n    \"confirmation_url\": \"https://test.myshoplaza.com/admin/smart_apps/angora/app_store/charges/JRmYDxJEutAwkQFpaw8PDRfPIrgUBpJOJZYaOKg3kPU/197305863545821979/recurring/confirm?signature=eba7691fe062b6fa9357398a115d4e01\"\n  }]\n}"
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 1
+                    default: 0
+                  recurring_application_charges:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: '197305863545821979'
+                        name:
+                          type: string
+                          example: Super Duper Plan
+                        price:
+                          type: string
+                          example: '10.00'
+                        status:
+                          type: string
+                          example: pending
+                        return_url:
+                          type: string
+                          example: http://test.myshoplazza.com/
+                        billing_on: {}
+                        created_at:
+                          type: string
+                          example: '2022-10-03T12:52:58Z'
+                        updated_at:
+                          type: string
+                          example: '2022-10-03T12:52:58Z'
+                        test:
+                          type: boolean
+                          example: true
+                          default: true
+                        activated_on: {}
+                        cancelled_on: {}
+                        trial_days:
+                          type: integer
+                          example: 0
+                          default: 0
+                        trial_ends_on: {}
+                        confirmation_url:
+                          type: string
+                          example: https://test.myshoplaza.com/admin/smart_apps/angora/app_store/charges/JRmYDxJEutAwkQFpaw8PDRfPIrgUBpJOJZYaOKg3kPU/197305863545821979/recurring/confirm?signature=eba7691fe062b6fa9357398a115d4e01
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+  /openapi/2022-01/recurring_application_charges/{charge_id}:
+    get:
+      tags:
+      - Billing API
+      summary: Get Recurring Application Charge
+      description: get rucurring application charge
+      operationId: get-recurring-application-charge
+      parameters:
+      - name: charge_id
+        in: path
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"recurring_application_charges\": {\n    \"id\": \"197305863545821979\",\n    \"name\": \"Super Duper Plan\",\n    \"price\": \"10.00\",\n    \"status\": \"pending\",\n    \"return_url\": \"http://test.myshoplazza.com/\",\n    \"billing_on\": null,\n    \"created_at\": \"2022-10-03T12:52:58Z\",\n    \"updated_at\": \"2022-10-03T12:52:58Z\",\n    \"test\": true,\n    \"activated_on\": null,\n    \"cancelled_on\": null,\n    \"trial_days\": 0,\n    \"trial_ends_on\": null,\n    \"confirmation_url\": \"https://test.myshoplaza.com/admin/smart_apps/angora/app_store/charges/JRmYDxJEutAwkQFpaw8PDRfPIrgUBpJOJZYaOKg3kPU/197305863545821979/recurring/confirm?signature=eba7691fe062b6fa9357398a115d4e01\"\n  }\n}"
+              schema:
+                type: object
+                properties:
+                  recurring_application_charges:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: '197305863545821979'
+                      name:
+                        type: string
+                        example: Super Duper Plan
+                      price:
+                        type: string
+                        example: '10.00'
+                      status:
+                        type: string
+                        example: pending
+                      return_url:
+                        type: string
+                        example: http://test.myshoplazza.com/
+                      billing_on: {}
+                      created_at:
+                        type: string
+                        example: '2022-10-03T12:52:58Z'
+                      updated_at:
+                        type: string
+                        example: '2022-10-03T12:52:58Z'
+                      test:
+                        type: boolean
+                        example: true
+                        default: true
+                      activated_on: {}
+                      cancelled_on: {}
+                      trial_days:
+                        type: integer
+                        example: 0
+                        default: 0
+                      trial_ends_on: {}
+                      confirmation_url:
+                        type: string
+                        example: https://test.myshoplaza.com/admin/smart_apps/angora/app_store/charges/JRmYDxJEutAwkQFpaw8PDRfPIrgUBpJOJZYaOKg3kPU/197305863545821979/recurring/confirm?signature=eba7691fe062b6fa9357398a115d4e01
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+    delete:
+      tags:
+      - Billing API
+      summary: Cancel Recurring Application Charge
+      description: cancel recurring application charge
+      operationId: cancel-recurring-application-charge
+      parameters:
+      - name: charge_id
+        in: path
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+        '404':
+          description: '404'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n\t\"errors\":[\"record not found\"]\n}"
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: string
+                      example: record not found
+      deprecated: false
+  /openapi/2022-01/orders/{id}/payment/success:
+    post:
+      tags:
+      - Billing API
+      summary: Order Payment Success
+      description: ''
+      operationId: order-payment-success
+      parameters:
+      - name: id
+        in: path
+        description: Order's ID
+        schema:
+          type: string
+        required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                billing_address:
+                  type: object
+                  properties:
+                    first_name:
+                      type: string
+                      description: The first name of the person associated with the payment method
+                    last_name:
+                      type: string
+                      description: The last name of the person associated with the payment method
+                    email:
+                      type: string
+                      description: The email number at the billing address
+                    country:
+                      type: string
+                      description: The name of the country of the billing address, e.g. "United States"
+                    country_code:
+                      type: string
+                      description: The two-letter code for the country of the billing address, e.g. "US"
+                    province:
+                      type: string
+                      description: The name of the region (for example, province, state, or prefecture) of the billing address, e.g. "Alaska"
+                    province_code:
+                      type: string
+                      description: The abbreviation of the region of the billing address, e.g. "US-AK"
+                    area:
+                      type: string
+                      description: The area of the billing address
+                    city:
+                      type: string
+                      description: The city, town, or village of the billing address
+                    address1:
+                      type: string
+                      description: The street address of the billing address
+                    address2:
+                      type: string
+                      description: An optional additional field for the street address of the billing address
+                    company:
+                      type: string
+                      description: The company of the person associated with the billing address
+                    latitude:
+                      type: string
+                      description: The latitude of the billing address
+                    longitude:
+                      type: string
+                      description: The longitude of the billing address
+                    zip:
+                      type: string
+                      description: The postal code (for example, zip, postcode, or Eircode) of the billing address
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"order\": {\n        \"id\": \"11218-00000001\",\n        \"note\": \"abc\",\n        \"number\": \"00000001\",\n        \"financial_status\": \"paid\",\n        \"status\": \"placed\",\n        \"cancel_reason\": null,\n        \"payment_method\": \"online\",\n        \"fulfillment_status\": \"partially_shipped\",\n        \"discount_code\": \"\",\n        \"discount_applications\": \"[]\",\n        \"customer_note\": \"note\",\n        \"landing_site\": \"http://www.example.com?source=abc\",\n        \"buyer_accepts_marketing\": false,\n        \"currency\": \"USD\",\n        \"total_price\": \"16.99\",\n        \"total_discount\": \"100.00\",\n        \"total_tax\": \"10.00\",\n        \"total_shipping\": \"1.00\",\n        \"sub_total\": \"15.00\",\n        \"code_discount_total\": \"1.00\",\n        \"line_item_discount_total\": \"1.00\",\n        \"tags\": \"a, b\",\n        \"created_at\": \"2014-04-25T16:15:47Z\",\n        \"updated_at\": \"2014-04-25T16:15:47Z\",\n        \"canceled_at\": null,\n        \"customer_deleted_at\": \"2014-04-25T16:15:47Z\",\n        \"deleted_at\": \"2014-04-25T16:15:47Z\",\n        \"placed_at\": \"2014-04-25T16:15:47Z\",\n        \"total_refund_price\": \"0.00\",\n        \"total_refund_tax\": \"0.00\",\n        \"total_refund_discount\": \"0.00\",\n        \"refund_status\": \"none\",\n        \"total_tip_received\": \"0.00\",\n        \"browser_ip\": \"192.168.0.1\",\n        \"source\": \"http://www.example.com?source=abc\",\n        \"last_landing_url\": \"http://www.example.com?source=abc\",\n        \"email_status\": \"send\",\n        \"recovery_status\": \"success\",\n        \"total_paid\": \"16.99\",\n        \"source_name\": {\n            \"data\": \"Direct\",\n            \"created_at\": \"2014-04-25T16:15:47Z\"\n        },\n        \"last_referrer_show\": {\n            \"data\": \"Others\",\n            \"created_at\": \"2014-04-25T16:15:47Z\"\n        },\n        \"shipping_line\": {\n            \"name\": \"free\"\n        },\n        \"customer\": {\n            \"id\": \"ef0318fe-e0ed-4551-a5bc-8b8e36c4f90f\",\n            \"email\": \"bob.norman@hostmail.com\",\n            \"first_name\": \"Bob\",\n            \"last_name\": \"Norman\",\n            \"phone\": \"\",\n            \"created_at\": \"2018-11-02T12:30:10Z\",\n            \"updated_at\": \"2018-11-02T12:30:10Z\",\n            \"orders_count\": 1,\n            \"total_spent\": \"41.94\"\n        },\n        \"shipping_address\": {\n            \"first_name\": \"Bob\",\n            \"last_name\": \"Norman\",\n            \"address1\": \"Chestnut Street 92\",\n            \"address2\": \"\",\n            \"phone\": \"555-625-1199\",\n            \"city\": \"Louisville\",\n            \"zip\": \"40202\",\n            \"province\": \"Kentucky\",\n            \"country\": \"United States\",\n            \"company\": \"\",\n            \"latitude\": \"45.41634\",\n            \"longitude\": \"-75.6868\",\n            \"name\": \"Bob Norman\",\n            \"country_code\": \"US\",\n            \"province_code\": \"US-KY\",\n            \"phone_area_code\": \"80\",\n            \"email\": \"bob.norman@hostmail.com\",\n            \"area\": \"sz\",\n            \"extra_info\": {\n                \"cpf\": \"123\",\n                \"tax_text\": \"CPF/CNPJ\"\n            }\n        },\n        \"billing_address\": {\n            \"first_name\": \"Bob\",\n            \"last_name\": \"Norman\",\n            \"address1\": \"Chestnut Street 92\",\n            \"address2\": \"\",\n            \"city\": \"Louisville\",\n            \"zip\": \"40202\",\n            \"province\": \"Kentucky\",\n            \"country\": \"United States\",\n            \"company\": \"\",\n            \"latitude\": \"45.41634\",\n            \"longitude\": \"-75.6868\",\n            \"name\": \"Bob Norman\",\n            \"country_code\": \"US\",\n            \"province_code\": \"KY\",\n            \"email\": \"test@gmail.com\",\n            \"area\": \"sz\"\n        },\n        \"payment_line\": {\n            \"payment_channel\": \"paypal\",\n            \"payment_method\": \"online\",\n            \"transaction_no\": \"52Y26167A2351800A\",\n            \"merchant_id\": \"26167A23518\",\n            \"merchant_email\": \"abc@def.com\"\n        },\n        \"line_items\": [\n            {\n                \"id\": \"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\",\n                \"product_id\": \"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\",\n                \"variant_id\": \"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\",\n                \"variant_title\": \"XXX\",\n                \"product_title\": \"abc\",\n                \"product_handle\": \"abc\",\n                \"quantity\": 10,\n                \"note\": \"red\",\n                \"fulfillment_status\": \"waiting\",\n                \"sku\": \"xxx\",\n                \"weight_unit\": \"g\",\n                \"vendor\": \"XXX\",\n                \"product_url\": \"http://www.a.com/abc\",\n                \"compare_at_price\": \"12.34\",\n                \"image\": \"http://www.a.com/xxx.jpg\",\n                \"price\": \"12.34\",\n                \"total\": \"123.40\",\n                \"weight\": \"1.23\",\n                \"properties\": [\n                    {\n                        \"name\": \"color\",\n                        \"value\": \"red\"\n                    }\n                ],\n                \"custom_properties\": {\n                    \"prop\": \"value\"\n                },\n                \"refund_quantity\": 0,\n                \"refund_total\": \"0.00\"\n            }\n        ],\n        \"fulfillments\": [\n            {\n                \"id\": \"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\",\n                \"order_id\": \"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\",\n                \"status\": \"waiting\",\n                \"tracking_company\": \"company\",\n                \"tracking_number\": \"1Z2345\",\n                \"tracking_company_code\": \"3306\",\n                \"created_at\": \"2018-11-02T12:30:10Z\",\n                \"updated_at\": \"2018-11-02T12:30:10Z\",\n                \"line_items\": [\n                    {\n                        \"id\": \"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\",\n                        \"product_id\": \"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\",\n                        \"variant_id\": \"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\",\n                        \"variant_title\": \"XXX\",\n                        \"product_title\": \"abc\",\n                        \"product_handle\": \"abc\",\n                        \"quantity\": 10,\n                        \"note\": \"red\",\n                        \"fulfillment_status\": \"waiting\",\n                        \"sku\": \"xxx\",\n                        \"weight_unit\": \"g\",\n                        \"vendor\": \"XXX\",\n                        \"product_url\": \"http://www.a.com/abc\",\n                        \"compare_at_price\": \"12.34\",\n                        \"image\": \"http://www.a.com/xxx.jpg\",\n                        \"price\": \"12.34\",\n                        \"total\": \"123.40\",\n                        \"weight\": \"1.23\",\n                        \"properties\": [\n                            {\n                                \"name\": \"color\",\n                                \"value\": \"red\"\n                            }\n                        ],\n                        \"custom_properties\": {\n                            \"prop\": \"value\"\n                        },\n                        \"refund_quantity\": 0,\n                        \"refund_total\": \"0.00\",\n                        \"taxable\": false,\n                        \"requires_shipping\": true,\n                        \"shipping_quantity\": 1\n                    }\n                ]\n            }\n        ]\n    }\n}"
+              schema:
+                type: object
+                properties:
+                  order:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: 11218-00000001
+                      note:
+                        type: string
+                        example: abc
+                      number:
+                        type: string
+                        example: '00000001'
+                      financial_status:
+                        type: string
+                        example: paid
+                      status:
+                        type: string
+                        example: placed
+                      cancel_reason: {}
+                      payment_method:
+                        type: string
+                        example: online
+                      fulfillment_status:
+                        type: string
+                        example: partially_shipped
+                      discount_code:
+                        type: string
+                        example: ''
+                      discount_applications:
+                        type: string
+                        example: '[]'
+                      customer_note:
+                        type: string
+                        example: note
+                      landing_site:
+                        type: string
+                        example: http://www.example.com?source=abc
+                      buyer_accepts_marketing:
+                        type: boolean
+                        example: false
+                        default: true
+                      currency:
+                        type: string
+                        example: USD
+                      total_price:
+                        type: string
+                        example: '16.99'
+                      total_discount:
+                        type: string
+                        example: '100.00'
+                      total_tax:
+                        type: string
+                        example: '10.00'
+                      total_shipping:
+                        type: string
+                        example: '1.00'
+                      sub_total:
+                        type: string
+                        example: '15.00'
+                      code_discount_total:
+                        type: string
+                        example: '1.00'
+                      line_item_discount_total:
+                        type: string
+                        example: '1.00'
+                      tags:
+                        type: string
+                        example: a, b
+                      created_at:
+                        type: string
+                        example: '2014-04-25T16:15:47Z'
+                      updated_at:
+                        type: string
+                        example: '2014-04-25T16:15:47Z'
+                      canceled_at: {}
+                      customer_deleted_at:
+                        type: string
+                        example: '2014-04-25T16:15:47Z'
+                      deleted_at:
+                        type: string
+                        example: '2014-04-25T16:15:47Z'
+                      placed_at:
+                        type: string
+                        example: '2014-04-25T16:15:47Z'
+                      total_refund_price:
+                        type: string
+                        example: '0.00'
+                      total_refund_tax:
+                        type: string
+                        example: '0.00'
+                      total_refund_discount:
+                        type: string
+                        example: '0.00'
+                      refund_status:
+                        type: string
+                        example: none
+                      total_tip_received:
+                        type: string
+                        example: '0.00'
+                      browser_ip:
+                        type: string
+                        example: 192.168.0.1
+                      source:
+                        type: string
+                        example: http://www.example.com?source=abc
+                      last_landing_url:
+                        type: string
+                        example: http://www.example.com?source=abc
+                      email_status:
+                        type: string
+                        example: send
+                      recovery_status:
+                        type: string
+                        example: success
+                      total_paid:
+                        type: string
+                        example: '16.99'
+                      source_name:
+                        type: object
+                        properties:
+                          data:
+                            type: string
+                            example: Direct
+                          created_at:
+                            type: string
+                            example: '2014-04-25T16:15:47Z'
+                      last_referrer_show:
+                        type: object
+                        properties:
+                          data:
+                            type: string
+                            example: Others
+                          created_at:
+                            type: string
+                            example: '2014-04-25T16:15:47Z'
+                      shipping_line:
+                        type: object
+                        properties:
+                          name:
+                            type: string
+                            example: free
+                      customer:
+                        type: object
+                        properties:
+                          id:
+                            type: string
+                            example: ef0318fe-e0ed-4551-a5bc-8b8e36c4f90f
+                          email:
+                            type: string
+                            example: bob.norman@hostmail.com
+                          first_name:
+                            type: string
+                            example: Bob
+                          last_name:
+                            type: string
+                            example: Norman
+                          phone:
+                            type: string
+                            example: ''
+                          created_at:
+                            type: string
+                            example: '2018-11-02T12:30:10Z'
+                          updated_at:
+                            type: string
+                            example: '2018-11-02T12:30:10Z'
+                          orders_count:
+                            type: integer
+                            example: 1
+                            default: 0
+                          total_spent:
+                            type: string
+                            example: '41.94'
+                      shipping_address:
+                        type: object
+                        properties:
+                          first_name:
+                            type: string
+                            example: Bob
+                          last_name:
+                            type: string
+                            example: Norman
+                          address1:
+                            type: string
+                            example: Chestnut Street 92
+                          address2:
+                            type: string
+                            example: ''
+                          phone:
+                            type: string
+                            example: 555-625-1199
+                          city:
+                            type: string
+                            example: Louisville
+                          zip:
+                            type: string
+                            example: '40202'
+                          province:
+                            type: string
+                            example: Kentucky
+                          country:
+                            type: string
+                            example: United States
+                          company:
+                            type: string
+                            example: ''
+                          latitude:
+                            type: string
+                            example: '45.41634'
+                          longitude:
+                            type: string
+                            example: '-75.6868'
+                          name:
+                            type: string
+                            example: Bob Norman
+                          country_code:
+                            type: string
+                            example: US
+                          province_code:
+                            type: string
+                            example: US-KY
+                          phone_area_code:
+                            type: string
+                            example: '80'
+                          email:
+                            type: string
+                            example: bob.norman@hostmail.com
+                          area:
+                            type: string
+                            example: sz
+                          extra_info:
+                            type: object
+                            properties:
+                              cpf:
+                                type: string
+                                example: '123'
+                              tax_text:
+                                type: string
+                                example: CPF/CNPJ
+                      billing_address:
+                        type: object
+                        properties:
+                          first_name:
+                            type: string
+                            example: Bob
+                          last_name:
+                            type: string
+                            example: Norman
+                          address1:
+                            type: string
+                            example: Chestnut Street 92
+                          address2:
+                            type: string
+                            example: ''
+                          city:
+                            type: string
+                            example: Louisville
+                          zip:
+                            type: string
+                            example: '40202'
+                          province:
+                            type: string
+                            example: Kentucky
+                          country:
+                            type: string
+                            example: United States
+                          company:
+                            type: string
+                            example: ''
+                          latitude:
+                            type: string
+                            example: '45.41634'
+                          longitude:
+                            type: string
+                            example: '-75.6868'
+                          name:
+                            type: string
+                            example: Bob Norman
+                          country_code:
+                            type: string
+                            example: US
+                          province_code:
+                            type: string
+                            example: KY
+                          email:
+                            type: string
+                            example: test@gmail.com
+                          area:
+                            type: string
+                            example: sz
+                      payment_line:
+                        type: object
+                        properties:
+                          payment_channel:
+                            type: string
+                            example: paypal
+                          payment_method:
+                            type: string
+                            example: online
+                          transaction_no:
+                            type: string
+                            example: 52Y26167A2351800A
+                          merchant_id:
+                            type: string
+                            example: 26167A23518
+                          merchant_email:
+                            type: string
+                            example: abc@def.com
+                      line_items:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              example: db4469f3-5e56-4c69-a2b6-03e81d24d5b5
+                            product_id:
+                              type: string
+                              example: db4469f3-5e56-4c69-a2b6-03e81d24d5b5
+                            variant_id:
+                              type: string
+                              example: db4469f3-5e56-4c69-a2b6-03e81d24d5b5
+                            variant_title:
+                              type: string
+                              example: XXX
+                            product_title:
+                              type: string
+                              example: abc
+                            product_handle:
+                              type: string
+                              example: abc
+                            quantity:
+                              type: integer
+                              example: 10
+                              default: 0
+                            note:
+                              type: string
+                              example: red
+                            fulfillment_status:
+                              type: string
+                              example: waiting
+                            sku:
+                              type: string
+                              example: xxx
+                            weight_unit:
+                              type: string
+                              example: g
+                            vendor:
+                              type: string
+                              example: XXX
+                            product_url:
+                              type: string
+                              example: http://www.a.com/abc
+                            compare_at_price:
+                              type: string
+                              example: '12.34'
+                            image:
+                              type: string
+                              example: http://www.a.com/xxx.jpg
+                            price:
+                              type: string
+                              example: '12.34'
+                            total:
+                              type: string
+                              example: '123.40'
+                            weight:
+                              type: string
+                              example: '1.23'
+                            properties:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  name:
+                                    type: string
+                                    example: color
+                                  value:
+                                    type: string
+                                    example: red
+                            custom_properties:
+                              type: object
+                              properties:
+                                prop:
+                                  type: string
+                                  example: value
+                            refund_quantity:
+                              type: integer
+                              example: 0
+                              default: 0
+                            refund_total:
+                              type: string
+                              example: '0.00'
+                      fulfillments:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              example: db4469f3-5e56-4c69-a2b6-03e81d24d5b5
+                            order_id:
+                              type: string
+                              example: db4469f3-5e56-4c69-a2b6-03e81d24d5b5
+                            status:
+                              type: string
+                              example: waiting
+                            tracking_company:
+                              type: string
+                              example: company
+                            tracking_number:
+                              type: string
+                              example: 1Z2345
+                            tracking_company_code:
+                              type: string
+                              example: '3306'
+                            created_at:
+                              type: string
+                              example: '2018-11-02T12:30:10Z'
+                            updated_at:
+                              type: string
+                              example: '2018-11-02T12:30:10Z'
+                            line_items:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  id:
+                                    type: string
+                                    example: db4469f3-5e56-4c69-a2b6-03e81d24d5b5
+                                  product_id:
+                                    type: string
+                                    example: db4469f3-5e56-4c69-a2b6-03e81d24d5b5
+                                  variant_id:
+                                    type: string
+                                    example: db4469f3-5e56-4c69-a2b6-03e81d24d5b5
+                                  variant_title:
+                                    type: string
+                                    example: XXX
+                                  product_title:
+                                    type: string
+                                    example: abc
+                                  product_handle:
+                                    type: string
+                                    example: abc
+                                  quantity:
+                                    type: integer
+                                    example: 10
+                                    default: 0
+                                  note:
+                                    type: string
+                                    example: red
+                                  fulfillment_status:
+                                    type: string
+                                    example: waiting
+                                  sku:
+                                    type: string
+                                    example: xxx
+                                  weight_unit:
+                                    type: string
+                                    example: g
+                                  vendor:
+                                    type: string
+                                    example: XXX
+                                  product_url:
+                                    type: string
+                                    example: http://www.a.com/abc
+                                  compare_at_price:
+                                    type: string
+                                    example: '12.34'
+                                  image:
+                                    type: string
+                                    example: http://www.a.com/xxx.jpg
+                                  price:
+                                    type: string
+                                    example: '12.34'
+                                  total:
+                                    type: string
+                                    example: '123.40'
+                                  weight:
+                                    type: string
+                                    example: '1.23'
+                                  properties:
+                                    type: array
+                                    items:
+                                      type: object
+                                      properties:
+                                        name:
+                                          type: string
+                                          example: color
+                                        value:
+                                          type: string
+                                          example: red
+                                  custom_properties:
+                                    type: object
+                                    properties:
+                                      prop:
+                                        type: string
+                                        example: value
+                                  refund_quantity:
+                                    type: integer
+                                    example: 0
+                                    default: 0
+                                  refund_total:
+                                    type: string
+                                    example: '0.00'
+                                  taxable:
+                                    type: boolean
+                                    example: false
+                                    default: true
+                                  requires_shipping:
+                                    type: boolean
+                                    example: true
+                                    default: true
+                                  shipping_quantity:
+                                    type: integer
+                                    example: 1
+                                    default: 0
+        '404':
+          description: '404'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"errors\": [\n        \"Unable to find resource\"\n    ]\n}"
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: string
+                      example: Unable to find resource
+      deprecated: false
+  /openapi/2022-01/recurring_application_charges/{recurring_charge_id}/usage_charge:
+    post:
+      tags:
+      - Billing API
+      summary: Create Usage Charge
+      description: Create Usage Charge
+      operationId: create-usage-charge
+      parameters:
+      - name: recurring_charge_id
+        in: path
+        schema:
+          type: string
+        required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                usage_charge:
+                  type: object
+                  required:
+                  - description
+                  - price
+                  properties:
+                    description:
+                      type: string
+                      description: The description of the usage charge.
+                    price:
+                      type: string
+                      description: The price of the recurring application charge.
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"usage_charge\": {\n        \"id\": 1034618208,\n        \"description\": \"Super Mega Plan 1000 emails\",\n        \"price\": \"1.00\",\n        \"created_at\": \"2023-02-02T09:32:50-05:00\",\n        \"balance_used\": 11,\n        \"balance_remaining\": 89\n    }\n}"
+              schema:
+                type: object
+                properties:
+                  usage_charge:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1034618208
+                        default: 0
+                      description:
+                        type: string
+                        example: Super Mega Plan 1000 emails
+                      price:
+                        type: string
+                        example: '1.00'
+                      created_at:
+                        type: string
+                        example: '2023-02-02T09:32:50-05:00'
+                      balance_used:
+                        type: integer
+                        example: 11
+                        default: 0
+                      balance_remaining:
+                        type: integer
+                        example: 89
+                        default: 0
+        '422':
+          description: '422'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n\t\"errors\":[\"Total price exceeds balance remaining\"]\n}"
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: string
+                      example: Total price exceeds balance remaining
+      deprecated: false
+    get:
+      tags:
+      - Billing API
+      summary: Get Usage Charge List
+      description: Get Usage Charge List
+      operationId: get-usage-charge-list
+      parameters:
+      - name: recurring_charge_id
+        in: path
+        schema:
+          type: string
+        required: true
+      - name: per_page
+        in: query
+        schema:
+          type: string
+      - name: since_id
+        in: query
+        description: Restrict results to after the specified ID.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"usage_charges\": [\n        {\n            \"balance_remaining\": \"-10.00\",\n            \"balance_used\": \"30.00\",\n            \"created_at\": \"2023-03-15T17:09:30Z\",\n            \"description\": \"1\",\n            \"id\": \"225188148840247794\",\n            \"price\": \"10.00\"\n        }\n    ]\n}"
+              schema:
+                type: object
+                properties:
+                  usage_charges:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        balance_remaining:
+                          type: string
+                          example: '-10.00'
+                        balance_used:
+                          type: string
+                          example: '30.00'
+                        created_at:
+                          type: string
+                          example: '2023-03-15T17:09:30Z'
+                        description:
+                          type: string
+                          example: '1'
+                        id:
+                          type: string
+                          example: '225188148840247794'
+                        price:
+                          type: string
+                          example: '10.00'
+        '422':
+          description: '422'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n\t\"errors\":[\"PerPage is required\"]\n}"
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: string
+                      example: PerPage is required
+      deprecated: false
+  /openapi/2022-01/recurring_application_charges/{recurring_charge_id}/usage_charge/{usage_charge_id}:
+    get:
+      tags:
+      - Billing API
+      summary: Get Usage Charge
+      description: Get Usage Charge
+      operationId: get-usage-charge
+      parameters:
+      - name: recurring_charge_id
+        in: path
+        schema:
+          type: string
+        required: true
+      - name: usage_charge_id
+        in: path
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"balance_remaining\": \"-10.00\",\n    \"balance_used\": \"30.00\",\n    \"created_at\": \"2023-03-15T17:09:32Z\",\n    \"description\": \"2\",\n    \"id\": \"225188148840247795\",\n    \"price\": \"20.00\"\n}"
+              schema:
+                type: object
+                properties:
+                  balance_remaining:
+                    type: string
+                    example: '-10.00'
+                  balance_used:
+                    type: string
+                    example: '30.00'
+                  created_at:
+                    type: string
+                    example: '2023-03-15T17:09:32Z'
+                  description:
+                    type: string
+                    example: '2'
+                  id:
+                    type: string
+                    example: '225188148840247795'
+                  price:
+                    type: string
+                    example: '20.00'
+        '422':
+          description: '422'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n\t\"errors\":[\"Record not found\"]\n}"
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: string
+                      example: Record not found
+      deprecated: false
+  /openapi/2022-01/recurring_application_charges/{recurring_charge_id}/customize:
+    put:
+      tags:
+      - Billing API
+      summary: Update The Capped Amount Of Recurring Application Charge
+      description: Change the usage charge capped amount for recurring application charge in the activated state. Note, that you cannot use this endpoint to modify properties other than the capped amount of the recurring application charge.
+      operationId: get-usage-charge-copy
+      parameters:
+      - name: recurring_charge_id
+        in: path
+        schema:
+          type: string
+        required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                capped_amount:
+                  type: string
+                  description: The capped_amount of the recurring application charge.
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"recurring_application_charge\": {\n        \"id\": \"225188148840247793\",\n        \"name\": \"20每月\",\n        \"price\": \"20\",\n        \"activated_on\": \"2023-03-15T17:08:54Z\",\n        \"billing_on\": \"2023-04-15T17:08:58Z\",\n        \"cancelled_on\": null,\n        \"capped_amount\": \"20\",\n        \"return_url\": \"https://feature-usage---xishng.dev.myshoplaza.com\",\n        \"status\": \"active\",\n        \"terms\": \"amet proident velit eiusmod quis\",\n        \"test\": false,\n        \"trial_days\": 7,\n        \"trial_ends_on\": null,\n        \"update_capped_amount_url\": \"https://.dev.myshoplaza.com/admin/smart_apps/angora/app_store/charges/ITK6sdTeyZuxIoxHpNfxXPMe6BRx5mT8I1SUpBvi6i4/225188148840247793/recurring_usage_charge/confirm?signature=1c4677cebe838d1c96937fca5a36176e&adjust_id=225561993354936384\",\n        \"created_at\": \"2023-03-14T09:37:19Z\",\n        \"updated_at\": \"2023-03-15T09:09:11Z\"\n    }\n}"
+              schema:
+                type: object
+                properties:
+                  recurring_application_charge:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: '225188148840247793'
+                      name:
+                        type: string
+                        example: 20每月
+                      price:
+                        type: string
+                        example: '20'
+                      activated_on:
+                        type: string
+                        example: '2023-03-15T17:08:54Z'
+                      billing_on:
+                        type: string
+                        example: '2023-04-15T17:08:58Z'
+                      cancelled_on: {}
+                      capped_amount:
+                        type: string
+                        example: '20'
+                      return_url:
+                        type: string
+                        example: https://feature-usage---xishng.dev.myshoplaza.com
+                      status:
+                        type: string
+                        example: active
+                      terms:
+                        type: string
+                        example: amet proident velit eiusmod quis
+                      test:
+                        type: boolean
+                        example: false
+                        default: true
+                      trial_days:
+                        type: integer
+                        example: 7
+                        default: 0
+                      trial_ends_on: {}
+                      update_capped_amount_url:
+                        type: string
+                        example: https://.dev.myshoplaza.com/admin/smart_apps/angora/app_store/charges/ITK6sdTeyZuxIoxHpNfxXPMe6BRx5mT8I1SUpBvi6i4/225188148840247793/recurring_usage_charge/confirm?signature=1c4677cebe838d1c96937fca5a36176e&adjust_id=225561993354936384
+                      created_at:
+                        type: string
+                        example: '2023-03-14T09:37:19Z'
+                      updated_at:
+                        type: string
+                        example: '2023-03-15T09:09:11Z'
+        '404':
+          description: '404'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"errors\": [\n        \"Record not found\"\n    ]\n}"
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: string
+                      example: Record not found
+        '422':
+          description: '422'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n\t\"errors\":[\"Record not found\"]\n}"
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: string
+                      example: Record not found
+      deprecated: false
+components:
+  securitySchemes:
+    sec0:
+      type: apiKey
+      in: header
+      name: access-token
+      x-default: WPMSdB6M8Cpum4X1GoMYOKZpiESd8d2x7dZW8d79ZeQ
+    apikey-header-access-token:
+      type: apiKey
+      in: header
+      name: access-token
+      x-default: WPMSdB6M8Cpum4X1GoMYOKZpiESd8d2x7dZW8d79ZeQ
+x-standalone-page:
+  title: Standalone Page
+  content: Information that should be on a standalone page...
+x-readme:
+  headers: []
+  explorer-enabled: true
+  proxy-enabled: true
+  samples-enabled: true

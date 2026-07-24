@@ -1,0 +1,422 @@
+openapi: 3.1.0
+info:
+  title: SPZ Admin Access Order Risk API
+  version: '2022.01'
+servers:
+- url: https://{subdomain}.myshoplaza.com
+  variables:
+    subdomain:
+      default: developer
+security:
+- sec0: []
+tags:
+- name: Order Risk
+  description: ''
+paths:
+  /openapi/2022-01/orders/{id}/risks:
+    get:
+      tags:
+      - Order Risk
+      summary: Order Risk
+      description: ''
+      operationId: order-risk
+      parameters:
+      - name: id
+        in: path
+        description: Order's ID
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"assessment\": [\n        \"Credit card number is entered by copy & paste\"\n    ],\n    \"info\": []\n}"
+              schema:
+                type: object
+                properties:
+                  assessment:
+                    type: array
+                    items:
+                      type: string
+                      example: Credit card number is entered by copy & paste
+                  info:
+                    type: array
+      deprecated: false
+  /openapi/2022-01/orders/{order_id}/risks/list:
+    get:
+      tags:
+      - Order Risk
+      summary: Order Risk List
+      description: ''
+      operationId: order-risk-list
+      parameters:
+      - name: order_id
+        in: path
+        description: Order's ID
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"total\": 2,\n    \"risks\": [\n        {\n            \"id\": 238549140194212523,\n            \"order_id\": \"183211-00000011\",\n            \"level\": \"cancel\",\n            \"value\": [\n                \"this is test risk  update\",\n                \"as1dfa\",\n                \"123aweqe\",\n                \"123123\"\n            ],\n            \"properties\": {\n                \"test\": \"123\",\n                \"test1\": \"211llkd\"\n            },\n            \"created_at\": \"2023-04-20T06:29:07Z\",\n            \"updated_at\": \"2023-04-20T06:29:07Z\"\n        },\n        {\n            \"id\": 238549164001082027,\n            \"order_id\": \"183211-00000011\",\n            \"level\": \"cancel\",\n            \"value\": [\n                \"this is test risk  update\",\n                \"as1dfa\",\n                \"123aweqe\",\n                \"123123\"\n            ],\n            \"properties\": {\n                \"test\": \"123\",\n                \"test1\": \"211llkd\"\n            },\n            \"created_at\": \"2023-04-20T06:29:12Z\",\n            \"updated_at\": \"2023-04-20T06:29:12Z\"\n        }\n    ]\n}"
+              schema:
+                type: object
+                properties:
+                  total:
+                    type: integer
+                    example: 2
+                    default: 0
+                  risks:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 238549140194212500
+                          default: 0
+                        order_id:
+                          type: string
+                          example: 183211-00000011
+                        level:
+                          type: string
+                          example: cancel
+                        value:
+                          type: array
+                          items:
+                            type: string
+                            example: this is test risk  update
+                        properties:
+                          type: object
+                          properties:
+                            test:
+                              type: string
+                              example: '123'
+                            test1:
+                              type: string
+                              example: 211llkd
+                        created_at:
+                          type: string
+                          example: '2023-04-20T06:29:07Z'
+                        updated_at:
+                          type: string
+                          example: '2023-04-20T06:29:07Z'
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+  /openapi/2022-01/orders/{order_id}/risks/{id}:
+    get:
+      tags:
+      - Order Risk
+      summary: Order Risk Detail
+      description: ''
+      operationId: order-risk-detail
+      parameters:
+      - name: order_id
+        in: path
+        description: Order's ID
+        schema:
+          type: string
+        required: true
+      - name: id
+        in: path
+        description: Risk's ID
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"risk\": {\n        \"id\": 238549140194212523,\n        \"order_id\": \"183211-00000011\",\n        \"level\": \"cancel\",\n        \"value\": [\n            \"this is test risk  update\",\n            \"as1dfa\",\n            \"123aweqe\",\n            \"123123\"\n        ],\n        \"properties\": {\n            \"test\": \"123\",\n            \"test1\": \"211llkd\"\n        },\n        \"created_at\": \"2023-04-20T06:29:07Z\",\n        \"updated_at\": \"2023-04-20T06:29:07Z\"\n    }\n}"
+              schema:
+                type: object
+                properties:
+                  risk:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 238549140194212500
+                        default: 0
+                      order_id:
+                        type: string
+                        example: 183211-00000011
+                      level:
+                        type: string
+                        example: cancel
+                      value:
+                        type: array
+                        items:
+                          type: string
+                          example: this is test risk  update
+                      properties:
+                        type: object
+                        properties:
+                          test:
+                            type: string
+                            example: '123'
+                          test1:
+                            type: string
+                            example: 211llkd
+                      created_at:
+                        type: string
+                        example: '2023-04-20T06:29:07Z'
+                      updated_at:
+                        type: string
+                        example: '2023-04-20T06:29:07Z'
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+    put:
+      tags:
+      - Order Risk
+      summary: Update Order Risk
+      description: ''
+      operationId: update-order-risk
+      parameters:
+      - name: order_id
+        in: path
+        description: Order's ID
+        schema:
+          type: string
+        required: true
+      - name: id
+        in: path
+        description: Risk's ID
+        schema:
+          type: string
+        required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                risk:
+                  type: object
+                  description: risk informations
+                  properties: {}
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"risk\": {\n        \"id\": 238549140194212523,\n        \"order_id\": \"183211-00000011\",\n        \"level\": \"cancel\",\n        \"value\": [\n            \"this is test risk  update\",\n            \"as1dfa\",\n            \"123aweqe\",\n            \"123123\"\n        ],\n        \"properties\": {\n            \"test\": \"123\",\n            \"test1\": \"211llkd\"\n        },\n        \"created_at\": \"2023-04-20T06:29:07Z\",\n        \"updated_at\": \"2023-04-20T06:29:07Z\"\n    }\n}"
+              schema:
+                type: object
+                properties:
+                  risk:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 238549140194212500
+                        default: 0
+                      order_id:
+                        type: string
+                        example: 183211-00000011
+                      level:
+                        type: string
+                        example: cancel
+                      value:
+                        type: array
+                        items:
+                          type: string
+                          example: this is test risk  update
+                      properties:
+                        type: object
+                        properties:
+                          test:
+                            type: string
+                            example: '123'
+                          test1:
+                            type: string
+                            example: 211llkd
+                      created_at:
+                        type: string
+                        example: '2023-04-20T06:29:07Z'
+                      updated_at:
+                        type: string
+                        example: '2023-04-20T06:29:07Z'
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+    delete:
+      tags:
+      - Order Risk
+      summary: Delete Order Risk
+      description: ''
+      operationId: delete-order-risk
+      parameters:
+      - name: order_id
+        in: path
+        description: Order's ID
+        schema:
+          type: string
+        required: true
+      - name: id
+        in: path
+        description: Risk's ID
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+  /openapi/2022-01/orders/{order_id}/risks:
+    post:
+      tags:
+      - Order Risk
+      summary: Create Order Risk
+      description: ''
+      operationId: create-order-risk
+      parameters:
+      - name: order_id
+        in: path
+        description: Order's ID
+        schema:
+          type: string
+        required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                risk:
+                  type: object
+                  description: Risk infomations
+                  properties: {}
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"risk\": {\n        \"id\": 238549140194212523,\n        \"order_id\": \"183211-00000011\",\n        \"level\": \"cancel\",\n        \"value\": [\n            \"this is test risk  update\",\n            \"as1dfa\",\n            \"123aweqe\",\n            \"123123\"\n        ],\n        \"properties\": {\n            \"test\": \"123\",\n            \"test1\": \"211llkd\"\n        },\n        \"created_at\": \"2023-04-20T06:29:07Z\",\n        \"updated_at\": \"2023-04-20T06:29:07Z\"\n    }\n}"
+              schema:
+                type: object
+                properties:
+                  risk:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 238549140194212500
+                        default: 0
+                      order_id:
+                        type: string
+                        example: 183211-00000011
+                      level:
+                        type: string
+                        example: cancel
+                      value:
+                        type: array
+                        items:
+                          type: string
+                          example: this is test risk  update
+                      properties:
+                        type: object
+                        properties:
+                          test:
+                            type: string
+                            example: '123'
+                          test1:
+                            type: string
+                            example: 211llkd
+                      created_at:
+                        type: string
+                        example: '2023-04-20T06:29:07Z'
+                      updated_at:
+                        type: string
+                        example: '2023-04-20T06:29:07Z'
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+components:
+  securitySchemes:
+    sec0:
+      type: apiKey
+      in: header
+      name: access-token
+      x-default: WPMSdB6M8Cpum4X1GoMYOKZpiESd8d2x7dZW8d79ZeQ
+    apikey-header-access-token:
+      type: apiKey
+      in: header
+      name: access-token
+      x-default: WPMSdB6M8Cpum4X1GoMYOKZpiESd8d2x7dZW8d79ZeQ
+x-standalone-page:
+  title: Standalone Page
+  content: Information that should be on a standalone page...
+x-readme:
+  headers: []
+  explorer-enabled: true
+  proxy-enabled: true
+  samples-enabled: true

@@ -1,0 +1,974 @@
+openapi: 3.1.0
+info:
+  title: SPZ Admin Access Fullfillment API
+  version: '2022.01'
+servers:
+- url: https://{subdomain}.myshoplaza.com
+  variables:
+    subdomain:
+      default: developer
+security:
+- sec0: []
+tags:
+- name: Fullfillment
+  description: ''
+paths:
+  /openapi/2022-01/orders/{order_id}/fulfillments:
+    get:
+      tags:
+      - Fullfillment
+      summary: Fulfillment List
+      description: ''
+      operationId: fulfillment-list
+      parameters:
+      - name: order_id
+        in: path
+        description: Order's ID
+        schema:
+          type: string
+        required: true
+      - name: limit
+        in: query
+        description: 'result per page, default: `50`, maximum: `250`'
+        schema:
+          type: integer
+          format: int32
+          default: 50
+      - name: page
+        in: query
+        description: Page number
+        schema:
+          type: integer
+          format: int32
+          default: 1
+      - name: created_at_min
+        in: query
+        description: 'filter fulfillments created at or after date, for example: `2016-01-18T23:41:00Z`'
+        schema:
+          type: string
+      - name: created_at_max
+        in: query
+        description: 'filter fulfillments created at or before date, for example: `2016-01-18T23:41:00Z`'
+        schema:
+          type: string
+      - name: updated_at_min
+        in: query
+        description: 'filter fulfillments last updated at or after date, for example: `2016-01-18T23:41:00Z`'
+        schema:
+          type: string
+      - name: updated_at_max
+        in: query
+        description: 'filter fulfillments last updated at or before date, for example: `2016-01-18T23:41:00Z`'
+        schema:
+          type: string
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"fulfillments\": [\n    {\n      \"id\": \"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\",\n      \"order_id\": \"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\",\n      \"status\": \"waiting\",\n      \"created_at\": \"2018-11-02T12:30:10-04:00\",\n      \"updated_at\": \"2018-11-02T12:30:10-04:00\",\n      \"tracking_company\": \"\",\n      \"tracking_number\": \"1Z2345\",\n      \"tracking_company_code\": \"3306\",\n      \"line_items\": [\n        {\n          \"id\": \"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\",\n          \"product_id\": \"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\",\n          \"product_title\": \"abc\",\n          \"variant_id\": \"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\",\n          \"variant_title\": \"XXX\",\n          \"quantity\": 10,\n          \"note\": \"red\",\n          \"image\": \"http://www.a.com/xxx.jpg\",\n          \"price\": 12.34,\n          \"compare_at_price\": 12.34,\n          \"total\": \"12.34 USD\",\n          \"fulfillment_status\": \"waiting\",\n          \"sku\": \"xxx\",\n          \"weight\": 1.23,\n          \"weight_unit\": \"g\",\n          \"vendor\": \"XXX\",\n          \"product_handle\": \"abc\",\n          \"product_url\": \"http://www.a.com/abc\",\n          \"custom_properties\": {\n             \"text\": \"testval\"\n           },\n          \"taxable\": false,\n          \"requires_shipping\": false\n          \"properties\": [\n            {\n              \"name\": \"color\",\n              \"value\": \"red\"\n            },\n            {\n              \"name\": \"color\",\n              \"value\": \"red\"\n            }\n          ],\n          \"shipping_quantity\": 1\n        }\n      ]\n    }\n  ]\n}"
+      deprecated: false
+    post:
+      tags:
+      - Fullfillment
+      summary: Create Fulfillment
+      description: ''
+      operationId: create_fulfillment
+      parameters:
+      - name: order_id
+        in: path
+        description: Order's ID
+        schema:
+          type: string
+        required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - tracking_number
+              properties:
+                line_item_ids:
+                  type: array
+                  description: Order's Line Item IDs, If you need split the quantity on different fulfillments on same product, leave this field empty, and use `line_items` below instead.
+                  items:
+                    type: string
+                line_items:
+                  type: array
+                  description: Array of line item id and the quantity of each item, If you need split the quantity on different fulfillments on same product, you can use this field, if you don't, you can leave this field empty , and use the `line_item_ids` instead.
+                  items:
+                    properties:
+                      id:
+                        type: string
+                        description: The order's line item ID
+                      ship_quantity:
+                        type: integer
+                        description: The order's product quantity, `0` means all of the quantity will ship together.
+                        default: 0
+                        format: int32
+                    required:
+                    - id
+                    - ship_quantity
+                    type: object
+                tracking_number:
+                  type: string
+                  description: 'Tracking Number, for example: `DHL1231232113`'
+                tracking_company:
+                  type: string
+                  description: 'Tracking Company, for example: `DHL`'
+                tracking_company_code:
+                  type: string
+                  description: 'Tracking Company''s code, for example: `dhl`'
+                tracking_url:
+                  type: string
+                  description: Tracking Url
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"fulfillment\": {\n    \"id\": \"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\",\n    \"order_id\": \"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\",\n    \"status\": \"waiting\",\n    \"created_at\": \"2018-11-02T12:30:10-04:00\",\n    \"updated_at\": \"2018-11-02T12:30:10-04:00\",\n    \"tracking_company\": \"\",\n    \"tracking_number\": \"1Z2345\",\n    \"tracking_company_code\": \"3306\",\n    \"line_items\": [\n      {\n        \"id\": \"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\",\n        \"product_id\": \"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\",\n        \"product_title\": \"abc\",\n        \"variant_id\": \"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\",\n        \"variant_title\": \"XXX\",\n        \"quantity\": 10,\n        \"note\": \"red\",\n        \"image\": \"http://www.a.com/xxx.jpg\",\n        \"price\": 12.34,\n        \"compare_at_price\": 12.34,\n        \"total\": \"12.34 USD\",\n        \"fulfillment_status\": \"waiting\",\n        \"sku\": \"xxx\",\n        \"weight\": 1.23,\n        \"weight_unit\": \"g\",\n        \"vendor\": \"XXX\",\n        \"product_handle\": \"abc\",\n        \"product_url\": \"http://www.a.com/abc\",\n        \"custom_properties\": {\n           \"text\": \"testval\"\n         },\n        \"taxable\": false,\n        \"requires_shipping\": false,\n        \"properties\": [\n          {\n            \"name\": \"color\",\n            \"value\": \"red\"\n          },\n          {\n            \"name\": \"color\",\n            \"value\": \"red\"\n          }\n        ],\n        \"shipping_quantity\": 1\n      }\n    ]\n  }\n}"
+              schema:
+                type: object
+                properties:
+                  fulfillment:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: db4469f3-5e56-4c69-a2b6-03e81d24d5b5
+                      order_id:
+                        type: string
+                        example: db4469f3-5e56-4c69-a2b6-03e81d24d5b5
+                      status:
+                        type: string
+                        example: waiting
+                      created_at:
+                        type: string
+                        example: '2018-11-02T12:30:10-04:00'
+                      updated_at:
+                        type: string
+                        example: '2018-11-02T12:30:10-04:00'
+                      tracking_company:
+                        type: string
+                        example: ''
+                      tracking_number:
+                        type: string
+                        example: 1Z2345
+                      tracking_company_code:
+                        type: string
+                        example: '3306'
+                      line_items:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              example: db4469f3-5e56-4c69-a2b6-03e81d24d5b5
+                            product_id:
+                              type: string
+                              example: db4469f3-5e56-4c69-a2b6-03e81d24d5b5
+                            product_title:
+                              type: string
+                              example: abc
+                            variant_id:
+                              type: string
+                              example: db4469f3-5e56-4c69-a2b6-03e81d24d5b5
+                            variant_title:
+                              type: string
+                              example: XXX
+                            quantity:
+                              type: integer
+                              example: 10
+                              default: 0
+                            note:
+                              type: string
+                              example: red
+                            image:
+                              type: string
+                              example: http://www.a.com/xxx.jpg
+                            price:
+                              type: number
+                              example: 12.34
+                              default: 0
+                            compare_at_price:
+                              type: number
+                              example: 12.34
+                              default: 0
+                            total:
+                              type: string
+                              example: 12.34 USD
+                            fulfillment_status:
+                              type: string
+                              example: waiting
+                            sku:
+                              type: string
+                              example: xxx
+                            weight:
+                              type: number
+                              example: 1.23
+                              default: 0
+                            weight_unit:
+                              type: string
+                              example: g
+                            vendor:
+                              type: string
+                              example: XXX
+                            product_handle:
+                              type: string
+                              example: abc
+                            product_url:
+                              type: string
+                              example: http://www.a.com/abc
+                            custom_properties:
+                              type: object
+                              properties:
+                                text:
+                                  type: string
+                                  example: testval
+                            taxable:
+                              type: boolean
+                              example: false
+                              default: true
+                            requires_shipping:
+                              type: boolean
+                              example: false
+                              default: true
+                            properties:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  name:
+                                    type: string
+                                    example: color
+                                  value:
+                                    type: string
+                                    example: red
+                            shipping_quantity:
+                              type: integer
+                              example: 1
+                              default: 0
+      deprecated: false
+  /openapi/2022-01/orders/{order_id}/fulfillments/count:
+    get:
+      tags:
+      - Fullfillment
+      summary: Fulfillment Total Count
+      description: ''
+      operationId: fulfillment_count
+      parameters:
+      - name: order_id
+        in: path
+        description: Order's ID
+        schema:
+          type: string
+        required: true
+      - name: created_at_min
+        in: query
+        description: 'filter fulfillments created at or after date, for example: `2016-01-18T23:41:00Z`'
+        schema:
+          type: string
+      - name: created_at_max
+        in: query
+        description: 'filter fulfillments created at or before date, for example: `2016-01-18T23:41:00Z`'
+        schema:
+          type: string
+      - name: updated_at_min
+        in: query
+        description: 'filter fulfillments last updated at or after date, for example: `2016-01-18T23:41:00Z`'
+        schema:
+          type: string
+      - name: updated_at_max
+        in: query
+        description: 'filter fulfillments last updated at or before date, for example: `2016-01-18T23:41:00Z`'
+        schema:
+          type: string
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"count\": 1\n}"
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 1
+                    default: 0
+      deprecated: false
+  /openapi/2022-01/orders/{order_id}/fulfillments/{fulfillment_id}:
+    get:
+      tags:
+      - Fullfillment
+      summary: Fulfillment Details
+      description: ''
+      operationId: fulfillment_show
+      parameters:
+      - name: order_id
+        in: path
+        description: Order's ID
+        schema:
+          type: string
+        required: true
+      - name: fulfillment_id
+        in: path
+        description: Fulfillment's ID
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"fulfillment\": {\n    \"id\": \"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\",\n    \"order_id\": \"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\",\n    \"status\": \"waiting\",\n    \"created_at\": \"2018-11-02T12:30:10-04:00\",\n    \"updated_at\": \"2018-11-02T12:30:10-04:00\",\n    \"tracking_company\": \"\",\n    \"tracking_number\": \"1Z2345\",\n    \"tracking_company_code\": \"3306\",\n    \"line_items\": [\n      {\n        \"id\": \"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\",\n        \"product_id\": \"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\",\n        \"product_title\": \"abc\",\n        \"variant_id\": \"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\",\n        \"variant_title\": \"XXX\",\n        \"quantity\": 10,\n        \"note\": \"red\",\n        \"image\": \"http://www.a.com/xxx.jpg\",\n        \"price\": 12.34,\n        \"compare_at_price\": 12.34,\n        \"total\": \"12.34 USD\",\n        \"fulfillment_status\": \"waiting\",\n        \"sku\": \"xxx\",\n        \"weight\": 1.23,\n        \"weight_unit\": \"g\",\n        \"vendor\": \"XXX\",\n        \"product_handle\": \"abc\",\n        \"product_url\": \"http://www.a.com/abc\",\n        \"custom_properties\": {\n          \"text\": \"testval\"\n         },\n        \"taxable\": false,\n        \"requires_shipping\": false,\n        \"properties\": [\n          {\n            \"name\": \"color\",\n            \"value\": \"red\"\n          },\n          {\n            \"name\": \"color\",\n            \"value\": \"red\"\n          }\n        ],\n        \"shipping_quantity\": 1\n      }\n    ]\n  }\n}"
+              schema:
+                type: object
+                properties:
+                  fulfillment:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: db4469f3-5e56-4c69-a2b6-03e81d24d5b5
+                      order_id:
+                        type: string
+                        example: db4469f3-5e56-4c69-a2b6-03e81d24d5b5
+                      status:
+                        type: string
+                        example: waiting
+                      created_at:
+                        type: string
+                        example: '2018-11-02T12:30:10-04:00'
+                      updated_at:
+                        type: string
+                        example: '2018-11-02T12:30:10-04:00'
+                      tracking_company:
+                        type: string
+                        example: ''
+                      tracking_number:
+                        type: string
+                        example: 1Z2345
+                      tracking_company_code:
+                        type: string
+                        example: '3306'
+                      line_items:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              example: db4469f3-5e56-4c69-a2b6-03e81d24d5b5
+                            product_id:
+                              type: string
+                              example: db4469f3-5e56-4c69-a2b6-03e81d24d5b5
+                            product_title:
+                              type: string
+                              example: abc
+                            variant_id:
+                              type: string
+                              example: db4469f3-5e56-4c69-a2b6-03e81d24d5b5
+                            variant_title:
+                              type: string
+                              example: XXX
+                            quantity:
+                              type: integer
+                              example: 10
+                              default: 0
+                            note:
+                              type: string
+                              example: red
+                            image:
+                              type: string
+                              example: http://www.a.com/xxx.jpg
+                            price:
+                              type: number
+                              example: 12.34
+                              default: 0
+                            compare_at_price:
+                              type: number
+                              example: 12.34
+                              default: 0
+                            total:
+                              type: string
+                              example: 12.34 USD
+                            fulfillment_status:
+                              type: string
+                              example: waiting
+                            sku:
+                              type: string
+                              example: xxx
+                            weight:
+                              type: number
+                              example: 1.23
+                              default: 0
+                            weight_unit:
+                              type: string
+                              example: g
+                            vendor:
+                              type: string
+                              example: XXX
+                            product_handle:
+                              type: string
+                              example: abc
+                            product_url:
+                              type: string
+                              example: http://www.a.com/abc
+                            custom_properties:
+                              type: object
+                              properties:
+                                text:
+                                  type: string
+                                  example: testval
+                            taxable:
+                              type: boolean
+                              example: false
+                              default: true
+                            requires_shipping:
+                              type: boolean
+                              example: false
+                              default: true
+                            properties:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  name:
+                                    type: string
+                                    example: color
+                                  value:
+                                    type: string
+                                    example: red
+                            shipping_quantity:
+                              type: integer
+                              example: 1
+                              default: 0
+      deprecated: false
+    put:
+      tags:
+      - Fullfillment
+      summary: Update Fulfillment
+      description: ''
+      operationId: update_fulfillment
+      parameters:
+      - name: order_id
+        in: path
+        description: Order's ID
+        schema:
+          type: string
+        required: true
+      - name: fulfillment_id
+        in: path
+        description: Fulfillment id
+        schema:
+          type: string
+        required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                line_item_ids:
+                  type: array
+                  description: Array of order's line item ID, If you need split the quantity on different fulfillments on same product, leave this field empty, and use `line_items` below instead.
+                  items:
+                    type: string
+                line_items:
+                  type: array
+                  description: Array of order's line item ID and the quantity of each item, If you need split the quantity on different fulfillments on same product, you can use this field, if you don't, you can leave this field empty , and use the `line_item_ids` instead.
+                  items:
+                    properties:
+                      id:
+                        type: string
+                        description: The order's line item ID
+                      ship_quantity:
+                        type: integer
+                        description: The order's product quantity, `0` means all of the quantity will ship together.
+                        default: 0
+                        format: int32
+                    required:
+                    - id
+                    - ship_quantity
+                    type: object
+                tracking_number:
+                  type: string
+                  description: 'Tracking Number, for example: `DHL1231232113`'
+                tracking_company:
+                  type: string
+                  description: 'Tracking Company, for example: `DHL`'
+                tracking_company_code:
+                  type: string
+                  description: 'Tracking Company''s code, for example: `dhl`'
+                tracking_url:
+                  type: string
+                  description: Tracking Url
+                send_email:
+                  type: string
+                  description: Whether to send email notifications
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"fulfillment\": {\n    \"id\": \"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\",\n    \"order_id\": \"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\",\n    \"status\": \"waiting\",\n    \"created_at\": \"2018-11-02T12:30:10-04:00\",\n    \"updated_at\": \"2018-11-02T12:30:10-04:00\",\n    \"tracking_company\": \"\",\n    \"tracking_number\": \"1Z2345\",\n    \"tracking_company_code\": \"3306\",\n    \"line_items\": [\n      {\n        \"id\": \"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\",\n        \"product_id\": \"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\",\n        \"product_title\": \"abc\",\n        \"variant_id\": \"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\",\n        \"variant_title\": \"XXX\",\n        \"quantity\": 10,\n        \"note\": \"red\",\n        \"image\": \"http://www.a.com/xxx.jpg\",\n        \"price\": 12.34,\n        \"compare_at_price\": 12.34,\n        \"total\": \"12.34 USD\",\n        \"fulfillment_status\": \"waiting\",\n        \"sku\": \"xxx\",\n        \"weight\": 1.23,\n        \"weight_unit\": \"g\",\n        \"vendor\": \"XXX\",\n        \"product_handle\": \"abc\",\n        \"product_url\": \"http://www.a.com/abc\",\n        \"custom_properties\": {\n          \"text\": \"testval\"\n        },\n        \"taxable\": false,\n        \"requires_shipping\": false,\n        \"properties\": [\n          {\n            \"name\": \"color\",\n            \"value\": \"red\"\n          },\n          {\n            \"name\": \"color\",\n            \"value\": \"red\"\n          }\n        ],\n        \"shipping_quantity\": 1\n      }\n    ]\n  }\n}"
+              schema:
+                type: object
+                properties:
+                  fulfillment:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: db4469f3-5e56-4c69-a2b6-03e81d24d5b5
+                      order_id:
+                        type: string
+                        example: db4469f3-5e56-4c69-a2b6-03e81d24d5b5
+                      status:
+                        type: string
+                        example: waiting
+                      created_at:
+                        type: string
+                        example: '2018-11-02T12:30:10-04:00'
+                      updated_at:
+                        type: string
+                        example: '2018-11-02T12:30:10-04:00'
+                      tracking_company:
+                        type: string
+                        example: ''
+                      tracking_number:
+                        type: string
+                        example: 1Z2345
+                      tracking_company_code:
+                        type: string
+                        example: '3306'
+                      line_items:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              example: db4469f3-5e56-4c69-a2b6-03e81d24d5b5
+                            product_id:
+                              type: string
+                              example: db4469f3-5e56-4c69-a2b6-03e81d24d5b5
+                            product_title:
+                              type: string
+                              example: abc
+                            variant_id:
+                              type: string
+                              example: db4469f3-5e56-4c69-a2b6-03e81d24d5b5
+                            variant_title:
+                              type: string
+                              example: XXX
+                            quantity:
+                              type: integer
+                              example: 10
+                              default: 0
+                            note:
+                              type: string
+                              example: red
+                            image:
+                              type: string
+                              example: http://www.a.com/xxx.jpg
+                            price:
+                              type: number
+                              example: 12.34
+                              default: 0
+                            compare_at_price:
+                              type: number
+                              example: 12.34
+                              default: 0
+                            total:
+                              type: string
+                              example: 12.34 USD
+                            fulfillment_status:
+                              type: string
+                              example: waiting
+                            sku:
+                              type: string
+                              example: xxx
+                            weight:
+                              type: number
+                              example: 1.23
+                              default: 0
+                            weight_unit:
+                              type: string
+                              example: g
+                            vendor:
+                              type: string
+                              example: XXX
+                            product_handle:
+                              type: string
+                              example: abc
+                            product_url:
+                              type: string
+                              example: http://www.a.com/abc
+                            custom_properties:
+                              type: object
+                              properties:
+                                text:
+                                  type: string
+                                  example: testval
+                            taxable:
+                              type: boolean
+                              example: false
+                              default: true
+                            requires_shipping:
+                              type: boolean
+                              example: false
+                              default: true
+                            properties:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  name:
+                                    type: string
+                                    example: color
+                                  value:
+                                    type: string
+                                    example: red
+                            shipping_quantity:
+                              type: integer
+                              example: 1
+                              default: 0
+      deprecated: false
+  /openapi/2022-01/orders/{order_id}/fulfillments/{fulfillment_id}/complete:
+    post:
+      tags:
+      - Fullfillment
+      summary: Complete Fulfillment
+      description: ''
+      operationId: complete_fulfillment
+      parameters:
+      - name: order_id
+        in: path
+        description: Order's ID
+        schema:
+          type: string
+        required: true
+      - name: fulfillment_id
+        in: path
+        description: Fulfillment id
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"fulfillment\": {\n    \"id\": \"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\",\n    \"order_id\": \"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\",\n    \"status\": \"waiting\",\n    \"created_at\": \"2018-11-02T12:30:10-04:00\",\n    \"updated_at\": \"2018-11-02T12:30:10-04:00\",\n    \"tracking_company\": \"\",\n    \"tracking_number\": \"1Z2345\",\n    \"tracking_company_code\": \"3306\",\n    \"line_items\": [\n      {\n        \"id\": \"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\",\n        \"product_id\": \"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\",\n        \"product_title\": \"abc\",\n        \"variant_id\": \"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\",\n        \"variant_title\": \"XXX\",\n        \"quantity\": 10,\n        \"note\": \"red\",\n        \"image\": \"http://www.a.com/xxx.jpg\",\n        \"price\": 12.34,\n        \"compare_at_price\": 12.34,\n        \"total\": \"12.34 USD\",\n        \"fulfillment_status\": \"waiting\",\n        \"sku\": \"xxx\",\n        \"weight\": 1.23,\n        \"weight_unit\": \"g\",\n        \"vendor\": \"XXX\",\n        \"product_handle\": \"abc\",\n        \"product_url\": \"http://www.a.com/abc\",\n        \"custom_properties\": {\n           \"text\": \"testval\"\n         },\n        \"taxable\": false,\n        \"requires_shipping\": false,\n        \"properties\": [\n          {\n            \"name\": \"color\",\n            \"value\": \"red\"\n          },\n          {\n            \"name\": \"color\",\n            \"value\": \"red\"\n          }\n        ],\n        \"shipping_quantity\": 1\n      }\n    ]\n  }\n}"
+              schema:
+                type: object
+                properties:
+                  fulfillment:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: db4469f3-5e56-4c69-a2b6-03e81d24d5b5
+                      order_id:
+                        type: string
+                        example: db4469f3-5e56-4c69-a2b6-03e81d24d5b5
+                      status:
+                        type: string
+                        example: waiting
+                      created_at:
+                        type: string
+                        example: '2018-11-02T12:30:10-04:00'
+                      updated_at:
+                        type: string
+                        example: '2018-11-02T12:30:10-04:00'
+                      tracking_company:
+                        type: string
+                        example: ''
+                      tracking_number:
+                        type: string
+                        example: 1Z2345
+                      tracking_company_code:
+                        type: string
+                        example: '3306'
+                      line_items:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              example: db4469f3-5e56-4c69-a2b6-03e81d24d5b5
+                            product_id:
+                              type: string
+                              example: db4469f3-5e56-4c69-a2b6-03e81d24d5b5
+                            product_title:
+                              type: string
+                              example: abc
+                            variant_id:
+                              type: string
+                              example: db4469f3-5e56-4c69-a2b6-03e81d24d5b5
+                            variant_title:
+                              type: string
+                              example: XXX
+                            quantity:
+                              type: integer
+                              example: 10
+                              default: 0
+                            note:
+                              type: string
+                              example: red
+                            image:
+                              type: string
+                              example: http://www.a.com/xxx.jpg
+                            price:
+                              type: number
+                              example: 12.34
+                              default: 0
+                            compare_at_price:
+                              type: number
+                              example: 12.34
+                              default: 0
+                            total:
+                              type: string
+                              example: 12.34 USD
+                            fulfillment_status:
+                              type: string
+                              example: waiting
+                            sku:
+                              type: string
+                              example: xxx
+                            weight:
+                              type: number
+                              example: 1.23
+                              default: 0
+                            weight_unit:
+                              type: string
+                              example: g
+                            vendor:
+                              type: string
+                              example: XXX
+                            product_handle:
+                              type: string
+                              example: abc
+                            product_url:
+                              type: string
+                              example: http://www.a.com/abc
+                            custom_properties:
+                              type: object
+                              properties:
+                                text:
+                                  type: string
+                                  example: testval
+                            taxable:
+                              type: boolean
+                              example: false
+                              default: true
+                            requires_shipping:
+                              type: boolean
+                              example: false
+                              default: true
+                            properties:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  name:
+                                    type: string
+                                    example: color
+                                  value:
+                                    type: string
+                                    example: red
+                            shipping_quantity:
+                              type: integer
+                              example: 1
+                              default: 0
+      deprecated: false
+  /openapi/2022-01/orders/{order_id}/fulfillments/{fulfillment_id}/cancel:
+    post:
+      tags:
+      - Fullfillment
+      summary: Cancel Fulfillment
+      description: ''
+      operationId: cancel_fulfillment
+      parameters:
+      - name: order_id
+        in: path
+        description: Order's ID
+        schema:
+          type: string
+        required: true
+      - name: fulfillment_id
+        in: path
+        description: Fulfillment id
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"fulfillment\": {\n    \"id\": \"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\",\n    \"order_id\": \"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\",\n    \"status\": \"waiting\",\n    \"created_at\": \"2018-11-02T12:30:10-04:00\",\n    \"updated_at\": \"2018-11-02T12:30:10-04:00\",\n    \"tracking_company\": \"\",\n    \"tracking_number\": \"1Z2345\",\n    \"tracking_company_code\": \"3306\",\n    \"line_items\": [\n      {\n        \"id\": \"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\",\n        \"product_id\": \"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\",\n        \"product_title\": \"abc\",\n        \"variant_id\": \"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\",\n        \"variant_title\": \"XXX\",\n        \"quantity\": 10,\n        \"note\": \"red\",\n        \"image\": \"http://www.a.com/xxx.jpg\",\n        \"price\": 12.34,\n        \"compare_at_price\": 12.34,\n        \"total\": \"12.34 USD\",\n        \"fulfillment_status\": \"waiting\",\n        \"sku\": \"xxx\",\n        \"weight\": 1.23,\n        \"weight_unit\": \"g\",\n        \"vendor\": \"XXX\",\n        \"product_handle\": \"abc\",\n        \"product_url\": \"http://www.a.com/abc\",\n        \"custom_properties\": {\n           \"text\": \"testval\"\n         },\n        \"taxable\": false,\n        \"requires_shipping\": false,\n        \"properties\": [\n          {\n            \"name\": \"color\",\n            \"value\": \"red\"\n          },\n          {\n            \"name\": \"color\",\n            \"value\": \"red\"\n          }\n        ],\n        \"shipping_quantity\": 1\n      }\n    ]\n  }\n}"
+              schema:
+                type: object
+                properties:
+                  fulfillment:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: db4469f3-5e56-4c69-a2b6-03e81d24d5b5
+                      order_id:
+                        type: string
+                        example: db4469f3-5e56-4c69-a2b6-03e81d24d5b5
+                      status:
+                        type: string
+                        example: waiting
+                      created_at:
+                        type: string
+                        example: '2018-11-02T12:30:10-04:00'
+                      updated_at:
+                        type: string
+                        example: '2018-11-02T12:30:10-04:00'
+                      tracking_company:
+                        type: string
+                        example: ''
+                      tracking_number:
+                        type: string
+                        example: 1Z2345
+                      tracking_company_code:
+                        type: string
+                        example: '3306'
+                      line_items:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              example: db4469f3-5e56-4c69-a2b6-03e81d24d5b5
+                            product_id:
+                              type: string
+                              example: db4469f3-5e56-4c69-a2b6-03e81d24d5b5
+                            product_title:
+                              type: string
+                              example: abc
+                            variant_id:
+                              type: string
+                              example: db4469f3-5e56-4c69-a2b6-03e81d24d5b5
+                            variant_title:
+                              type: string
+                              example: XXX
+                            quantity:
+                              type: integer
+                              example: 10
+                              default: 0
+                            note:
+                              type: string
+                              example: red
+                            image:
+                              type: string
+                              example: http://www.a.com/xxx.jpg
+                            price:
+                              type: number
+                              example: 12.34
+                              default: 0
+                            compare_at_price:
+                              type: number
+                              example: 12.34
+                              default: 0
+                            total:
+                              type: string
+                              example: 12.34 USD
+                            fulfillment_status:
+                              type: string
+                              example: waiting
+                            sku:
+                              type: string
+                              example: xxx
+                            weight:
+                              type: number
+                              example: 1.23
+                              default: 0
+                            weight_unit:
+                              type: string
+                              example: g
+                            vendor:
+                              type: string
+                              example: XXX
+                            product_handle:
+                              type: string
+                              example: abc
+                            product_url:
+                              type: string
+                              example: http://www.a.com/abc
+                            custom_properties:
+                              type: object
+                              properties:
+                                text:
+                                  type: string
+                                  example: testval
+                            taxable:
+                              type: boolean
+                              example: false
+                              default: true
+                            requires_shipping:
+                              type: boolean
+                              example: false
+                              default: true
+                            properties:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  name:
+                                    type: string
+                                    example: color
+                                  value:
+                                    type: string
+                                    example: red
+                            shipping_quantity:
+                              type: integer
+                              example: 1
+                              default: 0
+      deprecated: false
+components:
+  securitySchemes:
+    sec0:
+      type: apiKey
+      in: header
+      name: access-token
+      x-default: WPMSdB6M8Cpum4X1GoMYOKZpiESd8d2x7dZW8d79ZeQ
+    apikey-header-access-token:
+      type: apiKey
+      in: header
+      name: access-token
+      x-default: WPMSdB6M8Cpum4X1GoMYOKZpiESd8d2x7dZW8d79ZeQ
+x-standalone-page:
+  title: Standalone Page
+  content: Information that should be on a standalone page...
+x-readme:
+  headers: []
+  explorer-enabled: true
+  proxy-enabled: true
+  samples-enabled: true

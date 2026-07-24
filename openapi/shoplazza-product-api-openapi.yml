@@ -1,0 +1,4145 @@
+openapi: 3.1.0
+info:
+  title: SPZ Admin Access Product API
+  version: '2022.01'
+servers:
+- url: https://{subdomain}.myshoplaza.com
+  variables:
+    subdomain:
+      default: developer
+security:
+- sec0: []
+tags:
+- name: Product
+  description: ''
+paths:
+  /openapi/2022-01/products:
+    get:
+      tags:
+      - Product
+      summary: Product List
+      description: ''
+      operationId: product_list
+      parameters:
+      - name: ids
+        in: query
+        description: 'Product''s IDs, separated by comma, for example: `9e79ca1f-9ff2-409b-976f-98be343d38a3,9e79ca1f-9ff2-409b-976f-98be343d38ae`'
+        schema:
+          type: string
+      - name: title
+        in: query
+        description: product's title
+        schema:
+          type: string
+      - name: collection_id
+        in: query
+        description: 'Collection UUID, for example: `9e79ca1f-9ff2-409b-976f-98be343d38a3`'
+        schema:
+          type: string
+      - name: created_at_min
+        in: query
+        description: 'filter products created at or after date, for example: `2018-10-01T16:15:47-04:00`'
+        schema:
+          type: string
+      - name: created_at_max
+        in: query
+        description: 'filter products created at or before date, for example: `2018-10-01T16:15:47-04:00`'
+        schema:
+          type: string
+      - name: updated_at_min
+        in: query
+        description: 'filter products last updated at or after date, for example: `2018-10-01T16:15:47-04:00`'
+        schema:
+          type: string
+      - name: updated_at_max
+        in: query
+        description: 'filter products last updated at or before date, for example: `2018-10-01T16:15:47-04:00`'
+        schema:
+          type: string
+      - name: published_at_min
+        in: query
+        description: 'filter products published at or after date, for example: `2018-10-01T16:15:47-04:00`'
+        schema:
+          type: string
+      - name: published_at_max
+        in: query
+        description: 'filter products published at or before date, for example: `2018-10-01T16:15:47-04:00`'
+        schema:
+          type: string
+      - name: published_status
+        in: query
+        description: 'filter by published status: `published`, `unpublished`, `any`'
+        schema:
+          type: string
+      - name: spus
+        in: query
+        description: 'Product''s SPUs, separated by comma,  for example: `spu1,spu2`'
+        schema:
+          type: string
+      - name: pre_cursor
+        in: query
+        description: pre cursor-based pagination, please see https://www.shoplazza.dev/reference/cursor-pagination for more information
+        schema:
+          type: string
+      - name: cursor
+        in: query
+        description: cursor-based pagination, please see https://www.shoplazza.dev/reference/cursor-pagination for more information
+        schema:
+          type: string
+      - name: per_page
+        in: query
+        description: limit per page
+        schema:
+          type: integer
+          format: int32
+          default: 1
+      - name: fields
+        in: query
+        description: 'filter fields return in responses, separated by comma, for example: `title, id`'
+        schema:
+          type: string
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"cursor\": \"MjAyMS0wNy0wOVQwMToxNzowNFojN2JiMWUwMTUtMDVhMi00Yzk0LWIxNDktMTE1MDEzYmEwODEz\",\n    \"pre_cursor\": \"MjAyMy0wNS0zMFQwNzozNzoyNVojYmIyZjJhMDgtYzdkNi00MTMzLTkzNmYtNWIzMDgxOGNhYmUz\",\n      \"products\": [\n        {\n            \"id\": \"c1d5b2a3-fab1-4e26-8582-75d3b2677042\",\n            \"title\": \"aasd\",\n            \"brief\": \"asd\",\n            \"description\": \"asd\",\n            \"published\": false,\n            \"requires_shipping\": false,\n            \"taxable\": false,\n            \"tags\": \"\",\n            \"vendor\": \"asd\",\n            \"vendor_url\": \"asd\",\n            \"inventory_quantity\": 123,\n            \"published_at\": null,\n            \"created_at\": \"2022-01-10T06:11:45Z\",\n            \"updated_at\": \"2022-01-10T06:11:45Z\",\n            \"note\": \"asd\",\n            \"seo_title\": \"asd\",\n            \"seo_description\": \"asd\",\n            \"seo_keywords\": \"asd\",\n            \"handle\": \"asd-bkpq\",\n            \"has_only_default_variant\": false,\n            \"inventory_tracking\": false,\n            \"inventory_policy\": \"continue\",\n            \"need_variant_image\": false,\n            \"spu\": \"asd\",\n            \"fake_sales\": 123,\n            \"display_fake_sales\": false,\n            \"image\": {\n                \"src\": \"//cdn.shoplazza.com/shirt.png\",\n                \"width\": 100,\n                \"height\": 100,\n                \"alt\": \"\",\n                \"path\": \"shirt.png\"\n            },\n            \"images\": [\n                {\n                    \"id\": \"fe0ae4b6-cb7b-4d1c-a7f0-727750b73d16\",\n                    \"product_id\": \"c1d5b2a3-fab1-4e26-8582-75d3b2677042\",\n                    \"position\": 1,\n                    \"src\": \"//cdn.shoplazza.com/shirt.png\",\n                    \"width\": 100,\n                    \"height\": 100,\n                    \"alt\": \"\",\n                    \"created_at\": \"2022-01-10T06:11:45Z\",\n                    \"updated_at\": \"2022-01-10T06:11:45Z\"\n                }\n            ],\n            \"options\": [\n                {\n                    \"id\": \"b5109277-0daa-42f5-afa3-1bb609d13199\",\n                    \"product_id\": \"c1d5b2a3-fab1-4e26-8582-75d3b2677042\",\n                    \"position\": 1,\n                    \"name\": \"qwe\",\n                    \"values\": [\n                        \"qwe\"\n                    ]\n                }\n            ],\n            \"variants\": [\n                {\n                    \"id\": \"8ecc0550-fb48-4860-9bb3-9b85e3c2b44a\",\n                    \"product_id\": \"c1d5b2a3-fab1-4e26-8582-75d3b2677042\",\n                    \"image_id\": \"\",\n                    \"created_at\": \"2022-01-10T06:11:45Z\",\n                    \"updated_at\": \"2022-01-10T06:11:45Z\",\n                    \"title\": \"qwe\",\n                    \"option1\": \"qwe\",\n                    \"option2\": \"\",\n                    \"option3\": \"\",\n                    \"image\": null,\n                    \"position\": 1,\n                    \"compare_at_price\": \"132.00\",\n                    \"price\": \"123.00\",\n                    \"sku\": \"asd\",\n                    \"barcode\": \"asd\",\n                    \"note\": \"asd\",\n                    \"inventory_quantity\": 123,\n                    \"weight\": \"123\",\n                    \"weight_unit\": \"kg\",\n                    \"cost_price\": \"120.00\"\n                }\n            ]\n        }\n    ]\n}"
+              schema:
+                type: object
+                properties:
+                  cursor:
+                    type: string
+                    example: MjAyMS0wNy0wOVQwMToxNzowNFojN2JiMWUwMTUtMDVhMi00Yzk0LWIxNDktMTE1MDEzYmEwODEz
+                  pre_cursor:
+                    type: string
+                    example: MjAyMy0wNS0zMFQwNzozNzoyNVojYmIyZjJhMDgtYzdkNi00MTMzLTkzNmYtNWIzMDgxOGNhYmUz
+                  products:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: c1d5b2a3-fab1-4e26-8582-75d3b2677042
+                        title:
+                          type: string
+                          example: aasd
+                        brief:
+                          type: string
+                          example: asd
+                        description:
+                          type: string
+                          example: asd
+                        published:
+                          type: boolean
+                          example: false
+                          default: true
+                        requires_shipping:
+                          type: boolean
+                          example: false
+                          default: true
+                        taxable:
+                          type: boolean
+                          example: false
+                          default: true
+                        tags:
+                          type: string
+                          example: ''
+                        vendor:
+                          type: string
+                          example: asd
+                        vendor_url:
+                          type: string
+                          example: asd
+                        inventory_quantity:
+                          type: integer
+                          example: 123
+                          default: 0
+                        published_at: {}
+                        created_at:
+                          type: string
+                          example: '2022-01-10T06:11:45Z'
+                        updated_at:
+                          type: string
+                          example: '2022-01-10T06:11:45Z'
+                        note:
+                          type: string
+                          example: asd
+                        seo_title:
+                          type: string
+                          example: asd
+                        seo_description:
+                          type: string
+                          example: asd
+                        seo_keywords:
+                          type: string
+                          example: asd
+                        handle:
+                          type: string
+                          example: asd-bkpq
+                        has_only_default_variant:
+                          type: boolean
+                          example: false
+                          default: true
+                        inventory_tracking:
+                          type: boolean
+                          example: false
+                          default: true
+                        inventory_policy:
+                          type: string
+                          example: continue
+                        need_variant_image:
+                          type: boolean
+                          example: false
+                          default: true
+                        spu:
+                          type: string
+                          example: asd
+                        fake_sales:
+                          type: integer
+                          example: 123
+                          default: 0
+                        display_fake_sales:
+                          type: boolean
+                          example: false
+                          default: true
+                        image:
+                          type: object
+                          properties:
+                            src:
+                              type: string
+                              example: //cdn.shoplazza.com/shirt.png
+                            width:
+                              type: integer
+                              example: 100
+                              default: 0
+                            height:
+                              type: integer
+                              example: 100
+                              default: 0
+                            alt:
+                              type: string
+                              example: ''
+                            path:
+                              type: string
+                              example: shirt.png
+                        images:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              id:
+                                type: string
+                                example: fe0ae4b6-cb7b-4d1c-a7f0-727750b73d16
+                              product_id:
+                                type: string
+                                example: c1d5b2a3-fab1-4e26-8582-75d3b2677042
+                              position:
+                                type: integer
+                                example: 1
+                                default: 0
+                              src:
+                                type: string
+                                example: //cdn.shoplazza.com/shirt.png
+                              width:
+                                type: integer
+                                example: 100
+                                default: 0
+                              height:
+                                type: integer
+                                example: 100
+                                default: 0
+                              alt:
+                                type: string
+                                example: ''
+                              created_at:
+                                type: string
+                                example: '2022-01-10T06:11:45Z'
+                              updated_at:
+                                type: string
+                                example: '2022-01-10T06:11:45Z'
+                        options:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              id:
+                                type: string
+                                example: b5109277-0daa-42f5-afa3-1bb609d13199
+                              product_id:
+                                type: string
+                                example: c1d5b2a3-fab1-4e26-8582-75d3b2677042
+                              position:
+                                type: integer
+                                example: 1
+                                default: 0
+                              name:
+                                type: string
+                                example: qwe
+                              values:
+                                type: array
+                                items:
+                                  type: string
+                                  example: qwe
+                        variants:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              id:
+                                type: string
+                                example: 8ecc0550-fb48-4860-9bb3-9b85e3c2b44a
+                              product_id:
+                                type: string
+                                example: c1d5b2a3-fab1-4e26-8582-75d3b2677042
+                              image_id:
+                                type: string
+                                example: ''
+                              created_at:
+                                type: string
+                                example: '2022-01-10T06:11:45Z'
+                              updated_at:
+                                type: string
+                                example: '2022-01-10T06:11:45Z'
+                              title:
+                                type: string
+                                example: qwe
+                              option1:
+                                type: string
+                                example: qwe
+                              option2:
+                                type: string
+                                example: ''
+                              option3:
+                                type: string
+                                example: ''
+                              image: {}
+                              position:
+                                type: integer
+                                example: 1
+                                default: 0
+                              compare_at_price:
+                                type: string
+                                example: '132.00'
+                              price:
+                                type: string
+                                example: '123.00'
+                              sku:
+                                type: string
+                                example: asd
+                              barcode:
+                                type: string
+                                example: asd
+                              note:
+                                type: string
+                                example: asd
+                              inventory_quantity:
+                                type: integer
+                                example: 123
+                                default: 0
+                              weight:
+                                type: string
+                                example: '123'
+                              weight_unit:
+                                type: string
+                                example: kg
+                              cost_price:
+                                type: string
+                                example: '120.00'
+      deprecated: false
+    post:
+      tags:
+      - Product
+      summary: Create Product
+      description: ''
+      operationId: create_product
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                product:
+                  type: object
+                  required:
+                  - title
+                  - has_only_default_variant
+                  properties:
+                    title:
+                      type: string
+                      description: Product's title
+                    brief:
+                      type: string
+                      description: Product's briefing description
+                    description:
+                      type: string
+                      description: Product's description
+                    published:
+                      type: boolean
+                      description: whether it is published or not
+                    requires_shipping:
+                      type: boolean
+                      description: whether it is required to shipping
+                    taxable:
+                      type: boolean
+                      description: is it taxable?
+                    tags:
+                      type: string
+                      description: 'tags, separated by comma, for example: `tag1,tag2`'
+                    vendor:
+                      type: string
+                      description: vendor's name
+                    vendor_url:
+                      type: string
+                      description: vendor's URL
+                    note:
+                      type: string
+                      description: note
+                    seo_title:
+                      type: string
+                      description: SEO title
+                    seo_description:
+                      type: string
+                      description: SEO description
+                    seo_keywords:
+                      type: string
+                      description: 'SEO keywords, separated by comma, for example: `key1,key2`'
+                    handle:
+                      type: string
+                      description: product's handle
+                    has_only_default_variant:
+                      type: boolean
+                      description: is it a single variant?
+                    inventory_tracking:
+                      type: boolean
+                      description: whether to tracking inventory
+                    inventory_policy:
+                      type: string
+                      description: 'inventory policy: `continue`, `deny`, `auto_unpublished`, required while `inventory_tracking` is true'
+                    need_variant_image:
+                      type: boolean
+                      description: whether variant image is needed. It's required if `has_only_default_variant` is false
+                    spu:
+                      type: string
+                      description: product's SPU
+                    fake_sales:
+                      type: integer
+                      description: product's fake sales
+                      format: int32
+                    display_fake_sales:
+                      type: boolean
+                      description: whether to display fake sales
+                    options:
+                      type: array
+                      items:
+                        properties:
+                          name:
+                            type: string
+                            description: Option's name (eg. "color","size")
+                          values:
+                            type: array
+                            description: 'Option''s values, for example: `["red", "black"]`,`["small", "large"]`'
+                            default: []
+                            items:
+                              type: string
+                        required:
+                        - name
+                        - values
+                        type: object
+                    images:
+                      type: array
+                      items:
+                        properties:
+                          src:
+                            type: string
+                            description: Image's URL
+                          width:
+                            type: integer
+                            description: Image's width in px
+                            format: int32
+                          height:
+                            type: integer
+                            description: Image's height in px
+                            format: int32
+                          alt:
+                            type: string
+                            description: Image's alt
+                        required:
+                        - src
+                        type: object
+                    variants:
+                      type: array
+                      items:
+                        properties:
+                          option1:
+                            type: string
+                            description: Option 1
+                          option2:
+                            type: string
+                            description: Option 2
+                          option3:
+                            type: string
+                            description: Option 3
+                          image:
+                            type: object
+                            description: 'variant''s images, e.g.: `{"src":"//cn.cdn.shoplazza.com/c8bf5695d347092d7a010f00182581f7.jpeg"}`'
+                            properties:
+                              src:
+                                type: string
+                                description: Image's URL
+                              width:
+                                type: integer
+                                description: 'Image''s width, in px, for example: `400`'
+                                format: int32
+                              height:
+                                type: integer
+                                description: 'Image''s height, in px, for example: `300`'
+                                format: int32
+                              alt:
+                                type: string
+                                description: Image's alt
+                          compare_at_price:
+                            type: string
+                            description: compare at price ( original price )
+                          price:
+                            type: string
+                            description: price, set it to "0.00" if you want to leave the price empty.
+                          sku:
+                            type: string
+                            description: SKU
+                          barcode:
+                            type: string
+                            description: bar code
+                          note:
+                            type: string
+                            description: note
+                          inventory_quantity:
+                            type: integer
+                            description: inventory quantity
+                            format: int32
+                          weight:
+                            type: string
+                            description: weight
+                          weight_unit:
+                            type: string
+                            description: 'unit of weight,  possible value are: `kg`, `g`, `lb`, `oz`'
+                          cost_price:
+                            type: string
+                            description: cost price
+                        required:
+                        - price
+                        type: object
+                    metafield:
+                      type: array
+                      items:
+                        properties:
+                          namespace:
+                            type: string
+                            description: namespace for meta field
+                          value:
+                            type: string
+                            description: meta field's value
+                          value_type:
+                            type: string
+                            description: meta field's value type, like "integer"
+                          key:
+                            type: string
+                            description: meta field's key
+                          description:
+                            type: string
+                            description: meta field's description
+                        required:
+                        - namespace
+                        - value
+                        - value_type
+                        - key
+                        type: object
+                    unique_token:
+                      type: string
+                      description: 'unique_token is a unique string identifier generated by your app, for example: e6cc4df1-d4f5-4ad4-a019-2e0f3ddd6e63'
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"product\": {\n        \"id\": \"c1d5b2a3-fab1-4e26-8582-75d3b2677042\",\n        \"title\": \"aasd\",\n        \"brief\": \"asd\",\n        \"description\": \"asd\",\n        \"published\": false,\n        \"requires_shipping\": false,\n        \"taxable\": false,\n        \"tags\": \"\",\n        \"vendor\": \"asd\",\n        \"vendor_url\": \"asd\",\n        \"inventory_quantity\": 123,\n        \"published_at\": null,\n        \"created_at\": \"2022-01-10T06:11:45Z\",\n        \"updated_at\": \"2022-01-10T06:11:45Z\",\n        \"note\": \"asd\",\n        \"seo_title\": \"asd\",\n        \"seo_description\": \"asd\",\n        \"seo_keywords\": \"asd\",\n        \"handle\": \"asd-bkpq\",\n        \"has_only_default_variant\": false,\n        \"inventory_tracking\": false,\n        \"inventory_policy\": \"continue\",\n        \"need_variant_image\": false,\n        \"spu\": \"asd\",\n        \"fake_sales\": 123,\n        \"display_fake_sales\": false,\n        \"image\": {\n            \"src\": \"//cdn.shoplazza.com/shirt.png\",\n            \"width\": 100,\n            \"height\": 100,\n            \"alt\": \"\",\n            \"path\": \"shirt.png\"\n        },\n        \"images\": [\n            {\n                \"id\": \"fe0ae4b6-cb7b-4d1c-a7f0-727750b73d16\",\n                \"product_id\": \"c1d5b2a3-fab1-4e26-8582-75d3b2677042\",\n                \"position\": 1,\n                \"src\": \"//cdn.shoplazza.com/shirt.png\",\n                \"width\": 100,\n                \"height\": 100,\n                \"alt\": \"\",\n                \"created_at\": \"2022-01-10T06:11:45Z\",\n                \"updated_at\": \"2022-01-10T06:11:45Z\"\n            }\n        ],\n        \"options\": [\n            {\n                \"id\": \"b5109277-0daa-42f5-afa3-1bb609d13199\",\n                \"product_id\": \"c1d5b2a3-fab1-4e26-8582-75d3b2677042\",\n                \"position\": 1,\n                \"name\": \"qwe\",\n                \"values\": [\n                    \"qwe\"\n                ]\n            }\n        ],\n        \"variants\": [\n            {\n                \"id\": \"8ecc0550-fb48-4860-9bb3-9b85e3c2b44a\",\n                \"product_id\": \"c1d5b2a3-fab1-4e26-8582-75d3b2677042\",\n                \"image_id\": \"\",\n                \"created_at\": \"2022-01-10T06:11:45Z\",\n                \"updated_at\": \"2022-01-10T06:11:45Z\",\n                \"title\": \"qwe\",\n                \"option1\": \"qwe\",\n                \"option2\": \"\",\n                \"option3\": \"\",\n                \"image\": null,\n                \"position\": 1,\n                \"compare_at_price\": \"132.00\",\n                \"price\": \"123.00\",\n                \"sku\": \"asd\",\n                \"barcode\": \"asd\",\n                \"note\": \"asd\",\n                \"inventory_quantity\": 123,\n                \"weight\": \"123\",\n                \"weight_unit\": \"kg\",\n                \"cost_price\": \"120.00\"\n            }\n        ]\n    }\n}"
+              schema:
+                type: object
+                properties:
+                  product:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: c1d5b2a3-fab1-4e26-8582-75d3b2677042
+                      title:
+                        type: string
+                        example: aasd
+                      brief:
+                        type: string
+                        example: asd
+                      description:
+                        type: string
+                        example: asd
+                      published:
+                        type: boolean
+                        example: false
+                        default: true
+                      requires_shipping:
+                        type: boolean
+                        example: false
+                        default: true
+                      taxable:
+                        type: boolean
+                        example: false
+                        default: true
+                      tags:
+                        type: string
+                        example: ''
+                      vendor:
+                        type: string
+                        example: asd
+                      vendor_url:
+                        type: string
+                        example: asd
+                      inventory_quantity:
+                        type: integer
+                        example: 123
+                        default: 0
+                      published_at: {}
+                      created_at:
+                        type: string
+                        example: '2022-01-10T06:11:45Z'
+                      updated_at:
+                        type: string
+                        example: '2022-01-10T06:11:45Z'
+                      note:
+                        type: string
+                        example: asd
+                      seo_title:
+                        type: string
+                        example: asd
+                      seo_description:
+                        type: string
+                        example: asd
+                      seo_keywords:
+                        type: string
+                        example: asd
+                      handle:
+                        type: string
+                        example: asd-bkpq
+                      has_only_default_variant:
+                        type: boolean
+                        example: false
+                        default: true
+                      inventory_tracking:
+                        type: boolean
+                        example: false
+                        default: true
+                      inventory_policy:
+                        type: string
+                        example: continue
+                      need_variant_image:
+                        type: boolean
+                        example: false
+                        default: true
+                      spu:
+                        type: string
+                        example: asd
+                      fake_sales:
+                        type: integer
+                        example: 123
+                        default: 0
+                      display_fake_sales:
+                        type: boolean
+                        example: false
+                        default: true
+                      image:
+                        type: object
+                        properties:
+                          src:
+                            type: string
+                            example: //cdn.shoplazza.com/shirt.png
+                          width:
+                            type: integer
+                            example: 100
+                            default: 0
+                          height:
+                            type: integer
+                            example: 100
+                            default: 0
+                          alt:
+                            type: string
+                            example: ''
+                          path:
+                            type: string
+                            example: shirt.png
+                      images:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              example: fe0ae4b6-cb7b-4d1c-a7f0-727750b73d16
+                            product_id:
+                              type: string
+                              example: c1d5b2a3-fab1-4e26-8582-75d3b2677042
+                            position:
+                              type: integer
+                              example: 1
+                              default: 0
+                            src:
+                              type: string
+                              example: //cdn.shoplazza.com/shirt.png
+                            width:
+                              type: integer
+                              example: 100
+                              default: 0
+                            height:
+                              type: integer
+                              example: 100
+                              default: 0
+                            alt:
+                              type: string
+                              example: ''
+                            created_at:
+                              type: string
+                              example: '2022-01-10T06:11:45Z'
+                            updated_at:
+                              type: string
+                              example: '2022-01-10T06:11:45Z'
+                      options:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              example: b5109277-0daa-42f5-afa3-1bb609d13199
+                            product_id:
+                              type: string
+                              example: c1d5b2a3-fab1-4e26-8582-75d3b2677042
+                            position:
+                              type: integer
+                              example: 1
+                              default: 0
+                            name:
+                              type: string
+                              example: qwe
+                            values:
+                              type: array
+                              items:
+                                type: string
+                                example: qwe
+                      variants:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              example: 8ecc0550-fb48-4860-9bb3-9b85e3c2b44a
+                            product_id:
+                              type: string
+                              example: c1d5b2a3-fab1-4e26-8582-75d3b2677042
+                            image_id:
+                              type: string
+                              example: ''
+                            created_at:
+                              type: string
+                              example: '2022-01-10T06:11:45Z'
+                            updated_at:
+                              type: string
+                              example: '2022-01-10T06:11:45Z'
+                            title:
+                              type: string
+                              example: qwe
+                            option1:
+                              type: string
+                              example: qwe
+                            option2:
+                              type: string
+                              example: ''
+                            option3:
+                              type: string
+                              example: ''
+                            image: {}
+                            position:
+                              type: integer
+                              example: 1
+                              default: 0
+                            compare_at_price:
+                              type: string
+                              example: '132.00'
+                            price:
+                              type: string
+                              example: '123.00'
+                            sku:
+                              type: string
+                              example: asd
+                            barcode:
+                              type: string
+                              example: asd
+                            note:
+                              type: string
+                              example: asd
+                            inventory_quantity:
+                              type: integer
+                              example: 123
+                              default: 0
+                            weight:
+                              type: string
+                              example: '123'
+                            weight_unit:
+                              type: string
+                              example: kg
+                            cost_price:
+                              type: string
+                              example: '120.00'
+      deprecated: false
+  /openapi/2022-01/products/count:
+    get:
+      tags:
+      - Product
+      summary: Product Total Count
+      description: ''
+      operationId: product_count
+      parameters:
+      - name: ids
+        in: query
+        description: 'Product''s IDs, separated by comma, for example: `9e79ca1f-9ff2-409b-976f-98be343d38a3,9e79ca1f-9ff2-409b-976f-98be343d38ae`'
+        schema:
+          type: string
+      - name: title
+        in: query
+        description: product's title
+        schema:
+          type: string
+      - name: collection_id
+        in: query
+        description: 'Collection''s ID, for example: `9e79ca1f-9ff2-409b-976f-98be343d38a3`'
+        schema:
+          type: string
+      - name: created_at_min
+        in: query
+        description: 'filter products created at or after date, for example: `2018-10-01T16:15:47-04:00`'
+        schema:
+          type: string
+      - name: created_at_max
+        in: query
+        description: 'filter products created at or before date, for example: `2018-10-01T16:15:47-04:00`'
+        schema:
+          type: string
+      - name: updated_at_min
+        in: query
+        description: 'filter products last updated at or after date, for example: `2018-10-01T16:15:47-04:00`'
+        schema:
+          type: string
+      - name: updated_at_max
+        in: query
+        description: 'filter products last updated at or before date, for example: `2018-10-01T16:15:47-04:00`'
+        schema:
+          type: string
+      - name: published_at_min
+        in: query
+        description: 'filter products published at or after date, for example: `2018-10-01T16:15:47-04:00`'
+        schema:
+          type: string
+      - name: published_at_max
+        in: query
+        description: 'filter products published at or before date, for example: `2018-10-01T16:15:47-04:00`'
+        schema:
+          type: string
+      - name: published_status
+        in: query
+        description: 'filter by publish status: `published`, `unpublished`, `any`'
+        schema:
+          type: string
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"count\": 1\n}"
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 1
+                    default: 0
+      deprecated: false
+  /openapi/2022-01/products/{product_id}:
+    get:
+      tags:
+      - Product
+      summary: Product Details
+      description: ''
+      operationId: product_show
+      parameters:
+      - name: product_id
+        in: path
+        description: Product's ID
+        schema:
+          type: string
+          default: 7a4ed7bb-3065-49a4-94cf-a742591938de
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"product\": {\n        \"id\": \"1931a81f-cc64-4a9a-a097-e0a8072f5ffe\",\n        \"title\": \"aasd\",\n        \"brief\": \"asd\",\n        \"description\": \"asd\",\n        \"published\": false,\n        \"requires_shipping\": false,\n        \"taxable\": false,\n        \"tags\": \"asd\",\n        \"vendor\": \"asd\",\n        \"vendor_url\": \"asd\",\n        \"inventory_quantity\": 123,\n        \"published_at\": null,\n        \"created_at\": \"2022-01-10T01:48:53Z\",\n        \"updated_at\": \"2022-01-10T01:48:53Z\",\n        \"note\": \"asd\",\n        \"seo_title\": \"asd\",\n        \"seo_description\": \"asd\",\n        \"seo_keywords\": \"asd\",\n        \"handle\": \"asd\",\n        \"has_only_default_variant\": false,\n        \"inventory_tracking\": false,\n        \"inventory_policy\": \"continue\",\n        \"need_variant_image\": false,\n        \"spu\": \"asd\",\n        \"fake_sales\": 123,\n        \"display_fake_sales\": false,\n        \"image\": {\n            \"src\": \"//cdn.shoplazza.com/shirt.png\",\n            \"width\": 100,\n            \"height\": 100,\n            \"alt\": \"\",\n            \"path\": \"shirt.png\"\n        },\n        \"images\": [\n            {\n                \"id\": \"e7ff60ce-c523-4510-b126-b84d5527dfdb\",\n                \"product_id\": \"1931a81f-cc64-4a9a-a097-e0a8072f5ffe\",\n                \"position\": 1,\n                \"src\": \"//cdn.shoplazza.com/shirt.png\",\n                \"width\": 100,\n                \"height\": 100,\n                \"alt\": \"\",\n                \"created_at\": \"2022-01-10T01:48:53Z\",\n                \"updated_at\": \"2022-01-10T01:48:53Z\"\n            }\n        ],\n        \"options\": [\n            {\n                \"id\": \"1cc9bd89-c6e2-466b-ae5a-11b47da0d02f\",\n                \"product_id\": \"1931a81f-cc64-4a9a-a097-e0a8072f5ffe\",\n                \"position\": 1,\n                \"name\": \"qwe\",\n                \"values\": [\n                    \"qwe\"\n                ]\n            }\n        ],\n        \"variants\": [\n            {\n                \"id\": \"53e30e92-011b-4e31-bfb4-63196360b671\",\n                \"product_id\": \"1931a81f-cc64-4a9a-a097-e0a8072f5ffe\",\n                \"image_id\": \"\",\n                \"created_at\": \"2022-01-10T01:48:53Z\",\n                \"updated_at\": \"2022-01-10T01:48:53Z\",\n                \"title\": \"qwe\",\n                \"option1\": \"qwe\",\n                \"option2\": \"\",\n                \"option3\": \"\",\n                \"image\": null,\n                \"position\": 1,\n                \"compare_at_price\": \"132.00\",\n                \"price\": \"123.00\",\n                \"sku\": \"asd\",\n                \"barcode\": \"asd\",\n                \"note\": \"asd\",\n                \"inventory_quantity\": 123,\n                \"weight\": \"123\",\n                \"weight_unit\": \"kg\",\n                \"cost_price\": \"120.00\"\n            }\n        ]\n    }\n}"
+              schema:
+                type: object
+                properties:
+                  product:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: 1931a81f-cc64-4a9a-a097-e0a8072f5ffe
+                      title:
+                        type: string
+                        example: aasd
+                      brief:
+                        type: string
+                        example: asd
+                      description:
+                        type: string
+                        example: asd
+                      published:
+                        type: boolean
+                        example: false
+                        default: true
+                      requires_shipping:
+                        type: boolean
+                        example: false
+                        default: true
+                      taxable:
+                        type: boolean
+                        example: false
+                        default: true
+                      tags:
+                        type: string
+                        example: asd
+                      vendor:
+                        type: string
+                        example: asd
+                      vendor_url:
+                        type: string
+                        example: asd
+                      inventory_quantity:
+                        type: integer
+                        example: 123
+                        default: 0
+                      published_at: {}
+                      created_at:
+                        type: string
+                        example: '2022-01-10T01:48:53Z'
+                      updated_at:
+                        type: string
+                        example: '2022-01-10T01:48:53Z'
+                      note:
+                        type: string
+                        example: asd
+                      seo_title:
+                        type: string
+                        example: asd
+                      seo_description:
+                        type: string
+                        example: asd
+                      seo_keywords:
+                        type: string
+                        example: asd
+                      handle:
+                        type: string
+                        example: asd
+                      has_only_default_variant:
+                        type: boolean
+                        example: false
+                        default: true
+                      inventory_tracking:
+                        type: boolean
+                        example: false
+                        default: true
+                      inventory_policy:
+                        type: string
+                        example: continue
+                      need_variant_image:
+                        type: boolean
+                        example: false
+                        default: true
+                      spu:
+                        type: string
+                        example: asd
+                      fake_sales:
+                        type: integer
+                        example: 123
+                        default: 0
+                      display_fake_sales:
+                        type: boolean
+                        example: false
+                        default: true
+                      image:
+                        type: object
+                        properties:
+                          src:
+                            type: string
+                            example: //cdn.shoplazza.com/shirt.png
+                          width:
+                            type: integer
+                            example: 100
+                            default: 0
+                          height:
+                            type: integer
+                            example: 100
+                            default: 0
+                          alt:
+                            type: string
+                            example: ''
+                          path:
+                            type: string
+                            example: shirt.png
+                      images:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              example: e7ff60ce-c523-4510-b126-b84d5527dfdb
+                            product_id:
+                              type: string
+                              example: 1931a81f-cc64-4a9a-a097-e0a8072f5ffe
+                            position:
+                              type: integer
+                              example: 1
+                              default: 0
+                            src:
+                              type: string
+                              example: //cdn.shoplazza.com/shirt.png
+                            width:
+                              type: integer
+                              example: 100
+                              default: 0
+                            height:
+                              type: integer
+                              example: 100
+                              default: 0
+                            alt:
+                              type: string
+                              example: ''
+                            created_at:
+                              type: string
+                              example: '2022-01-10T01:48:53Z'
+                            updated_at:
+                              type: string
+                              example: '2022-01-10T01:48:53Z'
+                      options:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              example: 1cc9bd89-c6e2-466b-ae5a-11b47da0d02f
+                            product_id:
+                              type: string
+                              example: 1931a81f-cc64-4a9a-a097-e0a8072f5ffe
+                            position:
+                              type: integer
+                              example: 1
+                              default: 0
+                            name:
+                              type: string
+                              example: qwe
+                            values:
+                              type: array
+                              items:
+                                type: string
+                                example: qwe
+                      variants:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              example: 53e30e92-011b-4e31-bfb4-63196360b671
+                            product_id:
+                              type: string
+                              example: 1931a81f-cc64-4a9a-a097-e0a8072f5ffe
+                            image_id:
+                              type: string
+                              example: ''
+                            created_at:
+                              type: string
+                              example: '2022-01-10T01:48:53Z'
+                            updated_at:
+                              type: string
+                              example: '2022-01-10T01:48:53Z'
+                            title:
+                              type: string
+                              example: qwe
+                            option1:
+                              type: string
+                              example: qwe
+                            option2:
+                              type: string
+                              example: ''
+                            option3:
+                              type: string
+                              example: ''
+                            image: {}
+                            position:
+                              type: integer
+                              example: 1
+                              default: 0
+                            compare_at_price:
+                              type: string
+                              example: '132.00'
+                            price:
+                              type: string
+                              example: '123.00'
+                            sku:
+                              type: string
+                              example: asd
+                            barcode:
+                              type: string
+                              example: asd
+                            note:
+                              type: string
+                              example: asd
+                            inventory_quantity:
+                              type: integer
+                              example: 123
+                              default: 0
+                            weight:
+                              type: string
+                              example: '123'
+                            weight_unit:
+                              type: string
+                              example: kg
+                            cost_price:
+                              type: string
+                              example: '120.00'
+      deprecated: false
+    put:
+      tags:
+      - Product
+      summary: Update Product
+      description: ''
+      operationId: update_product
+      parameters:
+      - name: product_id
+        in: path
+        description: Product's ID
+        schema:
+          type: string
+        required: true
+      - name: no_entity
+        in: query
+        description: If no_entity is true, it will return empty object while update successfully
+        schema:
+          type: boolean
+          default: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                product:
+                  type: object
+                  required:
+                  - title
+                  properties:
+                    title:
+                      type: string
+                      description: product's title
+                    brief:
+                      type: string
+                      description: product's briefing description
+                    description:
+                      type: string
+                      description: product's description
+                    published:
+                      type: boolean
+                      description: whether it is published
+                    requires_shipping:
+                      type: boolean
+                      description: whether it need shipping
+                    taxable:
+                      type: boolean
+                      description: whether it's taxable
+                    tags:
+                      type: string
+                      description: 'tags, separated by comma, ex: "tag1,tag2"'
+                    vendor:
+                      type: string
+                      description: vendor's name
+                    vendor_url:
+                      type: string
+                      description: vendor's URL
+                    note:
+                      type: string
+                      description: Note
+                    handle:
+                      type: string
+                      description: product's handle
+                    seo_title:
+                      type: string
+                      description: SEO title
+                    seo_description:
+                      type: string
+                      description: SEO description
+                    seo_keywords:
+                      type: string
+                      description: 'SEO keywords, separated by comma,  ex: "key1,key2"'
+                    inventory_policy:
+                      type: string
+                      description: 'policy for inventory while out of stock: "continue"/"deny"/"auto_unpublished", it''s required if inventory_tracking is true'
+                    inventory_tracking:
+                      type: boolean
+                      description: whether to tracking inventory
+                    spu:
+                      type: string
+                      description: product's SPU
+                    fake_sales:
+                      type: integer
+                      description: product's fake sales
+                      format: int32
+                    display_fake_sales:
+                      type: boolean
+                      description: whether to display fake sales
+                    images:
+                      type: array
+                      items:
+                        properties:
+                          id:
+                            type: string
+                            description: Image's ID
+                          src:
+                            type: string
+                            description: Image's URL
+                          width:
+                            type: number
+                            description: 'Image''s width, in px, for example: `400`'
+                            format: float
+                          height:
+                            type: number
+                            description: 'Image''s height, in px, for example: `300`'
+                            format: float
+                          alt:
+                            type: string
+                            description: Image's alt
+                        type: object
+                    variants:
+                      type: array
+                      items:
+                        properties:
+                          id:
+                            type: string
+                            description: Option 1
+                          option1:
+                            type: string
+                            description: Option 1
+                          option2:
+                            type: string
+                            description: Option 2
+                          option3:
+                            type: string
+                            description: Option 3
+                          image:
+                            type: object
+                            required:
+                            - src
+                            properties:
+                              src:
+                                type: string
+                                description: Image's URL
+                              width:
+                                type: integer
+                                description: Image's width in px
+                                format: int32
+                              height:
+                                type: integer
+                                description: Image's height in px
+                                format: int32
+                              alt:
+                                type: string
+                                description: Image's alt
+                          image_id:
+                            type: string
+                            description: image ID
+                          compare_at_price:
+                            type: string
+                            description: compare at price ( original price )
+                          price:
+                            type: string
+                            description: price, set it to "0.00" if you want to leave the price empty.
+                          sku:
+                            type: string
+                            description: SKU
+                          barcode:
+                            type: string
+                            description: bar code
+                          note:
+                            type: string
+                            description: note
+                          inventory_quantity:
+                            type: integer
+                            description: inventory quantity
+                            format: int32
+                          weight:
+                            type: string
+                            description: weight
+                          weigh_unit:
+                            type: string
+                            description: 'unit of weight,  possible value are: `kg`, `g`, `lb`, `oz`'
+                          cost_price:
+                            type: string
+                            description: cost price
+                        required:
+                        - id
+                        - price
+                        type: object
+                    metafields:
+                      type: array
+                      items:
+                        properties:
+                          id:
+                            type: string
+                            description: metafield ID
+                          namespace:
+                            type: string
+                            description: namespace for meta field
+                          value:
+                            type: string
+                            description: meta field's value
+                          value_type:
+                            type: string
+                            description: meta field's value type, like "integer"
+                          key:
+                            type: string
+                            description: meta field's key
+                          description:
+                            type: string
+                            description: meta field's description
+                        required:
+                        - id
+                        - namespace
+                        - value
+                        - value_type
+                        - key
+                        type: object
+                    options:
+                      type: array
+                      items:
+                        properties:
+                          name:
+                            type: string
+                            description: 'Option''s name (eg. "color","size") '
+                          values:
+                            type: array
+                            description: 'Option''s values, for example: `["red", "black"]`,`["small", "large"]`'
+                            default: []
+                            items:
+                              type: string
+                        required:
+                        - name
+                        - values
+                        type: object
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n   \"product\":{\n       \"id\":\"0510dace-34da-4555-a896-495e0cb1ed6e\",\n       \"title\":\"title1\",\n       \"brief\": \"title2\",\n       \"description\": \"product description\",\n       \"vendor\": \"supplier\",\n       \"vendor_url\": \"http://www.express.com\",\n       \"has_only_default_variant\":true,\n       \"requires_shipping\": true,\n       \"taxable\": true,\n       \"inventory_tracking\": true,\n       \"inventory_policy\": \"inventory tracking solution\",\n       \"inventory_quantity\": 100,\n       \"published\": true,\n       \"published_at\": \"2019-10-01 10:00:00 xxxx\",\n       \"created_at\": \"2019-10-01 10:00:00 xxxx\",\n       \"updated_at\": \"2019-10-01 10:00:00 xxxx\",\n       \"note\": \"xxx\",\n       \"seo_title\": \"xxx\",\n       \"seo_description\": \"xxx\",\n       \"seo_keywords\": \"tag1,tag2,tag3\",\n       \"handle\": \"title1\",\n       \"need_variant_image\": true,\n       \"spu\": \"spu\",\n       \"fake_sales\": 0,\n       \"display_fake_sales\": false,\n       \"image\": {\"src\":\"https://oss.ali.com/abc.jpg\", \"width\":100, \"height\":100, \"alt\":\"\"},\n       \"images\": [\n           {\n               \"id\": \"0510dace-34da-4555-a896-495e0cb1ed6e\",\n               \"product_id\": \"df63c505-074f-47a7-ba4d-b624a281258e\",\n               \"position\": 1,\n               \"src\": \"https://cdn.shoplazza.com/example.png\",\n               \"width\": 480,\n               \"height\": 360,\n               \"alt\": \"Image\",\n               \"created_at\": \"2018-10-31T13:02:19-04:00\",\n               \"updated_at\": \"2018-10-31T13:02:19-04:00\"\n           }\n       ],\n       \"options\":[\n           {\n               \"id\":\"0510dace-34da-4555-a896-495e0cb1ed6e\",\n               \"product_id\": \"df63c505-074f-47a7-ba4d-b624a281258e\",\n               \"name\":\"color\",\n               \"position\":1,\n               \"values\": [\"red\", \"black\"]\n           },\n           {\n               \"id\":\"0510dace-34da-4555-a896-495e0cb1kkd8\",\n               \"product_id\": \"df63c505-074f-47a7-ba4d-b624a281258e\",\n               \"name\":\"size\",\n               \"position\":2,\n               \"values\":[\"32\", \"33\"]\n           }\n       ],\n       \"variants\":[\n           {\n               \"id\":\"0510dace-34da-4555-a896-495e0cb1ed6e\",\n               \"product_id\": \"df63c505-074f-47a7-ba4d-b624a281258e\",\n               \"position\":1,\n               \"title\":\"variants title\",\n               \"image\":{\"src\":\"https://oss.ali.com/abc.jpg\", \"width\":100, \"height\":100, \"alt\":\"\"},\n               \"price\": \"32\",\n               \"compare_at_price\": \"45\",\n               \"weight\": \"0.1\",\n               \"weight_unit\":\"kg\",\n               \"inventory_quantity\": 33,\n               \"sku\": \"20182002154567873574\",\n               \"barcode\": \"201213112\",\n               \"note\": \"xxx\",\n               \"option1\": \"red\",\n               \"option2\": \"M\",\n               \"option3\": \"\",\n               \"image_id\": \"0510dace-34da-4555-a896-495e0cb1ed6e\",\n               \"created_at\": \"2018-10-31T13:02:19-04:00\",\n               \"updated_at\": \"2018-10-31T13:02:19-04:00\",\n               \"cost_price\": \"30\"\n           }\n       ]\n   }\n}"
+              schema:
+                type: object
+                properties:
+                  product:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: 0510dace-34da-4555-a896-495e0cb1ed6e
+                      title:
+                        type: string
+                        example: title1
+                      brief:
+                        type: string
+                        example: title2
+                      description:
+                        type: string
+                        example: product description
+                      vendor:
+                        type: string
+                        example: supplier
+                      vendor_url:
+                        type: string
+                        example: http://www.express.com
+                      has_only_default_variant:
+                        type: boolean
+                        example: true
+                        default: true
+                      requires_shipping:
+                        type: boolean
+                        example: true
+                        default: true
+                      taxable:
+                        type: boolean
+                        example: true
+                        default: true
+                      inventory_tracking:
+                        type: boolean
+                        example: true
+                        default: true
+                      inventory_policy:
+                        type: string
+                        example: inventory tracking solution
+                      inventory_quantity:
+                        type: integer
+                        example: 100
+                        default: 0
+                      published:
+                        type: boolean
+                        example: true
+                        default: true
+                      published_at:
+                        type: string
+                        example: 2019-10-01 10:00:00 xxxx
+                      created_at:
+                        type: string
+                        example: 2019-10-01 10:00:00 xxxx
+                      updated_at:
+                        type: string
+                        example: 2019-10-01 10:00:00 xxxx
+                      note:
+                        type: string
+                        example: xxx
+                      seo_title:
+                        type: string
+                        example: xxx
+                      seo_description:
+                        type: string
+                        example: xxx
+                      seo_keywords:
+                        type: string
+                        example: tag1,tag2,tag3
+                      handle:
+                        type: string
+                        example: title1
+                      need_variant_image:
+                        type: boolean
+                        example: true
+                        default: true
+                      spu:
+                        type: string
+                        example: spu
+                      fake_sales:
+                        type: integer
+                        example: 0
+                        default: 0
+                      display_fake_sales:
+                        type: boolean
+                        example: false
+                        default: true
+                      image:
+                        type: object
+                        properties:
+                          src:
+                            type: string
+                            example: https://oss.ali.com/abc.jpg
+                          width:
+                            type: integer
+                            example: 100
+                            default: 0
+                          height:
+                            type: integer
+                            example: 100
+                            default: 0
+                          alt:
+                            type: string
+                            example: ''
+                      images:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              example: 0510dace-34da-4555-a896-495e0cb1ed6e
+                            product_id:
+                              type: string
+                              example: df63c505-074f-47a7-ba4d-b624a281258e
+                            position:
+                              type: integer
+                              example: 1
+                              default: 0
+                            src:
+                              type: string
+                              example: https://cdn.shoplazza.com/example.png
+                            width:
+                              type: integer
+                              example: 480
+                              default: 0
+                            height:
+                              type: integer
+                              example: 360
+                              default: 0
+                            alt:
+                              type: string
+                              example: Image
+                            created_at:
+                              type: string
+                              example: '2018-10-31T13:02:19-04:00'
+                            updated_at:
+                              type: string
+                              example: '2018-10-31T13:02:19-04:00'
+                      options:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              example: 0510dace-34da-4555-a896-495e0cb1ed6e
+                            product_id:
+                              type: string
+                              example: df63c505-074f-47a7-ba4d-b624a281258e
+                            name:
+                              type: string
+                              example: color
+                            position:
+                              type: integer
+                              example: 1
+                              default: 0
+                            values:
+                              type: array
+                              items:
+                                type: string
+                                example: red
+                      variants:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              example: 0510dace-34da-4555-a896-495e0cb1ed6e
+                            product_id:
+                              type: string
+                              example: df63c505-074f-47a7-ba4d-b624a281258e
+                            position:
+                              type: integer
+                              example: 1
+                              default: 0
+                            title:
+                              type: string
+                              example: variants title
+                            image:
+                              type: object
+                              properties:
+                                src:
+                                  type: string
+                                  example: https://oss.ali.com/abc.jpg
+                                width:
+                                  type: integer
+                                  example: 100
+                                  default: 0
+                                height:
+                                  type: integer
+                                  example: 100
+                                  default: 0
+                                alt:
+                                  type: string
+                                  example: ''
+                            price:
+                              type: string
+                              example: '32'
+                            compare_at_price:
+                              type: string
+                              example: '45'
+                            weight:
+                              type: string
+                              example: '0.1'
+                            weight_unit:
+                              type: string
+                              example: kg
+                            inventory_quantity:
+                              type: integer
+                              example: 33
+                              default: 0
+                            sku:
+                              type: string
+                              example: '20182002154567873574'
+                            barcode:
+                              type: string
+                              example: '201213112'
+                            note:
+                              type: string
+                              example: xxx
+                            option1:
+                              type: string
+                              example: red
+                            option2:
+                              type: string
+                              example: M
+                            option3:
+                              type: string
+                              example: ''
+                            image_id:
+                              type: string
+                              example: 0510dace-34da-4555-a896-495e0cb1ed6e
+                            created_at:
+                              type: string
+                              example: '2018-10-31T13:02:19-04:00'
+                            updated_at:
+                              type: string
+                              example: '2018-10-31T13:02:19-04:00'
+                            cost_price:
+                              type: string
+                              example: '30'
+      deprecated: false
+    delete:
+      tags:
+      - Product
+      summary: Delete Product
+      description: ''
+      operationId: delete_product
+      parameters:
+      - name: product_id
+        in: path
+        description: Product's ID
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+  /openapi/2022-01/variants/{variant_id}:
+    get:
+      tags:
+      - Product
+      summary: Variant Details
+      description: ''
+      operationId: variant_show
+      parameters:
+      - name: variant_id
+        in: path
+        description: Variant's ID
+        schema:
+          type: string
+          default: b7b0c296-17fc-4544-9459-8ef88514a51b
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"variant\": {\n       \"id\": \"91d50761-949f-4917-a5d3-2c4b586708e7\",\n       \"product_id\": \"df63c505-074f-47a7-ba4d-b624a281258e\",\n       \"title\": \"Green\",\n       \"price\": \"199.00\",\n       \"sku\": \"IPOD2008GREEN\",\n       \"position\": 3,\n       \"inventory_quantity\": 22,\n       \"compare_at_price\": \"0.00\",\n       \"option1\": \"Green\",\n       \"option2\": \"\",\n       \"option3\": \"\",\n       \"created_at\": \"2018-10-31T13:02:19-04:00\",\n       \"updated_at\": \"2018-10-31T13:02:19-04:00\",\n       \"barcode\": \"1234_green\",\n       \"note\": \"xxxx\",\n       \"weight\": \"1.25\",\n       \"weight_unit\": \"lb\",\n       \"image_id\": \"0510dace-34da-4555-a896-495e0cb1ed6e\",\n       \"image\": {\n           \"src\": \"http://cdn.shoplazza.com/example.jpg\",\n           \"width\": \"\",\n           \"height\": \"\",\n           \"alt\": \"\"\n       },\n       \"cost_price\": \"123.123\"\n   }\n}"
+              schema:
+                type: object
+                properties:
+                  variant:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: 91d50761-949f-4917-a5d3-2c4b586708e7
+                      product_id:
+                        type: string
+                        example: df63c505-074f-47a7-ba4d-b624a281258e
+                      title:
+                        type: string
+                        example: Green
+                      price:
+                        type: string
+                        example: '199.00'
+                      sku:
+                        type: string
+                        example: IPOD2008GREEN
+                      position:
+                        type: integer
+                        example: 3
+                        default: 0
+                      inventory_quantity:
+                        type: integer
+                        example: 22
+                        default: 0
+                      compare_at_price:
+                        type: string
+                        example: '0.00'
+                      option1:
+                        type: string
+                        example: Green
+                      option2:
+                        type: string
+                        example: ''
+                      option3:
+                        type: string
+                        example: ''
+                      created_at:
+                        type: string
+                        example: '2018-10-31T13:02:19-04:00'
+                      updated_at:
+                        type: string
+                        example: '2018-10-31T13:02:19-04:00'
+                      barcode:
+                        type: string
+                        example: 1234_green
+                      note:
+                        type: string
+                        example: xxxx
+                      weight:
+                        type: string
+                        example: '1.25'
+                      weight_unit:
+                        type: string
+                        example: lb
+                      image_id:
+                        type: string
+                        example: 0510dace-34da-4555-a896-495e0cb1ed6e
+                      image:
+                        type: object
+                        properties:
+                          src:
+                            type: string
+                            example: http://cdn.shoplazza.com/example.jpg
+                          width:
+                            type: string
+                            example: ''
+                          height:
+                            type: string
+                            example: ''
+                          alt:
+                            type: string
+                            example: ''
+                      cost_price:
+                        type: string
+                        example: '123.123'
+      deprecated: false
+    put:
+      tags:
+      - Product
+      summary: Update Variant
+      description: ''
+      operationId: update_variant
+      parameters:
+      - name: variant_id
+        in: path
+        description: Variant's ID
+        schema:
+          type: string
+        required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                variant:
+                  type: object
+                  properties:
+                    option1:
+                      type: string
+                      description: option 1
+                    option2:
+                      type: string
+                      description: option 2
+                    option3:
+                      type: string
+                      description: option 3
+                    image:
+                      type: object
+                      properties:
+                        src:
+                          type: string
+                          description: Image's URL
+                        width:
+                          type: integer
+                          description: 'Image''s width, in px, for example: `400`'
+                          format: int32
+                        height:
+                          type: integer
+                          description: 'Image''s height, in px, for example: `300`'
+                          format: int32
+                        alt:
+                          type: string
+                          description: Image's alt
+                    image_id:
+                      type: string
+                      description: image ID
+                    compare_at_price:
+                      type: string
+                      description: compare at price ( original price )
+                    price:
+                      type: string
+                      description: price, set it to "0.00" if you want to leave the price empty.
+                    sku:
+                      type: string
+                      description: SKU
+                    barcode:
+                      type: string
+                      description: bar code
+                    note:
+                      type: string
+                      description: note
+                    inventory_quantity:
+                      type: integer
+                      description: inventory quantity
+                      format: int32
+                    weight:
+                      type: string
+                      description: weight
+                    weigh_unit:
+                      type: string
+                      description: 'unit of weight,  possible value are: `kg`, `g`, `lb`, `oz`'
+                    cost_price:
+                      type: string
+                      description: cost price
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"variant\": {\n    \"id\": \"91d50761-949f-4917-a5d3-2c4b586708e7\",\n    \"product_id\": \"df63c505-074f-47a7-ba4d-b624a281258e\",\n    \"title\": \"Green\",\n    \"price\": \"199.00\",\n    \"sku\": \"IPOD2008GREEN\",\n    \"position\": 3,\n    \"inventory_quantity\": 22,\n    \"compare_at_price\": \"0.00\",\n    \"option1\": \"Green\",\n    \"option2\": \"\",\n    \"option3\": \"\",\n    \"created_at\": \"2018-10-31T13:02:19-04:00\",\n    \"updated_at\": \"2018-10-31T13:02:19-04:00\",\n    \"barcode\": \"1234_green\",\n    \"note\": \"xxxx\",\n    \"weight\": \"1.25\",\n    \"weight_unit\": \"lb\",\n    \"image_id\": \"0510dace-34da-4555-a896-495e0cb1ed6e\",\n    \"image\": {\n      \"src\": \"http://cdn.shoplazza.com/example.jpg\",\n      \"width\": \"\",\n      \"height\": \"\",\n      \"alt\": \"\"\n    },\n    \"cost_price\": \"123.123\"\n  }\n}"
+              schema:
+                type: object
+                properties:
+                  variant:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: 91d50761-949f-4917-a5d3-2c4b586708e7
+                      product_id:
+                        type: string
+                        example: df63c505-074f-47a7-ba4d-b624a281258e
+                      title:
+                        type: string
+                        example: Green
+                      price:
+                        type: string
+                        example: '199.00'
+                      sku:
+                        type: string
+                        example: IPOD2008GREEN
+                      position:
+                        type: integer
+                        example: 3
+                        default: 0
+                      inventory_quantity:
+                        type: integer
+                        example: 22
+                        default: 0
+                      compare_at_price:
+                        type: string
+                        example: '0.00'
+                      option1:
+                        type: string
+                        example: Green
+                      option2:
+                        type: string
+                        example: ''
+                      option3:
+                        type: string
+                        example: ''
+                      created_at:
+                        type: string
+                        example: '2018-10-31T13:02:19-04:00'
+                      updated_at:
+                        type: string
+                        example: '2018-10-31T13:02:19-04:00'
+                      barcode:
+                        type: string
+                        example: 1234_green
+                      note:
+                        type: string
+                        example: xxxx
+                      weight:
+                        type: string
+                        example: '1.25'
+                      weight_unit:
+                        type: string
+                        example: lb
+                      image_id:
+                        type: string
+                        example: 0510dace-34da-4555-a896-495e0cb1ed6e
+                      image:
+                        type: object
+                        properties:
+                          src:
+                            type: string
+                            example: http://cdn.shoplazza.com/example.jpg
+                          width:
+                            type: string
+                            example: ''
+                          height:
+                            type: string
+                            example: ''
+                          alt:
+                            type: string
+                            example: ''
+                      cost_price:
+                        type: string
+                        example: '123.123'
+      deprecated: false
+  /openapi/2022-01/products/{product_id}/variants/count:
+    get:
+      tags:
+      - Product
+      summary: Variant Total Count
+      description: ''
+      operationId: variant_count
+      parameters:
+      - name: product_id
+        in: path
+        description: Product's ID
+        schema:
+          type: string
+          default: 7a4ed7bb-3065-49a4-94cf-a742591938de
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"count\": 1\n}"
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 1
+                    default: 0
+      deprecated: false
+  /openapi/2022-01/products/{product_id}/variants:
+    get:
+      tags:
+      - Product
+      summary: Variant List
+      description: ''
+      operationId: variant_list
+      parameters:
+      - name: product_id
+        in: path
+        description: Product's ID
+        schema:
+          type: string
+          default: 7a4ed7bb-3065-49a4-94cf-a742591938de
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"variants\": [\n        {\n            \"id\": \"91d50761-949f-4917-a5d3-2c4b586708e7\",\n            \"product_id\": \"df63c505-074f-47a7-ba4d-b624a281258e\",\n            \"title\": \"Green\",\n            \"price\": \"199.00\",\n            \"sku\": \"IPOD2008GREEN\",\n            \"position\": 3,\n            \"inventory_quantity\": 22,\n            \"compare_at_price\": \"0.00\",\n            \"option1\": \"Green\",\n            \"option2\": \"\",\n            \"option3\": \"\",\n            \"created_at\": \"2018-10-31T13:02:19-04:00\",\n            \"updated_at\": \"2018-10-31T13:02:19-04:00\",\n            \"barcode\": \"1234_green\",\n            \"note\": \"xxxx\",\n            \"weight\": \"1.25\",\n            \"weight_unit\": \"lb\",\n            \"image_id\": \"0510dace-34da-4555-a896-495e0cb1ed6e\",\n            \"image\": {\n                \"src\": \"http://cdn.shoplazza.com/example.jpg\",\n                \"width\": \"\",\n                \"height\": \"\",\n                \"alt\": \"\"\n            },\n            \"cost_price\": \"123.123\"\n        }\n    ]\n}"
+              schema:
+                type: object
+                properties:
+                  variants:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: 91d50761-949f-4917-a5d3-2c4b586708e7
+                        product_id:
+                          type: string
+                          example: df63c505-074f-47a7-ba4d-b624a281258e
+                        title:
+                          type: string
+                          example: Green
+                        price:
+                          type: string
+                          example: '199.00'
+                        sku:
+                          type: string
+                          example: IPOD2008GREEN
+                        position:
+                          type: integer
+                          example: 3
+                          default: 0
+                        inventory_quantity:
+                          type: integer
+                          example: 22
+                          default: 0
+                        compare_at_price:
+                          type: string
+                          example: '0.00'
+                        option1:
+                          type: string
+                          example: Green
+                        option2:
+                          type: string
+                          example: ''
+                        option3:
+                          type: string
+                          example: ''
+                        created_at:
+                          type: string
+                          example: '2018-10-31T13:02:19-04:00'
+                        updated_at:
+                          type: string
+                          example: '2018-10-31T13:02:19-04:00'
+                        barcode:
+                          type: string
+                          example: 1234_green
+                        note:
+                          type: string
+                          example: xxxx
+                        weight:
+                          type: string
+                          example: '1.25'
+                        weight_unit:
+                          type: string
+                          example: lb
+                        image_id:
+                          type: string
+                          example: 0510dace-34da-4555-a896-495e0cb1ed6e
+                        image:
+                          type: object
+                          properties:
+                            src:
+                              type: string
+                              example: http://cdn.shoplazza.com/example.jpg
+                            width:
+                              type: string
+                              example: ''
+                            height:
+                              type: string
+                              example: ''
+                            alt:
+                              type: string
+                              example: ''
+                        cost_price:
+                          type: string
+                          example: '123.123'
+      deprecated: false
+    post:
+      tags:
+      - Product
+      summary: Create Variant
+      description: ''
+      operationId: create_variant
+      parameters:
+      - name: product_id
+        in: path
+        description: Product's ID
+        schema:
+          type: string
+        required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                variant:
+                  type: object
+                  required:
+                  - price
+                  - position
+                  properties:
+                    option1:
+                      type: string
+                      description: Option 1
+                    option2:
+                      type: string
+                      description: Option 2
+                    option3:
+                      type: string
+                      description: Option 3
+                    image_id:
+                      type: string
+                      description: image ID
+                    compare_at_price:
+                      type: string
+                      description: compare at price ( original price )
+                    price:
+                      type: string
+                      description: price, set it to "0.00" if you want to leave the price empty.
+                    position:
+                      type: integer
+                      description: position
+                      format: int32
+                    sku:
+                      type: string
+                      description: SKU
+                    barcode:
+                      type: string
+                      description: bar code
+                    note:
+                      type: string
+                      description: note
+                    inventory_quantity:
+                      type: integer
+                      description: inventory quantity
+                      format: int32
+                    weight:
+                      type: string
+                      description: weight
+                    weight_unit:
+                      type: string
+                      description: 'unit of weight,  possible value are: `kg`, `g`, `lb`, `oz`'
+                    cost_price:
+                      type: string
+                      description: cost price
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"variant\": {\n    \"id\": \"91d50761-949f-4917-a5d3-2c4b586708e7\",\n    \"product_id\": \"df63c505-074f-47a7-ba4d-b624a281258e\",\n    \"title\": \"Green\",\n    \"price\": \"199.00\",\n    \"sku\": \"IPOD2008GREEN\",\n    \"position\": 3,\n    \"inventory_quantity\": 22,\n    \"compare_at_price\": \"0.00\",\n    \"option1\": \"Green\",\n    \"option2\": \"\",\n    \"option3\": \"\",\n    \"created_at\": \"2018-10-31T13:02:19-04:00\",\n    \"updated_at\": \"2018-10-31T13:02:19-04:00\",\n    \"barcode\": \"1234_green\",\n    \"note\": \"xxxx\",\n    \"weight\": \"1.25\",\n    \"weight_unit\": \"lb\",\n    \"image_id\": \"0510dace-34da-4555-a896-495e0cb1ed6e\",\n    \"image\": {\n      \"src\": \"http://cdn.shoplazza.com/example.jpg\",\n      \"width\": \"\",\n      \"height\": \"\",\n      \"alt\": \"\"\n    },\n    \"cost_price\": \"123.123\"\n  }\n}\n"
+              schema:
+                type: object
+                properties:
+                  variant:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: 91d50761-949f-4917-a5d3-2c4b586708e7
+                      product_id:
+                        type: string
+                        example: df63c505-074f-47a7-ba4d-b624a281258e
+                      title:
+                        type: string
+                        example: Green
+                      price:
+                        type: string
+                        example: '199.00'
+                      sku:
+                        type: string
+                        example: IPOD2008GREEN
+                      position:
+                        type: integer
+                        example: 3
+                        default: 0
+                      inventory_quantity:
+                        type: integer
+                        example: 22
+                        default: 0
+                      compare_at_price:
+                        type: string
+                        example: '0.00'
+                      option1:
+                        type: string
+                        example: Green
+                      option2:
+                        type: string
+                        example: ''
+                      option3:
+                        type: string
+                        example: ''
+                      created_at:
+                        type: string
+                        example: '2018-10-31T13:02:19-04:00'
+                      updated_at:
+                        type: string
+                        example: '2018-10-31T13:02:19-04:00'
+                      barcode:
+                        type: string
+                        example: 1234_green
+                      note:
+                        type: string
+                        example: xxxx
+                      weight:
+                        type: string
+                        example: '1.25'
+                      weight_unit:
+                        type: string
+                        example: lb
+                      image_id:
+                        type: string
+                        example: 0510dace-34da-4555-a896-495e0cb1ed6e
+                      image:
+                        type: object
+                        properties:
+                          src:
+                            type: string
+                            example: http://cdn.shoplazza.com/example.jpg
+                          width:
+                            type: string
+                            example: ''
+                          height:
+                            type: string
+                            example: ''
+                          alt:
+                            type: string
+                            example: ''
+                      cost_price:
+                        type: string
+                        example: '123.123'
+      deprecated: false
+  /openapi/2022-01/products/{product_id}/images:
+    get:
+      tags:
+      - Product
+      summary: Product Image List
+      description: ''
+      operationId: product_image_list
+      parameters:
+      - name: product_id
+        in: path
+        description: Product's ID
+        schema:
+          type: string
+          default: 7a4ed7bb-3065-49a4-94cf-a742591938de
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"images\": [\n    {\n      \"id\": \"df63c505-074f-47a7-ba4d-b624a281258e\",\n      \"product_id\": \"91d50761-949f-4917-a5d3-2c4b586708e7\",\n      \"position\": 1,\n      \"src\": \"https://cdn.shoplazza.com/example.png\",\n      \"width\": 480,\n      \"height\": 360,\n      \"alt\": \"Image\",\n      \"created_at\": \"2018-10-31T13:02:19-04:00\",\n      \"updated_at\": \"2018-10-31T13:02:19-04:00\"\n    }\n  ]\n}"
+              schema:
+                type: object
+                properties:
+                  images:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: df63c505-074f-47a7-ba4d-b624a281258e
+                        product_id:
+                          type: string
+                          example: 91d50761-949f-4917-a5d3-2c4b586708e7
+                        position:
+                          type: integer
+                          example: 1
+                          default: 0
+                        src:
+                          type: string
+                          example: https://cdn.shoplazza.com/example.png
+                        width:
+                          type: integer
+                          example: 480
+                          default: 0
+                        height:
+                          type: integer
+                          example: 360
+                          default: 0
+                        alt:
+                          type: string
+                          example: Image
+                        created_at:
+                          type: string
+                          example: '2018-10-31T13:02:19-04:00'
+                        updated_at:
+                          type: string
+                          example: '2018-10-31T13:02:19-04:00'
+      deprecated: false
+    post:
+      tags:
+      - Product
+      summary: Create Product Image
+      description: ''
+      operationId: create_product_image
+      parameters:
+      - name: product_id
+        in: path
+        description: Product's ID
+        schema:
+          type: string
+        required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                image:
+                  type: object
+                  required:
+                  - src
+                  properties:
+                    position:
+                      type: integer
+                      description: position
+                      format: int32
+                    src:
+                      type: string
+                      description: 'image src, for example: `http://cdn.shoplazza.com/1.jpg`'
+                    alt:
+                      type: string
+                      description: image's alt
+                    width:
+                      type: integer
+                      description: 'image''s width, in px, for example: `300`'
+                      format: int32
+                    height:
+                      type: integer
+                      description: 'image''s height, in px, for example: `300`'
+                      format: int32
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"image\": {\n    \"id\": \"df63c505-074f-47a7-ba4d-b624a281258e\",\n    \"product_id\": \"91d50761-949f-4917-a5d3-2c4b586708e7\",\n    \"position\": 1,\n    \"src\": \"https://cdn.shoplazza.com/example.png\",\n    \"width\": 480,\n    \"height\": 360,\n    \"alt\": \"Image\",\n    \"created_at\": \"2018-10-31T13:02:19-04:00\",\n    \"updated_at\": \"2018-10-31T13:02:19-04:00\"\n  }\n}"
+              schema:
+                type: object
+                properties:
+                  image:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: df63c505-074f-47a7-ba4d-b624a281258e
+                      product_id:
+                        type: string
+                        example: 91d50761-949f-4917-a5d3-2c4b586708e7
+                      position:
+                        type: integer
+                        example: 1
+                        default: 0
+                      src:
+                        type: string
+                        example: https://cdn.shoplazza.com/example.png
+                      width:
+                        type: integer
+                        example: 480
+                        default: 0
+                      height:
+                        type: integer
+                        example: 360
+                        default: 0
+                      alt:
+                        type: string
+                        example: Image
+                      created_at:
+                        type: string
+                        example: '2018-10-31T13:02:19-04:00'
+                      updated_at:
+                        type: string
+                        example: '2018-10-31T13:02:19-04:00'
+      deprecated: false
+  /openapi/2022-01/products/{product_id}/variants/{variant_id}:
+    delete:
+      tags:
+      - Product
+      summary: Delete Variant
+      description: ''
+      operationId: delete_variant
+      parameters:
+      - name: product_id
+        in: path
+        description: Product's ID
+        schema:
+          type: string
+        required: true
+      - name: variant_id
+        in: path
+        description: Variant's ID
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+  /openapi/2022-01/products/{product_id}/images/count:
+    get:
+      tags:
+      - Product
+      summary: Product Image Count
+      description: ''
+      operationId: product_image_count
+      parameters:
+      - name: product_id
+        in: path
+        description: Product's ID
+        schema:
+          type: string
+          default: 7a4ed7bb-3065-49a4-94cf-a742591938de
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"count\": 1\n}"
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 1
+                    default: 0
+      deprecated: false
+  /openapi/2022-01/products/{product_id}/images/{image_id}:
+    get:
+      tags:
+      - Product
+      summary: Product Image Details
+      description: ''
+      operationId: product_image_show
+      parameters:
+      - name: product_id
+        in: path
+        description: Product's ID
+        schema:
+          type: string
+          default: 7a4ed7bb-3065-49a4-94cf-a742591938de
+        required: true
+      - name: image_id
+        in: path
+        description: Image's ID
+        schema:
+          type: string
+          default: d429f45d-07e8-40f2-93c0-d61dbbb3bf7f
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"image\": {\n    \"id\": \"df63c505-074f-47a7-ba4d-b624a281258e\",\n    \"product_id\": \"91d50761-949f-4917-a5d3-2c4b586708e7\",\n    \"position\": 1,\n    \"src\": \"https://cdn.shoplazza.com/example.png\",\n    \"width\": 480,\n    \"height\": 360,\n    \"alt\": \"Image\",\n    \"created_at\": \"2018-10-31T13:02:19-04:00\",\n    \"updated_at\": \"2018-10-31T13:02:19-04:00\"\n  }\n}"
+              schema:
+                type: object
+                properties:
+                  image:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: df63c505-074f-47a7-ba4d-b624a281258e
+                      product_id:
+                        type: string
+                        example: 91d50761-949f-4917-a5d3-2c4b586708e7
+                      position:
+                        type: integer
+                        example: 1
+                        default: 0
+                      src:
+                        type: string
+                        example: https://cdn.shoplazza.com/example.png
+                      width:
+                        type: integer
+                        example: 480
+                        default: 0
+                      height:
+                        type: integer
+                        example: 360
+                        default: 0
+                      alt:
+                        type: string
+                        example: Image
+                      created_at:
+                        type: string
+                        example: '2018-10-31T13:02:19-04:00'
+                      updated_at:
+                        type: string
+                        example: '2018-10-31T13:02:19-04:00'
+      deprecated: false
+    delete:
+      tags:
+      - Product
+      summary: Delete Product Image
+      description: ''
+      operationId: delete_product_image
+      parameters:
+      - name: product_id
+        in: path
+        description: Product's ID
+        schema:
+          type: string
+        required: true
+      - name: image_id
+        in: path
+        description: Image's ID
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+    put:
+      tags:
+      - Product
+      summary: Update Product Image
+      description: ''
+      operationId: update_product_image
+      parameters:
+      - name: product_id
+        in: path
+        description: Product's ID
+        schema:
+          type: string
+        required: true
+      - name: image_id
+        in: path
+        description: Image's ID
+        schema:
+          type: string
+        required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                image:
+                  type: object
+                  properties:
+                    position:
+                      type: integer
+                      description: position
+                      format: int32
+                    src:
+                      type: string
+                      description: 'image''s src, for example: `http://cdn.shoplazza.com/1.jpg`'
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"image\": {\n    \"id\": \"df63c505-074f-47a7-ba4d-b624a281258e\",\n    \"product_id\": \"91d50761-949f-4917-a5d3-2c4b586708e7\",\n    \"position\": 1,\n    \"src\": \"https://cdn.shoplazza.com/example.png\",\n    \"width\": 480,\n    \"height\": 360,\n    \"alt\": \"Image\",\n    \"created_at\": \"2018-10-31T13:02:19-04:00\",\n    \"updated_at\": \"2018-10-31T13:02:19-04:00\"\n  }\n}"
+              schema:
+                type: object
+                properties:
+                  image:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: df63c505-074f-47a7-ba4d-b624a281258e
+                      product_id:
+                        type: string
+                        example: 91d50761-949f-4917-a5d3-2c4b586708e7
+                      position:
+                        type: integer
+                        example: 1
+                        default: 0
+                      src:
+                        type: string
+                        example: https://cdn.shoplazza.com/example.png
+                      width:
+                        type: integer
+                        example: 480
+                        default: 0
+                      height:
+                        type: integer
+                        example: 360
+                        default: 0
+                      alt:
+                        type: string
+                        example: Image
+                      created_at:
+                        type: string
+                        example: '2018-10-31T13:02:19-04:00'
+                      updated_at:
+                        type: string
+                        example: '2018-10-31T13:02:19-04:00'
+      deprecated: false
+  /openapi/2022-01/products/{product_id}/metafields:
+    get:
+      tags:
+      - Product
+      summary: Metafield List
+      description: ''
+      operationId: metafield_list
+      parameters:
+      - name: product_id
+        in: path
+        description: Product ID
+        schema:
+          type: string
+          default: 7a4ed7bb-3065-49a4-94cf-a742591938de
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"metafields\": [\n    {\n      \"id\": \"0097cfc8-6ec3-40ed-ab9f-6f2231b705a6\",\n      \"product_id\": \"ffbb507c-e64d-43f5-ae16-b126d2452e03\",\n      \"key\": \"warehouse\",\n      \"value\":\"25\",\n      \"value_type\":\"integer\",\n      \"namespace\":\"inventory\",\n      \"description\": \"\",\n      \"created_at\": \"2018-10-31T13:02:19-04:00\",\n      \"updated_at\": \"2018-10-31T13:02:19-04:00\"\n    }\n  ]\n}"
+              schema:
+                type: object
+                properties:
+                  metafields:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: 0097cfc8-6ec3-40ed-ab9f-6f2231b705a6
+                        product_id:
+                          type: string
+                          example: ffbb507c-e64d-43f5-ae16-b126d2452e03
+                        key:
+                          type: string
+                          example: warehouse
+                        value:
+                          type: string
+                          example: '25'
+                        value_type:
+                          type: string
+                          example: integer
+                        namespace:
+                          type: string
+                          example: inventory
+                        description:
+                          type: string
+                          example: ''
+                        created_at:
+                          type: string
+                          example: '2018-10-31T13:02:19-04:00'
+                        updated_at:
+                          type: string
+                          example: '2018-10-31T13:02:19-04:00'
+      deprecated: false
+    post:
+      tags:
+      - Product
+      summary: Create Metafield
+      description: ''
+      operationId: create-metafield
+      parameters:
+      - name: product_id
+        in: path
+        description: Product ID
+        schema:
+          type: string
+        required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                metafield:
+                  type: object
+                  required:
+                  - namespace
+                  - value
+                  - value_type
+                  - key
+                  properties:
+                    namespace:
+                      type: string
+                      description: namespace for meta field
+                    value:
+                      type: string
+                      description: meta field's value
+                    value_type:
+                      type: string
+                      description: meta field's value type, like "integer"
+                    key:
+                      type: string
+                      description: meta field's key
+                    description:
+                      type: string
+                      description: meta field's description
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"metafield\": {\n    \"id\": \"0097cfc8-6ec3-40ed-ab9f-6f2231b705a6\",\n    \"product_id\": \"ffbb507c-e64d-43f5-ae16-b126d2452e03\",\n    \"key\": \"warehouse\",\n    \"value\":\"25\",\n    \"value_type\":\"integer\",\n    \"namespace\":\"inventory\",\n    \"description\": \"\",\n    \"created_at\": \"2018-10-31T13:02:19-04:00\",\n    \"updated_at\": \"2018-10-31T13:02:19-04:00\"\n  }\n}"
+              schema:
+                type: object
+                properties:
+                  metafield:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: 0097cfc8-6ec3-40ed-ab9f-6f2231b705a6
+                      product_id:
+                        type: string
+                        example: ffbb507c-e64d-43f5-ae16-b126d2452e03
+                      key:
+                        type: string
+                        example: warehouse
+                      value:
+                        type: string
+                        example: '25'
+                      value_type:
+                        type: string
+                        example: integer
+                      namespace:
+                        type: string
+                        example: inventory
+                      description:
+                        type: string
+                        example: ''
+                      created_at:
+                        type: string
+                        example: '2018-10-31T13:02:19-04:00'
+                      updated_at:
+                        type: string
+                        example: '2018-10-31T13:02:19-04:00'
+      deprecated: false
+  /openapi/2022-01/products/{product_id}/metafields/count:
+    get:
+      tags:
+      - Product
+      summary: Metafield Count
+      description: ''
+      operationId: metafield_count
+      parameters:
+      - name: product_id
+        in: path
+        description: Product ID
+        schema:
+          type: string
+          default: 7a4ed7bb-3065-49a4-94cf-a742591938de
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"count\": 1\n}"
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 1
+                    default: 0
+      deprecated: false
+  /openapi/2022-01/products/{product_id}/metafields/{metafield_id}:
+    get:
+      tags:
+      - Product
+      summary: Metafield Details
+      description: ''
+      operationId: metafield_show
+      parameters:
+      - name: product_id
+        in: path
+        description: Product ID
+        schema:
+          type: string
+          default: 7a4ed7bb-3065-49a4-94cf-a742591938de
+        required: true
+      - name: metafield_id
+        in: path
+        description: Metafield ID
+        schema:
+          type: string
+          default: e3d2173e-9681-4e0d-a304-6d43e24b6159
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"metafield\": {\n    \"id\": \"0097cfc8-6ec3-40ed-ab9f-6f2231b705a6\",\n    \"product_id\": \"ffbb507c-e64d-43f5-ae16-b126d2452e03\",\n    \"key\": \"warehouse\",\n    \"value\":\"25\",\n    \"value_type\":\"integer\",\n    \"namespace\":\"inventory\",\n    \"description\": \"\",\n    \"created_at\": \"2018-10-31T13:02:19-04:00\",\n    \"updated_at\": \"2018-10-31T13:02:19-04:00\"\n  }\n}"
+              schema:
+                type: object
+                properties:
+                  metafield:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: 0097cfc8-6ec3-40ed-ab9f-6f2231b705a6
+                      product_id:
+                        type: string
+                        example: ffbb507c-e64d-43f5-ae16-b126d2452e03
+                      key:
+                        type: string
+                        example: warehouse
+                      value:
+                        type: string
+                        example: '25'
+                      value_type:
+                        type: string
+                        example: integer
+                      namespace:
+                        type: string
+                        example: inventory
+                      description:
+                        type: string
+                        example: ''
+                      created_at:
+                        type: string
+                        example: '2018-10-31T13:02:19-04:00'
+                      updated_at:
+                        type: string
+                        example: '2018-10-31T13:02:19-04:00'
+      deprecated: false
+    delete:
+      tags:
+      - Product
+      summary: Delete Metafield
+      description: ''
+      operationId: delate-metafield
+      parameters:
+      - name: product_id
+        in: path
+        description: Product ID
+        schema:
+          type: string
+        required: true
+      - name: metafield_id
+        in: path
+        description: Metafield ID
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+    put:
+      tags:
+      - Product
+      summary: Update Metafield
+      description: ''
+      operationId: update-metafield
+      parameters:
+      - name: product_id
+        in: path
+        description: Product ID
+        schema:
+          type: string
+        required: true
+      - name: metafield_id
+        in: path
+        description: Metafield ID
+        schema:
+          type: string
+        required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                metafield:
+                  type: object
+                  required:
+                  - namespace
+                  - value
+                  - value_type
+                  - key
+                  properties:
+                    namespace:
+                      type: string
+                      description: namespace for meta field
+                    value:
+                      type: string
+                      description: meta field's value
+                    value_type:
+                      type: string
+                      description: meta field's value type, like "integer"
+                    key:
+                      type: string
+                      description: meta field's key
+                    description:
+                      type: string
+                      description: meta field's description
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"metafield\": {\n    \"id\": \"0097cfc8-6ec3-40ed-ab9f-6f2231b705a6\",\n    \"product_id\": \"ffbb507c-e64d-43f5-ae16-b126d2452e03\",\n    \"key\": \"warehouse\",\n    \"value\":\"25\",\n    \"value_type\":\"integer\",\n    \"namespace\":\"inventory\",\n    \"description\": \"\",\n    \"created_at\": \"2018-10-31T13:02:19-04:00\",\n    \"updated_at\": \"2018-10-31T13:02:19-04:00\"\n  }\n}"
+              schema:
+                type: object
+                properties:
+                  metafield:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: 0097cfc8-6ec3-40ed-ab9f-6f2231b705a6
+                      product_id:
+                        type: string
+                        example: ffbb507c-e64d-43f5-ae16-b126d2452e03
+                      key:
+                        type: string
+                        example: warehouse
+                      value:
+                        type: string
+                        example: '25'
+                      value_type:
+                        type: string
+                        example: integer
+                      namespace:
+                        type: string
+                        example: inventory
+                      description:
+                        type: string
+                        example: ''
+                      created_at:
+                        type: string
+                        example: '2018-10-31T13:02:19-04:00'
+                      updated_at:
+                        type: string
+                        example: '2018-10-31T13:02:19-04:00'
+      deprecated: false
+  /openapi/2022-01/variants/sku/{sku}:
+    put:
+      summary: Update Variant By SKU
+      deprecated: false
+      description: ''
+      tags:
+      - Product
+      parameters:
+      - name: sku
+        in: path
+        description: ''
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                compare_at_price:
+                  type: string
+                  description: compare at price ( original price )
+                price:
+                  type: string
+                  description: price, set it to "0.00" if you want to leave the price empty.
+                barcode:
+                  type: string
+                  description: bar code
+                note:
+                  type: string
+                  description: note
+                inventory_quantity:
+                  type: integer
+                  description: inventory quantity
+                  examples:
+                  - 10
+                  nullable: true
+                Weight:
+                  type: string
+                  description: weight
+                weight_unit:
+                  type: string
+                  description: 'unit of weight,  possible value are: `kg`, `g`, `lb`, `oz`'
+                  default: kg
+                cost_price:
+                  type: string
+                  description: cost price
+                retail_price:
+                  type: string
+                  description: Suggested retail price
+                refuse_multi_result:
+                  type: boolean
+                  description: 'false: If sku matches multiple sub-items, update the matched sub-items normally.  true: Rejects the update if the sku matches more than one subitem'
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  variants:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          examples:
+                          - 91d50761-949f-4917-a5d3-2c4b586708e7
+                        product_id:
+                          type: string
+                          examples:
+                          - df63c505-074f-47a7-ba4d-b624a281258e
+                        title:
+                          type: string
+                          examples:
+                          - Green
+                        price:
+                          type: string
+                          examples:
+                          - '199.00'
+                        sku:
+                          type: string
+                          examples:
+                          - IPOD2008GREEN
+                        position:
+                          type: integer
+                          default: 0
+                          examples:
+                          - 3
+                        inventory_quantity:
+                          type: integer
+                          default: 0
+                          examples:
+                          - 22
+                        compare_at_price:
+                          type: string
+                          examples:
+                          - '0.00'
+                        option1:
+                          type: string
+                          examples:
+                          - Green
+                        option2:
+                          type: string
+                          examples:
+                          - ''
+                        option3:
+                          type: string
+                          examples:
+                          - ''
+                        created_at:
+                          type: string
+                          examples:
+                          - '2018-10-31T13:02:19-04:00'
+                        updated_at:
+                          type: string
+                          examples:
+                          - '2018-10-31T13:02:19-04:00'
+                        barcode:
+                          type: string
+                          examples:
+                          - 1234_green
+                        note:
+                          type: string
+                          examples:
+                          - xxxx
+                        weight:
+                          type: string
+                          examples:
+                          - '1.25'
+                        weight_unit:
+                          type: string
+                          examples:
+                          - lb
+                        image_id:
+                          type: string
+                          examples:
+                          - 0510dace-34da-4555-a896-495e0cb1ed6e
+                        image:
+                          type: object
+                          properties:
+                            src:
+                              type: string
+                              examples:
+                              - http://cdn.shoplazza.com/example.jpg
+                            width:
+                              type: integer
+                            height:
+                              type: integer
+                            path:
+                              type: string
+                            alt:
+                              type: string
+                              examples:
+                              - ''
+                        cost_price:
+                          type: string
+                          examples:
+                          - '123.123'
+                        wholesale_price:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              price:
+                                type: string
+                              min_quantity:
+                                type: integer
+                        retail_price:
+                          type: string
+                required:
+                - variants
+              examples:
+                '1':
+                  summary: 成功示例
+                  value:
+                    variants:
+                    - id: 91d50761-949f-4917-a5d3-2c4b586708e7
+                      product_id: df63c505-074f-47a7-ba4d-b624a281258e
+                      title: Green
+                      price: '199.00'
+                      sku: IPOD2008GREEN
+                      position: 3
+                      inventory_quantity: 22
+                      compare_at_price: '0.00'
+                      option1: Green
+                      option2: ''
+                      option3: ''
+                      created_at: '2018-10-31T13:02:19-04:00'
+                      updated_at: '2018-10-31T13:02:19-04:00'
+                      barcode: 1234_green
+                      note: xxxx
+                      weight: '1.25'
+                      weight_unit: lb
+                      image_id: 0510dace-34da-4555-a896-495e0cb1ed6e
+                      image:
+                        src: http://cdn.shoplazza.com/example.jpg
+                        width: ''
+                        height: ''
+                        path: ''
+                        alt: ''
+                      cost_price: '123.123'
+                      wholesale_price:
+                      - price: '200.00'
+                        min_quantity: 1
+                      retail_price: '10'
+      security: []
+  /openapi/2022-01/products/sku/{sku}/variants:
+    get:
+      summary: Variant List By SKU
+      deprecated: false
+      description: ''
+      tags:
+      - Product
+      parameters:
+      - name: sku
+        in: path
+        description: SKU
+        required: true
+        example: -A-A001002
+        schema:
+          type: string
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  variants:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          examples:
+                          - 91d50761-949f-4917-a5d3-2c4b586708e7
+                        product_id:
+                          type: string
+                          examples:
+                          - df63c505-074f-47a7-ba4d-b624a281258e
+                        title:
+                          type: string
+                          examples:
+                          - Green
+                        price:
+                          type: string
+                          examples:
+                          - '199.00'
+                        sku:
+                          type: string
+                          examples:
+                          - IPOD2008GREEN
+                        position:
+                          type: integer
+                          default: 0
+                          examples:
+                          - 3
+                        inventory_quantity:
+                          type: integer
+                          default: 0
+                          examples:
+                          - 22
+                        compare_at_price:
+                          type: string
+                          examples:
+                          - '0.00'
+                        option1:
+                          type: string
+                          examples:
+                          - Green
+                        option2:
+                          type: string
+                          examples:
+                          - ''
+                        option3:
+                          type: string
+                          examples:
+                          - ''
+                        created_at:
+                          type: string
+                          examples:
+                          - '2018-10-31T13:02:19-04:00'
+                        updated_at:
+                          type: string
+                          examples:
+                          - '2018-10-31T13:02:19-04:00'
+                        barcode:
+                          type: string
+                          examples:
+                          - 1234_green
+                        note:
+                          type: string
+                          examples:
+                          - xxxx
+                        weight:
+                          type: string
+                          examples:
+                          - '1.25'
+                        weight_unit:
+                          type: string
+                          examples:
+                          - lb
+                        image_id:
+                          type: string
+                          examples:
+                          - 0510dace-34da-4555-a896-495e0cb1ed6e
+                        image:
+                          type: object
+                          properties:
+                            src:
+                              type: string
+                              examples:
+                              - http://cdn.shoplazza.com/example.jpg
+                            width:
+                              type: string
+                              examples:
+                              - ''
+                            height:
+                              type: string
+                              examples:
+                              - ''
+                            alt:
+                              type: string
+                              examples:
+                              - ''
+                        cost_price:
+                          type: string
+                          examples:
+                          - '123.123'
+                        wholesale_price:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              price:
+                                type: string
+                              min_quantity:
+                                type: integer
+                        extend:
+                          type: object
+                          properties:
+                            length:
+                              type: number
+                            width:
+                              type: number
+                            height:
+                              type: number
+                            dimension_unit:
+                              type: string
+                            origin_country_code:
+                              type: string
+                            hs_code:
+                              type: string
+              examples:
+                '1':
+                  summary: 成功示例
+                  value:
+                    variants:
+                    - id: 91d50761-949f-4917-a5d3-2c4b586708e7
+                      product_id: df63c505-074f-47a7-ba4d-b624a281258e
+                      title: Green
+                      price: '199.00'
+                      sku: IPOD2008GREEN
+                      position: 3
+                      inventory_quantity: 22
+                      compare_at_price: '0.00'
+                      option1: Green
+                      option2: ''
+                      option3: ''
+                      created_at: '2018-10-31T13:02:19-04:00'
+                      updated_at: '2018-10-31T13:02:19-04:00'
+                      barcode: 1234_green
+                      note: xxxx
+                      weight: '1.25'
+                      weight_unit: lb
+                      image_id: 0510dace-34da-4555-a896-495e0cb1ed6e
+                      image:
+                        src: http://cdn.shoplazza.com/example.jpg
+                        width: ''
+                        height: ''
+                        alt: ''
+                      cost_price: '123.123'
+                      wholesale_price:
+                      - price: '200.00'
+                        min_quantity: 1
+                      extend: null
+      security: []
+  /openapi/2022-01/collections:
+    get:
+      tags:
+      - Product
+      summary: Collection List
+      description: ''
+      operationId: collection_list
+      parameters:
+      - name: ids
+        in: query
+        description: 'Collection''s IDs, separated by comma, for example: `0097cfc8-6ec3-40ed,40ed-ab9f-6f2231b7`'
+        schema:
+          type: string
+      - name: updated_at_min
+        in: query
+        description: 'filter collections updated at or after date, for example: `2018-10-01T16:15:47-04:00`'
+        schema:
+          type: string
+      - name: updated_at_max
+        in: query
+        description: 'filter collections updated at or before date, for example: `2018-10-01T16:15:47-04:00`'
+        schema:
+          type: string
+      - name: product_id
+        in: query
+        description: 'Product''s ID, for example: `0097cfc8-6ec3-40ed-ab9f-6f2231b705a6`'
+        schema:
+          type: string
+      - name: page
+        in: query
+        description: page number
+        schema:
+          type: integer
+          format: int32
+      - name: limit
+        in: query
+        description: limit collection result per page
+        schema:
+          type: integer
+          format: int32
+          default: 1
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"collections\": [\n    {\n      \"id\": \"b3b05c7b-45f1-413f-a78d-30016f94b035\",\n      \"title\": \"earphone\",\n      \"description\": \"all kinds of earphones\",\n      \"handle\": \"earphone\",\n      \"smart\": false,\n      \"image\": {\n        \"src\": \"//cdn.shoplazza.com/free/a95f0803c71834700b2a051c2311ab71.jpg\",\n        \"width\": 5184,\n        \"height\": 3456,\n        \"alt\": \"\",\n        \"path\": \"free/a95f0803c71834700b2a051c2311ab71.jpg\"\n      },\n      \"seo_title\": \"earphone\",\n      \"seo_description\": \"all kinds of earphones\",\n      \"seo_keywords\": \"\",\n      \"sort_order\": \"sales\",\n      \"created_at\": \"2021-07-02T07:53:49Z\",\n      \"updated_at\": \"2021-07-06T05:04:12Z\"\n    }\n  ]\n}"
+              schema:
+                type: object
+                properties:
+                  collections:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: b3b05c7b-45f1-413f-a78d-30016f94b035
+                        title:
+                          type: string
+                          example: earphone
+                        description:
+                          type: string
+                          example: all kinds of earphones
+                        handle:
+                          type: string
+                          example: earphone
+                        smart:
+                          type: boolean
+                          example: false
+                          default: true
+                        image:
+                          type: object
+                          properties:
+                            src:
+                              type: string
+                              example: //cdn.shoplazza.com/free/a95f0803c71834700b2a051c2311ab71.jpg
+                            width:
+                              type: integer
+                              example: 5184
+                              default: 0
+                            height:
+                              type: integer
+                              example: 3456
+                              default: 0
+                            alt:
+                              type: string
+                              example: ''
+                            path:
+                              type: string
+                              example: free/a95f0803c71834700b2a051c2311ab71.jpg
+                        seo_title:
+                          type: string
+                          example: earphone
+                        seo_description:
+                          type: string
+                          example: all kinds of earphones
+                        seo_keywords:
+                          type: string
+                          example: ''
+                        sort_order:
+                          type: string
+                          example: sales
+                        created_at:
+                          type: string
+                          example: '2021-07-02T07:53:49Z'
+                        updated_at:
+                          type: string
+                          example: '2021-07-06T05:04:12Z'
+      deprecated: false
+    post:
+      tags:
+      - Product
+      summary: Create Collection
+      description: ''
+      operationId: create_collection
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                collection:
+                  type: object
+                  required:
+                  - title
+                  properties:
+                    title:
+                      type: string
+                      description: Title
+                    handle:
+                      type: string
+                      description: Collection handle
+                    seo_title:
+                      type: string
+                      description: SEO title
+                    seo_description:
+                      type: string
+                      description: SEO description
+                    seo_keywords:
+                      type: string
+                      description: 'SEO Keywords, separated by comma, for example: `key1,key2`'
+                    description:
+                      type: string
+                      description: description
+                    image:
+                      type: object
+                      description: Collection's Image
+                      properties:
+                        src:
+                          type: string
+                          description: Image's URL
+                        width:
+                          type: integer
+                          description: 'Image''s width, in px, for example: `400`'
+                          format: int32
+                        height:
+                          type: integer
+                          description: 'Image''s height, in px, for example: `300`'
+                          format: int32
+                        alt:
+                          type: string
+                          description: Image's alt
+                    sort_order:
+                      type: string
+                      description: 'Collection''s sorting order:  `alpha-asc`, `alpha-desc`, `price-asc`, `price-desc`, `created-desc`, `manual`'
+                    product_ids:
+                      type: string
+                      description: Collection's product IDs, separated by comma, for example:`0097cfc8-6ec3-40ed-ab9f-6f2231b705a6,0097cfc8-6ec3-40ed-ab9f-6f2231b705a6`
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"collection\": {\n    \"id\": \"0097cfc8-6ec3-40ed-ab9f-6f2231b705a6\",\n    \"title\": \"Collection\",\n    \"handle\": \"Collection\",\n    \"description\": \"\",\n    \"smart\": false,\n    \"seo_title\": \"xxx\",\n    \"seo_description\": \"xxx\",\n    \"seo_keywords\": \"tag1,tag2,tag3\",\n    \"image\": {\n      \"src\": \"https://cdn.shoplazza.com/example.png\",\n      \"width\": 480,\n      \"height\": 360,\n      \"alt\": \"Image\"\n    },\n    \"sort_order\": \"alpha-asc\",\n    \"created_at\": \"2018-10-31T13:02:19-04:00\",\n    \"updated_at\": \"2018-10-31T13:02:19-04:00\"\n  }\n}"
+              schema:
+                type: object
+                properties:
+                  collection:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: 0097cfc8-6ec3-40ed-ab9f-6f2231b705a6
+                      title:
+                        type: string
+                        example: Collection
+                      handle:
+                        type: string
+                        example: Collection
+                      description:
+                        type: string
+                        example: ''
+                      smart:
+                        type: boolean
+                        example: false
+                        default: true
+                      seo_title:
+                        type: string
+                        example: xxx
+                      seo_description:
+                        type: string
+                        example: xxx
+                      seo_keywords:
+                        type: string
+                        example: tag1,tag2,tag3
+                      image:
+                        type: object
+                        properties:
+                          src:
+                            type: string
+                            example: https://cdn.shoplazza.com/example.png
+                          width:
+                            type: integer
+                            example: 480
+                            default: 0
+                          height:
+                            type: integer
+                            example: 360
+                            default: 0
+                          alt:
+                            type: string
+                            example: Image
+                      sort_order:
+                        type: string
+                        example: alpha-asc
+                      created_at:
+                        type: string
+                        example: '2018-10-31T13:02:19-04:00'
+                      updated_at:
+                        type: string
+                        example: '2018-10-31T13:02:19-04:00'
+      deprecated: false
+  /openapi/2022-01/collections/count:
+    get:
+      tags:
+      - Product
+      summary: Collection Count
+      description: ''
+      operationId: collection_count
+      parameters:
+      - name: ids
+        in: query
+        description: 'Collection''s IDs, separated by comma, for example: `0097cfc8-6ec3-40ed,40ed-ab9f-6f2231b7`'
+        schema:
+          type: string
+      - name: updated_at_min
+        in: query
+        description: 'filter collections updated at or after date, for example: `2018-10-01T16:15:47-04:00`'
+        schema:
+          type: string
+      - name: updated_at_max
+        in: query
+        description: 'filter collections updated at or before date, for example: `2018-10-01T16:15:47-04:00`'
+        schema:
+          type: string
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"count\": 1\n}"
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 1
+                    default: 0
+      deprecated: false
+  /openapi/2022-01/collections/{id}:
+    get:
+      tags:
+      - Product
+      summary: Collection Details
+      description: ''
+      operationId: collection_show
+      parameters:
+      - name: id
+        in: path
+        description: Collection's ID
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"collection\": {\n        \"id\": \"b3b05c7b-45f1-413f-a78d-30016f94b035\",\n        \"title\": \"earphone\",\n        \"description\": \"all kinds of earphones\",\n        \"handle\": \"earphone\",\n        \"smart\": false,\n        \"image\": {\n            \"src\": \"//cdn.shoplazza.com/free/a95f0803c71834700b2a051c2311ab71.jpg\",\n            \"width\": 5184,\n            \"height\": 3456,\n            \"alt\": \"\",\n            \"path\": \"free/a95f0803c71834700b2a051c2311ab71.jpg\"\n        },\n        \"seo_title\": \"earphone\",\n        \"seo_description\": \"all kinds of earphones\",\n        \"seo_keywords\": \"\",\n        \"sort_order\": \"sales\",\n        \"created_at\": \"2021-07-02T07:53:49Z\",\n        \"updated_at\": \"2021-07-06T05:04:12Z\"\n    }\n}"
+              schema:
+                type: object
+                properties:
+                  collection:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: b3b05c7b-45f1-413f-a78d-30016f94b035
+                      title:
+                        type: string
+                        example: earphone
+                      description:
+                        type: string
+                        example: all kinds of earphones
+                      handle:
+                        type: string
+                        example: earphone
+                      smart:
+                        type: boolean
+                        example: false
+                        default: true
+                      image:
+                        type: object
+                        properties:
+                          src:
+                            type: string
+                            example: //cdn.shoplazza.com/free/a95f0803c71834700b2a051c2311ab71.jpg
+                          width:
+                            type: integer
+                            example: 5184
+                            default: 0
+                          height:
+                            type: integer
+                            example: 3456
+                            default: 0
+                          alt:
+                            type: string
+                            example: ''
+                          path:
+                            type: string
+                            example: free/a95f0803c71834700b2a051c2311ab71.jpg
+                      seo_title:
+                        type: string
+                        example: earphone
+                      seo_description:
+                        type: string
+                        example: all kinds of earphones
+                      seo_keywords:
+                        type: string
+                        example: ''
+                      sort_order:
+                        type: string
+                        example: sales
+                      created_at:
+                        type: string
+                        example: '2021-07-02T07:53:49Z'
+                      updated_at:
+                        type: string
+                        example: '2021-07-06T05:04:12Z'
+      deprecated: false
+    put:
+      tags:
+      - Product
+      summary: Update Collection
+      description: ''
+      operationId: update_collection
+      parameters:
+      - name: id
+        in: path
+        description: Collection's ID
+        schema:
+          type: string
+        required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                collection:
+                  type: object
+                  properties:
+                    title:
+                      type: string
+                      description: Collection's title
+                    handle:
+                      type: string
+                      description: Collection's handle
+                    seo_title:
+                      type: string
+                      description: SEO Title
+                    seo_description:
+                      type: string
+                      description: SEO Description
+                    seo_keywords:
+                      type: string
+                      description: 'SEO keywords, separated by comma, for example: `key1,key2`'
+                    description:
+                      type: string
+                      description: Collection's description
+                    image:
+                      type: object
+                      description: Collection's Image
+                      properties:
+                        src:
+                          type: string
+                          description: Image's URL
+                        width:
+                          type: integer
+                          description: 'Image''s width, in px, for example: `400`'
+                          format: int32
+                        height:
+                          type: integer
+                          description: 'Image''s height, in px, for example: `300`'
+                          format: int32
+                        alt:
+                          type: string
+                          description: Image's alt
+                    sort_order:
+                      type: string
+                      description: 'Collection''s sorting order:  `alpha-asc`, `alpha-desc`, `price-asc`, `price-desc`, `created-desc`, `manual`'
+                    product_ids:
+                      type: string
+                      description: 'Product IDs inside this collection, separated by comma, for example: `0097cfc8-6ec3-40ed-ab9f-6f2231b705a6,0097cfc8-6ec3-40ed-ab9f-6f2231b705a6`'
+                    is_clear_all_product_ids:
+                      type: string
+                      description: Whether to unbind all products associated with the album
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"collection\": {\n    \"id\": \"0097cfc8-6ec3-40ed-ab9f-6f2231b705a6\",\n    \"title\": \"Collection\",\n    \"handle\": \"Collection\",\n    \"description\": \"\",\n    \"smart\": true,\n    \"seo_title\": \"xxx\",\n    \"seo_description\": \"xxx\",\n    \"seo_keywords\": \"tag1,tag2,tag3\",\n    \"image\": {\n      \"src\": \"https://cdn.shoplazza.com/example.png\",\n      \"width\": 480,\n      \"height\": 360,\n      \"alt\": \"Image\"\n    },\n    \"sort_order\": \"alpha-asc\",\n    \"created_at\": \"2018-10-31T13:02:19-04:00\",\n    \"updated_at\": \"2018-10-31T13:02:19-04:00\"\n  }\n}"
+              schema:
+                type: object
+                properties:
+                  collection:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: 0097cfc8-6ec3-40ed-ab9f-6f2231b705a6
+                      title:
+                        type: string
+                        example: Collection
+                      handle:
+                        type: string
+                        example: Collection
+                      description:
+                        type: string
+                        example: ''
+                      smart:
+                        type: boolean
+                        example: true
+                        default: true
+                      seo_title:
+                        type: string
+                        example: xxx
+                      seo_description:
+                        type: string
+                        example: xxx
+                      seo_keywords:
+                        type: string
+                        example: tag1,tag2,tag3
+                      image:
+                        type: object
+                        properties:
+                          src:
+                            type: string
+                            example: https://cdn.shoplazza.com/example.png
+                          width:
+                            type: integer
+                            example: 480
+                            default: 0
+                          height:
+                            type: integer
+                            example: 360
+                            default: 0
+                          alt:
+                            type: string
+                            example: Image
+                      sort_order:
+                        type: string
+                        example: alpha-asc
+                      created_at:
+                        type: string
+                        example: '2018-10-31T13:02:19-04:00'
+                      updated_at:
+                        type: string
+                        example: '2018-10-31T13:02:19-04:00'
+      deprecated: false
+    delete:
+      tags:
+      - Product
+      summary: Delete Collection
+      description: ''
+      operationId: delete_collection
+      parameters:
+      - name: id
+        in: path
+        description: Collection's ID
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+        '404':
+          description: '404'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"errors\": [\"record not found\"]\n}"
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: string
+                      example: record not found
+      deprecated: false
+  /openapi/2022-01/collects:
+    post:
+      tags:
+      - Product
+      summary: Create Collect
+      description: ''
+      operationId: create_collect
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                collect:
+                  type: object
+                  required:
+                  - collection_id
+                  - product_id
+                  properties:
+                    collection_id:
+                      type: string
+                      description: 'Collection''s ID, for example: `0097cfc8-63c3-45ed-ab9f-6f2231b700k9`'
+                    product_id:
+                      type: string
+                      description: 'Product''s ID, for example: `0097cfc8-63c3-45ed-ab9f-6f2231b700k9`'
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"collect\": {\n    \"id\": \"0097cfc8-6ec3-40ed-ab9f-6f2231b705a6\",\n    \"collection_id\": \"0097cfc8-63c3-45ed-ab9f-6f2231b700k9\",\n    \"product_id\": \"8397cfc8-63c3-45ed-ab9f-6f2231b700k9\",\n    \"position\": 1,\n    \"created_at\": \"2018-10-31T13:02:19-04:00\",\n    \"updated_at\": \"2018-10-31T13:02:19-04:00\"\n  }\n}"
+              schema:
+                type: object
+                properties:
+                  collect:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: 0097cfc8-6ec3-40ed-ab9f-6f2231b705a6
+                      collection_id:
+                        type: string
+                        example: 0097cfc8-63c3-45ed-ab9f-6f2231b700k9
+                      product_id:
+                        type: string
+                        example: 8397cfc8-63c3-45ed-ab9f-6f2231b700k9
+                      position:
+                        type: integer
+                        example: 1
+                        default: 0
+                      created_at:
+                        type: string
+                        example: '2018-10-31T13:02:19-04:00'
+                      updated_at:
+                        type: string
+                        example: '2018-10-31T13:02:19-04:00'
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+    get:
+      tags:
+      - Product
+      summary: Collect List
+      description: ''
+      operationId: collect_list
+      parameters:
+      - name: collection_id
+        in: query
+        description: 'Collection''s ID, for example: `0097cfc8-6ec3-40ed`'
+        schema:
+          type: string
+      - name: product_id
+        in: query
+        description: 'Product''s ID, for example: `0097cfc8-6ec3-40ed`'
+        schema:
+          type: string
+      - name: page
+        in: query
+        description: page number
+        schema:
+          type: integer
+          format: int32
+          default: 1
+      - name: limit
+        in: query
+        description: limit result per page
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"collects\": [\n    {\n      \"id\": \"0097cfc8-6ec3-40ed-ab9f-6f2231b705a6\",\n      \"collection_id\": \"0097cfc8-63c3-45ed-ab9f-6f2231b700k9\",\n      \"product_id\": \"8397cfc8-63c3-45ed-ab9f-6f2231b700k9\",\n      \"position\": 1,\n      \"created_at\": \"2018-10-31T13:02:19-04:00\",\n      \"updated_at\": \"2018-10-31T13:02:19-04:00\"\n    }\n  ]\n}"
+              schema:
+                type: object
+                properties:
+                  collects:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: 0097cfc8-6ec3-40ed-ab9f-6f2231b705a6
+                        collection_id:
+                          type: string
+                          example: 0097cfc8-63c3-45ed-ab9f-6f2231b700k9
+                        product_id:
+                          type: string
+                          example: 8397cfc8-63c3-45ed-ab9f-6f2231b700k9
+                        position:
+                          type: integer
+                          example: 1
+                          default: 0
+                        created_at:
+                          type: string
+                          example: '2018-10-31T13:02:19-04:00'
+                        updated_at:
+                          type: string
+                          example: '2018-10-31T13:02:19-04:00'
+      deprecated: false
+  /openapi/2020-07/collects/count:
+    get:
+      tags:
+      - Product
+      summary: Collect Count
+      description: ''
+      operationId: collect_count
+      parameters:
+      - name: collection_id
+        in: query
+        description: 'Collection''s ID, for example: `0097cfc8-6ec3-40ed`'
+        schema:
+          type: string
+      - name: product_id
+        in: query
+        description: 'Product''s ID, for example: `0097cfc8-6ec3-40ed`'
+        schema:
+          type: string
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"count\": 1\n}"
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 1
+                    default: 0
+      deprecated: false
+  /openapi/2022-01/collects/{id}:
+    delete:
+      tags:
+      - Product
+      summary: Delete Collect
+      description: ''
+      operationId: delete_collect
+      parameters:
+      - name: id
+        in: path
+        description: Collect's ID
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+    get:
+      tags:
+      - Product
+      summary: Collect Details
+      description: ''
+      operationId: collect_show
+      parameters:
+      - name: id
+        in: path
+        description: Collect's ID
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"collect\": {\n    \"id\": \"0097cfc8-6ec3-40ed-ab9f-6f2231b705a6\",\n    \"collection_id\": \"0097cfc8-63c3-45ed-ab9f-6f2231b700k9\",\n    \"product_id\": \"8397cfc8-63c3-45ed-ab9f-6f2231b700k9\",\n    \"position\": 1,\n    \"created_at\": \"2018-10-31T13:02:19-04:00\",\n    \"updated_at\": \"2018-10-31T13:02:19-04:00\"\n  }\n}"
+              schema:
+                type: object
+                properties:
+                  collect:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: 0097cfc8-6ec3-40ed-ab9f-6f2231b705a6
+                      collection_id:
+                        type: string
+                        example: 0097cfc8-63c3-45ed-ab9f-6f2231b700k9
+                      product_id:
+                        type: string
+                        example: 8397cfc8-63c3-45ed-ab9f-6f2231b700k9
+                      position:
+                        type: integer
+                        example: 1
+                        default: 0
+                      created_at:
+                        type: string
+                        example: '2018-10-31T13:02:19-04:00'
+                      updated_at:
+                        type: string
+                        example: '2018-10-31T13:02:19-04:00'
+      deprecated: false
+components:
+  securitySchemes:
+    sec0:
+      type: apiKey
+      in: header
+      name: access-token
+      x-default: WPMSdB6M8Cpum4X1GoMYOKZpiESd8d2x7dZW8d79ZeQ
+    apikey-header-access-token:
+      type: apiKey
+      in: header
+      name: access-token
+      x-default: WPMSdB6M8Cpum4X1GoMYOKZpiESd8d2x7dZW8d79ZeQ
+x-standalone-page:
+  title: Standalone Page
+  content: Information that should be on a standalone page...
+x-readme:
+  headers: []
+  explorer-enabled: true
+  proxy-enabled: true
+  samples-enabled: true

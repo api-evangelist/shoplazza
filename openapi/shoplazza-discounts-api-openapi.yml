@@ -1,0 +1,2619 @@
+openapi: 3.1.0
+info:
+  title: SPZ Admin Access Discounts API
+  version: '2022.01'
+servers:
+- url: https://{subdomain}.myshoplaza.com
+  variables:
+    subdomain:
+      default: developer
+security:
+- sec0: []
+tags:
+- name: Discounts
+  description: ''
+paths:
+  /openapi/2022-01/price_rules:
+    get:
+      tags:
+      - Discounts
+      summary: Price Rule List
+      description: ''
+      operationId: price-rule-list
+      parameters:
+      - name: limit
+        in: query
+        description: 'Result per page, max: `250`'
+        schema:
+          type: integer
+          format: int32
+          default: 50
+      - name: starts_at_min
+        in: query
+        description: Filter price rule started after date, timestamp format, e.g. `1581152471`
+        schema:
+          type: integer
+          format: int32
+      - name: starts_at_max
+        in: query
+        description: Filter price rule started before date, timestamp format, e.g. `1581152471`
+        schema:
+          type: integer
+          format: int32
+      - name: ends_at_min
+        in: query
+        description: Filter price rule ended before date, timestamp format, e.g. `1581152471`
+        schema:
+          type: integer
+          format: int32
+      - name: ends_at_max
+        in: query
+        description: Filter price rule ended after date, timestamp format, e.g. `1581152471`
+        schema:
+          type: integer
+          format: int32
+      - name: times_used
+        in: query
+        description: Used count for this price rule
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"price_rules\": [\n        {\n            \"id\": \"91f9a466-7c8c-46e7-9774-64874a641534\",\n            \"title\": \"Buy $180 get $20 off，once for one customer\",\n            \"value\": 20,\n            \"value_type\": \"fixed_amount\",\n            \"usage_limit\": \"-1\",\n            \"times_used\": \"0\",\n            \"allocation_method\": \"\",\n            \"allocation_limit\": \"0\",\n            \"once_per_customer\": \"1\",\n            \"prerequisite\": \"1\",\n            \"customer_selection\": \"all\",\n            \"target_selection\": \"all\",\n            \"target_type\": \"\",\n            \"created_at\": \"2022-06-17 15:00:03\",\n            \"updated_at\": \"2022-06-17 15:00:03\",\n            \"starts_at\": \"1655431200\",\n            \"ends_at\": \"-1\",\n            \"entitled_product_ids\": [],\n            \"entitled_filter_ids\": [],\n            \"entitled_filter_list\": [],\n            \"variant_product_ids\": [],\n            \"prerequisite_subtotal_range\": [\n                {\n                    \"greater_than_or_equal_to\": \"180\",\n                    \"value\": \"20\",\n                    \"value_condition\": \"less_than_or_equal_to\",\n                    \"target_type\": \"\",\n                    \"target_data\": [],\n                    \"target_data_variant\": [],\n                    \"target_data_collection\": []\n                }\n            ],\n            \"prerequisite_quantity_range\": null\n        },\n        {\n            \"id\": \"b2bc789e-4f27-4dac-8a9e-7eab140a7281\",\n            \"title\": \"$20 off for all products, no conditions, used up to 100 times\",\n            \"value\": 20,\n            \"value_type\": \"fixed_amount\",\n            \"usage_limit\": \"100\",\n            \"times_used\": \"0\",\n            \"allocation_method\": \"\",\n            \"allocation_limit\": \"0\",\n            \"once_per_customer\": \"0\",\n            \"prerequisite\": \"0\",\n            \"customer_selection\": \"all\",\n            \"target_selection\": \"all\",\n            \"target_type\": \"\",\n            \"created_at\": \"2022-06-17 15:00:02\",\n            \"updated_at\": \"2022-06-17 15:00:02\",\n            \"starts_at\": \"1655431200\",\n            \"ends_at\": \"-1\",\n            \"entitled_product_ids\": [],\n            \"entitled_filter_ids\": [],\n            \"entitled_filter_list\": [],\n            \"variant_product_ids\": []\n        }\n    ]\n}"
+              schema:
+                type: object
+                properties:
+                  price_rules:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: 91f9a466-7c8c-46e7-9774-64874a641534
+                        title:
+                          type: string
+                          example: Buy $180 get $20 off，once for one customer
+                        value:
+                          type: integer
+                          example: 20
+                          default: 0
+                        value_type:
+                          type: string
+                          example: fixed_amount
+                        usage_limit:
+                          type: string
+                          example: '-1'
+                        times_used:
+                          type: string
+                          example: '0'
+                        allocation_method:
+                          type: string
+                          example: ''
+                        allocation_limit:
+                          type: string
+                          example: '0'
+                        once_per_customer:
+                          type: string
+                          example: '1'
+                        prerequisite:
+                          type: string
+                          example: '1'
+                        customer_selection:
+                          type: string
+                          example: all
+                        target_selection:
+                          type: string
+                          example: all
+                        target_type:
+                          type: string
+                          example: ''
+                        created_at:
+                          type: string
+                          example: '2022-06-17 15:00:03'
+                        updated_at:
+                          type: string
+                          example: '2022-06-17 15:00:03'
+                        starts_at:
+                          type: string
+                          example: '1655431200'
+                        ends_at:
+                          type: string
+                          example: '-1'
+                        entitled_product_ids:
+                          type: array
+                        entitled_filter_ids:
+                          type: array
+                        entitled_filter_list:
+                          type: array
+                        variant_product_ids:
+                          type: array
+                        prerequisite_subtotal_range:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              greater_than_or_equal_to:
+                                type: string
+                                example: '180'
+                              value:
+                                type: string
+                                example: '20'
+                              value_condition:
+                                type: string
+                                example: less_than_or_equal_to
+                              target_type:
+                                type: string
+                                example: ''
+                              target_data:
+                                type: array
+                              target_data_variant:
+                                type: array
+                              target_data_collection:
+                                type: array
+                        prerequisite_quantity_range: {}
+      deprecated: false
+    post:
+      tags:
+      - Discounts
+      summary: Create Price Rule
+      description: ''
+      operationId: create-price-rule
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                price_rule:
+                  type: object
+                  required:
+                  - title
+                  - value
+                  - value_type
+                  - target_selection
+                  - starts_at
+                  - ends_at
+                  properties:
+                    title:
+                      type: string
+                      description: Title of this price rule
+                    value:
+                      type: number
+                      description: Value for this discount , e.g. `50.25`
+                      format: double
+                    value_type:
+                      type: string
+                      description: 'Discount type, options: 1. `fixed_amount` for fixed amount of value to be reduced,  2. `percentage` for percentage of the value to be reduced'
+                    usage_limit:
+                      type: integer
+                      description: The usage limit, `-1` means no limit
+                      format: int32
+                    allocation_limit:
+                      type: integer
+                      description: 'Redeem count limit for checkout: `0~999`, `0` means only one redeem allowed, `999` means no limit'
+                      default: 0
+                      format: int32
+                    once_per_customer:
+                      type: integer
+                      description: The max usage per customer，`-1` or `0` means no limit
+                      format: int32
+                    prerequisite:
+                      type: integer
+                      description: Does this discount has prerequisite or not, `1` means yes, `0` means no
+                      default: 1
+                      format: int32
+                    target_selection:
+                      type: string
+                      description: The target products allowed of this discount, `all` means all products, `entitled` means only for the specific products
+                    target_type:
+                      type: string
+                      description: 'Target type of this discount, for example: `line_item`, `shipping_line`'
+                      default: line_item
+                    starts_at:
+                      type: string
+                      description: Discount started at
+                    ends_at:
+                      type: string
+                      description: Discount ended at, `-1` means no limit
+                    entitled_product_ids:
+                      type: array
+                      description: Specify the target products allowed for the price rule. This field is **required** only when `target_selection` is `entitled`, e.g. `[   "ac8ed089-55d9-4f58-a0f9-3dda4e4607cc",   "0b76afba-e068-4bf6-85f5-660019f58488" ]`
+                      items:
+                        type: string
+                    entitled_variant_ids:
+                      type: array
+                      description: Specify the variants products allowed of the discount, e.g. `[   "cea210d5-a419-4d4e-a17d-5bbd0bc4af76",   "de2c55f5-c3e1-45e1-92f6-e65faf816ecc" ]`
+                      items:
+                        type: string
+                    entitled_collection_ids:
+                      type: array
+                      description: Specify the collections allowed of the discount, e.g. `["aa92c677-e5be-4cab-8e65-9ebc55b98240","e6152ca6-791b-4385-a9e1-49adb336b289"]`
+                      items:
+                        type: string
+                    prerequisite_subtotal_range:
+                      type: array
+                      description: 'Prerequisite for the total amount of the money, for example: `[   {     "greater_than_or_equal_to": "10",     "value": "1",     "target_type": "",     "target_data": []   } ] means total money must great than 10, then you could use the discount to reduce 1 dollar.`'
+                      items:
+                        properties:
+                          greater_than_or_equal_to:
+                            type: string
+                            description: To specify the value which the price has to greater than or equal to.
+                          value:
+                            type: string
+                            description: The value used for the discount to apply, the reduction type is decided by `value_type` specified in `Price Rule` params
+                          target_type:
+                            type: string
+                            description: Target type
+                          target_data:
+                            type: array
+                            description: Target data
+                            default: []
+                            items:
+                              type: string
+                        type: object
+                    prerequisite_quantity_range:
+                      type: array
+                      description: Prerequisite for the total count of the products，e.g. `[   {     "greater_than_or_equal_to":"5",     "value":"20",     "target_type":"",     "target_data":[]   } ] means products count must great than 5, then you could use discount to reduce 20 dollars`
+                      items:
+                        properties:
+                          greater_than_or_equal_to:
+                            type: string
+                            description: To specify the value which the price has to greater than or equal to.
+                          value:
+                            type: string
+                            description: The value used for the discount to apply, the reduction type is decided by `value_type` specified in `Price Rule` params
+                          target_type:
+                            type: string
+                            description: Target type
+                          target_data:
+                            type: array
+                            description: Target data
+                            default: []
+                            items:
+                              type: string
+                        type: object
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"price_rule\": {\n        \"id\": \"2d7e416a-444f-4491-ae04-c50f47154140\",\n        \"title\": \"TITLE\",\n        \"value\": 0,\n        \"value_type\": \"percentage\",\n        \"usage_limit\": \"-1\",\n        \"times_used\": \"0\", \n        \"allocation_method\": \"\",\n        \"allocation_limit\": \"0\",\n        \"once_per_customer\": \"1\",\n        \"prerequisite\": \"1\",\n        \"customer_selection\": \"all\",\n        \"target_selection\": \"entitled\",\n        \"target_type\": \"\",\n        \"created_at\": \"2020-03-06 17:00:32\",\n        \"updated_at\": \"2020-03-12 15:29:44\",\n        \"starts_at\": \"1583424000\",\n        \"ends_at\": \"1583942399\",\n        \"entitled_product_ids\": [\n            \"cea210d5-a419-4d4e-a17d-5bbd0bc4af76\",\n            \"de2c55f5-c3e1-45e1-92f6-e65faf816ecc\",\n            \"47734e19-1b5c-468b-8695-31159d6d4478\"\n        ],\n        \"entitled_variant_ids\": [],\n        \"prerequisite_quantity_range\": [\n            {\n                \"greater_than_or_equal_to\": \"1\",\n                \"value\": \"5\",\n                \"target_type\": \"\",\n                \"target_data\": []\n            }\n        ],\n        \"prerequisite_subtotal_range\": null\n    }\n}"
+              schema:
+                type: object
+                properties:
+                  price_rule:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: 2d7e416a-444f-4491-ae04-c50f47154140
+                      title:
+                        type: string
+                        example: TITLE
+                      value:
+                        type: integer
+                        example: 0
+                        default: 0
+                      value_type:
+                        type: string
+                        example: percentage
+                      usage_limit:
+                        type: string
+                        example: '-1'
+                      times_used:
+                        type: string
+                        example: '0'
+                      allocation_method:
+                        type: string
+                        example: ''
+                      allocation_limit:
+                        type: string
+                        example: '0'
+                      once_per_customer:
+                        type: string
+                        example: '1'
+                      prerequisite:
+                        type: string
+                        example: '1'
+                      customer_selection:
+                        type: string
+                        example: all
+                      target_selection:
+                        type: string
+                        example: entitled
+                      target_type:
+                        type: string
+                        example: ''
+                      created_at:
+                        type: string
+                        example: '2020-03-06 17:00:32'
+                      updated_at:
+                        type: string
+                        example: '2020-03-12 15:29:44'
+                      starts_at:
+                        type: string
+                        example: '1583424000'
+                      ends_at:
+                        type: string
+                        example: '1583942399'
+                      entitled_product_ids:
+                        type: array
+                        items:
+                          type: string
+                          example: cea210d5-a419-4d4e-a17d-5bbd0bc4af76
+                      entitled_variant_ids:
+                        type: array
+                      prerequisite_quantity_range:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            greater_than_or_equal_to:
+                              type: string
+                              example: '1'
+                            value:
+                              type: string
+                              example: '5'
+                            target_type:
+                              type: string
+                              example: ''
+                            target_data:
+                              type: array
+                      prerequisite_subtotal_range: {}
+      deprecated: false
+  /openapi/2022-01/price_rules/count:
+    get:
+      tags:
+      - Discounts
+      summary: Price Rule Count
+      description: ''
+      operationId: price-rule-count
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"count\": \"398\"\n}"
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: string
+                    example: '398'
+      deprecated: false
+  /openapi/2022-01/price_rules/{price_rule_id}:
+    get:
+      tags:
+      - Discounts
+      summary: Price Rule Detail
+      description: ''
+      operationId: price-rule-detail
+      parameters:
+      - name: price_rule_id
+        in: path
+        description: Price rule ID
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"price_rule\": {\n        \"id\": \"00095d6a-419d-4499-a497-f265fb2edaa5\",\n        \"title\": \"title-update\",\n        \"value\": 0,\n        \"value_type\": \"percentage\",\n        \"usage_limit\": \"-1\",\n        \"times_used\": \"0\",\n        \"allocation_method\": \"\",\n        \"allocation_limit\": \"0\",\n        \"once_per_customer\": \"1\",\n        \"prerequisite\": \"1\",\n        \"customer_selection\": \"all\",\n        \"target_selection\": \"entitled\",\n        \"target_type\": \"\",\n        \"created_at\": \"2020-03-06 17:00:32\",\n        \"updated_at\": \"2020-03-12 15:29:44\",\n        \"starts_at\": \"1583424000\",\n        \"ends_at\": \"1583942399\",\n        \"entitled_product_ids\": [\n            \"cea210d5-a419-4d4e-a17d-5bbd0bc4af76\",\n            \"de2c55f5-c3e1-45e1-92f6-e65faf816ecc\",\n            \"47734e19-1b5c-468b-8695-31159d6d4478\"\n        ],\n        \"entitled_variant_ids\": [],\n        \"prerequisite_quantity_range\": [\n            {\n                \"greater_than_or_equal_to\": \"1\",\n                \"value\": \"5\",\n                \"target_type\": \"\",\n                \"target_data\": []\n            }\n        ],\n        \"prerequisite_subtotal_range\": null\n    }\n}"
+              schema:
+                type: object
+                properties:
+                  price_rule:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: 00095d6a-419d-4499-a497-f265fb2edaa5
+                      title:
+                        type: string
+                        example: title-update
+                      value:
+                        type: integer
+                        example: 0
+                        default: 0
+                      value_type:
+                        type: string
+                        example: percentage
+                      usage_limit:
+                        type: string
+                        example: '-1'
+                      times_used:
+                        type: string
+                        example: '0'
+                      allocation_method:
+                        type: string
+                        example: ''
+                      allocation_limit:
+                        type: string
+                        example: '0'
+                      once_per_customer:
+                        type: string
+                        example: '1'
+                      prerequisite:
+                        type: string
+                        example: '1'
+                      customer_selection:
+                        type: string
+                        example: all
+                      target_selection:
+                        type: string
+                        example: entitled
+                      target_type:
+                        type: string
+                        example: ''
+                      created_at:
+                        type: string
+                        example: '2020-03-06 17:00:32'
+                      updated_at:
+                        type: string
+                        example: '2020-03-12 15:29:44'
+                      starts_at:
+                        type: string
+                        example: '1583424000'
+                      ends_at:
+                        type: string
+                        example: '1583942399'
+                      entitled_product_ids:
+                        type: array
+                        items:
+                          type: string
+                          example: cea210d5-a419-4d4e-a17d-5bbd0bc4af76
+                      entitled_variant_ids:
+                        type: array
+                      prerequisite_quantity_range:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            greater_than_or_equal_to:
+                              type: string
+                              example: '1'
+                            value:
+                              type: string
+                              example: '5'
+                            target_type:
+                              type: string
+                              example: ''
+                            target_data:
+                              type: array
+                      prerequisite_subtotal_range: {}
+        '404':
+          description: '404'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"errors\": [\n        \"Not found\"\n    ]\n}"
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: string
+                      example: Not found
+      deprecated: false
+    put:
+      tags:
+      - Discounts
+      summary: Update Price Rule
+      description: ''
+      operationId: update-price-rule
+      parameters:
+      - name: price_rule_id
+        in: path
+        description: Price rule ID
+        schema:
+          type: string
+        required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                price_rule:
+                  type: object
+                  properties:
+                    title:
+                      type: string
+                      description: Title of this price rule
+                    value:
+                      type: number
+                      description: Value for this discount , e.g. `50.25`
+                      format: double
+                    value_type:
+                      type: string
+                      description: 'Discount type, options: 1. `fixed_amount` for fixed amount of value to be reduced,  2. `percentage` for percentage of the value to be reduced'
+                    usage_limit:
+                      type: integer
+                      description: The usage limit, `-1` means no limit
+                      format: int32
+                    allocation_limit:
+                      type: integer
+                      description: 'Redeem count limit for checkout: `0~999`, `0` means only one redeem allowed, `999` means no limit'
+                      format: int32
+                    once_per_customer:
+                      type: integer
+                      description: The max usage per customer，`-1` or `0` means no limit
+                      format: int32
+                    prerequisite:
+                      type: integer
+                      description: Does this discount has prerequisite or not, `1` means yes, `0` means no
+                      default: 1
+                      format: int32
+                    target_selection:
+                      type: string
+                      description: The target products allowed of this discount, `all` means all products, `entitled` means only for the specific products
+                    target_type:
+                      type: string
+                      description: 'Target type of this discount, for example: `line_item`, `shipping_line`'
+                    starts_at:
+                      type: string
+                      description: Discount started at
+                    ends_at:
+                      type: string
+                      description: Discount ended at, `-1` means no limit
+                    entitled_product_ids:
+                      type: array
+                      description: Specify the target products allowed for the price rule. This field is **required** only when `target_selection` is `entitled`, e.g. `[   "ac8ed089-55d9-4f58-a0f9-3dda4e4607cc",   "0b76afba-e068-4bf6-85f5-660019f58488" ]`
+                      items:
+                        type: string
+                    entitled_variant_ids:
+                      type: array
+                      description: Specify the variants products allowed of the discount, e.g. `[   "cea210d5-a419-4d4e-a17d-5bbd0bc4af76",   "de2c55f5-c3e1-45e1-92f6-e65faf816ecc" ]`
+                      items:
+                        type: string
+                    entitled_collection_ids:
+                      type: array
+                      description: Specify the collections allowed of the discount, e.g. `["aa92c677-e5be-4cab-8e65-9ebc55b98240","e6152ca6-791b-4385-a9e1-49adb336b289"]`
+                      items:
+                        type: string
+                    prerequisite_subtotal_range:
+                      type: array
+                      description: 'Prerequisite for the total amount of the money, for example: `[   {     "greater_than_or_equal_to": "10",     "value": "1",     "target_type": "",     "target_data": []   } ] means total money must great than 10, then you could use the discount to reduce 1 dollar.`'
+                      items:
+                        properties:
+                          greater_than_or_equal_to:
+                            type: string
+                            description: To specify the value which the price has to greater than or equal to.
+                          value:
+                            type: string
+                            description: The value used for the discount to apply, the reduction type is decided by `value_type` specified in `Price Rule` params
+                          target_type:
+                            type: string
+                            description: Target type
+                          target_data:
+                            type: array
+                            description: Target data
+                            default: []
+                            items:
+                              type: string
+                        type: object
+                    prerequisite_quantity_range:
+                      type: array
+                      description: Prerequisite for the total count of the products，e.g. `[   {     "greater_than_or_equal_to":"5",     "value":"20",     "target_type":"",     "target_data":[]   } ] means products count must great than 5, then you could use discount to reduce 20 dollars`
+                      items:
+                        properties:
+                          greater_than_or_equal_to:
+                            type: string
+                            description: To specify the value which the price has to greater than or equal to.
+                          value:
+                            type: string
+                            description: The value used for the discount to apply, the reduction type is decided by `value_type` specified in `Price Rule` params
+                          target_type:
+                            type: string
+                            description: Target type
+                          target_data:
+                            type: array
+                            description: Target data
+                            default: []
+                            items:
+                              type: string
+                        type: object
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"price_rule\": {\n        \"id\": \"00095d6a-419d-4499-a497-f265fb2edaa5\",\n        \"title\": \"title-update\",\n        \"value\": 0,\n        \"value_type\": \"percentage\",\n        \"usage_limit\": \"-1\",\n        \"times_used\": \"0\",\n        \"allocation_method\": \"\",\n        \"allocation_limit\": \"0\",\n        \"once_per_customer\": \"1\",\n        \"prerequisite\": \"1\",\n        \"customer_selection\": \"all\",\n        \"target_selection\": \"entitled\",\n        \"target_type\": \"\",\n        \"created_at\": \"2020-03-06 17:00:32\",\n        \"updated_at\": \"2020-03-12 15:29:44\",\n        \"starts_at\": \"1583424000\",\n        \"ends_at\": \"1583942399\",\n        \"entitled_product_ids\": [\n            \"cea210d5-a419-4d4e-a17d-5bbd0bc4af76\",\n            \"de2c55f5-c3e1-45e1-92f6-e65faf816ecc\",\n            \"47734e19-1b5c-468b-8695-31159d6d4478\"\n        ],\n        \"entitled_variant_ids\": [],\n        \"prerequisite_quantity_range\": [\n            {\n                \"greater_than_or_equal_to\": \"1\",\n                \"value\": \"5\",\n                \"target_type\": \"\",\n                \"target_data\": []\n            }\n        ],\n        \"prerequisite_subtotal_range\": null\n    }\n}"
+              schema:
+                type: object
+                properties:
+                  price_rule:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: 00095d6a-419d-4499-a497-f265fb2edaa5
+                      title:
+                        type: string
+                        example: title-update
+                      value:
+                        type: integer
+                        example: 0
+                        default: 0
+                      value_type:
+                        type: string
+                        example: percentage
+                      usage_limit:
+                        type: string
+                        example: '-1'
+                      times_used:
+                        type: string
+                        example: '0'
+                      allocation_method:
+                        type: string
+                        example: ''
+                      allocation_limit:
+                        type: string
+                        example: '0'
+                      once_per_customer:
+                        type: string
+                        example: '1'
+                      prerequisite:
+                        type: string
+                        example: '1'
+                      customer_selection:
+                        type: string
+                        example: all
+                      target_selection:
+                        type: string
+                        example: entitled
+                      target_type:
+                        type: string
+                        example: ''
+                      created_at:
+                        type: string
+                        example: '2020-03-06 17:00:32'
+                      updated_at:
+                        type: string
+                        example: '2020-03-12 15:29:44'
+                      starts_at:
+                        type: string
+                        example: '1583424000'
+                      ends_at:
+                        type: string
+                        example: '1583942399'
+                      entitled_product_ids:
+                        type: array
+                        items:
+                          type: string
+                          example: cea210d5-a419-4d4e-a17d-5bbd0bc4af76
+                      entitled_variant_ids:
+                        type: array
+                      prerequisite_quantity_range:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            greater_than_or_equal_to:
+                              type: string
+                              example: '1'
+                            value:
+                              type: string
+                              example: '5'
+                            target_type:
+                              type: string
+                              example: ''
+                            target_data:
+                              type: array
+                      prerequisite_subtotal_range: {}
+        '404':
+          description: '404'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"errors\": [\n        \"Not found\"\n    ]\n}"
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: string
+                      example: Not found
+      deprecated: false
+    delete:
+      tags:
+      - Discounts
+      summary: Delete Price Rule
+      description: ''
+      operationId: delete-price-rule
+      parameters:
+      - name: price_rule_id
+        in: path
+        description: Price rule ID
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+        '404':
+          description: '404'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"errors\": [\n        \"Not found\"\n    ]\n}"
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: string
+                      example: Not found
+      deprecated: false
+  /openapi/2022-01/price_rules/{price_rule_id}/discount_codes:
+    post:
+      tags:
+      - Discounts
+      summary: Create Discount Code
+      description: ''
+      operationId: create-discount-code
+      parameters:
+      - name: price_rule_id
+        in: path
+        description: Price rule ID
+        schema:
+          type: string
+        required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                discount_code:
+                  type: object
+                  required:
+                  - code
+                  properties:
+                    code:
+                      type: string
+                      description: Discount code, e.g. `SGTIOZT`
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"discount_code\": {\n        \"id\": \"f819c126-a581-4d66-a909-08282dd35916\",\n        \"price_rule_id\": \"588fea0b-f15d-4c1d-9390-23661f0194fa\",\n        \"code\": \"VIJK8GB0\",\n        \"created_at\": \"2022-06-17 07:48:29\",\n        \"updated_at\": \"2022-06-17 07:48:29\",\n        \"use_with_other\": \"1\",\n        \"usage_count\": \"0\"\n    }\n}"
+              schema:
+                type: object
+                properties:
+                  discount_code:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: f819c126-a581-4d66-a909-08282dd35916
+                      price_rule_id:
+                        type: string
+                        example: 588fea0b-f15d-4c1d-9390-23661f0194fa
+                      code:
+                        type: string
+                        example: VIJK8GB0
+                      created_at:
+                        type: string
+                        example: '2022-06-17 07:48:29'
+                      updated_at:
+                        type: string
+                        example: '2022-06-17 07:48:29'
+                      use_with_other:
+                        type: string
+                        example: '1'
+                      usage_count:
+                        type: string
+                        example: '0'
+      deprecated: false
+    get:
+      tags:
+      - Discounts
+      summary: Get Discount Code List
+      description: ''
+      operationId: get-discount-code-list
+      parameters:
+      - name: price_rule_id
+        in: path
+        description: Price rule ID
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"discount_code\": {\n        \"id\": \"f819c126-a581-4d66-a909-08282dd35916\",\n        \"price_rule_id\": \"588fea0b-f15d-4c1d-9390-23661f0194fa\",\n        \"code\": \"VIJK8GB0\",\n        \"created_at\": \"2022-06-17 07:48:29\",\n        \"updated_at\": \"2022-06-17 07:48:29\",\n        \"use_with_other\": \"1\",\n        \"usage_count\": \"0\"\n    }\n}"
+              schema:
+                type: object
+                properties:
+                  discount_code:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: f819c126-a581-4d66-a909-08282dd35916
+                      price_rule_id:
+                        type: string
+                        example: 588fea0b-f15d-4c1d-9390-23661f0194fa
+                      code:
+                        type: string
+                        example: VIJK8GB0
+                      created_at:
+                        type: string
+                        example: '2022-06-17 07:48:29'
+                      updated_at:
+                        type: string
+                        example: '2022-06-17 07:48:29'
+                      use_with_other:
+                        type: string
+                        example: '1'
+                      usage_count:
+                        type: string
+                        example: '0'
+      deprecated: false
+    delete:
+      tags:
+      - Discounts
+      summary: Delete Discount Code
+      description: ''
+      operationId: delete-discount-code
+      parameters:
+      - name: price_rule_id
+        in: path
+        description: Price rule ID
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+        '404':
+          description: '404'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"errors\": [\n        \"Not found\"\n    ]\n}"
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: string
+                      example: Not found
+      deprecated: false
+  /openapi/2022-01/price_rules/{price_rule_id}/discount_codes/{discount_code_id}:
+    put:
+      tags:
+      - Discounts
+      summary: Update Discount Code
+      description: ''
+      operationId: update-discount-code
+      parameters:
+      - name: price_rule_id
+        in: path
+        description: Price rule ID
+        schema:
+          type: string
+        required: true
+      - name: discount_code_id
+        in: path
+        description: Discount code ID
+        schema:
+          type: string
+        required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                discount_code:
+                  type: object
+                  description: Discount code information
+                  required:
+                  - code
+                  properties:
+                    code:
+                      type: string
+                      description: Discount code, e.g. `SGTIOZT`
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"discount_code\": {\n        \"id\": \"f819c126-a581-4d66-a909-08282dd35916\",\n        \"price_rule_id\": \"588fea0b-f15d-4c1d-9390-23661f0194fa\",\n        \"code\": \"VIJK8GB0\",\n        \"created_at\": \"2022-06-17 07:48:29\",\n        \"updated_at\": \"2022-06-17 07:48:29\",\n        \"use_with_other\": \"1\",\n        \"usage_count\": \"0\"\n    }\n}"
+              schema:
+                type: object
+                properties:
+                  discount_code:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: f819c126-a581-4d66-a909-08282dd35916
+                      price_rule_id:
+                        type: string
+                        example: 588fea0b-f15d-4c1d-9390-23661f0194fa
+                      code:
+                        type: string
+                        example: VIJK8GB0
+                      created_at:
+                        type: string
+                        example: '2022-06-17 07:48:29'
+                      updated_at:
+                        type: string
+                        example: '2022-06-17 07:48:29'
+                      use_with_other:
+                        type: string
+                        example: '1'
+                      usage_count:
+                        type: string
+                        example: '0'
+      deprecated: false
+    get:
+      tags:
+      - Discounts
+      summary: Get Discount Code Details
+      description: ''
+      operationId: get-discount-code
+      parameters:
+      - name: price_rule_id
+        in: path
+        description: Price rule ID
+        schema:
+          type: string
+        required: true
+      - name: discount_code_id
+        in: path
+        description: Discount code ID
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"discount_code\": {\n        \"id\": \"f819c126-a581-4d66-a909-08282dd35916\",\n        \"price_rule_id\": \"588fea0b-f15d-4c1d-9390-23661f0194fa\",\n        \"code\": \"VIJK8GB0\",\n        \"created_at\": \"2022-06-17 07:48:29\",\n        \"updated_at\": \"2022-06-17 07:48:29\",\n        \"use_with_other\": \"1\",\n        \"usage_count\": \"0\"\n    }\n}"
+              schema:
+                type: object
+                properties:
+                  discount_code:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: f819c126-a581-4d66-a909-08282dd35916
+                      price_rule_id:
+                        type: string
+                        example: 588fea0b-f15d-4c1d-9390-23661f0194fa
+                      code:
+                        type: string
+                        example: VIJK8GB0
+                      created_at:
+                        type: string
+                        example: '2022-06-17 07:48:29'
+                      updated_at:
+                        type: string
+                        example: '2022-06-17 07:48:29'
+                      use_with_other:
+                        type: string
+                        example: '1'
+                      usage_count:
+                        type: string
+                        example: '0'
+      deprecated: false
+  /openapi/2022-01/discount_codes/lookup:
+    get:
+      tags:
+      - Discounts
+      summary: Search Discount Code
+      description: ''
+      operationId: search-discount-code
+      parameters:
+      - name: code
+        in: query
+        description: 'Discount code, for example: `SUMMERSALE10OFF`'
+        schema:
+          type: string
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"discount_code\": {\n        \"id\": \"f819c126-a581-4d66-a909-08282dd35916\",\n        \"price_rule_id\": \"588fea0b-f15d-4c1d-9390-23661f0194fa\",\n        \"code\": \"VIJK8GB0\",\n        \"created_at\": \"2022-06-17 07:48:29\",\n        \"updated_at\": \"2022-06-17 07:48:29\",\n        \"use_with_other\": \"1\",\n        \"usage_count\": \"0\"\n    }\n}"
+              schema:
+                type: object
+                properties:
+                  discount_code:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: f819c126-a581-4d66-a909-08282dd35916
+                      price_rule_id:
+                        type: string
+                        example: 588fea0b-f15d-4c1d-9390-23661f0194fa
+                      code:
+                        type: string
+                        example: VIJK8GB0
+                      created_at:
+                        type: string
+                        example: '2022-06-17 07:48:29'
+                      updated_at:
+                        type: string
+                        example: '2022-06-17 07:48:29'
+                      use_with_other:
+                        type: string
+                        example: '1'
+                      usage_count:
+                        type: string
+                        example: '0'
+      deprecated: false
+  /openapi/2022-01/coupons:
+    get:
+      tags:
+      - Discounts
+      summary: Coupon List
+      description: ''
+      operationId: get-coupon-list
+      parameters:
+      - name: page
+        in: query
+        description: Page number
+        schema:
+          type: integer
+          format: int32
+      - name: limit
+        in: query
+        description: Limit count per page
+        schema:
+          type: integer
+          format: int32
+      - name: progress
+        in: query
+        description: 'Progress of coupons, available: `not_started`, `ongoing`, `finished`'
+        schema:
+          type: string
+      - name: type
+        in: query
+        description: 'Type of coupons, available: `fixed_amount`, `percentage `'
+        schema:
+          type: string
+      - name: keywords
+        in: query
+        description: Search coupons' title
+        schema:
+          type: string
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"page\": 0,\n    \"limit\": 10,\n    \"total\": 2,\n    \"data\": [\n        {\n            \"id\": \"202314454241654711\",\n            \"store_id\": 11218,\n            \"life_cycle_type\": \"begin_end\",\n            \"survival_time\": 86400,\n            \"starts_at\": 1673246985,\n            \"ends_at\": -1,\n            \"status\": 0,\n            \"discount_type\": \"percentage\",\n            \"value_type\": \"percentage\",\n            \"value\": \"10\",\n            \"usage_limit\": -1,\n            \"once_per_customer\": 0,\n            \"title\": \"coupon1\",\n            \"stock\": 0,\n            \"code\": \"\",\n            \"prerequisite\": 0,\n            \"is_admin_show\": 0,\n            \"target_selection\": \"all\",\n            \"progress\": \"ongoing\",\n            \"using_state\": \"\",\n            \"allocation_limit_amount\": \"0\",\n            \"entitled_area_list\": [],\n            \"prerequisite_quantity_range\": [\n                {\n                    \"greater_than_or_equal_to\": \"\",\n                    \"value\": \"\",\n                    \"value_condition\": \"\",\n                    \"target_type\": \"\",\n                    \"target_data\": null,\n                    \"target_data_variant\": null,\n                    \"target_data_collection\": null\n                }\n            ],\n            \"prerequisite_subtotal_range\": [\n                {\n                    \"greater_than_or_equal_to\": \"\",\n                    \"value\": \"\",\n                    \"value_condition\": \"\",\n                    \"target_type\": \"\",\n                    \"target_data\": null,\n                    \"target_data_variant\": null,\n                    \"target_data_collection\": null\n                }\n            ],\n            \"entitled_product_ids\": [],\n            \"entitled_variant_ids\": [],\n            \"entitled_sort\": [],\n            \"times_used\": 1,\n            \"sort\": {\n                \"by\": \"sales\",\n                \"direction\": \"desc\"\n            },\n            \"use_with_other\": 0,\n            \"prerequisite_customer_ids\": [],\n            \"prerequisite_customer_segment_ids\": [],\n            \"config\": {\n                \"banner_url\": \"\",\n                \"banner_size\": \"\",\n                \"count_down\": {\n                    \"show_count_down\": false,\n                    \"format\": \"\",\n                    \"background_color_start\": \"\",\n                    \"background_color_end\": \"\",\n                    \"color\": \"\",\n                    \"count_down_background_color\": \"\",\n                    \"count_down_color\": \"\",\n                    \"detail_page_show_code\": false\n                }\n            },\n            \"allocation_method\": \"\",\n            \"allocation_limit\": 0,\n            \"customer_selection\": \"\",\n            \"entitled_collection_ids\": [],\n            \"tips\": {\n                \"msg\": \"\",\n                \"countdown\": \"\",\n                \"countdown_day\": \"\",\n                \"use_code\": \"\",\n                \"copy_code\": \"\"\n            },\n            \"entitled_extra_list\": null,\n            \"prerequisite_customer_range\": null,\n            \"buysPrerequisiteValue\": 0,\n            \"getsMaxOrderUseValue\": 0,\n            \"getsDiscountValue\": 0,\n            \"only_valid_first_order_customer\": false\n        },\n        {\n            \"id\": \"202310134632812624\",\n            \"store_id\": 11218,\n            \"life_cycle_type\": \"begin_end\",\n            \"survival_time\": 86400,\n            \"starts_at\": 1673246985,\n            \"ends_at\": -1,\n            \"status\": 0,\n            \"discount_type\": \"percentage\",\n            \"value_type\": \"percentage\",\n            \"value\": \"10\",\n            \"usage_limit\": -1,\n            \"once_per_customer\": 0,\n            \"title\": \"coupon2\",\n            \"stock\": 0,\n            \"code\": \"\",\n            \"prerequisite\": 0,\n            \"is_admin_show\": 0,\n            \"target_selection\": \"all\",\n            \"progress\": \"ongoing\",\n            \"using_state\": \"\",\n            \"allocation_limit_amount\": \"0\",\n            \"entitled_area_list\": [],\n            \"prerequisite_quantity_range\": [\n                {\n                    \"greater_than_or_equal_to\": \"\",\n                    \"value\": \"\",\n                    \"value_condition\": \"\",\n                    \"target_type\": \"\",\n                    \"target_data\": null,\n                    \"target_data_variant\": null,\n                    \"target_data_collection\": null\n                }\n            ],\n            \"prerequisite_subtotal_range\": [\n                {\n                    \"greater_than_or_equal_to\": \"\",\n                    \"value\": \"\",\n                    \"value_condition\": \"\",\n                    \"target_type\": \"\",\n                    \"target_data\": null,\n                    \"target_data_variant\": null,\n                    \"target_data_collection\": null\n                }\n            ],\n            \"entitled_product_ids\": [],\n            \"entitled_variant_ids\": [],\n            \"entitled_sort\": [],\n            \"times_used\": 0,\n            \"sort\": {\n                \"by\": \"sales\",\n                \"direction\": \"desc\"\n            },\n            \"use_with_other\": 0,\n            \"prerequisite_customer_ids\": [],\n            \"prerequisite_customer_segment_ids\": [],\n            \"config\": {\n                \"banner_url\": \"\",\n                \"banner_size\": \"\",\n                \"count_down\": {\n                    \"show_count_down\": false,\n                    \"format\": \"\",\n                    \"background_color_start\": \"\",\n                    \"background_color_end\": \"\",\n                    \"color\": \"\",\n                    \"count_down_background_color\": \"\",\n                    \"count_down_color\": \"\",\n                    \"detail_page_show_code\": false\n                }\n            },\n            \"allocation_method\": \"\",\n            \"allocation_limit\": 0,\n            \"customer_selection\": \"\",\n            \"entitled_collection_ids\": [],\n            \"tips\": {\n                \"msg\": \"\",\n                \"countdown\": \"\",\n                \"countdown_day\": \"\",\n                \"use_code\": \"\",\n                \"copy_code\": \"\"\n            },\n            \"entitled_extra_list\": null,\n            \"prerequisite_customer_range\": null,\n            \"buysPrerequisiteValue\": 0,\n            \"getsMaxOrderUseValue\": 0,\n            \"getsDiscountValue\": 0,\n            \"only_valid_first_order_customer\": false\n        }\n    ]\n}"
+              schema:
+                type: object
+                properties:
+                  page:
+                    type: integer
+                    example: 0
+                    default: 0
+                  limit:
+                    type: integer
+                    example: 10
+                    default: 0
+                  total:
+                    type: integer
+                    example: 2
+                    default: 0
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: '202314454241654711'
+                        store_id:
+                          type: integer
+                          example: 11218
+                          default: 0
+                        life_cycle_type:
+                          type: string
+                          example: begin_end
+                        survival_time:
+                          type: integer
+                          example: 86400
+                          default: 0
+                        starts_at:
+                          type: integer
+                          example: 1673246985
+                          default: 0
+                        ends_at:
+                          type: integer
+                          example: -1
+                          default: 0
+                        status:
+                          type: integer
+                          example: 0
+                          default: 0
+                        discount_type:
+                          type: string
+                          example: percentage
+                        value_type:
+                          type: string
+                          example: percentage
+                        value:
+                          type: string
+                          example: '10'
+                        usage_limit:
+                          type: integer
+                          example: -1
+                          default: 0
+                        once_per_customer:
+                          type: integer
+                          example: 0
+                          default: 0
+                        title:
+                          type: string
+                          example: coupon1
+                        stock:
+                          type: integer
+                          example: 0
+                          default: 0
+                        code:
+                          type: string
+                          example: ''
+                        prerequisite:
+                          type: integer
+                          example: 0
+                          default: 0
+                        is_admin_show:
+                          type: integer
+                          example: 0
+                          default: 0
+                        target_selection:
+                          type: string
+                          example: all
+                        progress:
+                          type: string
+                          example: ongoing
+                        using_state:
+                          type: string
+                          example: ''
+                        allocation_limit_amount:
+                          type: string
+                          example: '0'
+                        entitled_area_list:
+                          type: array
+                        prerequisite_quantity_range:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              greater_than_or_equal_to:
+                                type: string
+                                example: ''
+                              value:
+                                type: string
+                                example: ''
+                              value_condition:
+                                type: string
+                                example: ''
+                              target_type:
+                                type: string
+                                example: ''
+                              target_data: {}
+                              target_data_variant: {}
+                              target_data_collection: {}
+                        prerequisite_subtotal_range:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              greater_than_or_equal_to:
+                                type: string
+                                example: ''
+                              value:
+                                type: string
+                                example: ''
+                              value_condition:
+                                type: string
+                                example: ''
+                              target_type:
+                                type: string
+                                example: ''
+                              target_data: {}
+                              target_data_variant: {}
+                              target_data_collection: {}
+                        entitled_product_ids:
+                          type: array
+                        entitled_variant_ids:
+                          type: array
+                        entitled_sort:
+                          type: array
+                        times_used:
+                          type: integer
+                          example: 1
+                          default: 0
+                        sort:
+                          type: object
+                          properties:
+                            by:
+                              type: string
+                              example: sales
+                            direction:
+                              type: string
+                              example: desc
+                        use_with_other:
+                          type: integer
+                          example: 0
+                          default: 0
+                        prerequisite_customer_ids:
+                          type: array
+                        prerequisite_customer_segment_ids:
+                          type: array
+                        config:
+                          type: object
+                          properties:
+                            banner_url:
+                              type: string
+                              example: ''
+                            banner_size:
+                              type: string
+                              example: ''
+                            count_down:
+                              type: object
+                              properties:
+                                show_count_down:
+                                  type: boolean
+                                  example: false
+                                  default: true
+                                format:
+                                  type: string
+                                  example: ''
+                                background_color_start:
+                                  type: string
+                                  example: ''
+                                background_color_end:
+                                  type: string
+                                  example: ''
+                                color:
+                                  type: string
+                                  example: ''
+                                count_down_background_color:
+                                  type: string
+                                  example: ''
+                                count_down_color:
+                                  type: string
+                                  example: ''
+                                detail_page_show_code:
+                                  type: boolean
+                                  example: false
+                                  default: true
+                        allocation_method:
+                          type: string
+                          example: ''
+                        allocation_limit:
+                          type: integer
+                          example: 0
+                          default: 0
+                        customer_selection:
+                          type: string
+                          example: ''
+                        entitled_collection_ids:
+                          type: array
+                        tips:
+                          type: object
+                          properties:
+                            msg:
+                              type: string
+                              example: ''
+                            countdown:
+                              type: string
+                              example: ''
+                            countdown_day:
+                              type: string
+                              example: ''
+                            use_code:
+                              type: string
+                              example: ''
+                            copy_code:
+                              type: string
+                              example: ''
+                        entitled_extra_list: {}
+                        prerequisite_customer_range: {}
+                        buysPrerequisiteValue:
+                          type: integer
+                          example: 0
+                          default: 0
+                        getsMaxOrderUseValue:
+                          type: integer
+                          example: 0
+                          default: 0
+                        getsDiscountValue:
+                          type: integer
+                          example: 0
+                          default: 0
+                        only_valid_first_order_customer:
+                          type: boolean
+                          example: false
+                          default: true
+      deprecated: false
+  /openapi/2022-01/coupons/receive:
+    post:
+      tags:
+      - Discounts
+      summary: Receive Coupons
+      description: ''
+      operationId: receive-coupons
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - customer_id
+              - coupon_ids
+              properties:
+                customer_id:
+                  type: string
+                  description: Customer's ID to receive coupons
+                coupon_ids:
+                  type: array
+                  description: Coupons' IDs
+                  items:
+                    type: string
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"status\": 0,\n    \"items\": [\n        {\n            \"id\": \"202314454241654711\",\n            \"status\": 0,\n            \"value\": \"0\",\n            \"stock\": 20,\n            \"coupon_status\": 1,\n            \"received_count\": 1,\n            \"discount_text\": \"\",\n            \"prerequisite_text\": \"\",\n            \"is_first_order\": false\n        }\n    ],\n    \"limit\": 0,\n    \"has_more\": false,\n    \"cursor\": \"0\"\n}"
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    example: 0
+                    default: 0
+                  items:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: '202314454241654711'
+                        status:
+                          type: integer
+                          example: 0
+                          default: 0
+                        value:
+                          type: string
+                          example: '0'
+                        stock:
+                          type: integer
+                          example: 20
+                          default: 0
+                        coupon_status:
+                          type: integer
+                          example: 1
+                          default: 0
+                        received_count:
+                          type: integer
+                          example: 1
+                          default: 0
+                        discount_text:
+                          type: string
+                          example: ''
+                        prerequisite_text:
+                          type: string
+                          example: ''
+                        is_first_order:
+                          type: boolean
+                          example: false
+                          default: true
+                  limit:
+                    type: integer
+                    example: 0
+                    default: 0
+                  has_more:
+                    type: boolean
+                    example: false
+                    default: true
+                  cursor:
+                    type: string
+                    example: '0'
+      deprecated: false
+  /openapi/2022-01/discount_codes:
+    get:
+      tags:
+      - Discounts
+      summary: Discount Code List
+      description: Retrieves a list of discount code.
+      operationId: discount-code-list
+      parameters:
+      - name: limit
+        in: query
+        description: Limit per page
+        schema:
+          type: integer
+          format: int32
+      - name: page
+        in: query
+        description: Page number
+        schema:
+          type: integer
+          format: int32
+      - name: need_detail_url
+        in: query
+        description: details url return in responses
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"page\": 1,\n  \"limit\": 20,\n  \"total\": \"1\",\n  \"data\": [\n    {\n      \"allocation_limit\": \"1\",\n      \"allocation_limit_amount\": \"0.0000\",\n      \"allocation_method\": \"\",\n      \"app_id\": \"\",\n      \"code\": \"123234\",\n      \"customer_selection\": \"all\",\n      \"detail_url\": \"tzt.myshoplaza.com/promotions/coupon/1783371b-76c1-41ab-a09c-531ff54425fc\",\n      \"discount_type\": \"percentage\",\n      \"ends_at\": \"-1\",\n      \"entitled_filter_ids\": [],\n      \"entitled_filter_list\": [],\n      \"entitled_product_ids\": [],\n      \"id\": \"1783371b-76c1-41ab-a09c-531ff54425fc\",\n      \"is_admin_show\": \"1\",\n      \"once_per_customer\": \"1\",\n      \"prerequisite\": \"0\",\n      \"prerequisite_customer_ids\": [],\n      \"prerequisite_customer_segment_ids\": [],\n      \"product_num\": null,\n      \"progress\": \"ongoing\",\n      \"sort\": \"{\\\"by\\\":\\\"title\\\",\\\"direction\\\":\\\"asc\\\"}\",\n      \"starts_at\": \"1682652119\",\n      \"status\": \"1\",\n      \"target_price_type\": \"combined_price\",\n      \"target_selection\": \"all\",\n      \"target_type\": \"line_item\",\n      \"times_used\": \"0\",\n      \"title\": \"tzt-优惠码-促进成交\",\n      \"usage_limit\": \"1\",\n      \"use_with_other\": \"0\",\n      \"using_state\": \"normal\",\n      \"value\": 1,\n      \"value_type\": \"percentage\",\n      \"variant_product_ids\": []\n    }\n  ]\n}"
+              schema:
+                type: object
+                properties:
+                  page:
+                    type: integer
+                    example: 1
+                    default: 0
+                  limit:
+                    type: integer
+                    example: 20
+                    default: 0
+                  total:
+                    type: string
+                    example: '1'
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        allocation_limit:
+                          type: string
+                          example: '1'
+                        allocation_limit_amount:
+                          type: string
+                          example: '0.0000'
+                        allocation_method:
+                          type: string
+                          example: ''
+                        app_id:
+                          type: string
+                          example: ''
+                        code:
+                          type: string
+                          example: '123234'
+                        customer_selection:
+                          type: string
+                          example: all
+                        detail_url:
+                          type: string
+                          example: tzt.myshoplaza.com/promotions/coupon/1783371b-76c1-41ab-a09c-531ff54425fc
+                        discount_type:
+                          type: string
+                          example: percentage
+                        ends_at:
+                          type: string
+                          example: '-1'
+                        entitled_filter_ids:
+                          type: array
+                        entitled_filter_list:
+                          type: array
+                        entitled_product_ids:
+                          type: array
+                        id:
+                          type: string
+                          example: 1783371b-76c1-41ab-a09c-531ff54425fc
+                        is_admin_show:
+                          type: string
+                          example: '1'
+                        once_per_customer:
+                          type: string
+                          example: '1'
+                        prerequisite:
+                          type: string
+                          example: '0'
+                        prerequisite_customer_ids:
+                          type: array
+                        prerequisite_customer_segment_ids:
+                          type: array
+                        product_num: {}
+                        progress:
+                          type: string
+                          example: ongoing
+                        sort:
+                          type: string
+                          example: '{"by":"title","direction":"asc"}'
+                        starts_at:
+                          type: string
+                          example: '1682652119'
+                        status:
+                          type: string
+                          example: '1'
+                        target_price_type:
+                          type: string
+                          example: combined_price
+                        target_selection:
+                          type: string
+                          example: all
+                        target_type:
+                          type: string
+                          example: line_item
+                        times_used:
+                          type: string
+                          example: '0'
+                        title:
+                          type: string
+                          example: tzt-优惠码-促进成交
+                        usage_limit:
+                          type: string
+                          example: '1'
+                        use_with_other:
+                          type: string
+                          example: '0'
+                        using_state:
+                          type: string
+                          example: normal
+                        value:
+                          type: integer
+                          example: 1
+                          default: 0
+                        value_type:
+                          type: string
+                          example: percentage
+                        variant_product_ids:
+                          type: array
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+  /openapi/2022-01/discount_rebates:
+    get:
+      tags:
+      - Discounts
+      summary: Discount Rebate List
+      description: ''
+      operationId: discount-rebate-list
+      parameters:
+      - name: limit
+        in: query
+        description: Limit per page
+        schema:
+          type: integer
+          format: int32
+      - name: page
+        in: query
+        description: Page number
+        schema:
+          type: integer
+          format: int32
+      - name: need_detail_url
+        in: query
+        description: details url return in responses
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"page\": 1,\n  \"limit\": 20,\n  \"total\": \"1\",\n  \"data\": [\n    {\n      \"allocation_limit\": \"0\",\n      \"allocation_limit_amount\": \"0.0000\",\n      \"allocation_method\": \"across\",\n      \"customer_selection\": \"all\",\n      \"detail_url\": \"tzt.myshoplaza.com/promotions/rebate/47d2a827-e914-49e0-a14c-3161edb1ae9e\",\n      \"discount_type\": \"fixed_amount\",\n      \"ends_at\": \"-1\",\n      \"entitled_filter_ids\": [],\n      \"entitled_filter_list\": [],\n      \"entitled_product_ids\": [],\n      \"global_show_text\": \"close\",\n      \"id\": \"47d2a827-e914-49e0-a14c-3161edb1ae9e\",\n      \"once_per_customer\": \"0\",\n      \"popups_id\": \"\",\n      \"popups_setting\": \"close\",\n      \"prerequisite\": \"1\",\n      \"prerequisite_customer_ids\": [],\n      \"prerequisite_customer_range\": null,\n      \"prerequisite_customer_segment_ids\": [],\n      \"prerequisite_quantity_range\": null,\n      \"prerequisite_subtotal_range\": [\n        {\n          \"greater_than_or_equal_to\": \"123\",\n          \"value\": \"1\",\n          \"value_event_type\": \"\",\n          \"value_condition\": \"less_than_or_equal_to\",\n          \"target_type\": \"\",\n          \"target_data\": [],\n          \"target_data_variant\": [],\n          \"target_data_collection\": []\n        }\n      ],\n      \"prerequisite_threshold_quantity_range\": null,\n      \"prerequisite_threshold_subtotal_range\": null,\n      \"product_num\": null,\n      \"progress\": \"ongoing\",\n      \"sort\": \"{\\\"by\\\":\\\"title\\\",\\\"direction\\\":\\\"asc\\\"}\",\n      \"starts_at\": \"1682652084\",\n      \"status\": \"1\",\n      \"target_price_type\": \"combined_price\",\n      \"target_selection\": \"all\",\n      \"target_type\": \"\",\n      \"times_used\": \"0\",\n      \"title\": \"tzt-满减活动-吸引客户购买更多\",\n      \"usage_limit\": \"0\",\n      \"value\": 0,\n      \"value_type\": \"fixed_amount\",\n      \"variant_product_ids\": []\n    }\n  ]\n}"
+              schema:
+                type: object
+                properties:
+                  page:
+                    type: integer
+                    example: 1
+                    default: 0
+                  limit:
+                    type: integer
+                    example: 20
+                    default: 0
+                  total:
+                    type: string
+                    example: '1'
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        allocation_limit:
+                          type: string
+                          example: '0'
+                        allocation_limit_amount:
+                          type: string
+                          example: '0.0000'
+                        allocation_method:
+                          type: string
+                          example: across
+                        customer_selection:
+                          type: string
+                          example: all
+                        detail_url:
+                          type: string
+                          example: tzt.myshoplaza.com/promotions/rebate/47d2a827-e914-49e0-a14c-3161edb1ae9e
+                        discount_type:
+                          type: string
+                          example: fixed_amount
+                        ends_at:
+                          type: string
+                          example: '-1'
+                        entitled_filter_ids:
+                          type: array
+                        entitled_filter_list:
+                          type: array
+                        entitled_product_ids:
+                          type: array
+                        global_show_text:
+                          type: string
+                          example: close
+                        id:
+                          type: string
+                          example: 47d2a827-e914-49e0-a14c-3161edb1ae9e
+                        once_per_customer:
+                          type: string
+                          example: '0'
+                        popups_id:
+                          type: string
+                          example: ''
+                        popups_setting:
+                          type: string
+                          example: close
+                        prerequisite:
+                          type: string
+                          example: '1'
+                        prerequisite_customer_ids:
+                          type: array
+                        prerequisite_customer_range: {}
+                        prerequisite_customer_segment_ids:
+                          type: array
+                        prerequisite_quantity_range: {}
+                        prerequisite_subtotal_range:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              greater_than_or_equal_to:
+                                type: string
+                                example: '123'
+                              value:
+                                type: string
+                                example: '1'
+                              value_event_type:
+                                type: string
+                                example: ''
+                              value_condition:
+                                type: string
+                                example: less_than_or_equal_to
+                              target_type:
+                                type: string
+                                example: ''
+                              target_data:
+                                type: array
+                              target_data_variant:
+                                type: array
+                              target_data_collection:
+                                type: array
+                        prerequisite_threshold_quantity_range: {}
+                        prerequisite_threshold_subtotal_range: {}
+                        product_num: {}
+                        progress:
+                          type: string
+                          example: ongoing
+                        sort:
+                          type: string
+                          example: '{"by":"title","direction":"asc"}'
+                        starts_at:
+                          type: string
+                          example: '1682652084'
+                        status:
+                          type: string
+                          example: '1'
+                        target_price_type:
+                          type: string
+                          example: combined_price
+                        target_selection:
+                          type: string
+                          example: all
+                        target_type:
+                          type: string
+                          example: ''
+                        times_used:
+                          type: string
+                          example: '0'
+                        title:
+                          type: string
+                          example: tzt-满减活动-吸引客户购买更多
+                        usage_limit:
+                          type: string
+                          example: '0'
+                        value:
+                          type: integer
+                          example: 0
+                          default: 0
+                        value_type:
+                          type: string
+                          example: fixed_amount
+                        variant_product_ids:
+                          type: array
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+  /openapi/2022-01/discount_flashsales:
+    get:
+      tags:
+      - Discounts
+      summary: Discount Flashsale List
+      description: ''
+      operationId: discount-flashsale-list
+      parameters:
+      - name: limit
+        in: query
+        description: Limit per page
+        schema:
+          type: integer
+          format: int32
+      - name: page
+        in: query
+        description: Page number
+        schema:
+          type: integer
+          format: int32
+      - name: need_detail_url
+        in: query
+        description: details url return in responses
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"page\": 1,\n  \"limit\": 20,\n  \"total\": 1,\n  \"data\": [\n    {\n      \"id\": \"14f759fe-cb07-4778-8448-e1ba4b686439\",\n      \"title\": \"tzt-限时促销-刺激客户下单\",\n      \"discount_type\": \"percentage\",\n      \"once_per_customer\": 0,\n      \"starts_at\": 1682651959,\n      \"ends_at\": -1,\n      \"status\": 1,\n      \"sort\": \"{\\\"by\\\":\\\"title\\\",\\\"direction\\\":\\\"asc\\\"}\",\n      \"allocation_method\": \"none\",\n      \"allow_oversold\": \"uncheck\",\n      \"progress\": \"ongoing\",\n      \"product_num\": 410,\n      \"detail_url\": \"tzt.myshoplaza.com/promotions/flashsale/14f759fe-cb07-4778-8448-e1ba4b686439\"\n    }\n  ]\n}"
+              schema:
+                type: object
+                properties:
+                  page:
+                    type: integer
+                    example: 1
+                    default: 0
+                  limit:
+                    type: integer
+                    example: 20
+                    default: 0
+                  total:
+                    type: integer
+                    example: 1
+                    default: 0
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: 14f759fe-cb07-4778-8448-e1ba4b686439
+                        title:
+                          type: string
+                          example: tzt-限时促销-刺激客户下单
+                        discount_type:
+                          type: string
+                          example: percentage
+                        once_per_customer:
+                          type: integer
+                          example: 0
+                          default: 0
+                        starts_at:
+                          type: integer
+                          example: 1682651959
+                          default: 0
+                        ends_at:
+                          type: integer
+                          example: -1
+                          default: 0
+                        status:
+                          type: integer
+                          example: 1
+                          default: 0
+                        sort:
+                          type: string
+                          example: '{"by":"title","direction":"asc"}'
+                        allocation_method:
+                          type: string
+                          example: none
+                        allow_oversold:
+                          type: string
+                          example: uncheck
+                        progress:
+                          type: string
+                          example: ongoing
+                        product_num:
+                          type: integer
+                          example: 410
+                          default: 0
+                        detail_url:
+                          type: string
+                          example: tzt.myshoplaza.com/promotions/flashsale/14f759fe-cb07-4778-8448-e1ba4b686439
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+  /openapi/2022-01/popups:
+    get:
+      tags:
+      - Discounts
+      summary: Popup List
+      description: ''
+      operationId: popup-list
+      parameters:
+      - name: page
+        in: query
+        description: Page number
+        schema:
+          type: integer
+          format: int32
+          default: 1
+      - name: limit
+        in: query
+        description: Limit count per page
+        schema:
+          type: integer
+          format: int32
+          default: 8
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"page\": 1,\n  \"limit\": 8,\n  \"total\": \"1\",\n  \"data\": [\n    {\n      \"abrogation_condition\": {\n        \"trigger_num\": 0,\n        \"closed\": 0,\n        \"participated\": 0\n      },\n      \"activity_id\": \"47d2a827-e914-49e0-a14c-3161edb1ae9e\",\n      \"activity_type\": \"rebate\",\n      \"app_type\": \"\",\n      \"cart_amount\": {\n        \"limit\": 0,\n        \"min\": null,\n        \"max\": null\n      },\n      \"cart_num\": {\n        \"limit\": 0,\n        \"min\": null,\n        \"max\": null\n      },\n      \"config\": {\n        \"global\": {\n          \"sections\": {\n            \"global\": [\n              \"setting\",\n              \"overlay\",\n              \"modalSize\"\n            ]\n          },\n          \"overlay\": {\n            \"type\": \"overlay\",\n            \"style\": {\n              \"background-color\": \"rgba(0,0,0,0.6)\"\n            }\n          },\n          \"modalSize\": {\n            \"type\": \"size\",\n            \"style\": {\n              \"width\": \"480px\"\n            }\n          },\n          \"setting\": {\n            \"type\": \"setting\",\n            \"value\": {\n              \"device-type\": \"all\",\n              \"prerequisiteType\": \"single\"\n            }\n          }\n        },\n        \"basic_setting\": {\n          \"sections\": {\n            \"activity\": [\n              \"selectActivity\"\n            ],\n            \"activityUrl\": [\n              \"activityUrl\"\n            ]\n          },\n          \"selectActivity\": {\n            \"type\": \"select\",\n            \"activity_name\": \"tzt-满减活动-吸引客户购买更多\",\n            \"prerequisite_array\": [\n              {\n                \"greater_than_or_equal_to\": \"123\",\n                \"value\": \"1\",\n                \"value_event_type\": \"\",\n                \"value_condition\": \"less_than_or_equal_to\",\n                \"target_type\": \"\",\n                \"target_data\": [],\n                \"target_data_variant\": [],\n                \"target_data_collection\": []\n              }\n            ]\n          },\n          \"activityUrl\": {\n            \"type\": \"jumpUrl\",\n            \"value\": \"/promotions/rebate/47d2a827-e914-49e0-a14c-3161edb1ae9e\"\n          }\n        },\n        \"advanced_setting\": {\n          \"sections\": {\n            \"modal\": [\n              \"modal\"\n            ],\n            \"content\": [\n              \"title\",\n              \"couponContent\",\n              \"declaration\",\n              \"mainButton\",\n              \"closeButton\",\n              \"coupon\"\n            ]\n          },\n          \"modal\": {\n            \"type\": \"gradient\",\n            \"style\": {\n              \"image\": \"none\",\n              \"background\": \"linear-gradient(180deg, #ff704f, #ff274b, #ff274b) no-repeat scroll center center/cover\",\n              \"background1\": \"#ff704f\",\n              \"background2\": \"#ff274b\",\n              \"backgroundImageTemplate\": \"linear-gradient(180deg, $bg1, $bg2, $bg2)\"\n            }\n          },\n          \"title\": {\n            \"type\": \"text\",\n            \"value\": \"<span style=\\\"font-size: 26px; font-weight: 700; font-family: Lato, Lato-Black; color: #fefffe;\\\" data-mce-style=\\\"font-size: 26px; font-weight: 700; font-family: Lato, Lato-Black; color: #fefffe;\\\">SPECIAL OFFER</span>\",\n            \"style\": {\n              \"background-color\": \"#FF704F\"\n            }\n          },\n          \"couponContent\": {\n            \"type\": \"text\",\n            \"titleName\": \"popups.activity_text\",\n            \"single\": {\n              \"amount_percentage\": {\n                \"value\": \"<div style=\\\"color:#ff2f4b;font-family: Lato, Lato-Regular;white-space: nowrap;\\\" data-mce-style=\\\"color:#ff2f4b;font-family: Lato, Lato-Regular;white-space: nowrap;\\\">\\n              <div style=\\\"display: flex;justify-content: center;\\\" data-mce-style=\\\"display: flex;justify-content: center;\\\">\\n                <span style=\\\"font-size: 88px; color: #ff2f4b;line-height: 1em;\\\" data-mce-style=\\\"display: block;font-size: 88px; color: inherit;line-height: 1em;\\\">{{rebate}}</span>\\n                <div style=\\\"margin-left: 12px;display: flex;flex-direction: column;justify-content: center;\\\" data-mce-style=\\\"margin-left: 5px;display: flex;flex-direction: column;justify-content: center;\\\">\\n                  <span style=\\\"font-size: 48px;display: block;line-height: 1em;\\\" data-mce-style=\\\"display: block;font-size: 48px; color: #ff2f4b;line-height: 1em;\\\">%</span>\\n                  <span style=\\\"color:#b06410;font-size: 24px;line-height: 1em;\\\" data-mce-style=\\\"color:#b06410;font-size: 24px;line-height: 1em;\\\">OFF</span>\\n                </div>\\n              </div>\\n              <div style=\\\"margin-top: 10px;color: #AE6002;font-size: 24px;line-height: 1em;\\\" data-mce-style=\\\"margin-top: 10px;color: #AE6002;font-size: 24px;line-height: 1em;\\\">ON ORDER OF</div>\\n              <div style=\\\"margin-top: 10px;font-size: 32px; font-weight: bold; color: #ff2f4b;line-height: 1em; white-space: nowrap;\\\" data-mce-style=\\\"margin-top: 10px;font-size: 32px; font-weight: bold; color: #ff2f4b;line-height: 1em; white-space: nowrap;\\\">{{amount}}+</div>\\n              </div>\\n              \",\n                \"style\": {\n                  \"background-color\": \"#FFFBF2\"\n                }\n              },\n              \"item_fixed_amount\": {\n                \"value\": \"<div style=\\\"color:#ff2f4b;font-family: Lato, Lato-Regular;white-space: nowrap;\\\" data-mce-style=\\\"color:#ff2f4b;font-family: Lato, Lato-Regular;white-space: nowrap;\\\">\\n              <span class=\\\"popups___need_scale\\\" style=\\\"line-height: 1em;display: block;font-size: 60px; color: #ff2f4b;font-weight: bold; white-space: nowrap;\\\" data-mce-style=\\\"line-height: 1em;display: block;font-size: 60px; color: #ff2f4b;font-weight: bold; white-space: nowrap;\\\">-{{rebate}}</span>\\n              <div class=\\\"popups___needless_scale\\\" style=\\\"line-height: 1em;margin-top: 14px;font-size: 34px; color: #ff2f4b;font-weight: bold;\\\" data-mce-style=\\\"line-height: 1em;margin-top: 14px;font-size: 34px; color: #ff2f4b;font-weight: bold;\\\">{{amount}} <span style=\\\"color: #AE6002;font-weight: normal;\\\" data-mce-style=\\\"color: #AE6002;font-weight: normal;\\\">ITEMS+</span></div>\\n              <div class=\\\"popups___needless_scale\\\" style=\\\"line-height: 1em;margin-top: 10px;color: #AE6002;font-size: 24px;opacity: 0.3;\\\" data-mce-style=\\\"line-height: 1em;margin-top: 10px;color: #AE6002;font-size: 24px;opacity: 0.3;\\\">FOR ORDER OVER</div>\\n              </div>\",\n                \"style\": {\n                  \"background-color\": \"#FFFBF2\"\n                }\n              },\n              \"fixed_amount\": {\n                \"value\": \"<div style=\\\"text-align: center;font-family: Lato, Lato-Regular;white-space: nowrap;\\\" data-mce-style=\\\"text-align: center;font-family: Lato, Lato-Regular;white-space: nowrap;\\\">\\n                <span class=\\\"popups___need_scale\\\" style=\\\"display: block;font-size: 64px; font-weight: bold; color: #ff2f4b;line-height: 1em; white-space: nowrap;\\\" data-mce-style=\\\"display: block;font-size: 64px; font-weight: bold; color: #ff2f4b;line-height: 1em; white-space: nowrap;\\\">-{{rebate}}</span>\\n                <span class=\\\"popups___need_scale\\\" style=\\\"display: block;font-size: 40px; color: #b06410;margin-top: 16px;line-height: 1em;\\\" data-mce-style=\\\"display: block;font-size: 40px; color: #b06410;margin-top: 16px;line-height: 1em;\\\">BUY {{amount}}</span>\\n              </div>\\n              \",\n                \"style\": {\n                  \"background-color\": \"#FFFBF2\"\n                }\n              },\n              \"percentage\": {\n                \"across\": {\n                  \"value\": \"<div style=\\\"color:#ff2f4b;font-family: Lato, Lato-Regular;white-space: nowrap;\\\" data-mce-style=\\\"color:#ff2f4b;font-family: Lato, Lato-Regular;white-space: nowrap;\\\">\\n                <div style=\\\"display: flex;justify-content: center;\\\" data-mce-style=\\\"display: flex;justify-content: center;\\\">\\n                  <span style=\\\"font-size: 88px; color: #ff2f4b;line-height: 1em;\\\" data-mce-style=\\\"display: block;font-size: 88px; color: inherit;line-height: 1em;\\\">{{rebate}}</span>\\n                  <div style=\\\"margin-left: 12px;display: flex;flex-direction: column;justify-content: center;\\\" data-mce-style=\\\"margin-left: 5px;display: flex;flex-direction: column;justify-content: center;\\\">\\n                    <span style=\\\"font-size: 48px;display: block;line-height: 1em;\\\" data-mce-style=\\\"display: block;font-size: 48px; color: #ff2f4b;line-height: 1em;\\\">%</span>\\n                    <span style=\\\"color:#b06410;font-size: 24px;line-height: 1em;\\\" data-mce-style=\\\"color:#b06410;font-size: 24px;line-height: 1em;\\\">OFF</span>\\n                  </div>\\n                </div>\\n                <div style=\\\"margin-top: 10px;font-size: 36px; color: #ff2f4b;line-height: 1em;\\\" data-mce-style=\\\"margin-top: 10px;font-size: 36px; color: #ff2f4b;line-height: 1em;\\\"><span style=\\\"font-weight: bold;\\\" data-mce-style=\\\"font-weight: bold;\\\">{{amount}}</span> <span style=\\\"color: #AE6002;\\\" data-mce-style=\\\"color: #AE6002;\\\">ITEMS+</span></div>\\n                <div style=\\\"margin-top: 10px;color: #AE6002;font-size: 24px;opacity: 0.3;line-height: 1em;\\\" data-mce-style=\\\"margin-top: 10px;color: #AE6002;font-size: 24px;opacity: 0.3;\\\">FOR ORDER OVER</div>\\n                </div>\"\n                },\n                \"each\": {\n                  \"value\": \"<div style=\\\"color:#ff2f4b;font-family: Lato, Lato-Regular;white-space: nowrap;\\\" data-mce-style=\\\"color:#ff2f4b;font-family: Lato, Lato-Regular;white-space: nowrap;\\\">\\n                <div style=\\\"display: flex;justify-content: center;\\\" data-mce-style=\\\"display: flex;justify-content: center;\\\">\\n                  <span style=\\\"font-size: 88px; color: #ff2f4b;line-height: 1em;\\\" data-mce-style=\\\"display: block;font-size: 88px; color: inherit;line-height: 1em;\\\">{{rebate}}</span>\\n                  <div style=\\\"margin-left: 12px;display: flex;flex-direction: column;justify-content: center;\\\" data-mce-style=\\\"margin-left: 5px;display: flex;flex-direction: column;justify-content: center;\\\">\\n                    <span style=\\\"font-size: 48px;display: block;line-height: 1em;\\\" data-mce-style=\\\"display: block;font-size: 48px; color: #ff2f4b;line-height: 1em;\\\">%</span>\\n                    <span style=\\\"color:#ff2f4b;font-size: 24px;line-height: 1em;\\\" data-mce-style=\\\"color:#ff2f4b;font-size: 24px;line-height: 1em;\\\">OFF</span>\\n                  </div>\\n                </div>\\n                <div style=\\\"margin-top: 10px;color: #AE6002;font-size: 20px;opacity: 0.3;line-height: 1em;\\\" data-mce-style=\\\"margin-top: 10px;color: #AE6002;font-size: 20px;opacity: 0.3;\\\">FOR THE</div>\\n                <div style=\\\"margin-top: 10px;font-size: 24px; color: #AE6002;line-height: 1em;\\\" data-mce-style=\\\"margin-top: 10px;font-size: 24px; color: #AE6002;line-height: 1em;\\\">{{amount}} <span style=\\\"color: #AE6002;\\\" data-mce-style=\\\"color: #AE6002;\\\">ITEM</span></div>\\n                </div>\"\n                },\n                \"style\": {\n                  \"background-color\": \"#FFFBF2\"\n                }\n              }\n            }\n          },\n          \"coupon\": {\n            \"type\": \"overlay\",\n            \"titleName\": \"popups.coupons\",\n            \"style\": {\n              \"background-color\": \"#FFFBF2\"\n            }\n          },\n          \"declaration\": {\n            \"type\": \"text\",\n            \"titleName\": \"popups.activity_declaration\",\n            \"value\": \"<span style=\\\"font-size: 14px; color: #ffffff;font-family: Lato, Lato-Regular;\\\" data-mce-style=\\\"font-size: 14px; color: #ffffff;font-family: Lato, Lato-Regular;\\\">*Discounts would automatically apply when placing an order</span>\",\n            \"style\": {\n              \"background-color\": \"#FF274B\"\n            }\n          },\n          \"mainButton\": {\n            \"type\": \"button\",\n            \"value\": \"<span style=\\\"color: #FF0022; font-size: 16px; font-weight: bold;font-family: Lato, Lato-Regular;\\\" data-mce-style=\\\"color: #FF0022; font-size: 16px; font-weight: bold;font-family: Lato, Lato-Regular;\\\">COLLECT ALL</span>\",\n            \"style\": {\n              \"background-color\": \"#fff3be\",\n              \"border-color\": \"#fff3be\"\n            }\n          },\n          \"closeButton\": {\n            \"type\": \"closeBtn\",\n            \"modifier\": \"show\",\n            \"toolShowCloseBtn\": false,\n            \"showCloseBtn\": true,\n            \"style\": {\n              \"color\": \"#ffffff\"\n            }\n          }\n        },\n        \"reset\": []\n      },\n      \"conversion_rate\": \"100.00\",\n      \"coupon_code\": null,\n      \"create_type\": \"manual\",\n      \"discount_type\": \"fixed_amount\",\n      \"ends_at\": \"-1\",\n      \"exposure\": \"1\",\n      \"frequency_num\": \"1\",\n      \"frequency_type\": \"6\",\n      \"id\": \"4b8395bb-09a0-4bb1-84c9-749375d9562b\",\n      \"name\": \"tzt-满减活动-吸引客户购买更多\",\n      \"opportunity\": \"1\",\n      \"order_amount\": {\n        \"limit\": 0,\n        \"min\": null,\n        \"max\": null\n      },\n      \"order_num\": {\n        \"limit\": 0,\n        \"min\": null,\n        \"max\": null\n      },\n      \"pages_type\": \"1\",\n      \"progress\": \"ongoing\",\n      \"resource_id\": \"\",\n      \"starts_at\": \"1682652084\",\n      \"status\": \"1\",\n      \"subscribe\": \"1\",\n      \"target_user\": \"1\",\n      \"theme\": \"template_rebate_1\",\n      \"type\": \"popups\",\n      \"user_login\": \"0\",\n      \"user_subscribe\": \"0\",\n      \"wait_seconds\": \"0\",\n      \"activity_detail\": {\n        \"id\": \"47d2a827-e914-49e0-a14c-3161edb1ae9e\",\n        \"title\": \"tzt-满减活动-吸引客户购买更多\",\n        \"price_rule_id\": \"1d5c3eba-ac32-49a5-8961-b5b705e61db1\",\n        \"discount_type\": \"fixed_amount\",\n        \"starts_at\": \"1682652084\",\n        \"ends_at\": \"-1\",\n        \"status\": \"1\",\n        \"popups_setting\": \"close\",\n        \"global_show_text\": \"close\",\n        \"popups_id\": \"\",\n        \"prerequisite_subtotal_range\": [\n          {\n            \"greater_than_or_equal_to\": \"123\",\n            \"value\": \"1\",\n            \"value_event_type\": \"\",\n            \"value_condition\": \"less_than_or_equal_to\",\n            \"target_type\": \"\",\n            \"target_data\": [],\n            \"target_data_variant\": [],\n            \"target_data_collection\": []\n          }\n        ],\n        \"prerequisite_quantity_range\": null,\n        \"prerequisite_customer_range\": null,\n        \"prerequisite_threshold_subtotal_range\": null,\n        \"prerequisite_threshold_quantity_range\": null,\n        \"allocation_method\": \"across\"\n      }\n    }\n  ]\n}"
+              schema:
+                type: object
+                properties:
+                  page:
+                    type: integer
+                    example: 1
+                    default: 0
+                  limit:
+                    type: integer
+                    example: 8
+                    default: 0
+                  total:
+                    type: string
+                    example: '1'
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        abrogation_condition:
+                          type: object
+                          properties:
+                            trigger_num:
+                              type: integer
+                              example: 0
+                              default: 0
+                            closed:
+                              type: integer
+                              example: 0
+                              default: 0
+                            participated:
+                              type: integer
+                              example: 0
+                              default: 0
+                        activity_id:
+                          type: string
+                          example: 47d2a827-e914-49e0-a14c-3161edb1ae9e
+                        activity_type:
+                          type: string
+                          example: rebate
+                        app_type:
+                          type: string
+                          example: ''
+                        cart_amount:
+                          type: object
+                          properties:
+                            limit:
+                              type: integer
+                              example: 0
+                              default: 0
+                            min: {}
+                            max: {}
+                        cart_num:
+                          type: object
+                          properties:
+                            limit:
+                              type: integer
+                              example: 0
+                              default: 0
+                            min: {}
+                            max: {}
+                        config:
+                          type: object
+                          properties:
+                            global:
+                              type: object
+                              properties:
+                                sections:
+                                  type: object
+                                  properties:
+                                    global:
+                                      type: array
+                                      items:
+                                        type: string
+                                        example: setting
+                                overlay:
+                                  type: object
+                                  properties:
+                                    type:
+                                      type: string
+                                      example: overlay
+                                    style:
+                                      type: object
+                                      properties:
+                                        background-color:
+                                          type: string
+                                          example: rgba(0,0,0,0.6)
+                                modalSize:
+                                  type: object
+                                  properties:
+                                    type:
+                                      type: string
+                                      example: size
+                                    style:
+                                      type: object
+                                      properties:
+                                        width:
+                                          type: string
+                                          example: 480px
+                                setting:
+                                  type: object
+                                  properties:
+                                    type:
+                                      type: string
+                                      example: setting
+                                    value:
+                                      type: object
+                                      properties:
+                                        device-type:
+                                          type: string
+                                          example: all
+                                        prerequisiteType:
+                                          type: string
+                                          example: single
+                            basic_setting:
+                              type: object
+                              properties:
+                                sections:
+                                  type: object
+                                  properties:
+                                    activity:
+                                      type: array
+                                      items:
+                                        type: string
+                                        example: selectActivity
+                                    activityUrl:
+                                      type: array
+                                      items:
+                                        type: string
+                                        example: activityUrl
+                                selectActivity:
+                                  type: object
+                                  properties:
+                                    type:
+                                      type: string
+                                      example: select
+                                    activity_name:
+                                      type: string
+                                      example: tzt-满减活动-吸引客户购买更多
+                                    prerequisite_array:
+                                      type: array
+                                      items:
+                                        type: object
+                                        properties:
+                                          greater_than_or_equal_to:
+                                            type: string
+                                            example: '123'
+                                          value:
+                                            type: string
+                                            example: '1'
+                                          value_event_type:
+                                            type: string
+                                            example: ''
+                                          value_condition:
+                                            type: string
+                                            example: less_than_or_equal_to
+                                          target_type:
+                                            type: string
+                                            example: ''
+                                          target_data:
+                                            type: array
+                                          target_data_variant:
+                                            type: array
+                                          target_data_collection:
+                                            type: array
+                                activityUrl:
+                                  type: object
+                                  properties:
+                                    type:
+                                      type: string
+                                      example: jumpUrl
+                                    value:
+                                      type: string
+                                      example: /promotions/rebate/47d2a827-e914-49e0-a14c-3161edb1ae9e
+                            advanced_setting:
+                              type: object
+                              properties:
+                                sections:
+                                  type: object
+                                  properties:
+                                    modal:
+                                      type: array
+                                      items:
+                                        type: string
+                                        example: modal
+                                    content:
+                                      type: array
+                                      items:
+                                        type: string
+                                        example: title
+                                modal:
+                                  type: object
+                                  properties:
+                                    type:
+                                      type: string
+                                      example: gradient
+                                    style:
+                                      type: object
+                                      properties:
+                                        image:
+                                          type: string
+                                          example: none
+                                        background:
+                                          type: string
+                                          example: 'linear-gradient(180deg, #ff704f, #ff274b, #ff274b) no-repeat scroll center center/cover'
+                                        background1:
+                                          type: string
+                                          example: '#ff704f'
+                                        background2:
+                                          type: string
+                                          example: '#ff274b'
+                                        backgroundImageTemplate:
+                                          type: string
+                                          example: linear-gradient(180deg, $bg1, $bg2, $bg2)
+                                title:
+                                  type: object
+                                  properties:
+                                    type:
+                                      type: string
+                                      example: text
+                                    value:
+                                      type: string
+                                      example: '<span style="font-size: 26px; font-weight: 700; font-family: Lato, Lato-Black; color: #fefffe;" data-mce-style="font-size: 26px; font-weight: 700; font-family: Lato, Lato-Black; color: #fefffe;">SPECIAL OFFER</span>'
+                                    style:
+                                      type: object
+                                      properties:
+                                        background-color:
+                                          type: string
+                                          example: '#FF704F'
+                                couponContent:
+                                  type: object
+                                  properties:
+                                    type:
+                                      type: string
+                                      example: text
+                                    titleName:
+                                      type: string
+                                      example: popups.activity_text
+                                    single:
+                                      type: object
+                                      properties:
+                                        amount_percentage:
+                                          type: object
+                                          properties:
+                                            value:
+                                              type: string
+                                              example: "<div style=\"color:#ff2f4b;font-family: Lato, Lato-Regular;white-space: nowrap;\" data-mce-style=\"color:#ff2f4b;font-family: Lato, Lato-Regular;white-space: nowrap;\">\n              <div style=\"display: flex;justify-content: center;\" data-mce-style=\"display: flex;justify-content: center;\">\n                <span style=\"font-size: 88px; color: #ff2f4b;line-height: 1em;\" data-mce-style=\"display: block;font-size: 88px; color: inherit;line-height: 1em;\">{{rebate}}</span>\n                <div style=\"margin-left: 12px;display: flex;flex-direction: column;justify-content: center;\" data-mce-style=\"margin-left: 5px;display: flex;flex-direction: column;justify-content: center;\">\n                  <span style=\"font-size: 48px;display: block;line-height: 1em;\" data-mce-style=\"display: block;font-size: 48px; color: #ff2f4b;line-height: 1em;\">%</span>\n                  <span style=\"color:#b06410;font-size: 24px;line-height: 1em;\" data-mce-style=\"color:#b06410;font-size: 24px;line-height: 1em;\">OFF</span>\n                </div>\n              </div>\n              <div style=\"margin-top: 10px;color: #AE6002;font-size: 24px;line-height: 1em;\" data-mce-style=\"margin-top: 10px;color: #AE6002;font-size: 24px;line-height: 1em;\">ON ORDER OF</div>\n              <div style=\"margin-top: 10px;font-size: 32px; font-weight: bold; color: #ff2f4b;line-height: 1em; white-space: nowrap;\" data-mce-style=\"margin-top: 10px;font-size: 32px; font-weight: bold; color: #ff2f4b;line-height: 1em; white-space: nowrap;\">{{amount}}+</div>\n              </div>\n              "
+                                            style:
+                                              type: object
+                                              properties:
+                                                background-color:
+                                                  type: string
+                                                  example: '#FFFBF2'
+                                        item_fixed_amount:
+                                          type: object
+                                          properties:
+                                            value:
+                                              type: string
+                                              example: "<div style=\"color:#ff2f4b;font-family: Lato, Lato-Regular;white-space: nowrap;\" data-mce-style=\"color:#ff2f4b;font-family: Lato, Lato-Regular;white-space: nowrap;\">\n              <span class=\"popups___need_scale\" style=\"line-height: 1em;display: block;font-size: 60px; color: #ff2f4b;font-weight: bold; white-space: nowrap;\" data-mce-style=\"line-height: 1em;display: block;font-size: 60px; color: #ff2f4b;font-weight: bold; white-space: nowrap;\">-{{rebate}}</span>\n              <div class=\"popups___needless_scale\" style=\"line-height: 1em;margin-top: 14px;font-size: 34px; color: #ff2f4b;font-weight: bold;\" data-mce-style=\"line-height: 1em;margin-top: 14px;font-size: 34px; color: #ff2f4b;font-weight: bold;\">{{amount}} <span style=\"color: #AE6002;font-weight: normal;\" data-mce-style=\"color: #AE6002;font-weight: normal;\">ITEMS+</span></div>\n              <div class=\"popups___needless_scale\" style=\"line-height: 1em;margin-top: 10px;color: #AE6002;font-size: 24px;opacity: 0.3;\" data-mce-style=\"line-height: 1em;margin-top: 10px;color: #AE6002;font-size: 24px;opacity: 0.3;\">FOR ORDER OVER</div>\n              </div>"
+                                            style:
+                                              type: object
+                                              properties:
+                                                background-color:
+                                                  type: string
+                                                  example: '#FFFBF2'
+                                        fixed_amount:
+                                          type: object
+                                          properties:
+                                            value:
+                                              type: string
+                                              example: "<div style=\"text-align: center;font-family: Lato, Lato-Regular;white-space: nowrap;\" data-mce-style=\"text-align: center;font-family: Lato, Lato-Regular;white-space: nowrap;\">\n                <span class=\"popups___need_scale\" style=\"display: block;font-size: 64px; font-weight: bold; color: #ff2f4b;line-height: 1em; white-space: nowrap;\" data-mce-style=\"display: block;font-size: 64px; font-weight: bold; color: #ff2f4b;line-height: 1em; white-space: nowrap;\">-{{rebate}}</span>\n                <span class=\"popups___need_scale\" style=\"display: block;font-size: 40px; color: #b06410;margin-top: 16px;line-height: 1em;\" data-mce-style=\"display: block;font-size: 40px; color: #b06410;margin-top: 16px;line-height: 1em;\">BUY {{amount}}</span>\n              </div>\n              "
+                                            style:
+                                              type: object
+                                              properties:
+                                                background-color:
+                                                  type: string
+                                                  example: '#FFFBF2'
+                                        percentage:
+                                          type: object
+                                          properties:
+                                            across:
+                                              type: object
+                                              properties:
+                                                value:
+                                                  type: string
+                                                  example: "<div style=\"color:#ff2f4b;font-family: Lato, Lato-Regular;white-space: nowrap;\" data-mce-style=\"color:#ff2f4b;font-family: Lato, Lato-Regular;white-space: nowrap;\">\n                <div style=\"display: flex;justify-content: center;\" data-mce-style=\"display: flex;justify-content: center;\">\n                  <span style=\"font-size: 88px; color: #ff2f4b;line-height: 1em;\" data-mce-style=\"display: block;font-size: 88px; color: inherit;line-height: 1em;\">{{rebate}}</span>\n                  <div style=\"margin-left: 12px;display: flex;flex-direction: column;justify-content: center;\" data-mce-style=\"margin-left: 5px;display: flex;flex-direction: column;justify-content: center;\">\n                    <span style=\"font-size: 48px;display: block;line-height: 1em;\" data-mce-style=\"display: block;font-size: 48px; color: #ff2f4b;line-height: 1em;\">%</span>\n                    <span style=\"color:#b06410;font-size: 24px;line-height: 1em;\" data-mce-style=\"color:#b06410;font-size: 24px;line-height: 1em;\">OFF</span>\n                  </div>\n                </div>\n                <div style=\"margin-top: 10px;font-size: 36px; color: #ff2f4b;line-height: 1em;\" data-mce-style=\"margin-top: 10px;font-size: 36px; color: #ff2f4b;line-height: 1em;\"><span style=\"font-weight: bold;\" data-mce-style=\"font-weight: bold;\">{{amount}}</span> <span style=\"color: #AE6002;\" data-mce-style=\"color: #AE6002;\">ITEMS+</span></div>\n                <div style=\"margin-top: 10px;color: #AE6002;font-size: 24px;opacity: 0.3;line-height: 1em;\" data-mce-style=\"margin-top: 10px;color: #AE6002;font-size: 24px;opacity: 0.3;\">FOR ORDER OVER</div>\n                </div>"
+                                            each:
+                                              type: object
+                                              properties:
+                                                value:
+                                                  type: string
+                                                  example: "<div style=\"color:#ff2f4b;font-family: Lato, Lato-Regular;white-space: nowrap;\" data-mce-style=\"color:#ff2f4b;font-family: Lato, Lato-Regular;white-space: nowrap;\">\n                <div style=\"display: flex;justify-content: center;\" data-mce-style=\"display: flex;justify-content: center;\">\n                  <span style=\"font-size: 88px; color: #ff2f4b;line-height: 1em;\" data-mce-style=\"display: block;font-size: 88px; color: inherit;line-height: 1em;\">{{rebate}}</span>\n                  <div style=\"margin-left: 12px;display: flex;flex-direction: column;justify-content: center;\" data-mce-style=\"margin-left: 5px;display: flex;flex-direction: column;justify-content: center;\">\n                    <span style=\"font-size: 48px;display: block;line-height: 1em;\" data-mce-style=\"display: block;font-size: 48px; color: #ff2f4b;line-height: 1em;\">%</span>\n                    <span style=\"color:#ff2f4b;font-size: 24px;line-height: 1em;\" data-mce-style=\"color:#ff2f4b;font-size: 24px;line-height: 1em;\">OFF</span>\n                  </div>\n                </div>\n                <div style=\"margin-top: 10px;color: #AE6002;font-size: 20px;opacity: 0.3;line-height: 1em;\" data-mce-style=\"margin-top: 10px;color: #AE6002;font-size: 20px;opacity: 0.3;\">FOR THE</div>\n                <div style=\"margin-top: 10px;font-size: 24px; color: #AE6002;line-height: 1em;\" data-mce-style=\"margin-top: 10px;font-size: 24px; color: #AE6002;line-height: 1em;\">{{amount}} <span style=\"color: #AE6002;\" data-mce-style=\"color: #AE6002;\">ITEM</span></div>\n                </div>"
+                                            style:
+                                              type: object
+                                              properties:
+                                                background-color:
+                                                  type: string
+                                                  example: '#FFFBF2'
+                                coupon:
+                                  type: object
+                                  properties:
+                                    type:
+                                      type: string
+                                      example: overlay
+                                    titleName:
+                                      type: string
+                                      example: popups.coupons
+                                    style:
+                                      type: object
+                                      properties:
+                                        background-color:
+                                          type: string
+                                          example: '#FFFBF2'
+                                declaration:
+                                  type: object
+                                  properties:
+                                    type:
+                                      type: string
+                                      example: text
+                                    titleName:
+                                      type: string
+                                      example: popups.activity_declaration
+                                    value:
+                                      type: string
+                                      example: '<span style="font-size: 14px; color: #ffffff;font-family: Lato, Lato-Regular;" data-mce-style="font-size: 14px; color: #ffffff;font-family: Lato, Lato-Regular;">*Discounts would automatically apply when placing an order</span>'
+                                    style:
+                                      type: object
+                                      properties:
+                                        background-color:
+                                          type: string
+                                          example: '#FF274B'
+                                mainButton:
+                                  type: object
+                                  properties:
+                                    type:
+                                      type: string
+                                      example: button
+                                    value:
+                                      type: string
+                                      example: '<span style="color: #FF0022; font-size: 16px; font-weight: bold;font-family: Lato, Lato-Regular;" data-mce-style="color: #FF0022; font-size: 16px; font-weight: bold;font-family: Lato, Lato-Regular;">COLLECT ALL</span>'
+                                    style:
+                                      type: object
+                                      properties:
+                                        background-color:
+                                          type: string
+                                          example: '#fff3be'
+                                        border-color:
+                                          type: string
+                                          example: '#fff3be'
+                                closeButton:
+                                  type: object
+                                  properties:
+                                    type:
+                                      type: string
+                                      example: closeBtn
+                                    modifier:
+                                      type: string
+                                      example: show
+                                    toolShowCloseBtn:
+                                      type: boolean
+                                      example: false
+                                      default: true
+                                    showCloseBtn:
+                                      type: boolean
+                                      example: true
+                                      default: true
+                                    style:
+                                      type: object
+                                      properties:
+                                        color:
+                                          type: string
+                                          example: '#ffffff'
+                            reset:
+                              type: array
+                        conversion_rate:
+                          type: string
+                          example: '100.00'
+                        coupon_code: {}
+                        create_type:
+                          type: string
+                          example: manual
+                        discount_type:
+                          type: string
+                          example: fixed_amount
+                        ends_at:
+                          type: string
+                          example: '-1'
+                        exposure:
+                          type: string
+                          example: '1'
+                        frequency_num:
+                          type: string
+                          example: '1'
+                        frequency_type:
+                          type: string
+                          example: '6'
+                        id:
+                          type: string
+                          example: 4b8395bb-09a0-4bb1-84c9-749375d9562b
+                        name:
+                          type: string
+                          example: tzt-满减活动-吸引客户购买更多
+                        opportunity:
+                          type: string
+                          example: '1'
+                        order_amount:
+                          type: object
+                          properties:
+                            limit:
+                              type: integer
+                              example: 0
+                              default: 0
+                            min: {}
+                            max: {}
+                        order_num:
+                          type: object
+                          properties:
+                            limit:
+                              type: integer
+                              example: 0
+                              default: 0
+                            min: {}
+                            max: {}
+                        pages_type:
+                          type: string
+                          example: '1'
+                        progress:
+                          type: string
+                          example: ongoing
+                        resource_id:
+                          type: string
+                          example: ''
+                        starts_at:
+                          type: string
+                          example: '1682652084'
+                        status:
+                          type: string
+                          example: '1'
+                        subscribe:
+                          type: string
+                          example: '1'
+                        target_user:
+                          type: string
+                          example: '1'
+                        theme:
+                          type: string
+                          example: template_rebate_1
+                        type:
+                          type: string
+                          example: popups
+                        user_login:
+                          type: string
+                          example: '0'
+                        user_subscribe:
+                          type: string
+                          example: '0'
+                        wait_seconds:
+                          type: string
+                          example: '0'
+                        activity_detail:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              example: 47d2a827-e914-49e0-a14c-3161edb1ae9e
+                            title:
+                              type: string
+                              example: tzt-满减活动-吸引客户购买更多
+                            price_rule_id:
+                              type: string
+                              example: 1d5c3eba-ac32-49a5-8961-b5b705e61db1
+                            discount_type:
+                              type: string
+                              example: fixed_amount
+                            starts_at:
+                              type: string
+                              example: '1682652084'
+                            ends_at:
+                              type: string
+                              example: '-1'
+                            status:
+                              type: string
+                              example: '1'
+                            popups_setting:
+                              type: string
+                              example: close
+                            global_show_text:
+                              type: string
+                              example: close
+                            popups_id:
+                              type: string
+                              example: ''
+                            prerequisite_subtotal_range:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  greater_than_or_equal_to:
+                                    type: string
+                                    example: '123'
+                                  value:
+                                    type: string
+                                    example: '1'
+                                  value_event_type:
+                                    type: string
+                                    example: ''
+                                  value_condition:
+                                    type: string
+                                    example: less_than_or_equal_to
+                                  target_type:
+                                    type: string
+                                    example: ''
+                                  target_data:
+                                    type: array
+                                  target_data_variant:
+                                    type: array
+                                  target_data_collection:
+                                    type: array
+                            prerequisite_quantity_range: {}
+                            prerequisite_customer_range: {}
+                            prerequisite_threshold_subtotal_range: {}
+                            prerequisite_threshold_quantity_range: {}
+                            allocation_method:
+                              type: string
+                              example: across
+      deprecated: false
+  /openapi/2022-01/salespops/config:
+    get:
+      tags:
+      - Discounts
+      summary: Get Salespop Config
+      description: ''
+      operationId: get-salespop-config
+      responses:
+        '200':
+          description: '200'
+          content:
+            text/plain:
+              examples:
+                Result:
+                  value: "{\n    \"template_config\": {\n        \"template\": \"template1\", // 浮窗模版1/2/3\n        \"replace_switch\": false,\n        \"default_time\": \"24\",\n        \"anonymity_switch\": false,\n    },\n    \"order_status\": \"all\",// 商品范围 all/paid\n    \"time\": \"3\",    //商品范围 -> 推荐的订单产生于最近{}\n    \"time_unit\": \"month\",//商品范围 -> 推荐的订单产生于最近的单位\n    \"status\": \"open\", // 状态 开启/关闭\n    ]\n}"
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+  /openapi/2022-01/salespops/datagraph:
+    get:
+      tags:
+      - Discounts
+      summary: Get Salespop Datagraph
+      description: ''
+      operationId: get-salespop-datagraph
+      parameters:
+      - name: type
+        in: query
+        description: 'The  data type, example: `banner`'
+        required: true
+        schema:
+          type: string
+      - name: subtype
+        in: query
+        description: 'The data subtype, example: `sales_pop_exposure`'
+        required: true
+        schema:
+          type: string
+      - name: begin_time
+        in: query
+        description: The `datagraph` begin time, in timestamp.
+        required: true
+        schema:
+          type: string
+          format: date-time
+      - name: end_time
+        in: query
+        description: The `datagraph` end time, in timestamp.
+        required: true
+        schema:
+          type: string
+          format: date-time
+      - name: tz
+        in: query
+        description: 'The time zone, example:  `8`'
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: '200'
+          content:
+            text/plain:
+              examples:
+                Result:
+                  value: "{\n  \"checkout\": 0,\n  \"click\": 0,\n  \"exposure\": 0,\n  \"purchase\": 0,\n  \"sales\": 0\n}"
+              schema:
+                type: object
+                properties:
+                  checkout:
+                    type: integer
+                    example: 0
+                    default: 0
+                  click:
+                    type: integer
+                    example: 0
+                    default: 0
+                  exposure:
+                    type: integer
+                    example: 0
+                    default: 0
+                  purchase:
+                    type: integer
+                    example: 0
+                    default: 0
+                  sales:
+                    type: integer
+                    example: 0
+                    default: 0
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+components:
+  securitySchemes:
+    sec0:
+      type: apiKey
+      in: header
+      name: access-token
+      x-default: WPMSdB6M8Cpum4X1GoMYOKZpiESd8d2x7dZW8d79ZeQ
+    apikey-header-access-token:
+      type: apiKey
+      in: header
+      name: access-token
+      x-default: WPMSdB6M8Cpum4X1GoMYOKZpiESd8d2x7dZW8d79ZeQ
+x-standalone-page:
+  title: Standalone Page
+  content: Information that should be on a standalone page...
+x-readme:
+  headers: []
+  explorer-enabled: true
+  proxy-enabled: true
+  samples-enabled: true

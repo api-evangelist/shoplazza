@@ -1,0 +1,849 @@
+openapi: 3.1.0
+info:
+  title: SPZ Admin Access Theme API
+  version: '2022.01'
+servers:
+- url: https://{subdomain}.myshoplaza.com
+  variables:
+    subdomain:
+      default: developer
+security:
+- sec0: []
+tags:
+- name: Theme
+  description: ''
+paths:
+  /openapi/2022-01/themes/{theme_id}:
+    get:
+      tags:
+      - Theme
+      summary: Get Theme
+      description: Get the theme information
+      operationId: get-theme
+      parameters:
+      - name: theme_id
+        in: path
+        description: Theme ID
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"state\": 0,\n  \"msg\": \"请求成功\",\n  \"data\": {\n    \"id\": \"d03e0a2a-0367-4937-9d18-8bf17e74295c\",\n    \"merchant_theme_id\": \"6927027e-bd65-4522-9adc-17056312e4e5\",\n    \"theme_version_id\": \"4955\",\n    \"name\": \"Nova Watch\",\n    \"type\": \"shoplazza\",\n    \"desc\": \"{\\n  \\\"zh-CN\\\": \\\"Nova衍生主题，由欧洲设计师设计，帮助时尚腕表类目卖家快速搭建品牌店铺。\\\",\\n  \\\"en-US\\\": \\\"Nova derivative theme, designed by European designer, helps sellers of fashion watch categories quickly build brand stores.\\\"\\n}\",\n    \"default\": \"0\",\n    \"pc_cover_url\": \"https://cdn.shoplazza.com/oss/operation/08fa2d4024474f866f6dbf39e8238ed7.jpg\",\n    \"mobile_cover_url\": \"https://cdn.shoplazza.com/oss/operation/c632cd81fc19f6e186293e7da974b64b.jpg\",\n    \"published\": \"1\",\n    \"updated_at\": \"1642051410\",\n    \"publish_time\": \"1642051410\",\n    \"theme_save_time\": \"0\",\n    \"theme_save_oseid\": \"0\"\n  }\n}"
+              schema:
+                type: object
+                properties:
+                  state:
+                    type: integer
+                    example: 0
+                    default: 0
+                  msg:
+                    type: string
+                    example: 请求成功
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: d03e0a2a-0367-4937-9d18-8bf17e74295c
+                      merchant_theme_id:
+                        type: string
+                        example: 6927027e-bd65-4522-9adc-17056312e4e5
+                      theme_version_id:
+                        type: string
+                        example: '4955'
+                      name:
+                        type: string
+                        example: Nova Watch
+                      type:
+                        type: string
+                        example: shoplazza
+                      desc:
+                        type: string
+                        example: "{\n  \"zh-CN\": \"Nova衍生主题，由欧洲设计师设计，帮助时尚腕表类目卖家快速搭建品牌店铺。\",\n  \"en-US\": \"Nova derivative theme, designed by European designer, helps sellers of fashion watch categories quickly build brand stores.\"\n}"
+                      default:
+                        type: string
+                        example: '0'
+                      pc_cover_url:
+                        type: string
+                        example: https://cdn.shoplazza.com/oss/operation/08fa2d4024474f866f6dbf39e8238ed7.jpg
+                      mobile_cover_url:
+                        type: string
+                        example: https://cdn.shoplazza.com/oss/operation/c632cd81fc19f6e186293e7da974b64b.jpg
+                      published:
+                        type: string
+                        example: '1'
+                      updated_at:
+                        type: string
+                        example: '1642051410'
+                      publish_time:
+                        type: string
+                        example: '1642051410'
+                      theme_save_time:
+                        type: string
+                        example: '0'
+                      theme_save_oseid:
+                        type: string
+                        example: '0'
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+    delete:
+      tags:
+      - Theme
+      summary: Delete Theme
+      description: Delete the specified store theme
+      operationId: delete-theme
+      parameters:
+      - name: theme_id
+        in: path
+        description: Theme ID
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"state\": \"0\",\n  \"msg\": \"请求成功\"\n}"
+              schema:
+                type: object
+                properties:
+                  state:
+                    type: string
+                    example: '0'
+                  msg:
+                    type: string
+                    example: 请求成功
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+  /openapi/2022-01/themes/default-theme:
+    get:
+      tags:
+      - Theme
+      summary: Get Default Theme
+      description: Get information about the currently published theme
+      operationId: get-default-theme
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"state\": 0,\n  \"msg\": \"请求成功\",\n  \"data\": {\n    \"id\": \"0fdb7664-e168-49bb-ae5b-cb9ba1308f5f\",\n    \"merchant_theme_id\": \"6927027e-bd65-4522-9adc-17056312e4e5\",\n    \"theme_version_id\": \"4955\",\n    \"name\": \"Nova Watch\",\n    \"type\": \"shoplazza\",\n    \"desc\": \"{\\n  \\\"zh-CN\\\": \\\"Nova衍生主题，由欧洲设计师设计，帮助时尚腕表类目卖家快速搭建品牌店铺。\\\",\\n  \\\"en-US\\\": \\\"Nova derivative theme, designed by European designer, helps sellers of fashion watch categories quickly build brand stores.\\\"\\n}\",\n    \"default\": \"0\",\n    \"pc_cover_url\": \"https://cdn.shoplazza.com/oss/operation/08fa2d4024474f866f6dbf39e8238ed7.jpg\",\n    \"mobile_cover_url\": \"https://cdn.shoplazza.com/oss/operation/c632cd81fc19f6e186293e7da974b64b.jpg\",\n    \"published\": \"1\",\n    \"auto_save_time\": \"1633746580\",\n    \"updated_at\": \"1642051953\",\n    \"publish_time\": \"1642051953\",\n    \"theme_save_time\": \"0\",\n    \"theme_save_oseid\": \"0\"\n  }\n}"
+              schema:
+                type: object
+                properties:
+                  state:
+                    type: integer
+                    example: 0
+                    default: 0
+                  msg:
+                    type: string
+                    example: 请求成功
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: 0fdb7664-e168-49bb-ae5b-cb9ba1308f5f
+                      merchant_theme_id:
+                        type: string
+                        example: 6927027e-bd65-4522-9adc-17056312e4e5
+                      theme_version_id:
+                        type: string
+                        example: '4955'
+                      name:
+                        type: string
+                        example: Nova Watch
+                      type:
+                        type: string
+                        example: shoplazza
+                      desc:
+                        type: string
+                        example: "{\n  \"zh-CN\": \"Nova衍生主题，由欧洲设计师设计，帮助时尚腕表类目卖家快速搭建品牌店铺。\",\n  \"en-US\": \"Nova derivative theme, designed by European designer, helps sellers of fashion watch categories quickly build brand stores.\"\n}"
+                      default:
+                        type: string
+                        example: '0'
+                      pc_cover_url:
+                        type: string
+                        example: https://cdn.shoplazza.com/oss/operation/08fa2d4024474f866f6dbf39e8238ed7.jpg
+                      mobile_cover_url:
+                        type: string
+                        example: https://cdn.shoplazza.com/oss/operation/c632cd81fc19f6e186293e7da974b64b.jpg
+                      published:
+                        type: string
+                        example: '1'
+                      auto_save_time:
+                        type: string
+                        example: '1633746580'
+                      updated_at:
+                        type: string
+                        example: '1642051953'
+                      publish_time:
+                        type: string
+                        example: '1642051953'
+                      theme_save_time:
+                        type: string
+                        example: '0'
+                      theme_save_oseid:
+                        type: string
+                        example: '0'
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+  /openapi/2022-01/themes:
+    get:
+      tags:
+      - Theme
+      summary: Get Theme List
+      description: Get a list of store themes
+      operationId: get-theme-list
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"state\": 0,\n  \"msg\": \"请求成功\",\n  \"data\": {\n    \"count\": \"141\",\n    \"themes\": [{\n      \"id\": \"5c469d32-d509-4760-b23d-374730dfb681\",\n      \"merchant_theme_id\": \"f9132bb0-d1ae-43c8-ba7f-d34f78f435db\",\n      \"theme_version_id\": 5266,\n      \"name\": \"Life Style 的升级版 18:29:01 2022-01-12\",\n      \"published\": 0,\n      \"updated_at\": \"1641991442\",\n      \"auto_save_time\": \"1641991442\",\n      \"theme_save_time\": \"0\",\n      \"publish_time\": \"0\"\n    }, {\n      \"id\": \"b0376fb7-3ece-4866-8803-48082fac1b74\",\n      \"merchant_theme_id\": \"d3b08914-8331-4383-ac1c-37d7206bad69\",\n      \"theme_version_id\": 5282,\n      \"name\": \"Boost 的副本\",\n      \"published\": 0,\n      \"updated_at\": \"1641991427\",\n      \"auto_save_time\": \"1641991427\",\n      \"theme_save_time\": \"0\",\n      \"publish_time\": \"0\"\n    }, \n    ...]\n  }\n}"
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+  /openapi/2022-01/themes/{theme_id}/publish:
+    patch:
+      tags:
+      - Theme
+      summary: Publish Theme
+      description: Publish the specified store theme
+      operationId: publish-theme
+      parameters:
+      - name: theme_id
+        in: path
+        description: Theme ID
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"state\": 0,\n  \"msg\": \"请求成功\",\n  \"data\": {\n    \"theme\": {\n      \"id\": \"b0376fb7-3ece-4866-8803-48082fac1b74\",\n      \"merchant_theme_id\": \"d3b08914-8331-4383-ac1c-37d7206bad69\",\n      \"theme_version_id\": \"5282\",\n      \"name\": \"Boost\",\n      \"published\": \"1\",\n      \"updated_at\": \"1642052694\",\n      \"publish_time\": \"1642052694\",\n      \"theme_save_time\": \"0\",\n      \"revoke_publish_id\": \"\"\n    }\n  }\n}"
+              schema:
+                type: object
+                properties:
+                  state:
+                    type: integer
+                    example: 0
+                    default: 0
+                  msg:
+                    type: string
+                    example: 请求成功
+                  data:
+                    type: object
+                    properties:
+                      theme:
+                        type: object
+                        properties:
+                          id:
+                            type: string
+                            example: b0376fb7-3ece-4866-8803-48082fac1b74
+                          merchant_theme_id:
+                            type: string
+                            example: d3b08914-8331-4383-ac1c-37d7206bad69
+                          theme_version_id:
+                            type: string
+                            example: '5282'
+                          name:
+                            type: string
+                            example: Boost
+                          published:
+                            type: string
+                            example: '1'
+                          updated_at:
+                            type: string
+                            example: '1642052694'
+                          publish_time:
+                            type: string
+                            example: '1642052694'
+                          theme_save_time:
+                            type: string
+                            example: '0'
+                          revoke_publish_id:
+                            type: string
+                            example: ''
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+  /openapi/2022-01/themes/upload:
+    post:
+      tags:
+      - Theme
+      summary: Upload Theme
+      description: Upload the local theme file (compressed package file) to the corresponding store theme. After the upload succeeds, a new theme is generated in the theme list
+      operationId: upload-theme
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  description: Theme file
+                  format: binary
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"task\": { \n        \"task\": {\n            \"id\": \"fabcf7be-1461-4b6c-ae7c-45b88f9b223c\",\n            \"type\": \"themes\",\n            \"status\": 0,\n            \"created_at\": \"2022-01-13 06:40:54\",\n            \"updated_at\": \"2022-01-13 06:40:54\",\n            \"info\": \"{\\\"remote_url\\\":\\\"http:\\/\\/shoplaza-themes-us.oss-us-west-1.aliyuncs.com\\/xxx.zip\\\",\\\"store_id\\\":\\\"123456\\\",\\\"merchant_theme_id\\\":null,\\\"version\\\":null,\\\"name\\\":null}\"\n        }\n    }\n}"
+              schema:
+                type: object
+                properties:
+                  task:
+                    type: object
+                    properties:
+                      task:
+                        type: object
+                        properties:
+                          id:
+                            type: string
+                            example: fabcf7be-1461-4b6c-ae7c-45b88f9b223c
+                          type:
+                            type: string
+                            example: themes
+                          status:
+                            type: integer
+                            example: 0
+                            default: 0
+                          created_at:
+                            type: string
+                            example: '2022-01-13 06:40:54'
+                          updated_at:
+                            type: string
+                            example: '2022-01-13 06:40:54'
+                          info:
+                            type: string
+                            example: '{"remote_url":"http://shoplaza-themes-us.oss-us-west-1.aliyuncs.com/xxx.zip","store_id":"123456","merchant_theme_id":null,"version":null,"name":null}'
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      x-readme:
+        code-samples:
+        - language: javascript
+          code: 'const fs = require(''fs'');
+
+            const FormData = require(''form-data'');
+
+            const form = new FormData();
+
+            form.append(''file'', fs.createReadStream(zipPath));
+
+            await request.post(''/themes/upload'', form, { headers: form.getHeaders(), params: { name, version, merchant_theme_id } });'
+        samples-languages:
+        - javascript
+  /openapi/2022-01/themes/{theme_id}/download:
+    get:
+      tags:
+      - Theme
+      summary: Download Theme
+      description: Download the store theme and generate a zip file
+      operationId: download-theme
+      parameters:
+      - name: theme_id
+        in: path
+        description: Theme ID
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      x-readme:
+        code-samples:
+        - language: javascript
+          code: "const request = require('axios');\nconst res = await request({\n  url: `/themes/theme_id/download`,\n  responseType: 'stream'\n});\nconst zipPath = 'theme.zip';\nconst write = fs.createWriteStream(zipPath);\nres.data.pipe(write);"
+        samples-languages:
+        - javascript
+  /openapi/2022-01/themes/{theme_id}/doctree:
+    get:
+      tags:
+      - Theme
+      summary: Get Theme Doctree
+      description: Obtain the theme file directory, such as assets, sections, snippets, layout
+      operationId: get-theme-doctree
+      parameters:
+      - name: theme_id
+        in: path
+        description: Theme ID
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"layout\": [\n    {\n      \"id\": \"2a44544f-4d34-4ca7-9ba2-f98a4d8c5685\",\n      \"location\": \"theme.liquid\"\n    }\n  ],\n  \"templates\": [\n    {\n      \"id\": \"48466c24-a395-4ac7-bd7a-88f9ce96bb22\",\n      \"location\": \"404.liquid\"\n    },\n    {\n      \"id\": \"70e963ad-38b0-4cb6-82c3-1daebe10fb48\",\n      \"location\": \"blog.liquid\"\n    },\n    {\n      \"id\": \"6cbf2672-bf49-4e19-856e-2f1ccde03c20\",\n      \"location\": \"cart.liquid\"\n    },\n    {\n      \"id\": \"0900cffd-d889-4757-9472-979682bdd750\",\n      \"location\": \"collection.liquid\"\n    },\n    {\n      \"id\": \"dc3a3331-c2b5-49cd-be8e-437e456aa1a9\",\n      \"location\": \"index.liquid\"\n    },\n    {\n      \"id\": \"b3bfdf9f-3250-4c20-ae86-2792db6bc42f\",\n      \"location\": \"page.liquid\"\n    },\n    {\n      \"id\": \"1aebd8cb-b486-4d35-bed4-6446d1239bba\",\n      \"location\": \"product.liquid\"\n    },\n    {\n      \"id\": \"a720074b-e030-4a07-a55e-4883cf209087\",\n      \"location\": \"search.liquid\"\n    }\n  ],\n  \"sections\": [\n    {\n      \"id\": \"00d286ff-06aa-4a00-add3-1ba9023890cf\",\n      \"location\": \"blog.liquid\"\n    },\n    {\n      \"id\": \"3a6efe34-dde9-4fbf-a735-e6be85f32eb7\",\n      \"location\": \"blog_collection.liquid\"\n    },\n    {\n      \"id\": \"b4b310b5-e58a-4f50-b841-b929c3e8f70d\",\n      \"location\": \"cart.liquid\"\n    },\n    {\n      \"id\": \"197ef568-4b7e-4ea9-bf24-f61e4460fec9\",\n      \"location\": \"collection_detail.liquid\"\n    },\n    {\n      \"id\": \"722119ee-1c1c-4a2d-8b0a-dca0fa7b0646\",\n      \"location\": \"collection_list.liquid\"\n    },\n    {\n      \"id\": \"4e9bde6a-567f-46e9-9ca0-ba840afa8d41\",\n      \"location\": \"collection_products.liquid\"\n    },\n    {\n      \"id\": \"9fe3f32c-1f53-49e3-903a-6fe22c90b9e5\",\n      \"location\": \"fashion_graphic.liquid\"\n    },\n    {\n      \"id\": \"96e6d4de-87b5-4fd9-ab71-04c5eaea7d90\",\n      \"location\": \"footer.liquid\"\n    },\n    {\n      \"id\": \"cfe869ce-6c35-496d-a2b7-f60e9172480c\",\n      \"location\": \"header.liquid\"\n    },\n    {\n      \"id\": \"c7e326d3-a9f4-48f9-893a-e4ac75925fe1\",\n      \"location\": \"html.liquid\"\n    },\n    {\n      \"id\": \"b473e36b-459f-40af-a767-d0afbde1e4d8\",\n      \"location\": \"icon_text.liquid\"\n    },\n    {\n      \"id\": \"c359fd38-55bf-4cb8-8cfa-b0198a2d469e\",\n      \"location\": \"instagram.liquid\"\n    },\n    {\n      \"id\": \"a7322d4c-81bd-4525-bd80-86bbbf53d060\",\n      \"location\": \"not_found.liquid\"\n    },\n    {\n      \"id\": \"2b1d16e7-a85e-46e1-83ff-06dc254d8885\",\n      \"location\": \"overlay_text.liquid\"\n    },\n    {\n      \"id\": \"d66fff97-4c47-4fee-9889-b0e3c83a4916\",\n      \"location\": \"page_detail.liquid\"\n    },\n    {\n      \"id\": \"194de955-637f-4367-91f4-21764ea13677\",\n      \"location\": \"photo_collection.liquid\"\n    },\n    {\n      \"id\": \"8de8d874-9140-4936-a313-ad49fd6680d2\",\n      \"location\": \"products_tab.liquid\"\n    },\n    {\n      \"id\": \"a764875c-0df2-4c9c-9e0d-c356a156063f\",\n      \"location\": \"product_detail.liquid\"\n    },\n    {\n      \"id\": \"a82f1c60-cdce-4e39-ab0d-4072c6ce9bee\",\n      \"location\": \"product_list.liquid\"\n    },\n    {\n      \"id\": \"bfe3b2b1-967b-4cb7-9b74-c9021e0f2424\",\n      \"location\": \"product_switch.liquid\"\n    },\n    {\n      \"id\": \"abb8a63b-5e2f-42c3-aaea-58af5c345e85\",\n      \"location\": \"search.liquid\"\n    },\n    {\n      \"id\": \"c948ed91-4b4a-47df-86d0-f9afa51ec88a\",\n      \"location\": \"slider_classic.liquid\"\n    },\n    {\n      \"id\": \"e6ac6466-0aec-4af7-a97f-3e2c0e32440b\",\n      \"location\": \"slider_fashion.liquid\"\n    },\n    {\n      \"id\": \"68e0ac27-d7a8-45be-b259-701021d2601f\",\n      \"location\": \"text.liquid\"\n    }\n  ],\n  \"snippets\": [\n    {\n      \"id\": \"6f2e976f-32a5-4595-88e4-64c16ffd4b29\",\n      \"location\": \"art_template.liquid\"\n    },\n    {\n      \"id\": \"fa62ce96-4842-495c-9bf5-f0107c4344ff\",\n      \"location\": \"cart_drawer.liquid\"\n    },\n    {\n      \"id\": \"5a9d5bc8-2ab6-4e71-94be-5080acadfc85\",\n      \"location\": \"cart_js.liquid\"\n    },\n    {\n      \"id\": \"c9cb44aa-7bd6-4bf6-a6db-d43c1003f3d1\",\n      \"location\": \"cart_loading.liquid\"\n    },\n    {\n      \"id\": \"0c9b8e1e-2bac-405e-af13-5918e1b55f59\",\n      \"location\": \"colors.liquid\"\n    },\n    {\n      \"id\": \"4e75e1f1-5b66-4291-b9c6-cc0acdc6de2a\",\n      \"location\": \"currency.liquid\"\n    },\n    {\n      \"id\": \"27e6c3ae-c31c-4ef9-8d70-baba579d624d\",\n      \"location\": \"free_shipping.liquid\"\n    },\n    {\n      \"id\": \"d2dadb11-05c0-421c-8a9a-4894c79c5f17\",\n      \"location\": \"free_shipping_js.liquid\"\n    },\n    {\n      \"id\": \"1c7d8403-067b-4fc7-97dc-d03477f456f9\",\n      \"location\": \"header_ads.liquid\"\n    },\n    {\n      \"id\": \"38283607-7254-4153-99ac-a3c8ed525b85\",\n      \"location\": \"header_cart.liquid\"\n    },\n    {\n      \"id\": \"9d7ab851-70a5-4a51-913e-32db9a1598c7\",\n      \"location\": \"header_logo.liquid\"\n    },\n    {\n      \"id\": \"c6f33cf1-e277-45f3-9d25-a28f31bdf24c\",\n      \"location\": \"header_search.liquid\"\n    },\n    {\n      \"id\": \"84b3ffac-114f-4289-95d9-8a0983a8afdb\",\n      \"location\": \"icon_account.liquid\"\n    },\n    {\n      \"id\": \"4fa0d6ce-9d4d-4623-8113-9ededed1b391\",\n      \"location\": \"icon_arrow.liquid\"\n    },\n    {\n      \"id\": \"0e64f022-b004-4f98-a59b-ee82a8855d8b\",\n      \"location\": \"icon_bag_thin_mobile.liquid\"\n    },\n    {\n      \"id\": \"9e4a8beb-7ab4-4cc7-8227-ed52a66a806f\",\n      \"location\": \"icon_bag_thin_pc.liquid\"\n    },\n    {\n      \"id\": \"b5f6be80-8458-4030-9d26-100de505ec9d\",\n      \"location\": \"icon_bg_arrow.liquid\"\n    },\n    {\n      \"id\": \"8d65166c-96bd-4f4d-9b03-412b66159fbd\",\n      \"location\": \"icon_camera.liquid\"\n    },\n    {\n      \"id\": \"5f3e4ba6-a641-4f9a-bbb0-6fbbf72bf15e\",\n      \"location\": \"icon_close_btn.liquid\"\n    },\n    {\n      \"id\": \"73f0d94c-375a-44c6-93e6-3ee31c1d6d2f\",\n      \"location\": \"icon_empty_bag.liquid\"\n    },\n    {\n      \"id\": \"9047e5a3-bf19-4f46-954c-2d4c3812ca84\",\n      \"location\": \"icon_error.liquid\"\n    },\n    {\n      \"id\": \"41e38004-7f83-4684-ad03-0d02aac6c984\",\n      \"location\": \"icon_facebook.liquid\"\n    },\n    {\n      \"id\": \"a5fba544-f70d-4c7e-9c3f-00d3a61cf77c\",\n      \"location\": \"icon_instagram.liquid\"\n    },\n    {\n      \"id\": \"bfecfb72-1a0c-4a43-b9ec-a70bc3b5998c\",\n      \"location\": \"icon_ins_avater.liquid\"\n    },\n    {\n      \"id\": \"11371508-7a46-4dee-8850-bd6a730f0695\",\n      \"location\": \"icon_minus.liquid\"\n    },\n    {\n      \"id\": \"ae63a1c7-288c-4d2e-aebd-62871ecb72db\",\n      \"location\": \"icon_more.liquid\"\n    },\n    {\n      \"id\": \"7714c27b-06e3-442f-9cda-20c754c5e0c2\",\n      \"location\": \"icon_navigation.liquid\"\n    },\n    {\n      \"id\": \"19e5800b-ed42-4d52-ad36-925d6eab231a\",\n      \"location\": \"icon_ok.liquid\"\n    },\n    {\n      \"id\": \"a313e260-e2c5-4f1d-b337-f52cc09dff1a\",\n      \"location\": \"icon_pinterest.liquid\"\n    },\n    {\n      \"id\": \"29273281-b428-4b3a-baac-b2cb921f3ef9\",\n      \"location\": \"icon_plus.liquid\"\n    },\n    {\n      \"id\": \"ee43a6ef-52fe-475f-ae3b-ee99dac2d1e5\",\n      \"location\": \"icon_search_btn.liquid\"\n    },\n    {\n      \"id\": \"bebed053-620e-42d8-8fdc-182b0b885976\",\n      \"location\": \"icon_star_empty.liquid\"\n    },\n    {\n      \"id\": \"fa3b0597-5d72-43f1-b8c6-eda2cad2305c\",\n      \"location\": \"icon_star_full.liquid\"\n    },\n    {\n      \"id\": \"459cf346-b7f3-44f6-a3eb-f61504b496f9\",\n      \"location\": \"icon_stock.liquid\"\n    },\n    {\n      \"id\": \"e752e30e-458f-43c7-8f27-ea5ec71c5397\",\n      \"location\": \"icon_success.liquid\"\n    },\n    {\n      \"id\": \"2fde2003-aca7-4662-a52f-d5f271289847\",\n      \"location\": \"icon_time.liquid\"\n    },\n    {\n      \"id\": \"93c88e3e-2719-4746-abdb-77790052c87f\",\n      \"location\": \"icon_twitter.liquid\"\n    },\n    {\n      \"id\": \"912d52a5-cd41-408f-bff9-80f05e76b2ad\",\n      \"location\": \"icon_viewing.liquid\"\n    },\n    {\n      \"id\": \"c6b229d8-7c27-4de5-ae0d-fb7aba38c9ca\",\n      \"location\": \"icon_youtube.liquid\"\n    },\n    {\n      \"id\": \"a1c9e48b-0d9f-4ccb-9c66-0136e59adc1c\",\n      \"location\": \"jquery.liquid\"\n    },\n    {\n      \"id\": \"80a488b7-d6f7-4240-a2e9-0859f9467416\",\n      \"location\": \"lazysizes.liquid\"\n    },\n    {\n      \"id\": \"0c2f1db9-0a6b-4de5-9056-509a709962b4\",\n      \"location\": \"pagination.liquid\"\n    },\n    {\n      \"id\": \"5aad39b0-99ba-4c00-a7cc-a4bf18949814\",\n      \"location\": \"product.liquid\"\n    },\n    {\n      \"id\": \"a4ca1c68-1035-470f-b27b-86b2aa2120bd\",\n      \"location\": \"product_art_tpl.liquid\"\n    },\n    {\n      \"id\": \"64c36c2e-072a-45e3-adde-2bf8f7a46758\",\n      \"location\": \"product_detail_js.liquid\"\n    },\n    {\n      \"id\": \"59fe8bdb-bfb2-46ba-95fa-cad615f14390\",\n      \"location\": \"product_detail_style.liquid\"\n    },\n    {\n      \"id\": \"b494e5bd-0e79-4de7-ab20-a7a81439fc52\",\n      \"location\": \"product_images.liquid\"\n    },\n    {\n      \"id\": \"73159996-9b31-4655-8fe2-59c6598340d2\",\n      \"location\": \"product_info_body.liquid\"\n    },\n    {\n      \"id\": \"6434d422-bdfb-4e2c-9759-8249b88a8d42\",\n      \"location\": \"product_info_body_addedtocart.liquid\"\n    },\n    {\n      \"id\": \"0241f015-66d3-4626-80df-c9f395979536\",\n      \"location\": \"product_info_body_art_tpl.liquid\"\n    },\n    {\n      \"id\": \"ed7ec309-f909-4f79-b96c-91e6994c87f1\",\n      \"location\": \"product_info_body_deliverytime.liquid\"\n    },\n    {\n      \"id\": \"b300e92c-23d3-4a6b-b1e3-608eb1470efc\",\n      \"location\": \"product_info_body_inventory.liquid\"\n    },\n    {\n      \"id\": \"eee4564c-e71e-4469-98a5-6080ecc6aed8\",\n      \"location\": \"product_info_body_liveview.liquid\"\n    },\n    {\n      \"id\": \"de7b447d-d485-4e33-989b-691e4711c93d\",\n      \"location\": \"product_slide.liquid\"\n    },\n    {\n      \"id\": \"8f0c6c1c-0957-4919-9698-6532b9abe1a4\",\n      \"location\": \"quick_view_tpl.liquid\"\n    },\n    {\n      \"id\": \"d39b5e2b-b1a3-4645-a426-153a806c5c80\",\n      \"location\": \"recently_view.liquid\"\n    },\n    {\n      \"id\": \"e4578849-2fcf-42e8-bbfc-55fa939edc7f\",\n      \"location\": \"relative_product.liquid\"\n    },\n    {\n      \"id\": \"f0a28723-50d0-474d-8c6c-3b2bfd2af75a\",\n      \"location\": \"serial_list.liquid\"\n    },\n    {\n      \"id\": \"63d9be16-8e1e-46cf-9b86-e4c576af0f57\",\n      \"location\": \"settings.liquid\"\n    },\n    {\n      \"id\": \"eaa0cc24-6bda-4bb6-b9f5-70039d9a4aa2\",\n      \"location\": \"slick.liquid\"\n    },\n    {\n      \"id\": \"bccd2504-82d3-4d39-8a66-bac8e8d19947\",\n      \"location\": \"slider_classic_slide.liquid\"\n    },\n    {\n      \"id\": \"5af169f4-3144-4212-b89b-d2d322fd8c75\",\n      \"location\": \"slider_fashion_slide.liquid\"\n    },\n    {\n      \"id\": \"b813b4c8-2266-479e-9186-828c50082139\",\n      \"location\": \"slides.liquid\"\n    },\n    {\n      \"id\": \"8406d65d-9f80-40f5-8e22-2c96faa1e005\",\n      \"location\": \"slides_js.liquid\"\n    },\n    {\n      \"id\": \"c976ef7a-daf2-453c-be1c-2e6acbfb569b\",\n      \"location\": \"social_meta_tags.liquid\"\n    },\n    {\n      \"id\": \"994e65d0-6111-4d60-8099-31c50c95fd68\",\n      \"location\": \"structured_data.liquid\"\n    },\n    {\n      \"id\": \"4ec68c09-97ca-4992-943c-bc7d5a4a9087\",\n      \"location\": \"theme_css.liquid\"\n    },\n    {\n      \"id\": \"f572e7e2-6c22-48a7-86b6-61cd46e79d42\",\n      \"location\": \"theme_js.liquid\"\n    },\n    {\n      \"id\": \"cce6857e-123c-49bc-af56-6265e2884a9f\",\n      \"location\": \"util.liquid\"\n    },\n    {\n      \"id\": \"778ff3b0-13ca-4258-b6c3-a1e01634e702\",\n      \"location\": \"validate.liquid\"\n    },\n    {\n      \"id\": \"bd7cc354-ac52-4a42-9f5c-bf7c18cb23c1\",\n      \"location\": \"zoomed_slide.liquid\"\n    },\n    {\n      \"id\": \"fe0000b9-bc83-49c0-a4c9-f0d5a0446fe5\",\n      \"location\": \"zoomed_slides.liquid\"\n    }\n  ],\n  \"assets\": [\n    {\n      \"id\": \"dcf50f9d-9470-42b1-aace-15713fe553dd\",\n      \"location\": \"keep.css\"\n    },\n    {\n      \"id\": \"5b58d7ed-bce5-46f2-9b58-b6d400b6036f\",\n      \"location\": \"keep.js\"\n    },\n    {\n      \"id\": \"c86916f3-9c15-4bd6-ae0e-bdf9c3d67ab9\",\n      \"location\": \"postcss.config.js\"\n    },\n    {\n      \"id\": \"79e67dbc-3b28-4e8b-81de-893e0f91a4c9\",\n      \"location\": \"tailwind.config.js\"\n    },\n    {\n      \"id\": \"bb88a6a6-be2a-42dd-9740-4a11a8875d85\",\n      \"location\": \"tailwind.css\"\n    },\n    {\n      \"id\": \"0f435905-3602-40f1-86ef-896221556bfb\",\n      \"location\": \"theme.css\"\n    },\n    {\n      \"id\": \"f31c946b-14d4-49e7-a034-23189cf2c931\",\n      \"location\": \"theme.scss\"\n    }\n  ],\n  \"config\": [\n    {\n      \"id\": \"f5f94a73-4aa1-46c5-861d-f2e3b1522cbc\",\n      \"location\": \"settings_data.json\"\n    },\n    {\n      \"id\": \"8d4fac1b-6d4c-4bc1-ad00-5afb089e6b07\",\n      \"location\": \"settings_schema.json\"\n    }\n  ],\n  \"locales\": [\n    {\n      \"id\": \"89d30f91-4dad-40a4-8115-f9bb76bc4696\",\n      \"location\": \"ar-SA.json\"\n    },\n    {\n      \"id\": \"a16707e8-d03d-45e7-bfbc-6a3ba07dc765\",\n      \"location\": \"de-DE.json\"\n    },\n    {\n      \"id\": \"cd381d0d-dafa-4b94-989b-48c35486dc81\",\n      \"location\": \"en-US.json\"\n    },\n    {\n      \"id\": \"9998c2c8-53ae-4f5e-b3f8-daad888bb3be\",\n      \"location\": \"es-ES.json\"\n    },\n    {\n      \"id\": \"3a00470b-c491-468c-8eb6-6e984e1da266\",\n      \"location\": \"fr-FR.json\"\n    },\n    {\n      \"id\": \"de46f76f-e024-4e92-bc7d-6975c2010ecf\",\n      \"location\": \"id-ID.json\"\n    },\n    {\n      \"id\": \"0e083dbd-5404-4f52-814e-78ba785156be\",\n      \"location\": \"it-IT.json\"\n    },\n    {\n      \"id\": \"4dcc879f-1d80-49a9-ae7d-ac718cc46452\",\n      \"location\": \"ja-JP.json\"\n    },\n    {\n      \"id\": \"19bfd4a3-d727-4f24-966a-5a0c29e46890\",\n      \"location\": \"ko-KR.json\"\n    },\n    {\n      \"id\": \"d75b1bea-9ea2-4ff2-818a-f05db9b62dd0\",\n      \"location\": \"nl-NL.json\"\n    },\n    {\n      \"id\": \"cfb1eb28-d073-4ec0-85c5-724deaf0b2d8\",\n      \"location\": \"pl-PL.json\"\n    },\n    {\n      \"id\": \"351558ed-25be-4a07-b6d7-04a3f1385278\",\n      \"location\": \"pt-PT.json\"\n    },\n    {\n      \"id\": \"fca931fd-1886-48cb-9ce0-1f7fe39945d0\",\n      \"location\": \"ru-RU.json\"\n    },\n    {\n      \"id\": \"cd90ce5e-a25f-4965-957b-247991a0d768\",\n      \"location\": \"th-TH.json\"\n    },\n    {\n      \"id\": \"7ff139bf-2714-4673-8fb1-7c16eed32430\",\n      \"location\": \"zh-CN.json\"\n    },\n    {\n      \"id\": \"4d40c8c8-0d79-4b1b-879d-8376a188f1c5\",\n      \"location\": \"zh-TW.json\"\n    }\n  ]\n}"
+              schema:
+                type: object
+                properties:
+                  layout:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: 2a44544f-4d34-4ca7-9ba2-f98a4d8c5685
+                        location:
+                          type: string
+                          example: theme.liquid
+                  templates:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: 48466c24-a395-4ac7-bd7a-88f9ce96bb22
+                        location:
+                          type: string
+                          example: 404.liquid
+                  sections:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: 00d286ff-06aa-4a00-add3-1ba9023890cf
+                        location:
+                          type: string
+                          example: blog.liquid
+                  snippets:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: 6f2e976f-32a5-4595-88e4-64c16ffd4b29
+                        location:
+                          type: string
+                          example: art_template.liquid
+                  assets:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: dcf50f9d-9470-42b1-aace-15713fe553dd
+                        location:
+                          type: string
+                          example: keep.css
+                  config:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: f5f94a73-4aa1-46c5-861d-f2e3b1522cbc
+                        location:
+                          type: string
+                          example: settings_data.json
+                  locales:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: 89d30f91-4dad-40a4-8115-f9bb76bc4696
+                        location:
+                          type: string
+                          example: ar-SA.json
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+  /openapi/2022-01/themes/{theme_id}/doc:
+    get:
+      tags:
+      - Theme
+      summary: Get Theme File
+      description: Get theme files
+      operationId: get-theme-file
+      parameters:
+      - name: theme_id
+        in: path
+        description: Theme ID
+        schema:
+          type: string
+        required: true
+      - name: type
+        in: query
+        schema:
+          type: string
+          default: layout
+      - name: location
+        in: query
+        schema:
+          type: string
+          default: theme.liquid
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"doc\": {\n    \"id\": \"2a44544f-4d34-4ca7-9ba2-f98a4d8c5685\",\n    \"theme_id\": \"1af58efc-01eb-4a40-9d8f-4c38733ffcef\",\n    \"type\": \"layout\",\n    \"location\": \"theme.liquid\",\n    \"remote_url\": \"\",\n    \"content\": \"<!doctype html>\\n<html class=\\\"no-js\\\" lang=\\\"{{ shop.locale }}\\\" {% if shop.locale == \\\"ar-SA\\\" %}dir=\\\"rtl\\\"{% endif %}>\\n  <head>\\n    <meta charset=\\\"utf-8\\\">\\n    <meta http-equiv=\\\"X-UA-Compatible\\\" content=\\\"IE=edge,chrome=1\\\">\\n    <meta name=\\\"viewport\\\" content=\\\"width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover\\\">\\n    <title>{{ page_title | default: shop.name }}</title>\\n    <meta name=\\\"keywords\\\" content=\\\"{{ page_keyword | default: shop.name | escape }}\\\">\\n    <meta name=\\\"description\\\" content=\\\"{{ page_description | default: shop.name | escape }}\\\">\\n    <meta http-equiv=\\\"x-dns-prefetch-control\\\" content=\\\"on\\\">\\n    <link rel=\\\"dns-prefetch\\\" href=\\\"{{shop.cdn_domain}}\\\">\\n    <link rel=\\\"canonical\\\" href=\\\"{{ canonical_url }}\\\">\\n    <link rel=\\\"shortcut icon\\\" href=\\\"{{shop.favicon}}\\\">\\n    <meta name=\\\"theme-color\\\" content=\\\"{{ settings.color_primary }}\\\">\\n    <meta name=\\\"format-detection\\\" content=\\\"telephone=no, email=no\\\">\\n    {% include 'social_meta_tags' %}\\n    {% include 'settings' %}\\n    {% include 'theme_css' %}\\n    <script>\\n      {% assign off = 'i18n.product.product_detail.off' | t | json | replace: '{{ count }}', '{ count }' %}\\n      {% assign save_html = 'i18n.product.product_detail.save_html' | t | json | replace: '{{ saved_amount }}', '{ saved_amount }' %}\\n      window.SHOP_PARAMS = {\\n        customer_id: '{{customer.id}}',\\n        finance: '{{shop.finance}}',\\n        finance_symbol: '{{shop.finance_symbol}}',\\n        cdn_domain: '{{shop.cdn_domain}}',\\n        shop_name: '{{shop.name | escape}}',\\n        theme_id: '{{theme.id}}',\\n        shop_id: '{{shop.id}}',\\n        shop_env: '{{shop.env}}',\\n        default_img: '{{shop.default_img}}',\\n        template_name: '{{template.name}}',\\n        template_type: '{{template.type}}',\\n        form_lang: { invalid_characters:{{ 'i18n.checkout.form.invalid_characters' | t | json }} },\\n        borderRadius:{% if settings.general_style == 'round' %}true{% else %}false{% endif  %},\\n        product_lang:{\\n          added_to_cart_successfully:{{ 'i18n.product.product_detail.added_to_bag_successfully' | t  | json }},\\n          select_variant:{{ 'i18n.product.product_detail.select_variant' | t | json}},\\n          off: {{ off }},\\n          save_html: {{ save_html }}\\n        },\\n        product_settings: {\\n          add_to_cart_process:{{ settings.add_to_cart_process | default: \\\"drawer\\\" | json }},\\n        },\\n      }\\n      window.breakpoint = {{settings.breakpoint}};\\n      window.disabled_exts=[\\\"global_version\\\", \\\"share_product\\\", \\\"blog_products\\\", \\\"boowc\\\", \\\"buy_on_others\\\", \\\"currency\\\", \\\"recommended_product\\\", \\\"top_products\\\"];\\n      window.mapped_exts = {reviews: 'reviews_nova.7b916908.js'};\\n    </script>\\n    {{ content_for_header }}\\n  <style data-tailwind=\\\"46d6009b\\\">.tw-space-y-3>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.75rem * var(--tw-space-y-reverse))}.tw-space-x-4>:not([hidden])~:not([hidden]){--tw-space-x-reverse:0;margin-right:calc(1rem * var(--tw-space-x-reverse));margin-left:calc(1rem * calc(1 - var(--tw-space-x-reverse)))}.tw-space-x-6>:not([hidden])~:not([hidden]){--tw-space-x-reverse:0;margin-right:calc(1.5rem * var(--tw-space-x-reverse));margin-left:calc(1.5rem * calc(1 - var(--tw-space-x-reverse)))}.tw-space-x-8>:not([hidden])~:not([hidden]){--tw-space-x-reverse:0;margin-right:calc(2rem * var(--tw-space-x-reverse));margin-left:calc(2rem * calc(1 - var(--tw-space-x-reverse)))}.tw-bg-transparent{background-color:transparent}.tw-bg-black{--tw-bg-opacity:1;background-color:rgba(0,0,0,var(--tw-bg-opacity))}.tw-bg-white{--tw-bg-opacity:1;background-color:rgba(255,255,255,var(--tw-bg-opacity))}.tw-bg-toast-bg-normal-color{background-color:#d6f7fa}.tw-bg-toast-bg-warning-color{background-color:#fffbda}.tw-bg-toast-bg-success-color{background-color:#d1f5ed}.tw-bg-toast-bg-error-color{background-color:#fcdfda}.tw-bg-bg-color{background-color:var(--color-general-bg)}.tw-bg-text-color{background-color:var(--color-general-text)}.tw-bg-btn-bg-color{background-color:var(--color-button-bg)}.tw-bg-discount-label-bg-color{background-color:var(--color-label-bg)}.tw-bg-header-bg{background-color:var(--color-header-bg)}.tw-bg-header-menu-bg{background-color:var(--color-header-menu-bg)}.hover\\\\:tw-bg-btn-bg-color:hover{background-color:var(--color-button-bg)}.disabled\\\\:tw-bg-gray-200:disabled{--tw-bg-opacity:1;background-color:rgba(229,231,235,var(--tw-bg-opacity))}.tw-bg-none{background-image:none}.tw-bg-opacity-5{--tw-bg-opacity:0.05}.tw-bg-opacity-30{--tw-bg-opacity:.3}.tw-bg-opacity-40{--tw-bg-opacity:.4}.tw-bg-opacity-50{--tw-bg-opacity:0.5}.tw-bg-center{background-position:center}.tw-bg-no-repeat{background-repeat:no-repeat}.tw-bg-cover{background-size:cover}.tw-border-transparent{border-color:transparent}.tw-border-gray-300{--tw-border-opacity:1;border-color:rgba(221,221,221,var(--tw-border-opacity))}.tw-border-gray-350{--tw-border-opacity:1;border-color:rgba(223,223,223,var(--tw-border-opacity))}.tw-border-gray-400{--tw-border-opacity:1;border-color:rgba(229,229,229,var(--tw-border-opacity))}.tw-border-title-color{border-color:var(--color-general-heading-text)}.tw-border-light-border-color{border-color:var(--color-general-light-border)}.tw-border-btn-bg-color{border-color:var(--color-button-bg)}.tw-border-header-menu-border{border-color:var(--color-header-menu-border)}.focus\\\\:tw-border-btn-bg-color:focus{border-color:var(--color-button-bg)}.tw-rounded-none{border-radius:0}.tw-rounded-sm{border-radius:.125rem}.tw-rounded{border-radius:.25rem}.tw-rounded-md{border-radius:.375rem}.tw-rounded-lg{border-radius:.5rem}.tw-rounded-full{border-radius:9999px}.tw-rounded-r{border-top-right-radius:.25rem;border-bottom-right-radius:.25rem}.tw-rounded-l{border-top-left-radius:.25rem;border-bottom-left-radius:.25rem}.tw-rounded-l-md{border-top-left-radius:.375rem;border-bottom-left-radius:.375rem}.tw-border-solid{border-style:solid}.tw-border-none{border-style:none}.tw-border-0{border-width:0}.tw-border-2{border-width:2px}.tw-border{border-width:1px}.tw-border-t-0{border-top-width:0}.tw-border-r-0{border-right-width:0}.tw-border-l-0{border-left-width:0}.tw-border-t{border-top-width:1px}.tw-border-b{border-bottom-width:1px}.tw-box-border{box-sizing:border-box}.tw-box-content{box-sizing:content-box}.tw-cursor-pointer{cursor:pointer}.disabled\\\\:tw-cursor-not-allowed:disabled{cursor:not-allowed}.tw-block{display:block}.tw-inline-block{display:inline-block}.tw-flex{display:flex}.tw-inline-flex{display:inline-flex}.tw-grid{display:grid}.tw-hidden{display:none}.empty\\\\:tw-hidden:empty{display:none}.tw-flex-row{flex-direction:row}.tw-flex-col{flex-direction:column}.tw-flex-wrap{flex-wrap:wrap}.tw-flex-nowrap{flex-wrap:nowrap}.tw-items-start{align-items:flex-start}.tw-items-end{align-items:flex-end}.tw-items-center{align-items:center}.tw-justify-items-center{justify-items:center}.tw-justify-start{justify-content:flex-start}.tw-justify-end{justify-content:flex-end}.tw-justify-center{justify-content:center}.tw-justify-between{justify-content:space-between}.tw-justify-around{justify-content:space-around}.tw-flex-1{flex:1 1 0%}.tw-flex-grow{flex-grow:1}.tw-flex-shrink-0{flex-shrink:0}.tw-order-1{order:1}.tw-order-2{order:2}.tw-order-3{order:3}.tw-order-4{order:4}.tw-order-first{order:-9999}.tw-order-last{order:9999}.tw-font-normal{font-weight:400}.tw-font-medium{font-weight:500}.tw-font-semibold{font-weight:600}.tw-font-bold{font-weight:700}.tw-h-0{height:0}.tw-h-1{height:.25rem}.tw-h-2{height:.5rem}.tw-h-3{height:.75rem}.tw-h-4{height:1rem}.tw-h-5{height:1.25rem}.tw-h-7{height:1.75rem}.tw-h-8{height:2rem}.tw-h-9{height:2.25rem}.tw-h-10{height:2.5rem}.tw-h-11{height:2.75rem}.tw-h-12{height:3rem}.tw-h-full{height:100%}.tw-h-1\\\\.25{height:.3125rem}.tw-h-7\\\\.5{height:1.875rem}.tw-h-12\\\\.5{height:3.125rem}.tw-group:hover .group-hover\\\\:tw-h-auto{height:auto}.tw-text-0{font-size:0}.tw-text-7{font-size:1.75rem}.tw-text-8{font-size:2rem}.tw-text-xs{font-size:.75rem;line-height:1rem}.tw-text-sm{font-size:.875rem;line-height:1.25rem}.tw-text-base{font-size:1rem;line-height:1.5rem}.tw-text-lg{font-size:1.125rem;line-height:1.75rem}.tw-text-xl{font-size:1.25rem;line-height:1.75rem}.tw-text-2xl{font-size:1.5rem;line-height:2rem}.tw-text-4\\\\.5{font-size:1.125rem}.tw-text-text-font-size{font-size:var(--type-text-font-size)}.tw-text-price-font-size{font-size:var(--type-price-font-size)}.tw-text-menu-font-size{font-size:var(--type-menu-font-size)}.tw-text-widget-font-size{font-size:var(--type-widget-font-size)}.tw-text-btn-font-size{font-size:var(--type-button-font-size)}.tw-text-footer-font-size{font-size:var(--type-footer-font-size)}.tw-leading-4{line-height:1rem}.tw-leading-5{line-height:1.25rem}.tw-leading-8{line-height:2rem}.tw-leading-none{line-height:1}.tw-leading-tight{line-height:1.25}.tw-leading-normal{line-height:1.5}.tw-leading-text-line-height{line-height:var(--type-text-line-height)}.tw-leading-product-detail-heading-line-height{line-height:var(--type-product-line-height)}.tw-leading-snippet-line-height{line-height:var(--type-snippet-line-height)}.tw-leading-1\\\\.1{line-height:1.1}.tw-leading-1\\\\.2{line-height:1.2}.tw-leading-1\\\\.3{line-height:1.3}.tw-leading-1\\\\.4{line-height:1.4}.tw-leading-1\\\\.5{line-height:1.5}.tw-list-none{list-style-type:none}.tw-m-0{margin:0}.tw-m-auto{margin:auto}.tw-my-0{margin-top:0;margin-bottom:0}.tw-mx-1{margin-left:.25rem;margin-right:.25rem}.tw-my-2{margin-top:.5rem;margin-bottom:.5rem}.tw-mx-3{margin-left:.75rem;margin-right:.75rem}.tw-my-4{margin-top:1rem;margin-bottom:1rem}.tw-mx-5{margin-left:1.25rem;margin-right:1.25rem}.tw-my-6{margin-top:1.5rem;margin-bottom:1.5rem}.tw-mx-15{margin-left:3.75rem;margin-right:3.75rem}.tw-mx-auto{margin-left:auto;margin-right:auto}.tw-mx-1\\\\.5{margin-left:.375rem;margin-right:.375rem}.tw--mx-1{margin-left:-.25rem;margin-right:-.25rem}.tw--mx-4{margin-left:-1rem;margin-right:-1rem}.tw--mx-1\\\\.5{margin-left:-.375rem;margin-right:-.375rem}.tw--mx-general-layout-spacing{margin-left:calc(var(--general-layout-spacing) * -1);margin-right:calc(var(--general-layout-spacing) * -1)}.tw-mt-0{margin-top:0}.tw-mr-0{margin-right:0}.tw-mb-0{margin-bottom:0}.tw-mt-1{margin-top:.25rem}.tw-mb-1{margin-bottom:.25rem}.tw-ml-1{margin-left:.25rem}.tw-mt-2{margin-top:.5rem}.tw-mr-2{margin-right:.5rem}.tw-mb-2{margin-bottom:.5rem}.tw-ml-2{margin-left:.5rem}.tw-mt-3{margin-top:.75rem}.tw-mr-3{margin-right:.75rem}.tw-mb-3{margin-bottom:.75rem}.tw-ml-3{margin-left:.75rem}.tw-mt-4{margin-top:1rem}.tw-mr-4{margin-right:1rem}.tw-mb-4{margin-bottom:1rem}.tw-ml-4{margin-left:1rem}.tw-mt-5{margin-top:1.25rem}.tw-mb-5{margin-bottom:1.25rem}.tw-ml-5{margin-left:1.25rem}.tw-mt-6{margin-top:1.5rem}.tw-mb-6{margin-bottom:1.5rem}.tw-ml-6{margin-left:1.5rem}.tw-mt-7{margin-top:1.75rem}.tw-mr-7{margin-right:1.75rem}.tw-mb-7{margin-bottom:1.75rem}.tw-ml-7{margin-left:1.75rem}.tw-mb-8{margin-bottom:2rem}.tw-mt-10{margin-top:2.5rem}.tw-mr-10{margin-right:2.5rem}.tw-mb-10{margin-bottom:2.5rem}.tw-mt-15{margin-top:3.75rem}.tw-mr-15{margin-right:3.75rem}.tw-mt-auto{margin-top:auto}.tw-mr-auto{margin-right:auto}.tw-mb-auto{margin-bottom:auto}.tw-ml-auto{margin-left:auto}.tw-mt-2\\\\.5{margin-top:.625rem}.tw-mr-2\\\\.5{margin-right:.625rem}.tw-ml-2\\\\.5{margin-left:.625rem}.tw--mt-2{margin-top:-.5rem}.tw--mr-2{margin-right:-.5rem}.tw--ml-2{margin-left:-.5rem}.tw--mr-4{margin-right:-1rem}.tw--ml-5{margin-left:-1.25rem}.tw--mt-6{margin-top:-1.5rem}.tw--mt-10{margin-top:-2.5rem}.tw--mr-2\\\\.5{margin-right:-.625rem}.tw-mt-1\\\\.25{margin-top:.3125rem}.tw-mb-1\\\\.25{margin-bottom:.3125rem}.tw-mt-6\\\\.25{margin-top:1.5625rem}.tw-mt-7\\\\.5{margin-top:1.875rem}.tw-mb-7\\\\.5{margin-bottom:1.875rem}.last\\\\:tw-mb-0:last-child{margin-bottom:0}.first\\\\:tw-mt-0:first-child{margin-top:0}.tw-max-h-4{max-height:1rem}.tw-max-h-11{max-height:2.75rem}.tw-max-h-12{max-height:3rem}.tw-max-h-full{max-height:100%}.tw-max-h-screen{max-height:100vh}.tw-max-w-6{max-width:1.5rem}.tw-max-w-11{max-width:2.75rem}.tw-max-w-12{max-width:3rem}.tw-max-w-100{max-width:25rem}.tw-max-w-150{max-width:37.5rem}.tw-max-w-full{max-width:100%}.tw-max-w-page{max-width:var(--general-layout-width)}.tw-min-h-10{min-height:2.5rem}.tw-min-h-11{min-height:2.75rem}.tw-min-h-full{min-height:100%}.tw-min-w-6{min-width:1.5rem}.tw-min-w-8{min-width:2rem}.tw-min-w-10{min-width:2.5rem}.tw-min-w-11{min-width:2.75rem}.tw-min-w-12{min-width:3rem}.tw-min-w-13{min-width:3.25rem}.tw-min-w-14{min-width:3.5rem}.tw-min-w-15{min-width:3.75rem}.tw-min-w-28{min-width:7rem}.tw-object-cover{-o-object-fit:cover;object-fit:cover}.tw-opacity-0{opacity:0}.tw-opacity-25{opacity:.25}.tw-opacity-30{opacity:.3}.tw-opacity-40{opacity:.4}.tw-opacity-50{opacity:.5}.tw-opacity-100{opacity:1}.hover\\\\:tw-opacity-40:hover{opacity:.4}.hover\\\\:tw-opacity-75:hover{opacity:.75}.tw-group:hover .group-hover\\\\:tw-opacity-100{opacity:1}.disabled\\\\:tw-opacity-40:disabled{opacity:.4}.active\\\\:tw-opacity-75:active{opacity:.75}.tw-outline-none{outline:2px solid transparent;outline-offset:2px}.focus\\\\:tw-outline-none:focus{outline:2px solid transparent;outline-offset:2px}.tw-overflow-auto{overflow:auto}.tw-overflow-hidden{overflow:hidden}.tw-overflow-visible{overflow:visible}.tw-overflow-x-auto{overflow-x:auto}.tw-overflow-y-auto{overflow-y:auto}.tw-overflow-y-hidden{overflow-y:hidden}.tw-p-0{padding:0}.tw-p-2{padding:.5rem}.tw-p-4{padding:1rem}.tw-p-5{padding:1.25rem}.tw-p-7{padding:1.75rem}.tw-p-10{padding:2.5rem}.tw-p-4\\\\.5{padding:1.125rem}.tw-p-7\\\\.5{padding:1.875rem}.tw-py-0{padding-top:0;padding-bottom:0}.tw-px-0{padding-left:0;padding-right:0}.tw-px-1{padding-left:.25rem;padding-right:.25rem}.tw-py-2{padding-top:.5rem;padding-bottom:.5rem}.tw-px-2{padding-left:.5rem;padding-right:.5rem}.tw-py-3{padding-top:.75rem;padding-bottom:.75rem}.tw-px-3{padding-left:.75rem;padding-right:.75rem}.tw-py-4{padding-top:1rem;padding-bottom:1rem}.tw-px-4{padding-left:1rem;padding-right:1rem}.tw-py-5{padding-top:1.25rem;padding-bottom:1.25rem}.tw-px-5{padding-left:1.25rem;padding-right:1.25rem}.tw-py-6{padding-top:1.5rem;padding-bottom:1.5rem}.tw-px-6{padding-left:1.5rem;padding-right:1.5rem}.tw-py-7{padding-top:1.75rem;padding-bottom:1.75rem}.tw-px-7{padding-left:1.75rem;padding-right:1.75rem}.tw-px-8{padding-left:2rem;padding-right:2rem}.tw-py-10{padding-top:2.5rem;padding-bottom:2.5rem}.tw-px-10{padding-left:2.5rem;padding-right:2.5rem}.tw-py-25{padding-top:6.25rem;padding-bottom:6.25rem}.tw-px-1\\\\.5{padding-left:.375rem;padding-right:.375rem}.tw-py-2\\\\.5{padding-top:.625rem;padding-bottom:.625rem}.tw-px-general-layout-spacing{padding-left:var(--general-layout-spacing);padding-right:var(--general-layout-spacing)}.tw-px-4\\\\.5{padding-left:1.125rem;padding-right:1.125rem}.tw-py-7\\\\.5{padding-top:1.875rem;padding-bottom:1.875rem}.tw-px-7\\\\.5{padding-left:1.875rem;padding-right:1.875rem}.tw-pr-0{padding-right:0}.tw-pl-0{padding-left:0}.tw-pt-1{padding-top:.25rem}.tw-pb-1{padding-bottom:.25rem}.tw-pr-2{padding-right:.5rem}.tw-pb-2{padding-bottom:.5rem}.tw-pl-3{padding-left:.75rem}.tw-pt-4{padding-top:1rem}.tw-pr-4{padding-right:1rem}.tw-pl-4{padding-left:1rem}.tw-pt-5{padding-top:1.25rem}.tw-pr-5{padding-right:1.25rem}.tw-pb-5{padding-bottom:1.25rem}.tw-pl-5{padding-left:1.25rem}.tw-pt-6{padding-top:1.5rem}.tw-pb-6{padding-bottom:1.5rem}.tw-pt-7{padding-top:1.75rem}.tw-pt-8{padding-top:2rem}.tw-pb-8{padding-bottom:2rem}.tw-pt-9{padding-top:2.25rem}.tw-pt-10{padding-top:2.5rem}.tw-pb-10{padding-bottom:2.5rem}.tw-pb-14{padding-bottom:3.5rem}.tw-pt-15{padding-top:3.75rem}.tw-pb-18{padding-bottom:4.5rem}.tw-pb-2\\\\.5{padding-bottom:.625rem}.tw-pb-full{padding-bottom:100%}.tw-pt-7\\\\.5{padding-top:1.875rem}.tw-placeholder-title-color::-moz-placeholder{color:var(--color-general-heading-text)}.tw-placeholder-title-color:-ms-input-placeholder{color:var(--color-general-heading-text)}.tw-placeholder-title-color::placeholder{color:var(--color-general-heading-text)}.tw-static{position:static}.tw-fixed{position:fixed}.tw-absolute{position:absolute}.tw-relative{position:relative}.tw-sticky{position:sticky}.tw-inset-0{top:0;right:0;bottom:0;left:0}.tw-inset-x-0{right:0;left:0}.tw-top-0{top:0}.tw-right-0{right:0}.tw-bottom-0{bottom:0}.tw-left-0{left:0}.tw-top-2{top:.5rem}.tw-left-2{left:.5rem}.tw-right-4{right:1rem}.tw-left-4{left:1rem}.tw-bottom-5{bottom:1.25rem}.tw-right-6{right:1.5rem}.tw-left-6{left:1.5rem}.tw-right-auto{right:auto}.tw-left-auto{left:auto}.tw-top-full{top:100%}.tw-bottom-full{bottom:100%}.tw-top-1\\\\/2{top:50%}.tw-bottom-1\\\\/2{bottom:50%}.tw-left-1\\\\/2{left:50%}*{--tw-shadow:0 0 #0000}.tw-shadow-3{--tw-shadow:0px 5px 25px 0px rgba(0,0,0,0.1);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.tw-shadow-5{--tw-shadow:0px 4px 28px -10px rgba(0,0,0,0.07);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.tw-shadow-inset-checked{--tw-shadow:inset 0px 0px 0px 1px #000,inset 0px 0px 0px 2px #fff;box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}*{--tw-ring-inset:var(--tw-empty, );/*!*//*!*/--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59, 130, 246, 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000}.tw-fill-current{fill:currentColor}.tw-text-left{text-align:left}.tw-text-center{text-align:center}.tw-text-right{text-align:right}.tw-text-current{color:currentColor}.tw-text-black{--tw-text-opacity:1;color:rgba(0,0,0,var(--tw-text-opacity))}.tw-text-white{--tw-text-opacity:1;color:rgba(255,255,255,var(--tw-text-opacity))}.tw-text-inherit{color:inherit}.tw-text-toast-text-normal-color{color:#005684}.tw-text-toast-text-warning-color{color:#a06508}.tw-text-toast-text-success-color{color:#1a6d3f}.tw-text-toast-text-error-color{color:#8b0f20}.tw-text-title-color{color:var(--color-general-heading-text)}.tw-text-text-color{color:var(--color-general-text)}.tw-text-light-text-color{color:var(--color-general-light-text)}.tw-text-price-color{color:var(--color-price-text)}.tw-text-compare-at-price-color{color:var(--color-compare-at-price-text)}.tw-text-btn-bg-color{color:var(--color-button-bg)}.tw-text-btn-text-color{color:var(--color-button-text)}.tw-text-discount-label-text-color{color:var(--color-label-text)}.tw-text-header-text-color{color:var(--color-header-text)}.hover\\\\:tw-text-btn-text-color:hover{color:var(--color-button-text)}.tw-truncate{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.tw-uppercase{text-transform:uppercase}.tw-capitalize{text-transform:capitalize}.tw-normal-case{text-transform:none}.tw-line-through{text-decoration:line-through}.tw-no-underline{text-decoration:none}.tw-tracking-2{letter-spacing:.125rem}.tw-tracking-tight{letter-spacing:-.0125rem}.tw-tracking-normal{letter-spacing:0}.tw-tracking-menu-letter-spacing{letter-spacing:var(--type-menu-letter-spacing)}.tw-tracking-product-detail-heading-letter-spacing{letter-spacing:var(--type-product-letter-spacing)}.tw-tracking-widget-letter-spacing{letter-spacing:var(--type-widget-letter-spacing)}.tw-tracking-btn-letter-spacing{letter-spacing:var(--type-button-letter-spacing)}.tw-tracking-status-label-letter-spacing{letter-spacing:var(--type-status-label-letter-spacing)}.tw-tracking-snippet-letter-spacing{letter-spacing:var(--type-snippet-letter-spacing)}.tw-tracking-footer-letter-spacing{letter-spacing:var(--type-footer-letter-spacing)}.tw-select-none{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.tw-align-middle{vertical-align:middle}.tw-invisible{visibility:hidden}.tw-group:hover .group-hover\\\\:tw-visible{visibility:visible}.tw-whitespace-nowrap{white-space:nowrap}.tw-whitespace-pre-wrap{white-space:pre-wrap}.tw-break-words{overflow-wrap:break-word}.tw-break-all{word-break:break-all}.tw-w-2{width:.5rem}.tw-w-3{width:.75rem}.tw-w-4{width:1rem}.tw-w-7{width:1.75rem}.tw-w-8{width:2rem}.tw-w-9{width:2.25rem}.tw-w-10{width:2.5rem}.tw-w-11{width:2.75rem}.tw-w-12{width:3rem}.tw-w-15{width:3.75rem}.tw-w-16{width:4rem}.tw-w-24{width:6rem}.tw-w-30{width:7.5rem}.tw-w-38{width:9.5rem}.tw-w-40{width:10rem}.tw-w-50{width:12.5rem}.tw-w-100{width:25rem}.tw-w-180{width:45rem}.tw-w-full{width:100%}.tw-w-1\\\\/2{width:50%}.tw-w-1\\\\/3{width:33.333333%}.tw-w-2\\\\/3{width:66.666667%}.tw-w-3\\\\/4{width:75%}.tw-w-1\\\\/5{width:20%}.tw-w-1\\\\/6{width:16.666667%}.tw-w-screen{width:100vw}.tw-w-7\\\\.5{width:1.875rem}.tw-z-0{z-index:0}.tw-z-10{z-index:10}.tw-z-20{z-index:20}.tw-z-50{z-index:50}.tw-z-dropdown{z-index:1000}.tw-z-sticky{z-index:1020}.tw-z-fixed{z-index:1030}.tw-z-modal{z-index:1050}.tw-z-popover{z-index:1060}.tw-z-tooltip{z-index:1070}.tw-gap-4{gap:1rem}.tw-gap-7{gap:1.75rem}.tw-gap-7\\\\.5{gap:1.875rem}.tw-gap-x-5{-moz-column-gap:1.25rem;column-gap:1.25rem}.tw-gap-x-7{-moz-column-gap:1.75rem;column-gap:1.75rem}.tw-gap-x-7\\\\.5{-moz-column-gap:1.875rem;column-gap:1.875rem}.tw-gap-x-px-15{-moz-column-gap:15px;column-gap:15px}.tw-gap-y-7{row-gap:1.75rem}.tw-gap-y-7\\\\.5{row-gap:1.875rem}.tw-grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}.tw-grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.tw-grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.tw-grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}.tw-grid-cols-12{grid-template-columns:repeat(12,minmax(0,1fr))}.tw-grid-cols-cart-grid-drawer{grid-template-columns:96px 2fr 1fr}.tw-grid-cols-cart-grid-min{grid-template-columns:108px 2fr 1fr}.tw-col-span-2{grid-column:span 2/span 2}.tw-col-span-4{grid-column:span 4/span 4}.tw-col-span-8{grid-column:span 8/span 8}.tw-col-span-12{grid-column:span 12/span 12}.tw-row-span-1{grid-row:span 1/span 1}.tw-transform{--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;transform:translateX(var(--tw-translate-x)) translateY(var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\\\\:tw-scale-110:hover{--tw-scale-x:1.1;--tw-scale-y:1.1}.tw-rotate-90{--tw-rotate:90deg}.tw-rotate-180{--tw-rotate:180deg}.tw--rotate-90{--tw-rotate:-90deg}.tw-translate-x-0{--tw-translate-x:0px}.tw-translate-x-full{--tw-translate-x:100%}.tw--translate-x-full{--tw-translate-x:-100%}.tw--translate-x-1\\\\/2{--tw-translate-x:-50%}.tw-translate-y-0{--tw-translate-y:0px}.tw-translate-y-3{--tw-translate-y:0.75rem}.tw-translate-y-5{--tw-translate-y:1.25rem}.tw--translate-y-full{--tw-translate-y:-100%}.tw-translate-y-1\\\\/2{--tw-translate-y:50%}.tw--translate-y-1\\\\/2{--tw-translate-y:-50%}.tw-group:hover .group-hover\\\\:tw-translate-y-0{--tw-translate-y:0px}.tw-transition-all{transition-property:all;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:150ms}.tw-transition-opacity{transition-property:opacity;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:150ms}.tw-transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:150ms}.tw-ease-linear{transition-timing-function:linear}.tw-ease-in-out{transition-timing-function:cubic-bezier(.4,0,.2,1)}.tw-ease-drop-down-in{transition-timing-function:cubic-bezier(.2,.06,.05,.95)}.tw-duration-75{transition-duration:75ms}.tw-duration-200{transition-duration:.2s}.tw-duration-300{transition-duration:.3s}.tw-duration-500{transition-duration:.5s}.tw-duration-1000{transition-duration:1s}@-webkit-keyframes tw-spin{to{transform:rotate(360deg)}}@keyframes tw-spin{to{transform:rotate(360deg)}}@-webkit-keyframes tw-ping{100%,75%{transform:scale(2);opacity:0}}@keyframes tw-ping{100%,75%{transform:scale(2);opacity:0}}@-webkit-keyframes tw-pulse{50%{opacity:.5}}@keyframes tw-pulse{50%{opacity:.5}}@-webkit-keyframes tw-bounce{0%,100%{transform:translateY(-25%);-webkit-animation-timing-function:cubic-bezier(.8,0,1,1);animation-timing-function:cubic-bezier(.8,0,1,1)}50%{transform:none;-webkit-animation-timing-function:cubic-bezier(0,0,.2,1);animation-timing-function:cubic-bezier(0,0,.2,1)}}@keyframes tw-bounce{0%,100%{transform:translateY(-25%);-webkit-animation-timing-function:cubic-bezier(.8,0,1,1);animation-timing-function:cubic-bezier(.8,0,1,1)}50%{transform:none;-webkit-animation-timing-function:cubic-bezier(0,0,.2,1);animation-timing-function:cubic-bezier(0,0,.2,1)}}@-webkit-keyframes tw-zoom-fade-small{0%{transform:scale(1.2,1.2)}100%{transform:scale(1,1)}}@keyframes tw-zoom-fade-small{0%{transform:scale(1.2,1.2)}100%{transform:scale(1,1)}}.tw-animate-zoom-fade-small{-webkit-animation:tw-zoom-fade-small 1.2s cubic-bezier(.26,.54,.32,1) 0s forwards;animation:tw-zoom-fade-small 1.2s cubic-bezier(.26,.54,.32,1) 0s forwards}@media (max-width:959.98px){.md\\\\:tw-hidden{display:none}.md\\\\:tw-flex-col-reverse{flex-direction:column-reverse}.md\\\\:tw-my-5{margin-top:1.25rem;margin-bottom:1.25rem}.md\\\\:tw-mt-3{margin-top:.75rem}.md\\\\:tw-mt-10{margin-top:2.5rem}.md\\\\:tw-px-0{padding-left:0;padding-right:0}.md\\\\:tw-px-5{padding-left:1.25rem;padding-right:1.25rem}.md\\\\:tw-fixed{position:fixed}.md\\\\:tw-right-0{right:0}.md\\\\:tw-w-full{width:100%}.md\\\\:tw-w-9\\\\/20{width:45%}.md\\\\:tw-gap-x-px-15{-moz-column-gap:15px;column-gap:15px}.md\\\\:tw-translate-y-full{--tw-translate-y:100%}}@media (min-width:960px){.lg\\\\:tw-space-x-0>:not([hidden])~:not([hidden]){--tw-space-x-reverse:0;margin-right:calc(0px * var(--tw-space-x-reverse));margin-left:calc(0px * calc(1 - var(--tw-space-x-reverse)))}.lg\\\\:tw-space-x-12>:not([hidden])~:not([hidden]){--tw-space-x-reverse:0;margin-right:calc(3rem * var(--tw-space-x-reverse));margin-left:calc(3rem * calc(1 - var(--tw-space-x-reverse)))}.lg\\\\:tw-bg-bg-color{background-color:var(--color-general-bg)}.lg\\\\:hover\\\\:tw-bg-btn-bg-color:hover{background-color:var(--color-button-bg)}.lg\\\\:tw-border-header-text-color{border-color:var(--color-header-text)}.lg\\\\:tw-rounded{border-radius:.25rem}.lg\\\\:tw-rounded-lg{border-radius:.5rem}.lg\\\\:tw-border-none{border-style:none}.lg\\\\:tw-border-0{border-width:0}.lg\\\\:tw-border-b-0{border-bottom-width:0}.lg\\\\:tw-block{display:block}.lg\\\\:tw-inline-block{display:inline-block}.lg\\\\:tw-inline{display:inline}.lg\\\\:tw-flex{display:flex}.lg\\\\:tw-grid{display:grid}.lg\\\\:tw-hidden{display:none}.tw-group:hover .lg\\\\:group-hover\\\\:tw-block{display:block}.tw-group:hover .lg\\\\:group-hover\\\\:tw-flex{display:flex}.lg\\\\:tw-flex-row{flex-direction:row}.lg\\\\:tw-flex-row-reverse{flex-direction:row-reverse}.lg\\\\:tw-flex-wrap{flex-wrap:wrap}.lg\\\\:tw-items-center{align-items:center}.lg\\\\:tw-justify-items-start{justify-items:start}.lg\\\\:tw-justify-start{justify-content:flex-start}.lg\\\\:tw-justify-end{justify-content:flex-end}.lg\\\\:tw-justify-center{justify-content:center}.lg\\\\:tw-justify-between{justify-content:space-between}.lg\\\\:tw-justify-around{justify-content:space-around}.lg\\\\:tw-order-1{order:1}.lg\\\\:tw-order-none{order:0}.lg\\\\:tw-h-1{height:.25rem}.lg\\\\:tw-h-3{height:.75rem}.lg\\\\:tw-h-1\\\\.5{height:.375rem}.lg\\\\:tw-text-7{font-size:1.75rem}.lg\\\\:tw-text-10{font-size:2.5rem}.lg\\\\:tw-text-xs{font-size:.75rem;line-height:1rem}.lg\\\\:tw-text-sm{font-size:.875rem;line-height:1.25rem}.lg\\\\:tw-text-lg{font-size:1.125rem;line-height:1.75rem}.lg\\\\:tw-text-xl{font-size:1.25rem;line-height:1.75rem}.lg\\\\:tw-text-3xl{font-size:1.875rem;line-height:2.25rem}.lg\\\\:tw-text-text-font-size{font-size:var(--type-text-font-size)}.lg\\\\:tw-text-product-detail-heading-font-size{font-size:var(--type-product-font-size)}.lg\\\\:tw-text-snippet-font-size{font-size:var(--type-snippet-font-size)}.lg\\\\:tw-text-price-font-size{font-size:var(--type-price-font-size)}.lg\\\\:tw-text-btn-font-size{font-size:var(--type-button-font-size)}.lg\\\\:tw-text-status-label-font-size{font-size:var(--type-status-label-font-size)}.lg\\\\:tw-leading-5{line-height:1.25rem}.lg\\\\:tw-leading-text-line-height{line-height:var(--type-text-line-height)}.lg\\\\:tw-leading-1\\\\.2{line-height:1.2}.lg\\\\:tw-leading-1\\\\.5{line-height:1.5}.lg\\\\:tw-m-0{margin:0}.lg\\\\:tw-my-0{margin-top:0;margin-bottom:0}.lg\\\\:tw-mx-0{margin-left:0;margin-right:0}.lg\\\\:tw-mx-4{margin-left:1rem;margin-right:1rem}.lg\\\\:tw-mx-5{margin-left:1.25rem;margin-right:1.25rem}.lg\\\\:tw-my-15{margin-top:3.75rem;margin-bottom:3.75rem}.lg\\\\:tw-mx-15{margin-left:3.75rem;margin-right:3.75rem}.lg\\\\:tw-mx-auto{margin-left:auto;margin-right:auto}.lg\\\\:tw--mx-2{margin-left:-.5rem;margin-right:-.5rem}.lg\\\\:tw--mx-5{margin-left:-1.25rem;margin-right:-1.25rem}.lg\\\\:tw--mx-2\\\\.5{margin-left:-.625rem;margin-right:-.625rem}.lg\\\\:tw-mt-0{margin-top:0}.lg\\\\:tw-mr-0{margin-right:0}.lg\\\\:tw-ml-0{margin-left:0}.lg\\\\:tw-mr-1{margin-right:.25rem}.lg\\\\:tw-mb-2{margin-bottom:.5rem}.lg\\\\:tw-mt-3{margin-top:.75rem}.lg\\\\:tw-mt-4{margin-top:1rem}.lg\\\\:tw-mr-4{margin-right:1rem}.lg\\\\:tw-mb-4{margin-bottom:1rem}.lg\\\\:tw-ml-4{margin-left:1rem}.lg\\\\:tw-mt-5{margin-top:1.25rem}.lg\\\\:tw-mb-5{margin-bottom:1.25rem}.lg\\\\:tw-mt-6{margin-top:1.5rem}.lg\\\\:tw-mr-6{margin-right:1.5rem}.lg\\\\:tw-mb-6{margin-bottom:1.5rem}.lg\\\\:tw-ml-6{margin-left:1.5rem}.lg\\\\:tw-mt-7{margin-top:1.75rem}.lg\\\\:tw-mb-7{margin-bottom:1.75rem}.lg\\\\:tw-mt-8{margin-top:2rem}.lg\\\\:tw-mb-9{margin-bottom:2.25rem}.lg\\\\:tw-mt-10{margin-top:2.5rem}.lg\\\\:tw-mr-10{margin-right:2.5rem}.lg\\\\:tw-mb-10{margin-bottom:2.5rem}.lg\\\\:tw-mt-12{margin-top:3rem}.lg\\\\:tw-mb-12{margin-bottom:3rem}.lg\\\\:tw-mt-15{margin-top:3.75rem}.lg\\\\:tw-mt-20{margin-top:5rem}.lg\\\\:tw-mb-20{margin-bottom:5rem}.lg\\\\:tw-mr-auto{margin-right:auto}.lg\\\\:tw-mb-2\\\\.5{margin-bottom:.625rem}.lg\\\\:tw--mr-4{margin-right:-1rem}.lg\\\\:tw--mb-10{margin-bottom:-2.5rem}.lg\\\\:tw--ml-10{margin-left:-2.5rem}.lg\\\\:tw-mt-7\\\\.5{margin-top:1.875rem}.lg\\\\:tw-mb-7\\\\.5{margin-bottom:1.875rem}.lg\\\\:first\\\\:tw-mt-0:first-child{margin-top:0}.lg\\\\:tw-max-w-50{max-width:12.5rem}.lg\\\\:tw-max-w-60{max-width:15rem}.lg\\\\:tw-max-w-160{max-width:40rem}.lg\\\\:tw-max-w-page{max-width:var(--general-layout-width)}.lg\\\\:tw-min-w-20{min-width:5rem}.lg\\\\:tw-min-w-38{min-width:9.5rem}.lg\\\\:tw-min-w-70{min-width:17.5rem}.lg\\\\:tw-opacity-0{opacity:0}.lg\\\\:hover\\\\:tw-opacity-40:hover{opacity:.4}.lg\\\\:hover\\\\:tw-opacity-50:hover{opacity:.5}.lg\\\\:hover\\\\:tw-opacity-60:hover{opacity:.6}.lg\\\\:hover\\\\:tw-opacity-75:hover{opacity:.75}.tw-group:hover .lg\\\\:group-hover\\\\:tw-opacity-60{opacity:.6}.tw-group:hover .lg\\\\:group-hover\\\\:tw-opacity-100{opacity:1}.lg\\\\:active\\\\:tw-opacity-75:active{opacity:.75}.lg\\\\:tw-overflow-hidden{overflow:hidden}.lg\\\\:tw-overflow-y-auto{overflow-y:auto}.lg\\\\:tw-p-0{padding:0}.lg\\\\:tw-p-8{padding:2rem}.lg\\\\:tw-py-0{padding-top:0;padding-bottom:0}.lg\\\\:tw-px-0{padding-left:0;padding-right:0}.lg\\\\:tw-py-2{padding-top:.5rem;padding-bottom:.5rem}.lg\\\\:tw-px-2{padding-left:.5rem;padding-right:.5rem}.lg\\\\:tw-px-5{padding-left:1.25rem;padding-right:1.25rem}.lg\\\\:tw-py-7{padding-top:1.75rem;padding-bottom:1.75rem}.lg\\\\:tw-px-7{padding-left:1.75rem;padding-right:1.75rem}.lg\\\\:tw-px-8{padding-left:2rem;padding-right:2rem}.lg\\\\:tw-px-10{padding-left:2.5rem;padding-right:2.5rem}.lg\\\\:tw-py-15{padding-top:3.75rem;padding-bottom:3.75rem}.lg\\\\:tw-py-20{padding-top:5rem;padding-bottom:5rem}.lg\\\\:tw-px-2\\\\.5{padding-left:.625rem;padding-right:.625rem}.lg\\\\:tw-px-general-layout-spacing{padding-left:var(--general-layout-spacing);padding-right:var(--general-layout-spacing)}.lg\\\\:tw-px-7\\\\.5{padding-left:1.875rem;padding-right:1.875rem}.lg\\\\:tw-pt-0{padding-top:0}.lg\\\\:tw-pr-0{padding-right:0}.lg\\\\:tw-pb-0{padding-bottom:0}.lg\\\\:tw-pr-2{padding-right:.5rem}.lg\\\\:tw-pb-2{padding-bottom:.5rem}.lg\\\\:tw-pl-2{padding-left:.5rem}.lg\\\\:tw-pt-4{padding-top:1rem}.lg\\\\:tw-pt-7{padding-top:1.75rem}.lg\\\\:tw-pr-8{padding-right:2rem}.lg\\\\:tw-pt-10{padding-top:2.5rem}.lg\\\\:tw-pb-10{padding-bottom:2.5rem}.lg\\\\:tw-pl-10{padding-left:2.5rem}.lg\\\\:tw-pt-15{padding-top:3.75rem}.lg\\\\:tw-pt-20{padding-top:5rem}.lg\\\\:tw-pr-20{padding-right:5rem}.lg\\\\:tw-pr-28{padding-right:7rem}.lg\\\\:tw-pr-30{padding-right:7.5rem}.lg\\\\:tw-pl-30{padding-left:7.5rem}.lg\\\\:tw-pr-40{padding-right:10rem}.lg\\\\:tw-pl-40{padding-left:10rem}.lg\\\\:tw-pr-2\\\\.5{padding-right:.625rem}.lg\\\\:tw-pl-2\\\\.5{padding-left:.625rem}.lg\\\\:tw-pt-7\\\\.5{padding-top:1.875rem}.lg\\\\:tw-pr-28\\\\.5{padding-right:7.125rem}.lg\\\\:tw-placeholder-header-text-color::-moz-placeholder{color:var(--color-header-text)}.lg\\\\:tw-placeholder-header-text-color:-ms-input-placeholder{color:var(--color-header-text)}.lg\\\\:tw-placeholder-header-text-color::placeholder{color:var(--color-header-text)}.lg\\\\:tw-absolute{position:absolute}.lg\\\\:tw-relative{position:relative}.lg\\\\:tw-right-0{right:0}.lg\\\\:tw-left-0{left:0}.lg\\\\:tw-top-4{top:1rem}.lg\\\\:tw-left-4{left:1rem}.lg\\\\:tw-right-7{right:1.75rem}.lg\\\\:tw-left-7{left:1.75rem}.lg\\\\:tw-bottom-15{bottom:3.75rem}.lg\\\\:tw-left-15{left:3.75rem}.lg\\\\:tw-bottom-auto{bottom:auto}.lg\\\\:tw-left-auto{left:auto}.lg\\\\:tw-top-full{top:100%}.lg\\\\:tw-shadow-3{--tw-shadow:0px 5px 25px 0px rgba(0,0,0,0.1);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.lg\\\\:tw-shadow-6{--tw-shadow:0px 10px 18px -10px rgba(0,0,0,0.07);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.lg\\\\:tw-text-left{text-align:left}.lg\\\\:tw-text-center{text-align:center}.lg\\\\:tw-text-right{text-align:right}.lg\\\\:tw-text-title-color{color:var(--color-general-heading-text)}.lg\\\\:tw-text-text-color{color:var(--color-general-text)}.lg\\\\:tw-text-header-text-color{color:var(--color-header-text)}.lg\\\\:tw-text-header-menu-text-color{color:var(--color-header-menu-text)}.lg\\\\:hover\\\\:tw-text-btn-text-color:hover{color:var(--color-button-text)}.lg\\\\:tw-uppercase{text-transform:uppercase}.lg\\\\:tw-normal-case{text-transform:none}.lg\\\\:tw-tracking-4{letter-spacing:.25rem}.lg\\\\:tw-invisible{visibility:hidden}.tw-group:hover .lg\\\\:group-hover\\\\:tw-visible{visibility:visible}.lg\\\\:tw-w-3{width:.75rem}.lg\\\\:tw-w-50{width:12.5rem}.lg\\\\:tw-w-180{width:45rem}.lg\\\\:tw-w-auto{width:auto}.lg\\\\:tw-w-1\\\\/2{width:50%}.lg\\\\:tw-w-1\\\\/3{width:33.333333%}.lg\\\\:tw-w-2\\\\/3{width:66.666667%}.lg\\\\:tw-w-1\\\\/4{width:25%}.lg\\\\:tw-w-3\\\\/12{width:25%}.lg\\\\:tw-z-10{z-index:10}.lg\\\\:tw-z-20{z-index:20}.lg\\\\:tw-z-popover{z-index:1060}.lg\\\\:tw-gap-x-5{-moz-column-gap:1.25rem;column-gap:1.25rem}.lg\\\\:tw-gap-x-7{-moz-column-gap:1.75rem;column-gap:1.75rem}.lg\\\\:tw-gap-x-10{-moz-column-gap:2.5rem;column-gap:2.5rem}.lg\\\\:tw-gap-x-7\\\\.5{-moz-column-gap:1.875rem;column-gap:1.875rem}.lg\\\\:tw-gap-x-px-15{-moz-column-gap:15px;column-gap:15px}.lg\\\\:tw-gap-y-15{row-gap:3.75rem}.lg\\\\:tw-grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.lg\\\\:tw-grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.lg\\\\:tw-grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}.lg\\\\:tw-grid-cols-5{grid-template-columns:repeat(5,minmax(0,1fr))}.lg\\\\:tw-grid-cols-6{grid-template-columns:repeat(6,minmax(0,1fr))}.lg\\\\:tw-grid-cols-cart-grid-max{grid-template-columns:160px 2fr 1fr}.lg\\\\:tw-grid-cols-1\\\\/2{grid-template-columns:55% 40%}.lg\\\\:tw-col-span-4{grid-column:span 4/span 4}.lg\\\\:tw-col-span-5{grid-column:span 5/span 5}.lg\\\\:tw-col-span-6{grid-column:span 6/span 6}.lg\\\\:tw-col-span-7{grid-column:span 7/span 7}.lg\\\\:tw-col-span-8{grid-column:span 8/span 8}.lg\\\\:tw-row-span-1{grid-row:span 1/span 1}.lg\\\\:tw-row-span-2{grid-row:span 2/span 2}.lg\\\\:tw-transform{--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;transform:translateX(var(--tw-translate-x)) translateY(var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.lg\\\\:tw-scale-75{--tw-scale-x:.75;--tw-scale-y:.75}.tw-group:hover .lg\\\\:group-hover\\\\:tw-rotate-180{--tw-rotate:180deg}.lg\\\\:tw-translate-y-0{--tw-translate-y:0px}.lg\\\\:tw-translate-y-3{--tw-translate-y:0.75rem}.tw-group:hover .lg\\\\:group-hover\\\\:tw-translate-y-0{--tw-translate-y:0px}.lg\\\\:tw-transition-opacity{transition-property:opacity;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:150ms}.lg\\\\:tw-duration-300{transition-duration:.3s}}</style>\\n<script type=\\\"text/javascript\\\">\\nSHOP_PARAMS.theme_name=\\\"Nova\\\";\\nSHOP_PARAMS.theme_version=\\\"21-15-259e62b\\\";\\n</script></head>\\n  <body class=\\\"nova tw-bg-bg-color tw-text-text-color tw-text-text-font-size type-text-font-family tw-leading-text-line-height tw-m-0 template-{{template.name}} {% if settings.general_style == 'round' %}theme-rounded{% endif %}\\\"  data-theme-name=\\\"Nova\\\" data-theme-version=\\\"21-15-259e62b\\\" >\\n    {% assign sys_pages = \\\"login, register, reset_success, addresses, couponCollection, article, rebateCollection, reset_password, flashsaleCollection, order\\\" | split: \\\", \\\" %}\\n    {% comment %} 满送SHOP_PARAMS.template_name为空{% endcomment %}\\n    {% assign sys_pages_type = \\\"43\\\" %}\\n    {% if template.type == sys_pages_type %}\\n      {% assign isSystem = true %}\\n      {% use 'theme.css' %}\\n    {% else %}\\n      {% for sys_page in sys_pages %}\\n        {% if sys_page contains template.name %}\\n          {% assign isSystem = true %}\\n          {% use 'theme.css' %}\\n        {% endif %}\\n      {% endfor %}\\n    {% endif %}\\n    {% include 'jquery' %}\\n    {% include 'art_template' %}\\n    {% include 'serial_list' %}\\n    {% include 'util' %}\\n    {% include 'theme_js' %}\\n    {% include 'lazysizes' %}\\n    <div class=\\\"page_container\\\">{% section 'header' %}{% if isSystem %}<div class=\\\"bootstrap\\\">{{ content_for_layout }}</div> {% else %}{{ content_for_layout }} {% endif %} {% section 'footer' %}</div>\\n    {% include 'product_art_tpl' %}\\n    {% if isSystem %}\\n      {% include 'validate' %}\\n      <script type=\\\"text/javascript\\\">\\n        $(function(){\\n          if ($(\\\"<span class='sep-font sep-font-angle-left' style='display:none'></span>\\\").appendTo(document.body).css(\\\"font-family\\\") != \\\"sep-font\\\") {\\n            $('<link rel=\\\"stylesheet\\\" type=\\\"text/css\\\" href=\\\"' + SHOP_PARAMS.cdn_domain + 'iconfont/font_846249_3zb2b60e2ks/iconfont.css\\\" />').appendTo(document.body);\\n          }\\n        });\\n      </script>\\n    {% endif %}\\n    {{ content_for_js }}\\n    {% include 'currency' %}\\n    {% if settings.add_to_cart_process == 'drawer' or settings.cart_settings_click == 'drawer' %}\\n      {% include 'cart_drawer' %}\\n    {% endif %}\\n\\n    {% comment %}关闭 svg {% endcomment %}\\n    <div class=\\\"tw-hidden\\\" id=\\\"close_svg\\\">{% include 'icon_close_btn', icon_class: '' %}</div>\\n    {% comment %}success svg {% endcomment %}\\n    <div class=\\\"tw-hidden\\\" id=\\\"success_svg\\\">{% include 'icon_ok',icon_class: '' %}</div>\\n    {% comment %}error svg {% endcomment %}\\n    <div class=\\\"tw-hidden\\\" id=\\\"error_svg\\\">{% include 'icon_error',icon_class: '' %}</div>\\n\\n    {% include 'structured_data' %}\\n    {% include 'quick_view_tpl' %}\\n  </body>\\n</html>\\n\"\n  }\n}"
+              schema:
+                type: object
+                properties:
+                  doc:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: 2a44544f-4d34-4ca7-9ba2-f98a4d8c5685
+                      theme_id:
+                        type: string
+                        example: 1af58efc-01eb-4a40-9d8f-4c38733ffcef
+                      type:
+                        type: string
+                        example: layout
+                      location:
+                        type: string
+                        example: theme.liquid
+                      remote_url:
+                        type: string
+                        example: ''
+                      content:
+                        type: string
+                        example: "<!doctype html>\n<html class=\"no-js\" lang=\"{{ shop.locale }}\" {% if shop.locale == \"ar-SA\" %}dir=\"rtl\"{% endif %}>\n  <head>\n    <meta charset=\"utf-8\">\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge,chrome=1\">\n    <meta name=\"viewport\" content=\"width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover\">\n    <title>{{ page_title | default: shop.name }}</title>\n    <meta name=\"keywords\" content=\"{{ page_keyword | default: shop.name | escape }}\">\n    <meta name=\"description\" content=\"{{ page_description | default: shop.name | escape }}\">\n    <meta http-equiv=\"x-dns-prefetch-control\" content=\"on\">\n    <link rel=\"dns-prefetch\" href=\"{{shop.cdn_domain}}\">\n    <link rel=\"canonical\" href=\"{{ canonical_url }}\">\n    <link rel=\"shortcut icon\" href=\"{{shop.favicon}}\">\n    <meta name=\"theme-color\" content=\"{{ settings.color_primary }}\">\n    <meta name=\"format-detection\" content=\"telephone=no, email=no\">\n    {% include 'social_meta_tags' %}\n    {% include 'settings' %}\n    {% include 'theme_css' %}\n    <script>\n      {% assign off = 'i18n.product.product_detail.off' | t | json | replace: '{{ count }}', '{ count }' %}\n      {% assign save_html = 'i18n.product.product_detail.save_html' | t | json | replace: '{{ saved_amount }}', '{ saved_amount }' %}\n      window.SHOP_PARAMS = {\n        customer_id: '{{customer.id}}',\n        finance: '{{shop.finance}}',\n        finance_symbol: '{{shop.finance_symbol}}',\n        cdn_domain: '{{shop.cdn_domain}}',\n        shop_name: '{{shop.name | escape}}',\n        theme_id: '{{theme.id}}',\n        shop_id: '{{shop.id}}',\n        shop_env: '{{shop.env}}',\n        default_img: '{{shop.default_img}}',\n        template_name: '{{template.name}}',\n        template_type: '{{template.type}}',\n        form_lang: { invalid_characters:{{ 'i18n.checkout.form.invalid_characters' | t | json }} },\n        borderRadius:{% if settings.general_style == 'round' %}true{% else %}false{% endif  %},\n        product_lang:{\n          added_to_cart_successfully:{{ 'i18n.product.product_detail.added_to_bag_successfully' | t  | json }},\n          select_variant:{{ 'i18n.product.product_detail.select_variant' | t | json}},\n          off: {{ off }},\n          save_html: {{ save_html }}\n        },\n        product_settings: {\n          add_to_cart_process:{{ settings.add_to_cart_process | default: \"drawer\" | json }},\n        },\n      }\n      window.breakpoint = {{settings.breakpoint}};\n      window.disabled_exts=[\"global_version\", \"share_product\", \"blog_products\", \"boowc\", \"buy_on_others\", \"currency\", \"recommended_product\", \"top_products\"];\n      window.mapped_exts = {reviews: 'reviews_nova.7b916908.js'};\n    </script>\n    {{ content_for_header }}\n  <style data-tailwind=\"46d6009b\">.tw-space-y-3>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.75rem * var(--tw-space-y-reverse))}.tw-space-x-4>:not([hidden])~:not([hidden]){--tw-space-x-reverse:0;margin-right:calc(1rem * var(--tw-space-x-reverse));margin-left:calc(1rem * calc(1 - var(--tw-space-x-reverse)))}.tw-space-x-6>:not([hidden])~:not([hidden]){--tw-space-x-reverse:0;margin-right:calc(1.5rem * var(--tw-space-x-reverse));margin-left:calc(1.5rem * calc(1 - var(--tw-space-x-reverse)))}.tw-space-x-8>:not([hidden])~:not([hidden]){--tw-space-x-reverse:0;margin-right:calc(2rem * var(--tw-space-x-reverse));margin-left:calc(2rem * calc(1 - var(--tw-space-x-reverse)))}.tw-bg-transparent{background-color:transparent}.tw-bg-black{--tw-bg-opacity:1;background-color:rgba(0,0,0,var(--tw-bg-opacity))}.tw-bg-white{--tw-bg-opacity:1;background-color:rgba(255,255,255,var(--tw-bg-opacity))}.tw-bg-toast-bg-normal-color{background-color:#d6f7fa}.tw-bg-toast-bg-warning-color{background-color:#fffbda}.tw-bg-toast-bg-success-color{background-color:#d1f5ed}.tw-bg-toast-bg-error-color{background-color:#fcdfda}.tw-bg-bg-color{background-color:var(--color-general-bg)}.tw-bg-text-color{background-color:var(--color-general-text)}.tw-bg-btn-bg-color{background-color:var(--color-button-bg)}.tw-bg-discount-label-bg-color{background-color:var(--color-label-bg)}.tw-bg-header-bg{background-color:var(--color-header-bg)}.tw-bg-header-menu-bg{background-color:var(--color-header-menu-bg)}.hover\\:tw-bg-btn-bg-color:hover{background-color:var(--color-button-bg)}.disabled\\:tw-bg-gray-200:disabled{--tw-bg-opacity:1;background-color:rgba(229,231,235,var(--tw-bg-opacity))}.tw-bg-none{background-image:none}.tw-bg-opacity-5{--tw-bg-opacity:0.05}.tw-bg-opacity-30{--tw-bg-opacity:.3}.tw-bg-opacity-40{--tw-bg-opacity:.4}.tw-bg-opacity-50{--tw-bg-opacity:0.5}.tw-bg-center{background-position:center}.tw-bg-no-repeat{background-repeat:no-repeat}.tw-bg-cover{background-size:cover}.tw-border-transparent{border-color:transparent}.tw-border-gray-300{--tw-border-opacity:1;border-color:rgba(221,221,221,var(--tw-border-opacity))}.tw-border-gray-350{--tw-border-opacity:1;border-color:rgba(223,223,223,var(--tw-border-opacity))}.tw-border-gray-400{--tw-border-opacity:1;border-color:rgba(229,229,229,var(--tw-border-opacity))}.tw-border-title-color{border-color:var(--color-general-heading-text)}.tw-border-light-border-color{border-color:var(--color-general-light-border)}.tw-border-btn-bg-color{border-color:var(--color-button-bg)}.tw-border-header-menu-border{border-color:var(--color-header-menu-border)}.focus\\:tw-border-btn-bg-color:focus{border-color:var(--color-button-bg)}.tw-rounded-none{border-radius:0}.tw-rounded-sm{border-radius:.125rem}.tw-rounded{border-radius:.25rem}.tw-rounded-md{border-radius:.375rem}.tw-rounded-lg{border-radius:.5rem}.tw-rounded-full{border-radius:9999px}.tw-rounded-r{border-top-right-radius:.25rem;border-bottom-right-radius:.25rem}.tw-rounded-l{border-top-left-radius:.25rem;border-bottom-left-radius:.25rem}.tw-rounded-l-md{border-top-left-radius:.375rem;border-bottom-left-radius:.375rem}.tw-border-solid{border-style:solid}.tw-border-none{border-style:none}.tw-border-0{border-width:0}.tw-border-2{border-width:2px}.tw-border{border-width:1px}.tw-border-t-0{border-top-width:0}.tw-border-r-0{border-right-width:0}.tw-border-l-0{border-left-width:0}.tw-border-t{border-top-width:1px}.tw-border-b{border-bottom-width:1px}.tw-box-border{box-sizing:border-box}.tw-box-content{box-sizing:content-box}.tw-cursor-pointer{cursor:pointer}.disabled\\:tw-cursor-not-allowed:disabled{cursor:not-allowed}.tw-block{display:block}.tw-inline-block{display:inline-block}.tw-flex{display:flex}.tw-inline-flex{display:inline-flex}.tw-grid{display:grid}.tw-hidden{display:none}.empty\\:tw-hidden:empty{display:none}.tw-flex-row{flex-direction:row}.tw-flex-col{flex-direction:column}.tw-flex-wrap{flex-wrap:wrap}.tw-flex-nowrap{flex-wrap:nowrap}.tw-items-start{align-items:flex-start}.tw-items-end{align-items:flex-end}.tw-items-center{align-items:center}.tw-justify-items-center{justify-items:center}.tw-justify-start{justify-content:flex-start}.tw-justify-end{justify-content:flex-end}.tw-justify-center{justify-content:center}.tw-justify-between{justify-content:space-between}.tw-justify-around{justify-content:space-around}.tw-flex-1{flex:1 1 0%}.tw-flex-grow{flex-grow:1}.tw-flex-shrink-0{flex-shrink:0}.tw-order-1{order:1}.tw-order-2{order:2}.tw-order-3{order:3}.tw-order-4{order:4}.tw-order-first{order:-9999}.tw-order-last{order:9999}.tw-font-normal{font-weight:400}.tw-font-medium{font-weight:500}.tw-font-semibold{font-weight:600}.tw-font-bold{font-weight:700}.tw-h-0{height:0}.tw-h-1{height:.25rem}.tw-h-2{height:.5rem}.tw-h-3{height:.75rem}.tw-h-4{height:1rem}.tw-h-5{height:1.25rem}.tw-h-7{height:1.75rem}.tw-h-8{height:2rem}.tw-h-9{height:2.25rem}.tw-h-10{height:2.5rem}.tw-h-11{height:2.75rem}.tw-h-12{height:3rem}.tw-h-full{height:100%}.tw-h-1\\.25{height:.3125rem}.tw-h-7\\.5{height:1.875rem}.tw-h-12\\.5{height:3.125rem}.tw-group:hover .group-hover\\:tw-h-auto{height:auto}.tw-text-0{font-size:0}.tw-text-7{font-size:1.75rem}.tw-text-8{font-size:2rem}.tw-text-xs{font-size:.75rem;line-height:1rem}.tw-text-sm{font-size:.875rem;line-height:1.25rem}.tw-text-base{font-size:1rem;line-height:1.5rem}.tw-text-lg{font-size:1.125rem;line-height:1.75rem}.tw-text-xl{font-size:1.25rem;line-height:1.75rem}.tw-text-2xl{font-size:1.5rem;line-height:2rem}.tw-text-4\\.5{font-size:1.125rem}.tw-text-text-font-size{font-size:var(--type-text-font-size)}.tw-text-price-font-size{font-size:var(--type-price-font-size)}.tw-text-menu-font-size{font-size:var(--type-menu-font-size)}.tw-text-widget-font-size{font-size:var(--type-widget-font-size)}.tw-text-btn-font-size{font-size:var(--type-button-font-size)}.tw-text-footer-font-size{font-size:var(--type-footer-font-size)}.tw-leading-4{line-height:1rem}.tw-leading-5{line-height:1.25rem}.tw-leading-8{line-height:2rem}.tw-leading-none{line-height:1}.tw-leading-tight{line-height:1.25}.tw-leading-normal{line-height:1.5}.tw-leading-text-line-height{line-height:var(--type-text-line-height)}.tw-leading-product-detail-heading-line-height{line-height:var(--type-product-line-height)}.tw-leading-snippet-line-height{line-height:var(--type-snippet-line-height)}.tw-leading-1\\.1{line-height:1.1}.tw-leading-1\\.2{line-height:1.2}.tw-leading-1\\.3{line-height:1.3}.tw-leading-1\\.4{line-height:1.4}.tw-leading-1\\.5{line-height:1.5}.tw-list-none{list-style-type:none}.tw-m-0{margin:0}.tw-m-auto{margin:auto}.tw-my-0{margin-top:0;margin-bottom:0}.tw-mx-1{margin-left:.25rem;margin-right:.25rem}.tw-my-2{margin-top:.5rem;margin-bottom:.5rem}.tw-mx-3{margin-left:.75rem;margin-right:.75rem}.tw-my-4{margin-top:1rem;margin-bottom:1rem}.tw-mx-5{margin-left:1.25rem;margin-right:1.25rem}.tw-my-6{margin-top:1.5rem;margin-bottom:1.5rem}.tw-mx-15{margin-left:3.75rem;margin-right:3.75rem}.tw-mx-auto{margin-left:auto;margin-right:auto}.tw-mx-1\\.5{margin-left:.375rem;margin-right:.375rem}.tw--mx-1{margin-left:-.25rem;margin-right:-.25rem}.tw--mx-4{margin-left:-1rem;margin-right:-1rem}.tw--mx-1\\.5{margin-left:-.375rem;margin-right:-.375rem}.tw--mx-general-layout-spacing{margin-left:calc(var(--general-layout-spacing) * -1);margin-right:calc(var(--general-layout-spacing) * -1)}.tw-mt-0{margin-top:0}.tw-mr-0{margin-right:0}.tw-mb-0{margin-bottom:0}.tw-mt-1{margin-top:.25rem}.tw-mb-1{margin-bottom:.25rem}.tw-ml-1{margin-left:.25rem}.tw-mt-2{margin-top:.5rem}.tw-mr-2{margin-right:.5rem}.tw-mb-2{margin-bottom:.5rem}.tw-ml-2{margin-left:.5rem}.tw-mt-3{margin-top:.75rem}.tw-mr-3{margin-right:.75rem}.tw-mb-3{margin-bottom:.75rem}.tw-ml-3{margin-left:.75rem}.tw-mt-4{margin-top:1rem}.tw-mr-4{margin-right:1rem}.tw-mb-4{margin-bottom:1rem}.tw-ml-4{margin-left:1rem}.tw-mt-5{margin-top:1.25rem}.tw-mb-5{margin-bottom:1.25rem}.tw-ml-5{margin-left:1.25rem}.tw-mt-6{margin-top:1.5rem}.tw-mb-6{margin-bottom:1.5rem}.tw-ml-6{margin-left:1.5rem}.tw-mt-7{margin-top:1.75rem}.tw-mr-7{margin-right:1.75rem}.tw-mb-7{margin-bottom:1.75rem}.tw-ml-7{margin-left:1.75rem}.tw-mb-8{margin-bottom:2rem}.tw-mt-10{margin-top:2.5rem}.tw-mr-10{margin-right:2.5rem}.tw-mb-10{margin-bottom:2.5rem}.tw-mt-15{margin-top:3.75rem}.tw-mr-15{margin-right:3.75rem}.tw-mt-auto{margin-top:auto}.tw-mr-auto{margin-right:auto}.tw-mb-auto{margin-bottom:auto}.tw-ml-auto{margin-left:auto}.tw-mt-2\\.5{margin-top:.625rem}.tw-mr-2\\.5{margin-right:.625rem}.tw-ml-2\\.5{margin-left:.625rem}.tw--mt-2{margin-top:-.5rem}.tw--mr-2{margin-right:-.5rem}.tw--ml-2{margin-left:-.5rem}.tw--mr-4{margin-right:-1rem}.tw--ml-5{margin-left:-1.25rem}.tw--mt-6{margin-top:-1.5rem}.tw--mt-10{margin-top:-2.5rem}.tw--mr-2\\.5{margin-right:-.625rem}.tw-mt-1\\.25{margin-top:.3125rem}.tw-mb-1\\.25{margin-bottom:.3125rem}.tw-mt-6\\.25{margin-top:1.5625rem}.tw-mt-7\\.5{margin-top:1.875rem}.tw-mb-7\\.5{margin-bottom:1.875rem}.last\\:tw-mb-0:last-child{margin-bottom:0}.first\\:tw-mt-0:first-child{margin-top:0}.tw-max-h-4{max-height:1rem}.tw-max-h-11{max-height:2.75rem}.tw-max-h-12{max-height:3rem}.tw-max-h-full{max-height:100%}.tw-max-h-screen{max-height:100vh}.tw-max-w-6{max-width:1.5rem}.tw-max-w-11{max-width:2.75rem}.tw-max-w-12{max-width:3rem}.tw-max-w-100{max-width:25rem}.tw-max-w-150{max-width:37.5rem}.tw-max-w-full{max-width:100%}.tw-max-w-page{max-width:var(--general-layout-width)}.tw-min-h-10{min-height:2.5rem}.tw-min-h-11{min-height:2.75rem}.tw-min-h-full{min-height:100%}.tw-min-w-6{min-width:1.5rem}.tw-min-w-8{min-width:2rem}.tw-min-w-10{min-width:2.5rem}.tw-min-w-11{min-width:2.75rem}.tw-min-w-12{min-width:3rem}.tw-min-w-13{min-width:3.25rem}.tw-min-w-14{min-width:3.5rem}.tw-min-w-15{min-width:3.75rem}.tw-min-w-28{min-width:7rem}.tw-object-cover{-o-object-fit:cover;object-fit:cover}.tw-opacity-0{opacity:0}.tw-opacity-25{opacity:.25}.tw-opacity-30{opacity:.3}.tw-opacity-40{opacity:.4}.tw-opacity-50{opacity:.5}.tw-opacity-100{opacity:1}.hover\\:tw-opacity-40:hover{opacity:.4}.hover\\:tw-opacity-75:hover{opacity:.75}.tw-group:hover .group-hover\\:tw-opacity-100{opacity:1}.disabled\\:tw-opacity-40:disabled{opacity:.4}.active\\:tw-opacity-75:active{opacity:.75}.tw-outline-none{outline:2px solid transparent;outline-offset:2px}.focus\\:tw-outline-none:focus{outline:2px solid transparent;outline-offset:2px}.tw-overflow-auto{overflow:auto}.tw-overflow-hidden{overflow:hidden}.tw-overflow-visible{overflow:visible}.tw-overflow-x-auto{overflow-x:auto}.tw-overflow-y-auto{overflow-y:auto}.tw-overflow-y-hidden{overflow-y:hidden}.tw-p-0{padding:0}.tw-p-2{padding:.5rem}.tw-p-4{padding:1rem}.tw-p-5{padding:1.25rem}.tw-p-7{padding:1.75rem}.tw-p-10{padding:2.5rem}.tw-p-4\\.5{padding:1.125rem}.tw-p-7\\.5{padding:1.875rem}.tw-py-0{padding-top:0;padding-bottom:0}.tw-px-0{padding-left:0;padding-right:0}.tw-px-1{padding-left:.25rem;padding-right:.25rem}.tw-py-2{padding-top:.5rem;padding-bottom:.5rem}.tw-px-2{padding-left:.5rem;padding-right:.5rem}.tw-py-3{padding-top:.75rem;padding-bottom:.75rem}.tw-px-3{padding-left:.75rem;padding-right:.75rem}.tw-py-4{padding-top:1rem;padding-bottom:1rem}.tw-px-4{padding-left:1rem;padding-right:1rem}.tw-py-5{padding-top:1.25rem;padding-bottom:1.25rem}.tw-px-5{padding-left:1.25rem;padding-right:1.25rem}.tw-py-6{padding-top:1.5rem;padding-bottom:1.5rem}.tw-px-6{padding-left:1.5rem;padding-right:1.5rem}.tw-py-7{padding-top:1.75rem;padding-bottom:1.75rem}.tw-px-7{padding-left:1.75rem;padding-right:1.75rem}.tw-px-8{padding-left:2rem;padding-right:2rem}.tw-py-10{padding-top:2.5rem;padding-bottom:2.5rem}.tw-px-10{padding-left:2.5rem;padding-right:2.5rem}.tw-py-25{padding-top:6.25rem;padding-bottom:6.25rem}.tw-px-1\\.5{padding-left:.375rem;padding-right:.375rem}.tw-py-2\\.5{padding-top:.625rem;padding-bottom:.625rem}.tw-px-general-layout-spacing{padding-left:var(--general-layout-spacing);padding-right:var(--general-layout-spacing)}.tw-px-4\\.5{padding-left:1.125rem;padding-right:1.125rem}.tw-py-7\\.5{padding-top:1.875rem;padding-bottom:1.875rem}.tw-px-7\\.5{padding-left:1.875rem;padding-right:1.875rem}.tw-pr-0{padding-right:0}.tw-pl-0{padding-left:0}.tw-pt-1{padding-top:.25rem}.tw-pb-1{padding-bottom:.25rem}.tw-pr-2{padding-right:.5rem}.tw-pb-2{padding-bottom:.5rem}.tw-pl-3{padding-left:.75rem}.tw-pt-4{padding-top:1rem}.tw-pr-4{padding-right:1rem}.tw-pl-4{padding-left:1rem}.tw-pt-5{padding-top:1.25rem}.tw-pr-5{padding-right:1.25rem}.tw-pb-5{padding-bottom:1.25rem}.tw-pl-5{padding-left:1.25rem}.tw-pt-6{padding-top:1.5rem}.tw-pb-6{padding-bottom:1.5rem}.tw-pt-7{padding-top:1.75rem}.tw-pt-8{padding-top:2rem}.tw-pb-8{padding-bottom:2rem}.tw-pt-9{padding-top:2.25rem}.tw-pt-10{padding-top:2.5rem}.tw-pb-10{padding-bottom:2.5rem}.tw-pb-14{padding-bottom:3.5rem}.tw-pt-15{padding-top:3.75rem}.tw-pb-18{padding-bottom:4.5rem}.tw-pb-2\\.5{padding-bottom:.625rem}.tw-pb-full{padding-bottom:100%}.tw-pt-7\\.5{padding-top:1.875rem}.tw-placeholder-title-color::-moz-placeholder{color:var(--color-general-heading-text)}.tw-placeholder-title-color:-ms-input-placeholder{color:var(--color-general-heading-text)}.tw-placeholder-title-color::placeholder{color:var(--color-general-heading-text)}.tw-static{position:static}.tw-fixed{position:fixed}.tw-absolute{position:absolute}.tw-relative{position:relative}.tw-sticky{position:sticky}.tw-inset-0{top:0;right:0;bottom:0;left:0}.tw-inset-x-0{right:0;left:0}.tw-top-0{top:0}.tw-right-0{right:0}.tw-bottom-0{bottom:0}.tw-left-0{left:0}.tw-top-2{top:.5rem}.tw-left-2{left:.5rem}.tw-right-4{right:1rem}.tw-left-4{left:1rem}.tw-bottom-5{bottom:1.25rem}.tw-right-6{right:1.5rem}.tw-left-6{left:1.5rem}.tw-right-auto{right:auto}.tw-left-auto{left:auto}.tw-top-full{top:100%}.tw-bottom-full{bottom:100%}.tw-top-1\\/2{top:50%}.tw-bottom-1\\/2{bottom:50%}.tw-left-1\\/2{left:50%}*{--tw-shadow:0 0 #0000}.tw-shadow-3{--tw-shadow:0px 5px 25px 0px rgba(0,0,0,0.1);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.tw-shadow-5{--tw-shadow:0px 4px 28px -10px rgba(0,0,0,0.07);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.tw-shadow-inset-checked{--tw-shadow:inset 0px 0px 0px 1px #000,inset 0px 0px 0px 2px #fff;box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}*{--tw-ring-inset:var(--tw-empty, );/*!*//*!*/--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59, 130, 246, 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000}.tw-fill-current{fill:currentColor}.tw-text-left{text-align:left}.tw-text-center{text-align:center}.tw-text-right{text-align:right}.tw-text-current{color:currentColor}.tw-text-black{--tw-text-opacity:1;color:rgba(0,0,0,var(--tw-text-opacity))}.tw-text-white{--tw-text-opacity:1;color:rgba(255,255,255,var(--tw-text-opacity))}.tw-text-inherit{color:inherit}.tw-text-toast-text-normal-color{color:#005684}.tw-text-toast-text-warning-color{color:#a06508}.tw-text-toast-text-success-color{color:#1a6d3f}.tw-text-toast-text-error-color{color:#8b0f20}.tw-text-title-color{color:var(--color-general-heading-text)}.tw-text-text-color{color:var(--color-general-text)}.tw-text-light-text-color{color:var(--color-general-light-text)}.tw-text-price-color{color:var(--color-price-text)}.tw-text-compare-at-price-color{color:var(--color-compare-at-price-text)}.tw-text-btn-bg-color{color:var(--color-button-bg)}.tw-text-btn-text-color{color:var(--color-button-text)}.tw-text-discount-label-text-color{color:var(--color-label-text)}.tw-text-header-text-color{color:var(--color-header-text)}.hover\\:tw-text-btn-text-color:hover{color:var(--color-button-text)}.tw-truncate{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.tw-uppercase{text-transform:uppercase}.tw-capitalize{text-transform:capitalize}.tw-normal-case{text-transform:none}.tw-line-through{text-decoration:line-through}.tw-no-underline{text-decoration:none}.tw-tracking-2{letter-spacing:.125rem}.tw-tracking-tight{letter-spacing:-.0125rem}.tw-tracking-normal{letter-spacing:0}.tw-tracking-menu-letter-spacing{letter-spacing:var(--type-menu-letter-spacing)}.tw-tracking-product-detail-heading-letter-spacing{letter-spacing:var(--type-product-letter-spacing)}.tw-tracking-widget-letter-spacing{letter-spacing:var(--type-widget-letter-spacing)}.tw-tracking-btn-letter-spacing{letter-spacing:var(--type-button-letter-spacing)}.tw-tracking-status-label-letter-spacing{letter-spacing:var(--type-status-label-letter-spacing)}.tw-tracking-snippet-letter-spacing{letter-spacing:var(--type-snippet-letter-spacing)}.tw-tracking-footer-letter-spacing{letter-spacing:var(--type-footer-letter-spacing)}.tw-select-none{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.tw-align-middle{vertical-align:middle}.tw-invisible{visibility:hidden}.tw-group:hover .group-hover\\:tw-visible{visibility:visible}.tw-whitespace-nowrap{white-space:nowrap}.tw-whitespace-pre-wrap{white-space:pre-wrap}.tw-break-words{overflow-wrap:break-word}.tw-break-all{word-break:break-all}.tw-w-2{width:.5rem}.tw-w-3{width:.75rem}.tw-w-4{width:1rem}.tw-w-7{width:1.75rem}.tw-w-8{width:2rem}.tw-w-9{width:2.25rem}.tw-w-10{width:2.5rem}.tw-w-11{width:2.75rem}.tw-w-12{width:3rem}.tw-w-15{width:3.75rem}.tw-w-16{width:4rem}.tw-w-24{width:6rem}.tw-w-30{width:7.5rem}.tw-w-38{width:9.5rem}.tw-w-40{width:10rem}.tw-w-50{width:12.5rem}.tw-w-100{width:25rem}.tw-w-180{width:45rem}.tw-w-full{width:100%}.tw-w-1\\/2{width:50%}.tw-w-1\\/3{width:33.333333%}.tw-w-2\\/3{width:66.666667%}.tw-w-3\\/4{width:75%}.tw-w-1\\/5{width:20%}.tw-w-1\\/6{width:16.666667%}.tw-w-screen{width:100vw}.tw-w-7\\.5{width:1.875rem}.tw-z-0{z-index:0}.tw-z-10{z-index:10}.tw-z-20{z-index:20}.tw-z-50{z-index:50}.tw-z-dropdown{z-index:1000}.tw-z-sticky{z-index:1020}.tw-z-fixed{z-index:1030}.tw-z-modal{z-index:1050}.tw-z-popover{z-index:1060}.tw-z-tooltip{z-index:1070}.tw-gap-4{gap:1rem}.tw-gap-7{gap:1.75rem}.tw-gap-7\\.5{gap:1.875rem}.tw-gap-x-5{-moz-column-gap:1.25rem;column-gap:1.25rem}.tw-gap-x-7{-moz-column-gap:1.75rem;column-gap:1.75rem}.tw-gap-x-7\\.5{-moz-column-gap:1.875rem;column-gap:1.875rem}.tw-gap-x-px-15{-moz-column-gap:15px;column-gap:15px}.tw-gap-y-7{row-gap:1.75rem}.tw-gap-y-7\\.5{row-gap:1.875rem}.tw-grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}.tw-grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.tw-grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.tw-grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}.tw-grid-cols-12{grid-template-columns:repeat(12,minmax(0,1fr))}.tw-grid-cols-cart-grid-drawer{grid-template-columns:96px 2fr 1fr}.tw-grid-cols-cart-grid-min{grid-template-columns:108px 2fr 1fr}.tw-col-span-2{grid-column:span 2/span 2}.tw-col-span-4{grid-column:span 4/span 4}.tw-col-span-8{grid-column:span 8/span 8}.tw-col-span-12{grid-column:span 12/span 12}.tw-row-span-1{grid-row:span 1/span 1}.tw-transform{--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;transform:translateX(var(--tw-translate-x)) translateY(var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\\:tw-scale-110:hover{--tw-scale-x:1.1;--tw-scale-y:1.1}.tw-rotate-90{--tw-rotate:90deg}.tw-rotate-180{--tw-rotate:180deg}.tw--rotate-90{--tw-rotate:-90deg}.tw-translate-x-0{--tw-translate-x:0px}.tw-translate-x-full{--tw-translate-x:100%}.tw--translate-x-full{--tw-translate-x:-100%}.tw--translate-x-1\\/2{--tw-translate-x:-50%}.tw-translate-y-0{--tw-translate-y:0px}.tw-translate-y-3{--tw-translate-y:0.75rem}.tw-translate-y-5{--tw-translate-y:1.25rem}.tw--translate-y-full{--tw-translate-y:-100%}.tw-translate-y-1\\/2{--tw-translate-y:50%}.tw--translate-y-1\\/2{--tw-translate-y:-50%}.tw-group:hover .group-hover\\:tw-translate-y-0{--tw-translate-y:0px}.tw-transition-all{transition-property:all;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:150ms}.tw-transition-opacity{transition-property:opacity;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:150ms}.tw-transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:150ms}.tw-ease-linear{transition-timing-function:linear}.tw-ease-in-out{transition-timing-function:cubic-bezier(.4,0,.2,1)}.tw-ease-drop-down-in{transition-timing-function:cubic-bezier(.2,.06,.05,.95)}.tw-duration-75{transition-duration:75ms}.tw-duration-200{transition-duration:.2s}.tw-duration-300{transition-duration:.3s}.tw-duration-500{transition-duration:.5s}.tw-duration-1000{transition-duration:1s}@-webkit-keyframes tw-spin{to{transform:rotate(360deg)}}@keyframes tw-spin{to{transform:rotate(360deg)}}@-webkit-keyframes tw-ping{100%,75%{transform:scale(2);opacity:0}}@keyframes tw-ping{100%,75%{transform:scale(2);opacity:0}}@-webkit-keyframes tw-pulse{50%{opacity:.5}}@keyframes tw-pulse{50%{opacity:.5}}@-webkit-keyframes tw-bounce{0%,100%{transform:translateY(-25%);-webkit-animation-timing-function:cubic-bezier(.8,0,1,1);animation-timing-function:cubic-bezier(.8,0,1,1)}50%{transform:none;-webkit-animation-timing-function:cubic-bezier(0,0,.2,1);animation-timing-function:cubic-bezier(0,0,.2,1)}}@keyframes tw-bounce{0%,100%{transform:translateY(-25%);-webkit-animation-timing-function:cubic-bezier(.8,0,1,1);animation-timing-function:cubic-bezier(.8,0,1,1)}50%{transform:none;-webkit-animation-timing-function:cubic-bezier(0,0,.2,1);animation-timing-function:cubic-bezier(0,0,.2,1)}}@-webkit-keyframes tw-zoom-fade-small{0%{transform:scale(1.2,1.2)}100%{transform:scale(1,1)}}@keyframes tw-zoom-fade-small{0%{transform:scale(1.2,1.2)}100%{transform:scale(1,1)}}.tw-animate-zoom-fade-small{-webkit-animation:tw-zoom-fade-small 1.2s cubic-bezier(.26,.54,.32,1) 0s forwards;animation:tw-zoom-fade-small 1.2s cubic-bezier(.26,.54,.32,1) 0s forwards}@media (max-width:959.98px){.md\\:tw-hidden{display:none}.md\\:tw-flex-col-reverse{flex-direction:column-reverse}.md\\:tw-my-5{margin-top:1.25rem;margin-bottom:1.25rem}.md\\:tw-mt-3{margin-top:.75rem}.md\\:tw-mt-10{margin-top:2.5rem}.md\\:tw-px-0{padding-left:0;padding-right:0}.md\\:tw-px-5{padding-left:1.25rem;padding-right:1.25rem}.md\\:tw-fixed{position:fixed}.md\\:tw-right-0{right:0}.md\\:tw-w-full{width:100%}.md\\:tw-w-9\\/20{width:45%}.md\\:tw-gap-x-px-15{-moz-column-gap:15px;column-gap:15px}.md\\:tw-translate-y-full{--tw-translate-y:100%}}@media (min-width:960px){.lg\\:tw-space-x-0>:not([hidden])~:not([hidden]){--tw-space-x-reverse:0;margin-right:calc(0px * var(--tw-space-x-reverse));margin-left:calc(0px * calc(1 - var(--tw-space-x-reverse)))}.lg\\:tw-space-x-12>:not([hidden])~:not([hidden]){--tw-space-x-reverse:0;margin-right:calc(3rem * var(--tw-space-x-reverse));margin-left:calc(3rem * calc(1 - var(--tw-space-x-reverse)))}.lg\\:tw-bg-bg-color{background-color:var(--color-general-bg)}.lg\\:hover\\:tw-bg-btn-bg-color:hover{background-color:var(--color-button-bg)}.lg\\:tw-border-header-text-color{border-color:var(--color-header-text)}.lg\\:tw-rounded{border-radius:.25rem}.lg\\:tw-rounded-lg{border-radius:.5rem}.lg\\:tw-border-none{border-style:none}.lg\\:tw-border-0{border-width:0}.lg\\:tw-border-b-0{border-bottom-width:0}.lg\\:tw-block{display:block}.lg\\:tw-inline-block{display:inline-block}.lg\\:tw-inline{display:inline}.lg\\:tw-flex{display:flex}.lg\\:tw-grid{display:grid}.lg\\:tw-hidden{display:none}.tw-group:hover .lg\\:group-hover\\:tw-block{display:block}.tw-group:hover .lg\\:group-hover\\:tw-flex{display:flex}.lg\\:tw-flex-row{flex-direction:row}.lg\\:tw-flex-row-reverse{flex-direction:row-reverse}.lg\\:tw-flex-wrap{flex-wrap:wrap}.lg\\:tw-items-center{align-items:center}.lg\\:tw-justify-items-start{justify-items:start}.lg\\:tw-justify-start{justify-content:flex-start}.lg\\:tw-justify-end{justify-content:flex-end}.lg\\:tw-justify-center{justify-content:center}.lg\\:tw-justify-between{justify-content:space-between}.lg\\:tw-justify-around{justify-content:space-around}.lg\\:tw-order-1{order:1}.lg\\:tw-order-none{order:0}.lg\\:tw-h-1{height:.25rem}.lg\\:tw-h-3{height:.75rem}.lg\\:tw-h-1\\.5{height:.375rem}.lg\\:tw-text-7{font-size:1.75rem}.lg\\:tw-text-10{font-size:2.5rem}.lg\\:tw-text-xs{font-size:.75rem;line-height:1rem}.lg\\:tw-text-sm{font-size:.875rem;line-height:1.25rem}.lg\\:tw-text-lg{font-size:1.125rem;line-height:1.75rem}.lg\\:tw-text-xl{font-size:1.25rem;line-height:1.75rem}.lg\\:tw-text-3xl{font-size:1.875rem;line-height:2.25rem}.lg\\:tw-text-text-font-size{font-size:var(--type-text-font-size)}.lg\\:tw-text-product-detail-heading-font-size{font-size:var(--type-product-font-size)}.lg\\:tw-text-snippet-font-size{font-size:var(--type-snippet-font-size)}.lg\\:tw-text-price-font-size{font-size:var(--type-price-font-size)}.lg\\:tw-text-btn-font-size{font-size:var(--type-button-font-size)}.lg\\:tw-text-status-label-font-size{font-size:var(--type-status-label-font-size)}.lg\\:tw-leading-5{line-height:1.25rem}.lg\\:tw-leading-text-line-height{line-height:var(--type-text-line-height)}.lg\\:tw-leading-1\\.2{line-height:1.2}.lg\\:tw-leading-1\\.5{line-height:1.5}.lg\\:tw-m-0{margin:0}.lg\\:tw-my-0{margin-top:0;margin-bottom:0}.lg\\:tw-mx-0{margin-left:0;margin-right:0}.lg\\:tw-mx-4{margin-left:1rem;margin-right:1rem}.lg\\:tw-mx-5{margin-left:1.25rem;margin-right:1.25rem}.lg\\:tw-my-15{margin-top:3.75rem;margin-bottom:3.75rem}.lg\\:tw-mx-15{margin-left:3.75rem;margin-right:3.75rem}.lg\\:tw-mx-auto{margin-left:auto;margin-right:auto}.lg\\:tw--mx-2{margin-left:-.5rem;margin-right:-.5rem}.lg\\:tw--mx-5{margin-left:-1.25rem;margin-right:-1.25rem}.lg\\:tw--mx-2\\.5{margin-left:-.625rem;margin-right:-.625rem}.lg\\:tw-mt-0{margin-top:0}.lg\\:tw-mr-0{margin-right:0}.lg\\:tw-ml-0{margin-left:0}.lg\\:tw-mr-1{margin-right:.25rem}.lg\\:tw-mb-2{margin-bottom:.5rem}.lg\\:tw-mt-3{margin-top:.75rem}.lg\\:tw-mt-4{margin-top:1rem}.lg\\:tw-mr-4{margin-right:1rem}.lg\\:tw-mb-4{margin-bottom:1rem}.lg\\:tw-ml-4{margin-left:1rem}.lg\\:tw-mt-5{margin-top:1.25rem}.lg\\:tw-mb-5{margin-bottom:1.25rem}.lg\\:tw-mt-6{margin-top:1.5rem}.lg\\:tw-mr-6{margin-right:1.5rem}.lg\\:tw-mb-6{margin-bottom:1.5rem}.lg\\:tw-ml-6{margin-left:1.5rem}.lg\\:tw-mt-7{margin-top:1.75rem}.lg\\:tw-mb-7{margin-bottom:1.75rem}.lg\\:tw-mt-8{margin-top:2rem}.lg\\:tw-mb-9{margin-bottom:2.25rem}.lg\\:tw-mt-10{margin-top:2.5rem}.lg\\:tw-mr-10{margin-right:2.5rem}.lg\\:tw-mb-10{margin-bottom:2.5rem}.lg\\:tw-mt-12{margin-top:3rem}.lg\\:tw-mb-12{margin-bottom:3rem}.lg\\:tw-mt-15{margin-top:3.75rem}.lg\\:tw-mt-20{margin-top:5rem}.lg\\:tw-mb-20{margin-bottom:5rem}.lg\\:tw-mr-auto{margin-right:auto}.lg\\:tw-mb-2\\.5{margin-bottom:.625rem}.lg\\:tw--mr-4{margin-right:-1rem}.lg\\:tw--mb-10{margin-bottom:-2.5rem}.lg\\:tw--ml-10{margin-left:-2.5rem}.lg\\:tw-mt-7\\.5{margin-top:1.875rem}.lg\\:tw-mb-7\\.5{margin-bottom:1.875rem}.lg\\:first\\:tw-mt-0:first-child{margin-top:0}.lg\\:tw-max-w-50{max-width:12.5rem}.lg\\:tw-max-w-60{max-width:15rem}.lg\\:tw-max-w-160{max-width:40rem}.lg\\:tw-max-w-page{max-width:var(--general-layout-width)}.lg\\:tw-min-w-20{min-width:5rem}.lg\\:tw-min-w-38{min-width:9.5rem}.lg\\:tw-min-w-70{min-width:17.5rem}.lg\\:tw-opacity-0{opacity:0}.lg\\:hover\\:tw-opacity-40:hover{opacity:.4}.lg\\:hover\\:tw-opacity-50:hover{opacity:.5}.lg\\:hover\\:tw-opacity-60:hover{opacity:.6}.lg\\:hover\\:tw-opacity-75:hover{opacity:.75}.tw-group:hover .lg\\:group-hover\\:tw-opacity-60{opacity:.6}.tw-group:hover .lg\\:group-hover\\:tw-opacity-100{opacity:1}.lg\\:active\\:tw-opacity-75:active{opacity:.75}.lg\\:tw-overflow-hidden{overflow:hidden}.lg\\:tw-overflow-y-auto{overflow-y:auto}.lg\\:tw-p-0{padding:0}.lg\\:tw-p-8{padding:2rem}.lg\\:tw-py-0{padding-top:0;padding-bottom:0}.lg\\:tw-px-0{padding-left:0;padding-right:0}.lg\\:tw-py-2{padding-top:.5rem;padding-bottom:.5rem}.lg\\:tw-px-2{padding-left:.5rem;padding-right:.5rem}.lg\\:tw-px-5{padding-left:1.25rem;padding-right:1.25rem}.lg\\:tw-py-7{padding-top:1.75rem;padding-bottom:1.75rem}.lg\\:tw-px-7{padding-left:1.75rem;padding-right:1.75rem}.lg\\:tw-px-8{padding-left:2rem;padding-right:2rem}.lg\\:tw-px-10{padding-left:2.5rem;padding-right:2.5rem}.lg\\:tw-py-15{padding-top:3.75rem;padding-bottom:3.75rem}.lg\\:tw-py-20{padding-top:5rem;padding-bottom:5rem}.lg\\:tw-px-2\\.5{padding-left:.625rem;padding-right:.625rem}.lg\\:tw-px-general-layout-spacing{padding-left:var(--general-layout-spacing);padding-right:var(--general-layout-spacing)}.lg\\:tw-px-7\\.5{padding-left:1.875rem;padding-right:1.875rem}.lg\\:tw-pt-0{padding-top:0}.lg\\:tw-pr-0{padding-right:0}.lg\\:tw-pb-0{padding-bottom:0}.lg\\:tw-pr-2{padding-right:.5rem}.lg\\:tw-pb-2{padding-bottom:.5rem}.lg\\:tw-pl-2{padding-left:.5rem}.lg\\:tw-pt-4{padding-top:1rem}.lg\\:tw-pt-7{padding-top:1.75rem}.lg\\:tw-pr-8{padding-right:2rem}.lg\\:tw-pt-10{padding-top:2.5rem}.lg\\:tw-pb-10{padding-bottom:2.5rem}.lg\\:tw-pl-10{padding-left:2.5rem}.lg\\:tw-pt-15{padding-top:3.75rem}.lg\\:tw-pt-20{padding-top:5rem}.lg\\:tw-pr-20{padding-right:5rem}.lg\\:tw-pr-28{padding-right:7rem}.lg\\:tw-pr-30{padding-right:7.5rem}.lg\\:tw-pl-30{padding-left:7.5rem}.lg\\:tw-pr-40{padding-right:10rem}.lg\\:tw-pl-40{padding-left:10rem}.lg\\:tw-pr-2\\.5{padding-right:.625rem}.lg\\:tw-pl-2\\.5{padding-left:.625rem}.lg\\:tw-pt-7\\.5{padding-top:1.875rem}.lg\\:tw-pr-28\\.5{padding-right:7.125rem}.lg\\:tw-placeholder-header-text-color::-moz-placeholder{color:var(--color-header-text)}.lg\\:tw-placeholder-header-text-color:-ms-input-placeholder{color:var(--color-header-text)}.lg\\:tw-placeholder-header-text-color::placeholder{color:var(--color-header-text)}.lg\\:tw-absolute{position:absolute}.lg\\:tw-relative{position:relative}.lg\\:tw-right-0{right:0}.lg\\:tw-left-0{left:0}.lg\\:tw-top-4{top:1rem}.lg\\:tw-left-4{left:1rem}.lg\\:tw-right-7{right:1.75rem}.lg\\:tw-left-7{left:1.75rem}.lg\\:tw-bottom-15{bottom:3.75rem}.lg\\:tw-left-15{left:3.75rem}.lg\\:tw-bottom-auto{bottom:auto}.lg\\:tw-left-auto{left:auto}.lg\\:tw-top-full{top:100%}.lg\\:tw-shadow-3{--tw-shadow:0px 5px 25px 0px rgba(0,0,0,0.1);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.lg\\:tw-shadow-6{--tw-shadow:0px 10px 18px -10px rgba(0,0,0,0.07);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.lg\\:tw-text-left{text-align:left}.lg\\:tw-text-center{text-align:center}.lg\\:tw-text-right{text-align:right}.lg\\:tw-text-title-color{color:var(--color-general-heading-text)}.lg\\:tw-text-text-color{color:var(--color-general-text)}.lg\\:tw-text-header-text-color{color:var(--color-header-text)}.lg\\:tw-text-header-menu-text-color{color:var(--color-header-menu-text)}.lg\\:hover\\:tw-text-btn-text-color:hover{color:var(--color-button-text)}.lg\\:tw-uppercase{text-transform:uppercase}.lg\\:tw-normal-case{text-transform:none}.lg\\:tw-tracking-4{letter-spacing:.25rem}.lg\\:tw-invisible{visibility:hidden}.tw-group:hover .lg\\:group-hover\\:tw-visible{visibility:visible}.lg\\:tw-w-3{width:.75rem}.lg\\:tw-w-50{width:12.5rem}.lg\\:tw-w-180{width:45rem}.lg\\:tw-w-auto{width:auto}.lg\\:tw-w-1\\/2{width:50%}.lg\\:tw-w-1\\/3{width:33.333333%}.lg\\:tw-w-2\\/3{width:66.666667%}.lg\\:tw-w-1\\/4{width:25%}.lg\\:tw-w-3\\/12{width:25%}.lg\\:tw-z-10{z-index:10}.lg\\:tw-z-20{z-index:20}.lg\\:tw-z-popover{z-index:1060}.lg\\:tw-gap-x-5{-moz-column-gap:1.25rem;column-gap:1.25rem}.lg\\:tw-gap-x-7{-moz-column-gap:1.75rem;column-gap:1.75rem}.lg\\:tw-gap-x-10{-moz-column-gap:2.5rem;column-gap:2.5rem}.lg\\:tw-gap-x-7\\.5{-moz-column-gap:1.875rem;column-gap:1.875rem}.lg\\:tw-gap-x-px-15{-moz-column-gap:15px;column-gap:15px}.lg\\:tw-gap-y-15{row-gap:3.75rem}.lg\\:tw-grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.lg\\:tw-grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.lg\\:tw-grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}.lg\\:tw-grid-cols-5{grid-template-columns:repeat(5,minmax(0,1fr))}.lg\\:tw-grid-cols-6{grid-template-columns:repeat(6,minmax(0,1fr))}.lg\\:tw-grid-cols-cart-grid-max{grid-template-columns:160px 2fr 1fr}.lg\\:tw-grid-cols-1\\/2{grid-template-columns:55% 40%}.lg\\:tw-col-span-4{grid-column:span 4/span 4}.lg\\:tw-col-span-5{grid-column:span 5/span 5}.lg\\:tw-col-span-6{grid-column:span 6/span 6}.lg\\:tw-col-span-7{grid-column:span 7/span 7}.lg\\:tw-col-span-8{grid-column:span 8/span 8}.lg\\:tw-row-span-1{grid-row:span 1/span 1}.lg\\:tw-row-span-2{grid-row:span 2/span 2}.lg\\:tw-transform{--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;transform:translateX(var(--tw-translate-x)) translateY(var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.lg\\:tw-scale-75{--tw-scale-x:.75;--tw-scale-y:.75}.tw-group:hover .lg\\:group-hover\\:tw-rotate-180{--tw-rotate:180deg}.lg\\:tw-translate-y-0{--tw-translate-y:0px}.lg\\:tw-translate-y-3{--tw-translate-y:0.75rem}.tw-group:hover .lg\\:group-hover\\:tw-translate-y-0{--tw-translate-y:0px}.lg\\:tw-transition-opacity{transition-property:opacity;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:150ms}.lg\\:tw-duration-300{transition-duration:.3s}}</style>\n<script type=\"text/javascript\">\nSHOP_PARAMS.theme_name=\"Nova\";\nSHOP_PARAMS.theme_version=\"21-15-259e62b\";\n</script></head>\n  <body class=\"nova tw-bg-bg-color tw-text-text-color tw-text-text-font-size type-text-font-family tw-leading-text-line-height tw-m-0 template-{{template.name}} {% if settings.general_style == 'round' %}theme-rounded{% endif %}\"  data-theme-name=\"Nova\" data-theme-version=\"21-15-259e62b\" >\n    {% assign sys_pages = \"login, register, reset_success, addresses, couponCollection, article, rebateCollection, reset_password, flashsaleCollection, order\" | split: \", \" %}\n    {% comment %} 满送SHOP_PARAMS.template_name为空{% endcomment %}\n    {% assign sys_pages_type = \"43\" %}\n    {% if template.type == sys_pages_type %}\n      {% assign isSystem = true %}\n      {% use 'theme.css' %}\n    {% else %}\n      {% for sys_page in sys_pages %}\n        {% if sys_page contains template.name %}\n          {% assign isSystem = true %}\n          {% use 'theme.css' %}\n        {% endif %}\n      {% endfor %}\n    {% endif %}\n    {% include 'jquery' %}\n    {% include 'art_template' %}\n    {% include 'serial_list' %}\n    {% include 'util' %}\n    {% include 'theme_js' %}\n    {% include 'lazysizes' %}\n    <div class=\"page_container\">{% section 'header' %}{% if isSystem %}<div class=\"bootstrap\">{{ content_for_layout }}</div> {% else %}{{ content_for_layout }} {% endif %} {% section 'footer' %}</div>\n    {% include 'product_art_tpl' %}\n    {% if isSystem %}\n      {% include 'validate' %}\n      <script type=\"text/javascript\">\n        $(function(){\n          if ($(\"<span class='sep-font sep-font-angle-left' style='display:none'></span>\").appendTo(document.body).css(\"font-family\") != \"sep-font\") {\n            $('<link rel=\"stylesheet\" type=\"text/css\" href=\"' + SHOP_PARAMS.cdn_domain + 'iconfont/font_846249_3zb2b60e2ks/iconfont.css\" />').appendTo(document.body);\n          }\n        });\n      </script>\n    {% endif %}\n    {{ content_for_js }}\n    {% include 'currency' %}\n    {% if settings.add_to_cart_process == 'drawer' or settings.cart_settings_click == 'drawer' %}\n      {% include 'cart_drawer' %}\n    {% endif %}\n\n    {% comment %}关闭 svg {% endcomment %}\n    <div class=\"tw-hidden\" id=\"close_svg\">{% include 'icon_close_btn', icon_class: '' %}</div>\n    {% comment %}success svg {% endcomment %}\n    <div class=\"tw-hidden\" id=\"success_svg\">{% include 'icon_ok',icon_class: '' %}</div>\n    {% comment %}error svg {% endcomment %}\n    <div class=\"tw-hidden\" id=\"error_svg\">{% include 'icon_error',icon_class: '' %}</div>\n\n    {% include 'structured_data' %}\n    {% include 'quick_view_tpl' %}\n  </body>\n</html>\n"
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+    delete:
+      tags:
+      - Theme
+      summary: Delete Theme File
+      description: Delete theme files
+      operationId: delete-theme-file
+      parameters:
+      - name: theme_id
+        in: path
+        description: Theme ID
+        schema:
+          type: string
+        required: true
+      - name: type
+        in: query
+        schema:
+          type: string
+          default: assets
+      - name: location
+        in: query
+        schema:
+          type: string
+          default: a.js
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '[]'
+              schema:
+                type: array
+                items:
+                  type: string
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+    post:
+      tags:
+      - Theme
+      summary: Create Theme File
+      description: Creating a theme file
+      operationId: create-theme-file
+      parameters:
+      - name: theme_id
+        in: path
+        description: Theme ID
+        schema:
+          type: string
+        required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                RAW_BODY:
+                  type: string
+                  default: '{"doc":{"type":"assets","location":"test.js","content":"update"}}'
+                  format: json
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '[]'
+              schema:
+                type: array
+                items:
+                  type: string
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+    patch:
+      tags:
+      - Theme
+      summary: Update Theme File
+      description: Updating the theme file
+      operationId: update-theme-file
+      parameters:
+      - name: theme_id
+        in: path
+        description: Theme ID
+        schema:
+          type: string
+        required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                RAW_BODY:
+                  type: string
+                  default: '{"doc":{"type":"assets","location":"test.js","content":"update"}}'
+                  format: json
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '[]'
+              schema:
+                type: array
+                items:
+                  type: string
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+  /openapi/2022-01/themes/{theme_id}/doc-asset:
+    post:
+      tags:
+      - Theme
+      summary: Create Theme Assets
+      description: Create theme files for static assets such as PNG, JPG, and SVG
+      operationId: create-theme-assets
+      parameters:
+      - name: theme_id
+        in: path
+        description: Theme ID
+        schema:
+          type: string
+        required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      x-readme:
+        code-samples:
+        - language: javascript
+          code: 'const fs = require(''fs'');
+
+            const FormData = require(''form-data'');
+
+            const file = ''test.png'';
+
+            const form = new FormData();
+
+            form.append(''file'', fs.createReadStream(file));
+
+            await request.post(`/themes/${theme}/doc-asset`, form, { headers: form.getHeaders() });'
+        samples-languages:
+        - javascript
+components:
+  securitySchemes:
+    sec0:
+      type: apiKey
+      in: header
+      name: access-token
+      x-default: WPMSdB6M8Cpum4X1GoMYOKZpiESd8d2x7dZW8d79ZeQ
+    apikey-header-access-token:
+      type: apiKey
+      in: header
+      name: access-token
+      x-default: WPMSdB6M8Cpum4X1GoMYOKZpiESd8d2x7dZW8d79ZeQ
+x-standalone-page:
+  title: Standalone Page
+  content: Information that should be on a standalone page...
+x-readme:
+  headers: []
+  explorer-enabled: true
+  proxy-enabled: true
+  samples-enabled: true

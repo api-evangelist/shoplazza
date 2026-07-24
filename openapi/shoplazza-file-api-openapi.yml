@@ -1,0 +1,348 @@
+openapi: 3.1.0
+info:
+  title: SPZ Admin Access File API
+  version: '2022.01'
+  description: Upload image materials to the material library and the material library operations of material
+servers:
+- url: https://{subdomain}.myshoplaza.com
+  variables:
+    subdomain:
+      default: developer
+security:
+- sec0: []
+tags:
+- name: File
+  description: Upload image materials to the material library and the material library operations of material
+paths:
+  /openapi/2022-01/file:
+    post:
+      tags:
+      - File
+      summary: Create File
+      description: ''
+      operationId: create-file
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - original_source_list
+              properties:
+                original_source_list:
+                  type: array
+                  description: original source list, picture link
+                  items:
+                    type: string
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n\t\t\t\t\t\"task_id\": \"a1882a2e-55bd-4acd-b079-a1c47cbee30d\"\n\t\t\t\t}"
+              schema:
+                type: object
+                properties:
+                  task_id:
+                    type: string
+                    example: a1882a2e-55bd-4acd-b079-a1c47cbee30d
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+    get:
+      tags:
+      - File
+      summary: Get File List
+      description: ''
+      operationId: get-file-list
+      parameters:
+      - name: page
+        in: query
+        schema:
+          type: integer
+          format: int32
+      - name: limit
+        in: query
+        schema:
+          type: integer
+          format: int32
+      - name: folder
+        in: query
+        description: File type, choose from：`product`、`all_upload`
+        schema:
+          type: string
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"files\": [\n        {\n            \"upload_link\": \"https://cdn.shoplazza.com/6cea629488b0afdc5cafe5437d42592e.jpeg\",\n            \"file_uri\": \"6cea629488b0afdc5cafe5437d42592e.jpeg\",\n            \"folder\": \"url_upload\",\n            \"size\": 0,\n            \"type\": \"\",\n            \"origin_link\": \"\",\n            \"desc\": \"\",\n            \"aspect_ratio\": \"0.6658333\",\n            \"width\": 799,\n            \"height\": 1200,\n            \"created_at\": \"2023-07-03T16:48:49+08:00\",\n            \"updated_at\": \"2023-07-03T16:48:49+08:00\"\n        }\n    ]\n}"
+              schema:
+                type: object
+                properties:
+                  files:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        upload_link:
+                          type: string
+                          example: https://cdn.shoplazza.com/6cea629488b0afdc5cafe5437d42592e.jpeg
+                        file_uri:
+                          type: string
+                          example: 6cea629488b0afdc5cafe5437d42592e.jpeg
+                        folder:
+                          type: string
+                          example: url_upload
+                        size:
+                          type: integer
+                          example: 0
+                          default: 0
+                        type:
+                          type: string
+                          example: ''
+                        origin_link:
+                          type: string
+                          example: ''
+                        desc:
+                          type: string
+                          example: ''
+                        aspect_ratio:
+                          type: string
+                          example: '0.6658333'
+                        width:
+                          type: integer
+                          example: 799
+                          default: 0
+                        height:
+                          type: integer
+                          example: 1200
+                          default: 0
+                        created_at:
+                          type: string
+                          example: '2023-07-03T16:48:49+08:00'
+                        updated_at:
+                          type: string
+                          example: '2023-07-03T16:48:49+08:00'
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+  /openapi/2022-01/file/task/{task_id}:
+    get:
+      tags:
+      - File
+      summary: Get Create  File Task
+      description: ''
+      operationId: get-create-file-task
+      parameters:
+      - name: task_id
+        in: path
+        description: Task id
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \n        \"task_id\": \"c569f4fd-3fcd-4219-b13d-7c847475602c\",\n        \"total\": 1,\n        \"finished\": 1,\n        \"status\": 0,\n        \"success_list\": [\n            {\n                \"file_uri\": \"20444bd80653493a1dc9570da9a71c96.jpeg\",\n                \"origin_link\": \"https://img2.baidu.com/it/u=3539883481,2694279601&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=129\",\n                \"upload_link\": \"https://cdn.shoplazza.com/20444bd80653493a1dc9570da9a71c96.jpeg\"\n            }\n        ],\n        \"failure_list\": [],\n        \"origin_list\": [\n            \"https://img2.baidu.com/it/u=3539883481,2694279601&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=129\"\n        ]\n    \n}"
+              schema:
+                type: object
+                properties:
+                  task_id:
+                    type: string
+                    example: c569f4fd-3fcd-4219-b13d-7c847475602c
+                  total:
+                    type: integer
+                    example: 1
+                    default: 0
+                  finished:
+                    type: integer
+                    example: 1
+                    default: 0
+                  status:
+                    type: integer
+                    example: 0
+                    default: 0
+                  success_list:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        file_uri:
+                          type: string
+                          example: 20444bd80653493a1dc9570da9a71c96.jpeg
+                        origin_link:
+                          type: string
+                          example: https://img2.baidu.com/it/u=3539883481,2694279601&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=129
+                        upload_link:
+                          type: string
+                          example: https://cdn.shoplazza.com/20444bd80653493a1dc9570da9a71c96.jpeg
+                  failure_list:
+                    type: array
+                  origin_list:
+                    type: array
+                    items:
+                      type: string
+                      example: https://img2.baidu.com/it/u=3539883481,2694279601&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=129
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+  /openapi/2022-01/file/{file_uri}:
+    delete:
+      tags:
+      - File
+      summary: Delete File
+      description: ''
+      operationId: delete-file
+      parameters:
+      - name: file_uri
+        in: path
+        description: File uri
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: ''
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+    get:
+      tags:
+      - File
+      summary: Get File Details
+      description: ''
+      operationId: get-file-detail
+      parameters:
+      - name: file_uri
+        in: path
+        description: File uri
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"upload_link\": \"https://cdn.shoplazza.com/6cea629488b0afdc5cafe5437d42592e.jpeg\",\n    \"file_uri\": \"6cea629488b0afdc5cafe5437d42592e.jpeg\",\n    \"folder\": \"url_upload\",\n    \"size\": 0,\n    \"type\": \"\",\n    \"origin_link\": \"\",\n    \"desc\": \"\",\n    \"aspect_ratio\": \"0.6658333\",\n    \"width\": 799,\n    \"height\": 1200,\n    \"created_at\": \"2023-07-03T16:48:48.934303886+08:00\",\n    \"updated_at\": \"2023-07-03T16:48:48.934303886+08:00\"\n}"
+              schema:
+                type: object
+                properties:
+                  upload_link:
+                    type: string
+                    example: https://cdn.shoplazza.com/6cea629488b0afdc5cafe5437d42592e.jpeg
+                  file_uri:
+                    type: string
+                    example: 6cea629488b0afdc5cafe5437d42592e.jpeg
+                  folder:
+                    type: string
+                    example: url_upload
+                  size:
+                    type: integer
+                    example: 0
+                    default: 0
+                  type:
+                    type: string
+                    example: ''
+                  origin_link:
+                    type: string
+                    example: ''
+                  desc:
+                    type: string
+                    example: ''
+                  aspect_ratio:
+                    type: string
+                    example: '0.6658333'
+                  width:
+                    type: integer
+                    example: 799
+                    default: 0
+                  height:
+                    type: integer
+                    example: 1200
+                    default: 0
+                  created_at:
+                    type: string
+                    example: '2023-07-03T16:48:48.934303886+08:00'
+                  updated_at:
+                    type: string
+                    example: '2023-07-03T16:48:48.934303886+08:00'
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+components:
+  securitySchemes:
+    sec0:
+      type: apiKey
+      in: header
+      name: access-token
+      x-default: WPMSdB6M8Cpum4X1GoMYOKZpiESd8d2x7dZW8d79ZeQ
+    apikey-header-access-token:
+      type: apiKey
+      in: header
+      name: access-token
+      x-default: WPMSdB6M8Cpum4X1GoMYOKZpiESd8d2x7dZW8d79ZeQ
+x-standalone-page:
+  title: Standalone Page
+  content: Information that should be on a standalone page...
+x-readme:
+  headers: []
+  explorer-enabled: true
+  proxy-enabled: true
+  samples-enabled: true

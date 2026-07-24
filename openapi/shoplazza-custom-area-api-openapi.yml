@@ -1,0 +1,190 @@
+openapi: 3.1.0
+info:
+  title: SPZ Admin Access Custom Area API
+  version: '2022.01'
+servers:
+- url: https://{subdomain}.myshoplaza.com
+  variables:
+    subdomain:
+      default: developer
+security:
+- sec0: []
+tags:
+- name: Custom Area
+  description: ''
+paths:
+  /openapi/2022-01/areas/country/{country_code}/province:
+    get:
+      tags:
+      - Custom Area
+      summary: Get Province List
+      description: ''
+      operationId: get-province-list
+      parameters:
+      - name: country_code
+        in: path
+        description: Country code, eg. US
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "[\n    {\n        \"cn_name\": \"阿拉斯加州\",\n        \"code\": \"US-AK\",\n        \"name\": \"Alaska\",\n        \"old_code\": \"AK\",\n        \"province_id\": 3502\n    },\n    {\n        \"cn_name\": \"亚拉巴马州\",\n        \"code\": \"US-AL\",\n        \"name\": \"Alabama\",\n        \"old_code\": \"AL\",\n        \"province_id\": 3503\n    },\n    {\n        \"cn_name\": \"阿肯色州\",\n        \"code\": \"US-AR\",\n        \"name\": \"Arkansas\",\n        \"old_code\": \"AR\",\n        \"province_id\": 3504\n    }\n]"
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    cn_name:
+                      type: string
+                      example: 阿拉斯加州
+                    code:
+                      type: string
+                      example: US-AK
+                    name:
+                      type: string
+                      example: Alaska
+                    old_code:
+                      type: string
+                      example: AK
+                    province_id:
+                      type: integer
+                      example: 3502
+                      default: 0
+      deprecated: false
+    post:
+      tags:
+      - Custom Area
+      summary: Create Custom Areas
+      description: ''
+      operationId: create-custom-areas
+      parameters:
+      - name: country_code
+        in: path
+        description: Country code, eg. US
+        schema:
+          type: string
+        required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                RAW_BODY:
+                  type: string
+                  description: Custom areas, JSON format.
+                  default: '{"provinces":[{"name":"Province name","cities":[{"name":"City name","addresses":[{"name":"Addreess name","address1s":["Area name","Another area name"]}]}]}]}'
+                  format: json
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+    delete:
+      tags:
+      - Custom Area
+      summary: Delete Custom Areas
+      description: ''
+      operationId: delete-custom-areas
+      parameters:
+      - name: country_code
+        in: path
+        description: Country code, eg. US
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+  /areas/{area_code}/children:
+    get:
+      tags:
+      - Custom Area
+      summary: Get Custom Children Areas
+      description: ''
+      operationId: get-children-areas
+      parameters:
+      - name: area_code
+        in: path
+        description: Area code, eg. US-CA
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"type\": \"city\",\n    \"list\": [\n        {\n            \"code\": \"US-CA-1\",\n            \"name\": \"Custom city name\"\n        },\n        {\n            \"code\": \"US-CA-a\",\n            \"name\": \"Another custom city name\"\n        }\n    ]\n}"
+              schema:
+                type: object
+                properties:
+                  type:
+                    type: string
+                    example: city
+                  list:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          type: string
+                          example: US-CA-1
+                        name:
+                          type: string
+                          example: Custom city name
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+components:
+  securitySchemes:
+    sec0:
+      type: apiKey
+      in: header
+      name: access-token
+      x-default: WPMSdB6M8Cpum4X1GoMYOKZpiESd8d2x7dZW8d79ZeQ
+    apikey-header-access-token:
+      type: apiKey
+      in: header
+      name: access-token
+      x-default: WPMSdB6M8Cpum4X1GoMYOKZpiESd8d2x7dZW8d79ZeQ
+x-standalone-page:
+  title: Standalone Page
+  content: Information that should be on a standalone page...
+x-readme:
+  headers: []
+  explorer-enabled: true
+  proxy-enabled: true
+  samples-enabled: true

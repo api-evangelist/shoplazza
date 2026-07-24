@@ -1,0 +1,878 @@
+openapi: 3.1.0
+info:
+  title: SPZ Admin Access Shop API
+  version: '2022.01'
+servers:
+- url: https://{subdomain}.myshoplaza.com
+  variables:
+    subdomain:
+      default: developer
+security:
+- sec0: []
+tags:
+- name: Shop
+  description: ''
+paths:
+  /openapi/2022-01/shop:
+    get:
+      tags:
+      - Shop
+      summary: Shop Details
+      description: ''
+      operationId: shop-details
+      parameters:
+      - name: fields
+        in: query
+        description: 'To specify which fields you wanna get, separated by comma, e.g. `id,name,email`, possible fields are: `id`, `name`, `email`, `domain`, `address1`, `zip`, `city`, `phone`, `primary_locale`, `address2`, `created_at`, `updated_at`, `country_code`, `currency`, `customer_email`, `timezone`, `shop_owner`, `account`, `province_code`, `icon`, `system_domain`, `root_url`'
+        schema:
+          type: string
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"shop\":{\n    \"id\": 2019,\n    \"name\": \"Nike Store\",\n    \"email\": \"steve@nike.com\",\n    \"domain\": \"shop.nike.com\",\n    \"address1\": \"1 Infinite Loop\",\n    \"zip\": \"95014\",\n    \"city\": \"Cupertino\",\n    \"phone\": \"1231231234\",\n    \"primary_locale\": \"en-US\",\n    \"address2\": \"Suite 100\",\n    \"created_at\": \"2022-04-18T15:26:22Z\",\n    \"updated_at\": \"2022-04-18T15:26:22Z\",\n    \"country_code\": \"US\",\n    \"currency\": \"USD\",\n    \"customer_email\": \"customers@nike.com\",\n    \"timezone\": \"+0800\",\n    \"shop_owner\": \"nick\",\n    \"account\": \"account@nike.com\",\n    \"province_code\": \"CA\",\n    \"icon\": {\n      \"alt\": \"\",\n      \"src\": \"https://cn.cdn.shoplazza.com/0d42d239eb4a6a6e07652b24219e62b9.jpg\",\n      \"path\": \"0d42d239eb4a6a6e07652b24219e62b9.jpg\"\n    },\n    \"root_url\": \"\",\n    \"system_domain\": \"shop.nike.com\"\n  }\n}"
+              schema:
+                type: object
+                properties:
+                  shop:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 2019
+                        default: 0
+                      name:
+                        type: string
+                        example: Nike Store
+                      email:
+                        type: string
+                        example: steve@nike.com
+                      domain:
+                        type: string
+                        example: shop.nike.com
+                      address1:
+                        type: string
+                        example: 1 Infinite Loop
+                      zip:
+                        type: string
+                        example: '95014'
+                      city:
+                        type: string
+                        example: Cupertino
+                      phone:
+                        type: string
+                        example: '1231231234'
+                      primary_locale:
+                        type: string
+                        example: en-US
+                      address2:
+                        type: string
+                        example: Suite 100
+                      created_at:
+                        type: string
+                        example: '2022-04-18T15:26:22Z'
+                      updated_at:
+                        type: string
+                        example: '2022-04-18T15:26:22Z'
+                      country_code:
+                        type: string
+                        example: US
+                      currency:
+                        type: string
+                        example: USD
+                      customer_email:
+                        type: string
+                        example: customers@nike.com
+                      timezone:
+                        type: string
+                        example: +0800
+                      shop_owner:
+                        type: string
+                        example: nick
+                      account:
+                        type: string
+                        example: account@nike.com
+                      province_code:
+                        type: string
+                        example: CA
+                      icon:
+                        type: object
+                        properties:
+                          alt:
+                            type: string
+                            example: ''
+                          src:
+                            type: string
+                            example: https://cn.cdn.shoplazza.com/0d42d239eb4a6a6e07652b24219e62b9.jpg
+                          path:
+                            type: string
+                            example: 0d42d239eb4a6a6e07652b24219e62b9.jpg
+                      root_url:
+                        type: string
+                        example: ''
+                      system_domain:
+                        type: string
+                        example: shop.nike.com
+        '404':
+          description: '404'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"errors\": [\n    \"record not found!\"\n  ]\n}"
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: string
+                      example: record not found!
+      deprecated: false
+  /openapi/2022-01/shop/{shop_id}:
+    patch:
+      tags:
+      - Shop
+      summary: Update Shop
+      description: ''
+      operationId: update-shop
+      parameters:
+      - name: shop_id
+        in: path
+        description: Shop's ID
+        schema:
+          type: string
+        required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                shop:
+                  type: object
+                  required:
+                  - customer_email
+                  properties:
+                    customer_email:
+                      type: string
+                      description: Customer email, e.g. `abc@def.com`
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"shop\":{\n    \"id\": 2019,\n    \"name\": \"Nike Store\",\n    \"email\": \"steve@nike.com\",\n    \"domain\": \"shop.nike.com\",\n    \"address1\": \"1 Infinite Loop\",\n    \"zip\": \"95014\",\n    \"city\": \"Cupertino\",\n    \"phone\": \"1231231234\",\n    \"primary_locale\": \"en-US\",\n    \"address2\": \"Suite 100\",\n    \"created_at\": \"2022-04-18T15:26:22Z\",\n    \"updated_at\": \"2022-04-18T15:26:22Z\",\n    \"country_code\": \"US\",\n    \"currency\": \"USD\",\n    \"customer_email\": \"customers@nike.com\",\n    \"timezone\": \"+0800\",\n    \"shop_owner\": \"nick\",\n    \"account\": \"account@nike.com\",\n    \"province_code\": \"CA\",\n    \"icon\": {\n      \"src\": \"https://cn.cdn.shoplazza.com/0d42d239eb4a6a6e07652b24219e62b9.jpg\",\n      \"path\": \"0d42d239eb4a6a6e07652b24219e62b9.jpg\"\n    },\n    \"root_url\": \"\",\n    \"system_domain\": \"nick.dev.myshoplaza.com\"\n  }\n}"
+              schema:
+                type: object
+                properties:
+                  shop:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 2019
+                        default: 0
+                      name:
+                        type: string
+                        example: Nike Store
+                      email:
+                        type: string
+                        example: steve@nike.com
+                      domain:
+                        type: string
+                        example: shop.nike.com
+                      address1:
+                        type: string
+                        example: 1 Infinite Loop
+                      zip:
+                        type: string
+                        example: '95014'
+                      city:
+                        type: string
+                        example: Cupertino
+                      phone:
+                        type: string
+                        example: '1231231234'
+                      primary_locale:
+                        type: string
+                        example: en-US
+                      address2:
+                        type: string
+                        example: Suite 100
+                      created_at:
+                        type: string
+                        example: '2022-04-18T15:26:22Z'
+                      updated_at:
+                        type: string
+                        example: '2022-04-18T15:26:22Z'
+                      country_code:
+                        type: string
+                        example: US
+                      currency:
+                        type: string
+                        example: USD
+                      customer_email:
+                        type: string
+                        example: customers@nike.com
+                      timezone:
+                        type: string
+                        example: +0800
+                      shop_owner:
+                        type: string
+                        example: nick
+                      account:
+                        type: string
+                        example: account@nike.com
+                      province_code:
+                        type: string
+                        example: CA
+                      icon:
+                        type: object
+                        properties:
+                          src:
+                            type: string
+                            example: https://cn.cdn.shoplazza.com/0d42d239eb4a6a6e07652b24219e62b9.jpg
+                          path:
+                            type: string
+                            example: 0d42d239eb4a6a6e07652b24219e62b9.jpg
+                      root_url:
+                        type: string
+                        example: ''
+                      system_domain:
+                        type: string
+                        example: nick.dev.myshoplaza.com
+      deprecated: false
+  /openapi/2022-01/comments:
+    post:
+      tags:
+      - Shop
+      summary: Create Comment
+      description: ''
+      operationId: create-comment
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - product_id
+              - username
+              - content
+              - star
+              - like
+              - created_at
+              properties:
+                product_id:
+                  type: string
+                  description: Product's ID, e.g. `0510dace-34da-4555-a896-495e0cb1ed6e`
+                username:
+                  type: string
+                  description: User name, e.g. `Joey`
+                content:
+                  type: string
+                  description: Comment content, e.g. `Cheap but beautiful`
+                star:
+                  type: integer
+                  description: 'Start count: `1 ~ 5`, e.g. `4`'
+                  format: int32
+                image:
+                  type: string
+                  description: Images in comment, separate by semicolon, e.g. `http://abc.com/img.jpg; http://def.com/img.jpg`
+                like:
+                  type: integer
+                  description: Like count, e.g. `100`
+                  format: int32
+                created_at:
+                  type: string
+                  description: Comment created time, e.g. `2019-07-10 15:00:00`
+                country:
+                  type: string
+                  description: Country code where this comment is created from, e.g. `CN`
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"comment\": {\n        \"id\": \"23359196\",\n        \"store_id\": \"11218\",\n        \"username\": \"Jack\",\n        \"email\": \"developer@example.com\",\n        \"star\": \"5.0\",\n        \"like\": \"1\",\n        \"content\": \"Great!\",\n        \"img\": \"[\\\"example.png\\\"]\",\n        \"status\": \"1\",\n        \"type\": \"1\",\n        \"product_id\": \"f9dec889-8b4c-44a9-b9b6-3fe8edb94467\",\n        \"created_at\": \"2022-11-08 05:42:41\",\n        \"updated_at\": \"2022-11-09 09:24:47\",\n        \"country\": \"CN\",\n        \"is_featured\": \"0\",\n        \"is_verified\": \"1\",\n        \"client_id\": \"1666840484639148\"\n    }\n}"
+              schema:
+                type: object
+                properties:
+                  comment:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: '23359196'
+                      store_id:
+                        type: string
+                        example: '11218'
+                      username:
+                        type: string
+                        example: Jack
+                      email:
+                        type: string
+                        example: developer@example.com
+                      star:
+                        type: string
+                        example: '5.0'
+                      like:
+                        type: string
+                        example: '1'
+                      content:
+                        type: string
+                        example: Great!
+                      img:
+                        type: string
+                        example: '["example.png"]'
+                      status:
+                        type: string
+                        example: '1'
+                      type:
+                        type: string
+                        example: '1'
+                      product_id:
+                        type: string
+                        example: f9dec889-8b4c-44a9-b9b6-3fe8edb94467
+                      created_at:
+                        type: string
+                        example: '2022-11-08 05:42:41'
+                      updated_at:
+                        type: string
+                        example: '2022-11-09 09:24:47'
+                      country:
+                        type: string
+                        example: CN
+                      is_featured:
+                        type: string
+                        example: '0'
+                      is_verified:
+                        type: string
+                        example: '1'
+                      client_id:
+                        type: string
+                        example: '1666840484639148'
+      deprecated: false
+  /openapi/2022-01/comments/batch:
+    post:
+      tags:
+      - Shop
+      summary: Batch Create Comment
+      description: ''
+      operationId: batch-create-comment
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                comments:
+                  type: array
+                  items:
+                    properties:
+                      product_id:
+                        type: string
+                        description: Product's ID, e.g. `0510dace-34da-4555-a896-495e0cb1ed6e`
+                      username:
+                        type: string
+                        description: User name, e.g. `Joey`
+                      content:
+                        type: string
+                        description: Comment content, e.g. `Cheap but beautiful`
+                      star:
+                        type: integer
+                        description: 'Start count: 1 ~ 5'
+                        format: int32
+                      image:
+                        type: string
+                        description: Images in comment, separate by semicolon, e.g. `http://abc.com/img.jpg; http://def.com/img.jpg`
+                      like:
+                        type: integer
+                        description: Like count
+                        format: int32
+                      created_at:
+                        type: string
+                        description: Comment created time, e.g. `2019-07-10 15:00:00`
+                      country:
+                        type: string
+                        description: Country code where comment is created from, e.g. `CN`
+                    required:
+                    - product_id
+                    - username
+                    - content
+                    - star
+                    - like
+                    - created_at
+                    type: object
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"success_count\": 12,\n    \"error_count\": 3,\n    \"error_info\": [\n        {\n          \"product_id\": \"...\",\n          \"username\": \"...\",\n          ...\n          \"error_message\": \"\"\n        }\n    ]\n}"
+      deprecated: false
+  /openapi/2022-01/script_tags:
+    post:
+      tags:
+      - Shop
+      summary: Create Script Tag
+      description: ''
+      operationId: create-script-tag
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - src
+              properties:
+                src:
+                  type: string
+                  description: Javascript url, e.g. `<script src="https://shoplazza.com/x.js"></script>`
+                display_scope:
+                  type: string
+                  description: 'Display scope, possible value: `index`,`product`,`collection`,`customers/account`,`customers/login`,`customers/register`,`customers/reset_password`,`customers/reset_success`,`customers/addresses`,`customers/order`,`customers/track`,`order`,`order_verify`,`checkout`,`flashsaleCollection`,`couponCollection`,`rebateCollection`,`couponsCollection`,`search`,`404`,`page`,`article`,`blog`,`collections`,`products`,`theme_page`,`order_status`,`automaticCollection`,`password`,`order_lookup`,`customers/coupon`'
+                  default: all
+                event_type:
+                  type: string
+                  description: Event type, e.g. `myapp`
+                  default: app
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"script_tag\":{\n    \"id\": \"0510dace-34da-4555-a896-495e0cb1ed6e\",\n    \"display_scope\": \"all\",\n    \"src\": \"<script src=\\\"https://assets.shoplazza.com/add_to_cart.07fb91d6064f1902127d.js\\\"></script>\",\n    \"event_type\": \"myapp\",\n    \"created_at\": \"2018-08-26T06:50:00Z\",\n    \"updated_at\": \"2018-08-26T06:50:00Z\"\n  }\n}"
+              schema:
+                type: object
+                properties:
+                  script_tag:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: 0510dace-34da-4555-a896-495e0cb1ed6e
+                      display_scope:
+                        type: string
+                        example: all
+                      src:
+                        type: string
+                        example: <script src="https://assets.shoplazza.com/add_to_cart.07fb91d6064f1902127d.js"></script>
+                      event_type:
+                        type: string
+                        example: myapp
+                      created_at:
+                        type: string
+                        example: '2018-08-26T06:50:00Z'
+                      updated_at:
+                        type: string
+                        example: '2018-08-26T06:50:00Z'
+      deprecated: false
+    get:
+      tags:
+      - Shop
+      summary: Get Script Tag List
+      description: ''
+      operationId: get-script-tag-list
+      parameters:
+      - name: event_type
+        in: query
+        description: Event type, e.g. `myapp`
+        schema:
+          type: string
+          default: app
+      - name: page
+        in: query
+        description: Page number, e.g. `1`
+        schema:
+          type: integer
+          format: int32
+          default: 1
+      - name: limit
+        in: query
+        description: result per page, e.g. `50`
+        schema:
+          type: integer
+          format: int32
+          default: 50
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"script_tags\":[{\n    \"id\":\"0510dace-34da-4555-a896-495e0cb1ed6e\",\n    \"display_scope\":\"all\",\n    \"src\": \"<script src=\\\"https://assets.shoplazza.com/add_to_cart.07fb91d6064f1902127d.js\\\"></script>\",\n    \"event_type\": \"myapp\",\n    \"created_at\": \"2018-08-26T06:50:00Z\",\n    \"updated_at\": \"2018-08-26T06:50:00Z\"\n  }]\n}"
+              schema:
+                type: object
+                properties:
+                  script_tags:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: 0510dace-34da-4555-a896-495e0cb1ed6e
+                        display_scope:
+                          type: string
+                          example: all
+                        src:
+                          type: string
+                          example: <script src="https://assets.shoplazza.com/add_to_cart.07fb91d6064f1902127d.js"></script>
+                        event_type:
+                          type: string
+                          example: myapp
+                        created_at:
+                          type: string
+                          example: '2018-08-26T06:50:00Z'
+                        updated_at:
+                          type: string
+                          example: '2018-08-26T06:50:00Z'
+      deprecated: false
+  /openapi/2022-01/script_tags/{id}:
+    put:
+      tags:
+      - Shop
+      summary: Update Script Tag
+      description: ''
+      operationId: update-script-tag
+      parameters:
+      - name: id
+        in: path
+        description: Script's ID
+        schema:
+          type: string
+        required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - src
+              properties:
+                src:
+                  type: string
+                  description: Javascript url, e.g. `<script src="https://shoplazza.com/x.js"></script>`
+                display_scope:
+                  type: string
+                  description: 'Display scope, possible value: `index`,`product`,`collection`,`customers/account`,`customers/login`,`customers/register`,`customers/reset_password`,`customers/reset_success`,`customers/addresses`,`customers/order`,`customers/track`,`order`,`order_verify`,`checkout`,`flashsaleCollection`,`couponCollection`,`rebateCollection`,`couponsCollection`,`search`,`404`,`page`,`article`,`blog`,`collections`,`products`,`theme_page`,`order_status`,`automaticCollection`,`password`,`order_lookup`,`customers/coupon`'
+                  default: all
+                event_type:
+                  type: string
+                  description: Event type, e.g. `myapp`
+                  default: app
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"script_tag\":{\n    \"id\":\"0510dace-34da-4555-a896-495e0cb1ed6e\",\n    \"display_scope\":\"all\",\n    \"src\": \"<script src=\\\"https://assets.shoplazza.com/add_to_cart.07fb91d6064f1902127d.js\\\"></script>\",\n    \"event_type\": \"myapp\",\n    \"created_at\": \"2018-08-26T06:50:00Z\",\n    \"updated_at\": \"2018-08-26T06:50:00Z\"\n   }\n}"
+              schema:
+                type: object
+                properties:
+                  script_tag:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: 0510dace-34da-4555-a896-495e0cb1ed6e
+                      display_scope:
+                        type: string
+                        example: all
+                      src:
+                        type: string
+                        example: <script src="https://assets.shoplazza.com/add_to_cart.07fb91d6064f1902127d.js"></script>
+                      event_type:
+                        type: string
+                        example: myapp
+                      created_at:
+                        type: string
+                        example: '2018-08-26T06:50:00Z'
+                      updated_at:
+                        type: string
+                        example: '2018-08-26T06:50:00Z'
+      deprecated: false
+    delete:
+      tags:
+      - Shop
+      summary: Delete Script Tag
+      description: ''
+      operationId: delete-script-tag
+      parameters:
+      - name: id
+        in: path
+        description: Script's ID
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+        '404':
+          description: '404'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"errors\": [\n    \"record not found!\"\n  ]\n}"
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: string
+                      example: record not found!
+      deprecated: false
+    get:
+      tags:
+      - Shop
+      summary: Get Script Tag
+      description: ''
+      operationId: get-script-tag
+      parameters:
+      - name: id
+        in: path
+        description: Script's ID
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"script_tag\":{\n    \"id\":\"0510dace-34da-4555-a896-495e0cb1ed6e\",\n    \"display_scope\":\"all\",\n    \"src\": \"<script src=\\\"https://assets.shoplazza.com/add_to_cart.07fb91d6064f1902127d.js\\\"></script>\",\n    \"event_type\": \"myapp”\",\n    \"created_at\": \"2018-08-26T06:50:00Z\",\n    \"updated_at\": \"2018-08-26T06:50:00Z\"\n  }\n}"
+              schema:
+                type: object
+                properties:
+                  script_tag:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: 0510dace-34da-4555-a896-495e0cb1ed6e
+                      display_scope:
+                        type: string
+                        example: all
+                      src:
+                        type: string
+                        example: <script src="https://assets.shoplazza.com/add_to_cart.07fb91d6064f1902127d.js"></script>
+                      event_type:
+                        type: string
+                        example: myapp”
+                      created_at:
+                        type: string
+                        example: '2018-08-26T06:50:00Z'
+                      updated_at:
+                        type: string
+                        example: '2018-08-26T06:50:00Z'
+      deprecated: false
+  /openapi/2022-01/script_tags/count:
+    get:
+      tags:
+      - Shop
+      summary: Get Script Tag Count
+      description: ''
+      operationId: get-script-tag-count
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"count\": 5\n}"
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 5
+                    default: 0
+      deprecated: false
+  /openapi/2022-01/comments/list:
+    get:
+      tags:
+      - Shop
+      summary: Get Comment List
+      description: ''
+      operationId: get-comment-list
+      parameters:
+      - name: product_id
+        in: query
+        description: Product's IDs, e.g. `9e79ca1f-9ff2-409b-976f-98be343d38a3`
+        schema:
+          type: string
+      - name: created_at_min
+        in: query
+        description: 'Filter comments created at or after date, for example: `2018-10-01T16:15:47-04:00`'
+        schema:
+          type: string
+      - name: created_at_max
+        in: query
+        description: 'Filter comments created at or before date, for example: `2018-10-01T16:15:47-04:00`'
+        schema:
+          type: string
+      - name: updated_at_min
+        in: query
+        description: 'Filter comments last updated at or after date, for example: `2018-10-01T16:15:47-04:00`'
+        schema:
+          type: string
+      - name: updated_at_max
+        in: query
+        description: 'Filter comments last updated at or before date, for example: `2018-10-01T16:15:47-04:00`'
+        schema:
+          type: string
+      - name: sort_by
+        in: query
+        description: Specify the sort field, e.g. `star` or `created_at`
+        schema:
+          type: string
+          default: star
+      - name: sort_direction
+        in: query
+        description: Specify the sort direction, e.g. `asc` or `desc`
+        schema:
+          type: string
+          default: asc
+      - name: page
+        in: query
+        description: Page number
+        schema:
+          type: integer
+          format: int32
+          default: 1
+      - name: limit
+        in: query
+        description: Limit per page, 10, 20, 50, 100 allowed
+        schema:
+          type: integer
+          format: int32
+          default: 20
+      - name: status
+        in: query
+        description: 'Comment status, `1`: published, `0`: unpublished'
+        schema:
+          type: integer
+          format: int32
+          default: 1
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"comments\": [\n        {\n            \"id\": \"23359196\",\n            \"store_id\": \"11218\",\n            \"username\": \"Jack\",\n            \"email\": \"developer@example.com\",\n            \"star\": \"5.0\",\n            \"like\": \"1\",\n            \"content\": \"Great!\",\n            \"img\": \"[\\\"example.png\\\"]\",\n            \"status\": \"1\",\n            \"type\": \"1\",\n            \"product_id\": \"f9dec889-8b4c-44a9-b9b6-3fe8edb94467\",\n            \"created_at\": \"2022-11-08 05:42:41\",\n            \"updated_at\": \"2022-11-09 09:24:47\",\n            \"country\": \"CN\",\n            \"is_featured\": \"0\",\n            \"is_verified\": \"1\",\n            \"client_id\": \"1666840484639148\"\n        },\n        {\n            \"id\": \"23359198\",\n            \"store_id\": \"11218\",\n            \"username\": \"Joey\",\n            \"email\": \"\",\n            \"star\": \"4.0\",\n            \"like\": \"199\",\n            \"content\": \"Good!\",\n            \"img\": \"[]\",\n            \"status\": \"1\",\n            \"type\": \"1\",\n            \"product_id\": \"424ec2e4-880a-4231-ba8b-e6ad955a7845\",\n            \"created_at\": \"2022-10-10 15:00:00\",\n            \"updated_at\": \"2022-11-10 06:57:15\",\n            \"country\": \"\",\n            \"is_featured\": \"0\",\n            \"is_verified\": \"0\",\n            \"client_id\": null\n        }\n    ],\n    \"total\": \"2\",\n    \"page\": \"1\"\n}"
+              schema:
+                type: object
+                properties:
+                  comments:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: '23359196'
+                        store_id:
+                          type: string
+                          example: '11218'
+                        username:
+                          type: string
+                          example: Jack
+                        email:
+                          type: string
+                          example: developer@example.com
+                        star:
+                          type: string
+                          example: '5.0'
+                        like:
+                          type: string
+                          example: '1'
+                        content:
+                          type: string
+                          example: Great!
+                        img:
+                          type: string
+                          example: '["example.png"]'
+                        status:
+                          type: string
+                          example: '1'
+                        type:
+                          type: string
+                          example: '1'
+                        product_id:
+                          type: string
+                          example: f9dec889-8b4c-44a9-b9b6-3fe8edb94467
+                        created_at:
+                          type: string
+                          example: '2022-11-08 05:42:41'
+                        updated_at:
+                          type: string
+                          example: '2022-11-09 09:24:47'
+                        country:
+                          type: string
+                          example: CN
+                        is_featured:
+                          type: string
+                          example: '0'
+                        is_verified:
+                          type: string
+                          example: '1'
+                        client_id:
+                          type: string
+                          example: '1666840484639148'
+                  total:
+                    type: string
+                    example: '2'
+                  page:
+                    type: string
+                    example: '1'
+      deprecated: false
+components:
+  securitySchemes:
+    sec0:
+      type: apiKey
+      in: header
+      name: access-token
+      x-default: WPMSdB6M8Cpum4X1GoMYOKZpiESd8d2x7dZW8d79ZeQ
+    apikey-header-access-token:
+      type: apiKey
+      in: header
+      name: access-token
+      x-default: WPMSdB6M8Cpum4X1GoMYOKZpiESd8d2x7dZW8d79ZeQ
+x-standalone-page:
+  title: Standalone Page
+  content: Information that should be on a standalone page...
+x-readme:
+  headers: []
+  explorer-enabled: true
+  proxy-enabled: true
+  samples-enabled: true

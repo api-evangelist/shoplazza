@@ -1,0 +1,340 @@
+openapi: 3.1.0
+info:
+  title: SPZ Admin Access Data API
+  version: '2022.01'
+servers:
+- url: https://{subdomain}.myshoplaza.com
+  variables:
+    subdomain:
+      default: developer
+security:
+- sec0: []
+tags:
+- name: Data
+  description: ''
+paths:
+  /openapi/2022-01/data/task:
+    get:
+      tags:
+      - Data
+      summary: Data Details
+      description: ''
+      operationId: data-details
+      parameters:
+      - name: id
+        in: query
+        description: Event ID to query, will query the last record if id is null
+        schema:
+          type: string
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"query_id\": \"af36fa44-544a-44ae-abf2-91b2e5e92bd0\",\n    \"query_status\": 2,\n    \"query\": {\n        \"url\": \"https://shoplazza.oss-cn-shenzhen.aliyuncs.com/73df807f-3534-44b0-8181-961cb3afd783.csv\"\n    }\n}"
+              schema:
+                type: object
+                properties:
+                  query_id:
+                    type: string
+                    example: af36fa44-544a-44ae-abf2-91b2e5e92bd0
+                  query_status:
+                    type: integer
+                    example: 2
+                    default: 0
+                  query:
+                    type: object
+                    properties:
+                      url:
+                        type: string
+                        example: https://shoplazza.oss-cn-shenzhen.aliyuncs.com/73df807f-3534-44b0-8181-961cb3afd783.csv
+      deprecated: false
+  /openapi/2022-01/data/count:
+    get:
+      tags:
+      - Data
+      summary: Data Count
+      description: ''
+      operationId: data-count
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"count\": 1\n}"
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 1
+                    default: 0
+      deprecated: false
+  /openapi/2022-01/data/tasks:
+    get:
+      tags:
+      - Data
+      summary: Data List
+      description: ''
+      operationId: data-list
+      parameters:
+      - name: page
+        in: query
+        description: Page number, e.g. `2`
+        schema:
+          type: integer
+          format: int32
+          default: 1
+      - name: limit
+        in: query
+        description: Result per page, e.g. `15`
+        schema:
+          type: integer
+          format: int32
+          default: 20
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"querys\": [\n        {\n            \"query_id\": \"af36fa44-544a-44ae-abf2-91b2e5e92bd0\",\n            \"query_status\": 2,\n            \"query\": {\n                \"url\": \"https://shoplazza.oss-cn-shenzhen.aliyuncs.com/73df807f-3534-44b0-8181-961cb3afd783.csv\"\n            }\n        }\n    ]\n}"
+              schema:
+                type: object
+                properties:
+                  querys:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        query_id:
+                          type: string
+                          example: af36fa44-544a-44ae-abf2-91b2e5e92bd0
+                        query_status:
+                          type: integer
+                          example: 2
+                          default: 0
+                        query:
+                          type: object
+                          properties:
+                            url:
+                              type: string
+                              example: https://shoplazza.oss-cn-shenzhen.aliyuncs.com/73df807f-3534-44b0-8181-961cb3afd783.csv
+      deprecated: false
+  /openapi/2022-01/data/query:
+    get:
+      tags:
+      - Data
+      summary: Create Data
+      description: ''
+      operationId: create-data
+      parameters:
+      - name: event
+        in: query
+        description: 'Event type, supported types: `impressions`, `add_payment_info`, `add_to_cart`, `begin_checkout`, `pageview`, `place_order`, `product_search`, `product_view`, `purchase_product`, `refund_order`, will query all event types except `impressions`, if query params not provided.'
+        schema:
+          type: string
+      - name: beginTime
+        in: query
+        description: Event query at after date, e.g. `2020-12-30T15:04:05`
+        required: true
+        schema:
+          type: string
+      - name: endTime
+        in: query
+        description: Event query at before the date, e.g. `2020-12-30T15:04:05`, the duration between beginning time and end time can not larger than 24 hours.
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"query_id\": \"78aa167e-2f80-4cae-9345-85f26c2e572e\"\n}"
+              schema:
+                type: object
+                properties:
+                  query_id:
+                    type: string
+                    example: 78aa167e-2f80-4cae-9345-85f26c2e572e
+      deprecated: false
+  /openapi/2022-01/data/analysis:
+    get:
+      tags:
+      - Data
+      summary: Data Analysis
+      description: ''
+      operationId: data-analysis
+      parameters:
+      - name: begin_time
+        in: query
+        description: Begin time of analysis data, e.g. `1666512000`
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: end_time
+        in: query
+        description: End time of analysis data, e.g. `1682323199`
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: tz
+        in: query
+        description: Time zone, e.g. `8`
+        required: true
+        schema:
+          type: number
+          format: float
+      - name: page
+        in: query
+        description: Page number
+        schema:
+          type: integer
+          format: int32
+      - name: limit
+        in: query
+        description: Limit per page, default `20`, max `200`
+        schema:
+          type: integer
+          format: int32
+      - name: sort_by
+        in: query
+        description: Sort, choose from field of `indicator`
+        schema:
+          type: string
+      - name: sort_direction
+        in: query
+        description: Sort direction, choose from `asc` `desc`
+        schema:
+          type: string
+      - name: dt_by
+        in: query
+        description: Time aggregation granularity, choose `dt_by_hour` `dt_by_day`
+        schema:
+          type: string
+      - name: dimension
+        in: query
+        description: Analysis dimension, analysis `shop dimension` when field is empty,  analysis `country dimension` when choose  from `country_code`, analysis `utm dimension` when choose  from`utm_source` `utm_medium` `utm_term` `utm_campaign` `utm_content`
+        schema:
+          type: array
+          items:
+            type: string
+      - name: indicator
+        in: query
+        description: Analysis indicator,  all dimension can choose from `pv` `uv` `add_cart_uv` `begin_checkout_pv` `begin_checkout_uv` `orders` `sales`, `shop` or `country dimension` can additionally choose from `conversion_rate` `add_cart_qty` `add_payment_info_uv`
+        required: true
+        schema:
+          type: array
+          items:
+            type: string
+      - name: filters
+        in: query
+        description: Analysis filters, e.g. `utm_source=google` `country_code=CN`
+        schema:
+          type: array
+          items:
+            type: string
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"count\": 2,\n    \"data\": [\n        {\n            \"date_time\": \"2023-05-16T16:00:00Z\",\n          \t\"country_code\": \"CN\",\n          \t\"utm_source\": \"-\",\n            \"utm_medium\": \"-\",\n            \"utm_campaign\": \"-\",\n            \"utm_term\": \"-\",\n            \"utm_content\": \"-\",\n            \"pv\": 0,\n            \"uv\": 0,\n            \"add_cart_uv\": 0,\n            \"add_cart_qty\": 0,\n            \"begin_checkout_pv\": 0,\n            \"begin_checkout_uv\": 0,\n            \"orders\": 1,\n            \"sales\": 10.6\n        },\n        {\n            \"date_time\": \"2023-05-24T16:00:00Z\",\n            \"country_code\": \"HK\",\n            \"utm_source\": \"-\",\n            \"utm_medium\": \"-\",\n            \"utm_campaign\": \"-\",\n            \"utm_term\": \"-\",\n            \"utm_content\": \"-\",\n            \"pv\": 0,\n            \"uv\": 0,\n            \"add_cart_uv\": 0,\n            \"add_cart_qty\": 0,\n            \"begin_checkout_pv\": 0,\n            \"begin_checkout_uv\": 0,\n            \"orders\": 2,\n            \"sales\": 24\n        }\n    ]\n}"
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 2
+                    default: 0
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        date_time:
+                          type: string
+                          example: '2023-05-16T16:00:00Z'
+                        country_code:
+                          type: string
+                          example: CN
+                        utm_source:
+                          type: string
+                          example: '-'
+                        utm_medium:
+                          type: string
+                          example: '-'
+                        utm_campaign:
+                          type: string
+                          example: '-'
+                        utm_term:
+                          type: string
+                          example: '-'
+                        utm_content:
+                          type: string
+                          example: '-'
+                        pv:
+                          type: integer
+                          example: 0
+                          default: 0
+                        uv:
+                          type: integer
+                          example: 0
+                          default: 0
+                        add_cart_uv:
+                          type: integer
+                          example: 0
+                          default: 0
+                        add_cart_qty:
+                          type: integer
+                          example: 0
+                          default: 0
+                        begin_checkout_pv:
+                          type: integer
+                          example: 0
+                          default: 0
+                        begin_checkout_uv:
+                          type: integer
+                          example: 0
+                          default: 0
+                        orders:
+                          type: integer
+                          example: 1
+                          default: 0
+                        sales:
+                          type: number
+                          example: 10.6
+                          default: 0
+      deprecated: false
+components:
+  securitySchemes:
+    sec0:
+      type: apiKey
+      in: header
+      name: access-token
+      x-default: WPMSdB6M8Cpum4X1GoMYOKZpiESd8d2x7dZW8d79ZeQ
+    apikey-header-access-token:
+      type: apiKey
+      in: header
+      name: access-token
+      x-default: WPMSdB6M8Cpum4X1GoMYOKZpiESd8d2x7dZW8d79ZeQ
+x-standalone-page:
+  title: Standalone Page
+  content: Information that should be on a standalone page...
+x-readme:
+  headers: []
+  explorer-enabled: true
+  proxy-enabled: true
+  samples-enabled: true

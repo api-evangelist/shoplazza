@@ -1,0 +1,250 @@
+openapi: 3.1.0
+info:
+  title: SPZ Admin Access App Proxy API
+  version: '2022.01'
+servers:
+- url: https://{subdomain}.myshoplaza.com
+  variables:
+    subdomain:
+      default: developer
+security:
+- sec0: []
+tags:
+- name: App Proxy
+  description: ''
+paths:
+  /openapi/2022-01/app-proxies:
+    get:
+      tags:
+      - App Proxy
+      summary: Get App Proxy List
+      description: ''
+      operationId: get-app-proxy-list
+      parameters:
+      - name: page
+        in: query
+        description: Page number
+        schema:
+          type: integer
+          format: int32
+          default: 1
+      - name: limit
+        in: query
+        description: 'Record count in every page, default: 20'
+        schema:
+          type: integer
+          format: int32
+          default: 20
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"app_proxys\": [\n        {\n            \"id\": 300,\n            \"real_path\": \"abc/d/e\",\n            \"proxy_url\": \"http://www.baidu.com/a/b\",\n            \"created_at\": \"2020-12-30T09:40:18+08:00\",\n            \"updated_at\": \"2020-12-30T09:40:18+08:00\"\n        }\n    ]\n}"
+              schema:
+                type: object
+                properties:
+                  app_proxys:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 300
+                          default: 0
+                        real_path:
+                          type: string
+                          example: abc/d/e
+                        proxy_url:
+                          type: string
+                          example: http://www.baidu.com/a/b
+                        created_at:
+                          type: string
+                          example: '2020-12-30T09:40:18+08:00'
+                        updated_at:
+                          type: string
+                          example: '2020-12-30T09:40:18+08:00'
+      deprecated: false
+    post:
+      tags:
+      - App Proxy
+      summary: Create App Proxy
+      description: ''
+      operationId: create-app-proxy
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - real_path
+              - proxy_url
+              properties:
+                real_path:
+                  type: string
+                  description: App's relative path, e.g. `test/aa`
+                proxy_url:
+                  type: string
+                  description: Proxy URL, e.g. `http://www.baidu.com/b/c`
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"app_proxy\": {\n        \"id\": 4,\n        \"real_path\": \"test/aa\",\n        \"proxy_url\": \"http://www.baidu.com/b/c\",\n        \"created_at\": \"2020-12-30T10:03:36+08:00\",\n        \"updated_at\": \"2020-12-30T10:03:36+08:00\"\n    }\n}"
+              schema:
+                type: object
+                properties:
+                  app_proxy:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 4
+                        default: 0
+                      real_path:
+                        type: string
+                        example: test/aa
+                      proxy_url:
+                        type: string
+                        example: http://www.baidu.com/b/c
+                      created_at:
+                        type: string
+                        example: '2020-12-30T10:03:36+08:00'
+                      updated_at:
+                        type: string
+                        example: '2020-12-30T10:03:36+08:00'
+        '422':
+          description: '422'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"errors\": [\"RealPath必填\"]\n}"
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: string
+                      example: RealPath必填
+      deprecated: false
+  /openapi/2022-01/app-proxies/count:
+    get:
+      tags:
+      - App Proxy
+      summary: App Proxy Count
+      description: ''
+      operationId: app-proxy-count
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"count\": 3\n}"
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 3
+                    default: 0
+      deprecated: false
+  /openapi/2022-01/app-proxies/{id}:
+    delete:
+      tags:
+      - App Proxy
+      summary: Delete App Proxy
+      description: ''
+      operationId: delete-app-proxy
+      parameters:
+      - name: id
+        in: path
+        description: App proxy's ID
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+    get:
+      tags:
+      - App Proxy
+      summary: App Proxy Details
+      description: ''
+      operationId: app-proxy-details
+      parameters:
+      - name: id
+        in: path
+        description: App proxy's ID
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"app_proxy\": {\n        \"id\": 300,\n        \"real_path\": \"test\",\n        \"proxy_url\": \"http://www.baidu.com/a\",\n        \"created_at\": \"2020-12-30T09:40:18+08:00\",\n        \"updated_at\": \"2020-12-30T09:40:18+08:00\"\n    }\n}"
+              schema:
+                type: object
+                properties:
+                  app_proxy:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 300
+                        default: 0
+                      real_path:
+                        type: string
+                        example: test
+                      proxy_url:
+                        type: string
+                        example: http://www.baidu.com/a
+                      created_at:
+                        type: string
+                        example: '2020-12-30T09:40:18+08:00'
+                      updated_at:
+                        type: string
+                        example: '2020-12-30T09:40:18+08:00'
+      deprecated: false
+components:
+  securitySchemes:
+    sec0:
+      type: apiKey
+      in: header
+      name: access-token
+      x-default: WPMSdB6M8Cpum4X1GoMYOKZpiESd8d2x7dZW8d79ZeQ
+    apikey-header-access-token:
+      type: apiKey
+      in: header
+      name: access-token
+      x-default: WPMSdB6M8Cpum4X1GoMYOKZpiESd8d2x7dZW8d79ZeQ
+x-standalone-page:
+  title: Standalone Page
+  content: Information that should be on a standalone page...
+x-readme:
+  headers: []
+  explorer-enabled: true
+  proxy-enabled: true
+  samples-enabled: true

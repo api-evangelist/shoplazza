@@ -1,0 +1,977 @@
+openapi: 3.1.0
+info:
+  title: SPZ Admin Access Metafield API
+  version: '2022.01'
+servers:
+- url: https://{subdomain}.myshoplaza.com
+  variables:
+    subdomain:
+      default: developer
+security:
+- sec0: []
+tags:
+- name: Metafield
+  description: ''
+paths:
+  /openapi/2022-01/metafields:
+    post:
+      tags:
+      - Metafield
+      summary: Create Shop Matefield
+      description: Create a metafield for the Shop resource
+      operationId: create-shop-matefield
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - namespace
+              - key
+              - value
+              - type
+              properties:
+                namespace:
+                  type: string
+                  description: A container for a group of metafields.
+                key:
+                  type: string
+                  description: The key of the metafield.
+                value:
+                  type: mixed type
+                  description: The data to store in the metafield.
+                type:
+                  type: string
+                  description: The type of data that the metafield stores in the `value` field.
+                description:
+                  type: string
+                  description: A description of the information that the metafield contains.
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"metafield\": {\n        \"id\": \"200140628510648018\",\n        \"store_id\": 11218,\n        \"created_at\": \"2022-12-13T06:47:32.806438731Z\",\n        \"updated_at\": \"2022-12-13T06:47:32.806438806Z\",\n        \"owner_resource\": \"shop\",\n        \"owner_id\": \"11218\",\n        \"namespace\": \"my_namespace\",\n        \"key\": \"my_key\",\n        \"type\": \"string\",\n        \"value\": \"my_value\",\n        \"description\": \"\",\n        \"definition_id\": \"0\"\n    }\n}"
+              schema:
+                type: object
+                properties:
+                  metafield:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: '200140628510648018'
+                      store_id:
+                        type: integer
+                        example: 11218
+                        default: 0
+                      created_at:
+                        type: string
+                        example: '2022-12-13T06:47:32.806438731Z'
+                      updated_at:
+                        type: string
+                        example: '2022-12-13T06:47:32.806438806Z'
+                      owner_resource:
+                        type: string
+                        example: shop
+                      owner_id:
+                        type: string
+                        example: '11218'
+                      namespace:
+                        type: string
+                        example: my_namespace
+                      key:
+                        type: string
+                        example: my_key
+                      type:
+                        type: string
+                        example: string
+                      value:
+                        type: string
+                        example: my_value
+                      description:
+                        type: string
+                        example: ''
+                      definition_id:
+                        type: string
+                        example: '0'
+      deprecated: false
+    get:
+      tags:
+      - Metafield
+      summary: Get Shop Metafield List
+      description: Get metafields attached to the Shop resource
+      operationId: get-shop-metafield-list
+      parameters:
+      - name: namespace
+        in: query
+        description: A container for a group of metafields.
+        schema:
+          type: string
+      - name: key
+        in: query
+        description: The key of the metafield.
+        schema:
+          type: string
+      - name: type
+        in: query
+        description: The type of data that the metafield stores in the `value` field.
+        schema:
+          type: string
+      - name: limit
+        in: query
+        description: Limit per page
+        schema:
+          type: integer
+          format: int32
+      - name: since_id
+        in: query
+        description: Show metafields created after the specified ID.
+        schema:
+          type: string
+      - name: create_at_min
+        in: query
+        description: Show metafields created after date, ISO-8601 format, e.g. "2022-12-02T09:46:30Z"
+        schema:
+          type: string
+      - name: create_at_max
+        in: query
+        description: Show metafields created before date, ISO-8601 format, e.g. "2022-12-02T09:46:30Z"
+        schema:
+          type: string
+      - name: update_at_min
+        in: query
+        description: Show metafields last updated after date, ISO-8601 format, e.g. "2022-12-02T09:46:30Z"
+        schema:
+          type: string
+      - name: update_at_max
+        in: query
+        description: Show metafields last updated before date, ISO-8601 format, e.g. "2022-12-02T09:46:30Z"
+        schema:
+          type: string
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"metafields\": [\n        {\n            \"id\": \"200140664313226962\",\n            \"store_id\": 11218,\n            \"created_at\": \"2022-12-13T06:53:42Z\",\n            \"updated_at\": \"2022-12-13T06:53:42Z\",\n            \"owner_resource\": \"shop\",\n            \"owner_id\": \"11218\",\n            \"namespace\": \"my_namespace\",\n            \"key\": \"my_key\",\n            \"type\": \"string\",\n            \"value\": \"my_value\",\n            \"description\": \"some description\",\n            \"definition_id\": \"0\"\n        },\n        {\n            \"id\": \"200142450046543570\",\n            \"store_id\": 11218,\n            \"created_at\": \"2022-12-14T06:54:43Z\",\n            \"updated_at\": \"2022-02-14T06:54:43Z\",\n            \"owner_resource\": \"shop\",\n            \"owner_id\": \"11218\",\n            \"namespace\": \"my_namespace\",\n            \"key\": \"my_key_2\",\n            \"type\": \"integer\",\n            \"value\": 200,\n            \"description\": \"\",\n            \"definition_id\": \"0\"\n        }\n    ],\n    \"last_id\": \"200142450046543570\",\n    \"total\": 2,\n    \"remain\": 0,\n    \"page\": 1,\n    \"total_page\": 1,\n    \"have_next\": false\n}"
+              schema:
+                type: object
+                properties:
+                  metafields:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: '200140664313226962'
+                        store_id:
+                          type: integer
+                          example: 11218
+                          default: 0
+                        created_at:
+                          type: string
+                          example: '2022-12-13T06:53:42Z'
+                        updated_at:
+                          type: string
+                          example: '2022-12-13T06:53:42Z'
+                        owner_resource:
+                          type: string
+                          example: shop
+                        owner_id:
+                          type: string
+                          example: '11218'
+                        namespace:
+                          type: string
+                          example: my_namespace
+                        key:
+                          type: string
+                          example: my_key
+                        type:
+                          type: string
+                          example: string
+                        value:
+                          type: string
+                          example: my_value
+                        description:
+                          type: string
+                          example: some description
+                        definition_id:
+                          type: string
+                          example: '0'
+                  last_id:
+                    type: string
+                    example: '200142450046543570'
+                  total:
+                    type: integer
+                    example: 2
+                    default: 0
+                  remain:
+                    type: integer
+                    example: 0
+                    default: 0
+                  page:
+                    type: integer
+                    example: 1
+                    default: 0
+                  total_page:
+                    type: integer
+                    example: 1
+                    default: 0
+                  have_next:
+                    type: boolean
+                    example: false
+                    default: true
+      deprecated: false
+  /openapi/2022-01/metafields/{id}:
+    get:
+      tags:
+      - Metafield
+      summary: Get Shop Metafield Details
+      description: Get a single metafield attached to the Shop resource
+      operationId: get-shop-metafield-details
+      parameters:
+      - name: id
+        in: path
+        description: Metafield's ID
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"metafield\": {\n        \"id\": \"200140628510648018\",\n        \"store_id\": 11218,\n        \"created_at\": \"2022-12-13T06:47:32.806438731Z\",\n        \"updated_at\": \"2022-12-13T06:47:32.806438806Z\",\n        \"owner_resource\": \"shop\",\n        \"owner_id\": \"11218\",\n        \"namespace\": \"my_namespace\",\n        \"key\": \"my_key\",\n        \"type\": \"string\",\n        \"value\": \"my_value\",\n        \"description\": \"\",\n        \"definition_id\": \"0\"\n    }\n}"
+              schema:
+                type: object
+                properties:
+                  metafield:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: '200140628510648018'
+                      store_id:
+                        type: integer
+                        example: 11218
+                        default: 0
+                      created_at:
+                        type: string
+                        example: '2022-12-13T06:47:32.806438731Z'
+                      updated_at:
+                        type: string
+                        example: '2022-12-13T06:47:32.806438806Z'
+                      owner_resource:
+                        type: string
+                        example: shop
+                      owner_id:
+                        type: string
+                        example: '11218'
+                      namespace:
+                        type: string
+                        example: my_namespace
+                      key:
+                        type: string
+                        example: my_key
+                      type:
+                        type: string
+                        example: string
+                      value:
+                        type: string
+                        example: my_value
+                      description:
+                        type: string
+                        example: ''
+                      definition_id:
+                        type: string
+                        example: '0'
+      deprecated: false
+    patch:
+      tags:
+      - Metafield
+      summary: Update Shop Matefield
+      description: Update a metafield for a Shop resource
+      operationId: update-shop-matefield
+      parameters:
+      - name: id
+        in: path
+        description: Metafield's ID
+        schema:
+          type: string
+        required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                value:
+                  type: string
+                  description: The data to store in the metafield.
+                type:
+                  type: string
+                  description: The type of data that the metafield stores in the `value` field.
+                description:
+                  type: string
+                  description: A description of the information that the metafield contains.
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"metafield\": {\n        \"id\": \"200140628510648018\",\n        \"store_id\": 11218,\n        \"created_at\": \"2022-12-13T06:47:32.806438731Z\",\n        \"updated_at\": \"2022-12-13T06:47:32.806438806Z\",\n        \"owner_resource\": \"shop\",\n        \"owner_id\": \"11218\",\n        \"namespace\": \"my_namespace\",\n        \"key\": \"my_key\",\n        \"type\": \"string\",\n        \"value\": \"my_value\",\n        \"description\": \"\",\n        \"definition_id\": \"0\"\n    }\n}"
+              schema:
+                type: object
+                properties:
+                  metafield:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: '200140628510648018'
+                      store_id:
+                        type: integer
+                        example: 11218
+                        default: 0
+                      created_at:
+                        type: string
+                        example: '2022-12-13T06:47:32.806438731Z'
+                      updated_at:
+                        type: string
+                        example: '2022-12-13T06:47:32.806438806Z'
+                      owner_resource:
+                        type: string
+                        example: shop
+                      owner_id:
+                        type: string
+                        example: '11218'
+                      namespace:
+                        type: string
+                        example: my_namespace
+                      key:
+                        type: string
+                        example: my_key
+                      type:
+                        type: string
+                        example: string
+                      value:
+                        type: string
+                        example: my_value
+                      description:
+                        type: string
+                        example: ''
+                      definition_id:
+                        type: string
+                        example: '0'
+      deprecated: false
+    delete:
+      tags:
+      - Metafield
+      summary: Delete Shop Metafield
+      description: Delete a metafield by its ID for the Shop resource
+      operationId: delete-shop-metafield
+      parameters:
+      - name: id
+        in: path
+        description: Metafield's ID
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+        '404':
+          description: '404'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"code\": 5,\n    \"message\": \"data not found\",\n    \"details\": []\n}"
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                    example: 5
+                    default: 0
+                  message:
+                    type: string
+                    example: data not found
+                  details:
+                    type: array
+      deprecated: false
+  /openapi/2022-01/metafields/count:
+    get:
+      tags:
+      - Metafield
+      summary: Get Shop Metafields Count
+      description: Get a count of metafields attached to the Shop resource
+      operationId: get-shop-metafields-count
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"count\": 10\n}"
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 10
+                    default: 0
+      deprecated: false
+  /openapi/2022-01/{resource}/{resource_id}/metafields:
+    get:
+      tags:
+      - Metafield
+      summary: Get Metafield List
+      description: ''
+      operationId: get-metafield-list
+      parameters:
+      - name: resource
+        in: path
+        description: 'The type of resource that the metafield is attached to. Available resources: `shop`, `product`, `product_image`, `product_variant`, `order`, `page`, `customer`, `collection`, `blog`, `article`.'
+        schema:
+          type: string
+        required: true
+      - name: resource_id
+        in: path
+        description: The unique ID of the resource that the metafield is attached to.
+        schema:
+          type: string
+        required: true
+      - name: namespace
+        in: query
+        description: A container for a group of metafields.
+        schema:
+          type: string
+      - name: key
+        in: query
+        description: The key of the metafield.
+        schema:
+          type: string
+      - name: type
+        in: query
+        description: The type of data that the metafield stores in the `value` field.
+        schema:
+          type: string
+      - name: limit
+        in: query
+        description: Limit per page
+        schema:
+          type: string
+      - name: since_id
+        in: query
+        description: Show metafields created after the specified ID.
+        schema:
+          type: string
+      - name: create_at_min
+        in: query
+        description: Show metafields created after date, ISO-8601 format, e.g. "2022-12-02T09:46:30Z"
+        schema:
+          type: string
+      - name: create_at_max
+        in: query
+        description: Show metafields created before date, ISO-8601 format, e.g. "2022-12-02T09:46:30Z"
+        schema:
+          type: string
+      - name: update_at_min
+        in: query
+        description: Show metafields last updated after date, ISO-8601 format, e.g. "2022-12-02T09:46:30Z"
+        schema:
+          type: string
+      - name: update_at_max
+        in: query
+        description: Show metafields last updated before date, ISO-8601 format, e.g. "2022-12-02T09:46:30Z"
+        schema:
+          type: string
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"metafields\": [\n        {\n            \"id\": \"200140664313226962\",\n            \"store_id\": 11218,\n            \"created_at\": \"2022-12-13T06:53:42Z\",\n            \"updated_at\": \"2022-12-13T06:53:42Z\",\n            \"owner_resource\": \"product\",\n            \"owner_id\": \"ad6e30c4-51b8-4402-a459-718476ce7050\",\n            \"namespace\": \"my_namespace\",\n            \"key\": \"my_key\",\n            \"type\": \"string\",\n            \"value\": \"my_value\",\n            \"description\": \"some description\",\n            \"definition_id\": \"0\"\n        },\n        {\n            \"id\": \"200142450046543570\",\n            \"store_id\": 11218,\n            \"created_at\": \"2022-12-14T06:54:43Z\",\n            \"updated_at\": \"2022-02-14T06:54:43Z\",\n            \"owner_resource\": \"product\",\n            \"owner_id\": \"ad6e30c4-51b8-4402-a459-718476ce7050\",\n            \"namespace\": \"my_namespace\",\n            \"key\": \"my_key_2\",\n            \"type\": \"integer\",\n            \"value\": 200,\n            \"description\": \"\",\n            \"definition_id\": \"0\"\n        }\n    ],\n    \"last_id\": \"200142450046543570\",\n    \"total\": 2,\n    \"remain\": 0,\n    \"page\": 1,\n    \"total_page\": 1,\n    \"have_next\": false\n}"
+              schema:
+                type: object
+                properties:
+                  metafields:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: '200140664313226962'
+                        store_id:
+                          type: integer
+                          example: 11218
+                          default: 0
+                        created_at:
+                          type: string
+                          example: '2022-12-13T06:53:42Z'
+                        updated_at:
+                          type: string
+                          example: '2022-12-13T06:53:42Z'
+                        owner_resource:
+                          type: string
+                          example: product
+                        owner_id:
+                          type: string
+                          example: ad6e30c4-51b8-4402-a459-718476ce7050
+                        namespace:
+                          type: string
+                          example: my_namespace
+                        key:
+                          type: string
+                          example: my_key
+                        type:
+                          type: string
+                          example: string
+                        value:
+                          type: string
+                          example: my_value
+                        description:
+                          type: string
+                          example: some description
+                        definition_id:
+                          type: string
+                          example: '0'
+                  last_id:
+                    type: string
+                    example: '200142450046543570'
+                  total:
+                    type: integer
+                    example: 2
+                    default: 0
+                  remain:
+                    type: integer
+                    example: 0
+                    default: 0
+                  page:
+                    type: integer
+                    example: 1
+                    default: 0
+                  total_page:
+                    type: integer
+                    example: 1
+                    default: 0
+                  have_next:
+                    type: boolean
+                    example: false
+                    default: true
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+    post:
+      tags:
+      - Metafield
+      summary: Create Matefield
+      description: Create a metafield for the a resource
+      operationId: create-matefield
+      parameters:
+      - name: resource
+        in: path
+        description: 'The type of resource that the metafield is attached to. Available resources: `shop`, `product`, `product_image`, `product_variant`, `order`, `page`, `customer`, `collection`, `blog`, `article`.'
+        schema:
+          type: string
+        required: true
+      - name: resource_id
+        in: path
+        description: The unique ID of the resource that the metafield is attached to.
+        schema:
+          type: string
+        required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - namespace
+              - key
+              - value
+              - type
+              properties:
+                namespace:
+                  type: string
+                  description: A container for a group of metafields.
+                key:
+                  type: string
+                  description: The key of the metafield.
+                value:
+                  type: mixed type
+                  description: The data to store in the metafield.
+                type:
+                  type: string
+                  description: The type of data that the metafield stores in the `value` field.
+                description:
+                  type: string
+                  description: A description of the information that the metafield contains.
+                definition_id:
+                  type: string
+                  description: Specify definition id for creating meta fields
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"metafield\": {\n        \"id\": \"200140628510648018\",\n        \"store_id\": 11218,\n        \"created_at\": \"2022-12-13T06:47:32.806438731Z\",\n        \"updated_at\": \"2022-12-13T06:47:32.806438806Z\",\n        \"owner_resource\": \"product\",\n        \"owner_id\": \"ad6e30c4-51b8-4402-a459-718476ce7050\",\n        \"namespace\": \"my_namespace\",\n        \"key\": \"my_key\",\n        \"type\": \"string\",\n        \"value\": \"my_value\",\n        \"description\": \"\",\n        \"definition_id\": \"0\"\n    }\n}"
+              schema:
+                type: object
+                properties:
+                  metafield:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: '200140628510648018'
+                      store_id:
+                        type: integer
+                        example: 11218
+                        default: 0
+                      created_at:
+                        type: string
+                        example: '2022-12-13T06:47:32.806438731Z'
+                      updated_at:
+                        type: string
+                        example: '2022-12-13T06:47:32.806438806Z'
+                      owner_resource:
+                        type: string
+                        example: product
+                      owner_id:
+                        type: string
+                        example: ad6e30c4-51b8-4402-a459-718476ce7050
+                      namespace:
+                        type: string
+                        example: my_namespace
+                      key:
+                        type: string
+                        example: my_key
+                      type:
+                        type: string
+                        example: string
+                      value:
+                        type: string
+                        example: my_value
+                      description:
+                        type: string
+                        example: ''
+                      definition_id:
+                        type: string
+                        example: '0'
+      deprecated: false
+  /openapi/2022-01/{resource}/{resource_id}/metafields/{id}:
+    get:
+      tags:
+      - Metafield
+      summary: Get Metafield Details
+      description: Get a single metafield attached to a resource
+      operationId: get-metafield-details
+      parameters:
+      - name: resource
+        in: path
+        description: 'The type of resource that the metafield is attached to. Available resources: `shop`, `product`, `product_image`, `product_variant`, `order`, `page`, `customer`, `collection`, `blog`, `article`.'
+        schema:
+          type: string
+        required: true
+      - name: resource_id
+        in: path
+        description: The unique ID of the resource that the metafield is attached to.
+        schema:
+          type: string
+        required: true
+      - name: id
+        in: path
+        description: Metafield's ID
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"metafield\": {\n        \"id\": \"200140628510648018\",\n        \"store_id\": 11218,\n        \"created_at\": \"2022-12-13T06:47:32.806438731Z\",\n        \"updated_at\": \"2022-12-13T06:47:32.806438806Z\",\n        \"owner_resource\": \"product\",\n        \"owner_id\": \"ad6e30c4-51b8-4402-a459-718476ce7050\",\n        \"namespace\": \"my_namespace\",\n        \"key\": \"my_key\",\n        \"type\": \"string\",\n        \"value\": \"my_value\",\n        \"description\": \"\",\n        \"definition_id\": \"0\"\n    }\n}"
+              schema:
+                type: object
+                properties:
+                  metafield:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: '200140628510648018'
+                      store_id:
+                        type: integer
+                        example: 11218
+                        default: 0
+                      created_at:
+                        type: string
+                        example: '2022-12-13T06:47:32.806438731Z'
+                      updated_at:
+                        type: string
+                        example: '2022-12-13T06:47:32.806438806Z'
+                      owner_resource:
+                        type: string
+                        example: product
+                      owner_id:
+                        type: string
+                        example: ad6e30c4-51b8-4402-a459-718476ce7050
+                      namespace:
+                        type: string
+                        example: my_namespace
+                      key:
+                        type: string
+                        example: my_key
+                      type:
+                        type: string
+                        example: string
+                      value:
+                        type: string
+                        example: my_value
+                      description:
+                        type: string
+                        example: ''
+                      definition_id:
+                        type: string
+                        example: '0'
+      deprecated: false
+    patch:
+      tags:
+      - Metafield
+      summary: Update Matefield
+      description: Update a metafield for a resource
+      operationId: update-matefield
+      parameters:
+      - name: resource
+        in: path
+        description: 'The type of resource that the metafield is attached to. Available resources: `shop`, `product`, `product_image`, `product_variant`, `order`, `page`, `customer`, `collection`, `blog`, `article`.'
+        schema:
+          type: string
+        required: true
+      - name: resource_id
+        in: path
+        description: The unique ID of the resource that the metafield is attached to.
+        schema:
+          type: string
+        required: true
+      - name: id
+        in: path
+        description: Metafield's ID
+        schema:
+          type: string
+        required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                value:
+                  type: string
+                  description: The data to store in the metafield.
+                type:
+                  type: string
+                  description: The type of data that the metafield stores in the `value` field.
+                description:
+                  type: string
+                  description: A description of the information that the metafield contains.
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"metafield\": {\n        \"id\": \"200140628510648018\",\n        \"store_id\": 11218,\n        \"created_at\": \"2022-12-13T06:47:32.806438731Z\",\n        \"updated_at\": \"2022-12-13T06:47:32.806438806Z\",\n        \"owner_resource\": \"product\",\n        \"owner_id\": \"ad6e30c4-51b8-4402-a459-718476ce7050\",\n        \"namespace\": \"my_namespace\",\n        \"key\": \"my_key\",\n        \"type\": \"string\",\n        \"value\": \"my_value\",\n        \"description\": \"\",\n        \"definition_id\": \"0\"\n    }\n}"
+              schema:
+                type: object
+                properties:
+                  metafield:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: '200140628510648018'
+                      store_id:
+                        type: integer
+                        example: 11218
+                        default: 0
+                      created_at:
+                        type: string
+                        example: '2022-12-13T06:47:32.806438731Z'
+                      updated_at:
+                        type: string
+                        example: '2022-12-13T06:47:32.806438806Z'
+                      owner_resource:
+                        type: string
+                        example: product
+                      owner_id:
+                        type: string
+                        example: ad6e30c4-51b8-4402-a459-718476ce7050
+                      namespace:
+                        type: string
+                        example: my_namespace
+                      key:
+                        type: string
+                        example: my_key
+                      type:
+                        type: string
+                        example: string
+                      value:
+                        type: string
+                        example: my_value
+                      description:
+                        type: string
+                        example: ''
+                      definition_id:
+                        type: string
+                        example: '0'
+      deprecated: false
+    delete:
+      tags:
+      - Metafield
+      summary: Delete Metafield
+      description: Delete a metafield by its ID for the Shop resource
+      operationId: delete-metafield
+      parameters:
+      - name: resource
+        in: path
+        description: 'The type of resource that the metafield is attached to. Available resources: `shop`, `product`, `product_image`, `product_variant`, `order`, `page`, `customer`, `collection`, `blog`, `article`.'
+        schema:
+          type: string
+        required: true
+      - name: resource_id
+        in: path
+        description: The unique ID of the resource that the metafield is attached to.
+        schema:
+          type: string
+        required: true
+      - name: id
+        in: path
+        description: Metafield's ID
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+        '404':
+          description: '404'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"code\": 5,\n    \"message\": \"data not found\",\n    \"details\": []\n}"
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                    example: 5
+                    default: 0
+                  message:
+                    type: string
+                    example: data not found
+                  details:
+                    type: array
+      deprecated: false
+  /openapi/2022-01/{resource}/{resource_id}/metafields/count:
+    get:
+      tags:
+      - Metafield
+      summary: Get Metafields Count
+      description: Get a count of metafields attached to a resource
+      operationId: get-metafields-count
+      parameters:
+      - name: resource
+        in: path
+        description: 'The type of resource that the metafield is attached to. Available resources: `shop`, `product`, `product_image`, `product_variant`, `order`, `page`, `customer`, `collection`, `blog`, `article`.'
+        schema:
+          type: string
+        required: true
+      - name: resource_id
+        in: path
+        description: The unique ID of the resource that the metafield is attached to.
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"count\": 10\n}"
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 10
+                    default: 0
+      deprecated: false
+components:
+  securitySchemes:
+    sec0:
+      type: apiKey
+      in: header
+      name: access-token
+      x-default: WPMSdB6M8Cpum4X1GoMYOKZpiESd8d2x7dZW8d79ZeQ
+    apikey-header-access-token:
+      type: apiKey
+      in: header
+      name: access-token
+      x-default: WPMSdB6M8Cpum4X1GoMYOKZpiESd8d2x7dZW8d79ZeQ
+x-standalone-page:
+  title: Standalone Page
+  content: Information that should be on a standalone page...
+x-readme:
+  headers: []
+  explorer-enabled: true
+  proxy-enabled: true
+  samples-enabled: true

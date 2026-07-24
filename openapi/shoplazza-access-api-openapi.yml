@@ -1,0 +1,72 @@
+openapi: 3.1.0
+info:
+  title: SPZ Admin Access API
+  version: '2022.01'
+servers:
+- url: https://{subdomain}.myshoplaza.com
+  variables:
+    subdomain:
+      default: developer
+security:
+- sec0: []
+tags:
+- name: Access
+  description: ''
+paths:
+  /openapi/2022-01/oauth/access_scopes:
+    get:
+      tags:
+      - Access
+      summary: Get Access Scopes
+      description: ''
+      operationId: get-access-scopes
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"access_scopes\": [\n        {\n            \"handle\": \"read_product\"\n        },\n        {\n            \"handle\": \"write_product\"\n        },\n        {\n            \"handle\": \"read_order\"\n        },\n        {\n            \"handle\": \"write_order\"\n        },\n        {\n            \"handle\": \"read_comments\"\n        },\n        {\n            \"handle\": \"write_comments\"\n        },\n        {\n            \"handle\": \"read_script_tags\"\n        },\n        {\n            \"handle\": \"write_script_tags\"\n        },\n        {\n            \"handle\": \"read_collection\"\n        },\n        {\n            \"handle\": \"write_collection\"\n        },\n        {\n            \"handle\": \"read_shop\"\n        },\n        {\n            \"handle\": \"read_customer\"\n        },\n        {\n            \"handle\": \"write_customer\"\n        },\n        {\n            \"handle\": \"read_app_proxy\"\n        },\n        {\n            \"handle\": \"write_app_proxy\"\n        },\n        {\n            \"handle\": \"read_data\"\n        },\n        {\n            \"handle\": \"write_data\"\n        },\n        {\n            \"handle\": \"read_price_rules\"\n        },\n        {\n            \"handle\": \"write_price_rules\"\n        },\n        {\n            \"handle\": \"read_shop_navigation\"\n        },\n        {\n            \"handle\": \"write_shop_navigation\"\n        },\n        {\n            \"handle\": \"read_search_api\"\n        },\n        {\n            \"handle\": \"write_search_api\"\n        }\n    ]\n}"
+              schema:
+                type: object
+                properties:
+                  access_scopes:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        handle:
+                          type: string
+                          example: read_product
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+components:
+  securitySchemes:
+    sec0:
+      type: apiKey
+      in: header
+      name: access-token
+      x-default: WPMSdB6M8Cpum4X1GoMYOKZpiESd8d2x7dZW8d79ZeQ
+    apikey-header-access-token:
+      type: apiKey
+      in: header
+      name: access-token
+      x-default: WPMSdB6M8Cpum4X1GoMYOKZpiESd8d2x7dZW8d79ZeQ
+x-standalone-page:
+  title: Standalone Page
+  content: Information that should be on a standalone page...
+x-readme:
+  headers: []
+  explorer-enabled: true
+  proxy-enabled: true
+  samples-enabled: true

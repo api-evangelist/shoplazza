@@ -1,0 +1,1611 @@
+openapi: 3.1.0
+info:
+  title: SPZ Admin Access Customer API
+  version: '2022.01'
+servers:
+- url: https://{subdomain}.myshoplaza.com
+  variables:
+    subdomain:
+      default: developer
+security:
+- sec0: []
+tags:
+- name: Customer
+  description: ''
+paths:
+  /openapi/2022-01/customers:
+    get:
+      tags:
+      - Customer
+      summary: Customer List
+      description: ''
+      operationId: customer-list
+      parameters:
+      - name: ids
+        in: query
+        description: ID list, separate with comma, e.g. `701670d5-4afd-40b5-8d4f-7e0e55683849,da1bb9af-2489-40df-a15e-f54abdf7fd86`
+        schema:
+          type: string
+      - name: limit
+        in: query
+        description: 'record count in every page, maximum: `250`'
+        schema:
+          type: integer
+          format: int32
+          default: 10
+      - name: page
+        in: query
+        description: page number
+        schema:
+          type: integer
+          format: int32
+          default: 1
+      - name: created_at_min
+        in: query
+        description: filter customer created at after date, e.g. `2016-01-18T23:41:00Z`
+        schema:
+          type: string
+      - name: created_at_max
+        in: query
+        description: filter customer created_at before date, e.g. `2016-01-18T23:41:00Z`
+        schema:
+          type: string
+      - name: updated_at_min
+        in: query
+        description: filter customer last updated at after, e.g. `2016-01-18T23:41:00Z`
+        schema:
+          type: string
+      - name: updated_at_max
+        in: query
+        description: filter customer last updated at before date, e.g. `2016-01-18T23:41:00Z`
+        schema:
+          type: string
+      - name: email
+        in: query
+        description: filter by email, e.g. `abc@def.com`
+        schema:
+          type: string
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"customers\": [\n    {\n      \"id\": \"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\",\n      \"first_name\": \"Lee\",\n      \"last_name\": \"Le\",\n      \"name\": \"Lee Le\",\n      \"email\": \"person207@example.com\",\n      \"phone\": \"+8615323233434\",\n      \"accepts_marketing\": false,\n      \"subscribed_flag\": 6,\n      \"sms_subscribed_flag\": 5,\n      \"accepts_sms_marketing\": true,\n      \"orders_count\": 10,\n      \"last_order_at\": \"2022-11-15T08:43:50Z\",\n      \"total_spent\": \"100.10\",\n      \"tags\": \"a, b\",\n      \"created_at\": \"2014-04-25T16:15:47Z\",\n      \"updated_at\": \"2014-04-25T16:15:47Z\",\n      \"default_address\": {\n        \"id\": \"2ffa86e9-f3f4-4684-84b6-05399ef19709\",\n        \"customer_id\": \"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\",\n        \"first_name\": \"Lee\",\n        \"last_name\": \"Le\",\n        \"name\": \"Lee Le\",\n        \"company\": \"abc company\",\n        \"address1\": \"Chestnut Street 92\",\n        \"address2\": \"\",\n        \"city\": \"Louisville\",\n        \"province\": \"Kentucky\",\n        \"province_code\": \"KY\",\n        \"country\": \"United States\",\n        \"country_code\": \"US\",\n        \"country_name\": \"United States\",\n        \"zip\": \"40202\",\n        \"phone\": \"+8615323233434\",\n        \"default\": true\n      },\n      \"addresses\": [\n        {\n          \"id\": \"2ffa86e9-f3f4-4684-84b6-05399ef19709\",\n          \"customer_id\": \"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\",\n          \"first_name\": \"Lee\",\n          \"last_name\": \"Le\",\n          \"name\": \"Lee Le\",\n          \"company\": \"abc company\",\n          \"address1\": \"Chestnut Street 92\",\n          \"address2\": \"\",\n          \"city\": \"Louisville\",\n          \"province\": \"Kentucky\",\n          \"province_code\": \"KY\",\n          \"country\": \"United States\",\n          \"country_code\": \"US\",\n          \"country_name\": \"United States\",\n          \"zip\": \"40202\",\n          \"phone\": \"+8615323233434\",\n          \"default\": true\n        }\n      ]\n    }\n  ]\n}"
+              schema:
+                type: object
+                properties:
+                  customers:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: db4469f3-5e56-4c69-a2b6-03e81d24d5b5
+                        first_name:
+                          type: string
+                          example: Lee
+                        last_name:
+                          type: string
+                          example: Le
+                        name:
+                          type: string
+                          example: Lee Le
+                        email:
+                          type: string
+                          example: person207@example.com
+                        phone:
+                          type: string
+                          example: '+8615323233434'
+                        accepts_marketing:
+                          type: boolean
+                          example: false
+                          default: true
+                        subscribed_flag:
+                          type: integer
+                          example: 6
+                          default: 0
+                        sms_subscribed_flag:
+                          type: integer
+                          example: 5
+                          default: 0
+                        accepts_sms_marketing:
+                          type: boolean
+                          example: true
+                          default: true
+                        orders_count:
+                          type: integer
+                          example: 10
+                          default: 0
+                        last_order_at:
+                          type: string
+                          example: '2022-11-15T08:43:50Z'
+                        total_spent:
+                          type: string
+                          example: '100.10'
+                        tags:
+                          type: string
+                          example: a, b
+                        created_at:
+                          type: string
+                          example: '2014-04-25T16:15:47Z'
+                        updated_at:
+                          type: string
+                          example: '2014-04-25T16:15:47Z'
+                        default_address:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              example: 2ffa86e9-f3f4-4684-84b6-05399ef19709
+                            customer_id:
+                              type: string
+                              example: db4469f3-5e56-4c69-a2b6-03e81d24d5b5
+                            first_name:
+                              type: string
+                              example: Lee
+                            last_name:
+                              type: string
+                              example: Le
+                            name:
+                              type: string
+                              example: Lee Le
+                            company:
+                              type: string
+                              example: abc company
+                            address1:
+                              type: string
+                              example: Chestnut Street 92
+                            address2:
+                              type: string
+                              example: ''
+                            city:
+                              type: string
+                              example: Louisville
+                            province:
+                              type: string
+                              example: Kentucky
+                            province_code:
+                              type: string
+                              example: KY
+                            country:
+                              type: string
+                              example: United States
+                            country_code:
+                              type: string
+                              example: US
+                            country_name:
+                              type: string
+                              example: United States
+                            zip:
+                              type: string
+                              example: '40202'
+                            phone:
+                              type: string
+                              example: '+8615323233434'
+                            default:
+                              type: boolean
+                              example: true
+                              default: true
+                        addresses:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              id:
+                                type: string
+                                example: 2ffa86e9-f3f4-4684-84b6-05399ef19709
+                              customer_id:
+                                type: string
+                                example: db4469f3-5e56-4c69-a2b6-03e81d24d5b5
+                              first_name:
+                                type: string
+                                example: Lee
+                              last_name:
+                                type: string
+                                example: Le
+                              name:
+                                type: string
+                                example: Lee Le
+                              company:
+                                type: string
+                                example: abc company
+                              address1:
+                                type: string
+                                example: Chestnut Street 92
+                              address2:
+                                type: string
+                                example: ''
+                              city:
+                                type: string
+                                example: Louisville
+                              province:
+                                type: string
+                                example: Kentucky
+                              province_code:
+                                type: string
+                                example: KY
+                              country:
+                                type: string
+                                example: United States
+                              country_code:
+                                type: string
+                                example: US
+                              country_name:
+                                type: string
+                                example: United States
+                              zip:
+                                type: string
+                                example: '40202'
+                              phone:
+                                type: string
+                                example: '+8615323233434'
+                              default:
+                                type: boolean
+                                example: true
+                                default: true
+      deprecated: false
+    post:
+      tags:
+      - Customer
+      summary: Create Customer
+      description: ''
+      operationId: create-customer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                customer:
+                  type: object
+                  required:
+                  - contact_type
+                  - register_at
+                  properties:
+                    contact_type:
+                      type: string
+                      description: Should be `phone` or `email`. If it's `phone`, the phone parameter is required, otherwise, the email parameter is required
+                    email:
+                      type: string
+                      description: Email, it's required when contact_type is `email`, e.g. `max@example.com`
+                    phone:
+                      type: string
+                      description: Phone number with area code, it's required when contact_type is `phone`, e.g. `+15052814445`
+                    first_name:
+                      type: string
+                      description: First Name, e.g. `Peter`
+                    last_name:
+                      type: string
+                      description: Last name, e.g. `Max`
+                    accepts_marketing:
+                      type: boolean
+                      description: Whether to subscribe marketing email campaign
+                      default: true
+                    accepts_sms_marketing:
+                      type: boolean
+                      description: Whether to subscribe marketing sms campaign
+                      default: true
+                    password:
+                      type: string
+                      description: Password, e.g. `123456`
+                    password_confirmation:
+                      type: string
+                      description: Password confirmation, e.g. `123456`
+                    tags:
+                      type: string
+                      description: Tags, e.g. `New Customer,Repeat Customer`
+                    registered_at:
+                      type: string
+                      example: '2024-03-11T03:32:00Z'
+                      description: Customer registration time. Without this field, you cannot sign in
+                    addresses:
+                      type: array
+                      description: Addresses
+                      items:
+                        properties:
+                          first_name:
+                            type: string
+                            description: First name, e.g. `Peter`
+                          last_name:
+                            type: string
+                            description: Last Name, e.g. `Max`
+                          email:
+                            type: string
+                            description: Email, e.g. `max@example.com`
+                          address1:
+                            type: string
+                            description: 'Address line #1, e.g. `1 Rue des Carrieres`'
+                          address2:
+                            type: string
+                            description: 'Address line #2, e.g. `Suite 1234`'
+                          area:
+                            type: string
+                            description: Area, e.g. `Bay area`
+                          city:
+                            type: string
+                            description: City, e.g. `SAN JOSE`
+                          province:
+                            type: string
+                            description: Province, e.g. `New Mexico`
+                          province_code:
+                            type: string
+                            description: Province Code, e.g. `NM`
+                          country:
+                            type: string
+                            description: Country, e.g. `United States`
+                          country_code:
+                            type: string
+                            description: Country code, e.g. `US`
+                          company:
+                            type: string
+                            description: Company, e.g. `ABC Limited`
+                          phone:
+                            type: string
+                            description: Phone number, e.g. `5052814445`
+                          phone_area_code:
+                            type: string
+                            description: Area code, e.g. `+86`
+                          zip:
+                            type: string
+                            description: ZIP code, e.g. `87036`
+                          gender:
+                            type: string
+                            description: Gender, e.g. `male` or `female`
+                          default:
+                            type: boolean
+                            description: Default address or not
+                            default: true
+                        required:
+                        - first_name
+                        - last_name
+                        - country
+                        - country_code
+                        type: object
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"customer\": {\n    \"id\": \"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\",\n    \"first_name\": \"Lee\",\n    \"last_name\": \"Le\",\n    \"name\": \"Lee Le\",\n    \"email\": \"person@example.com\",\n    \"phone\": \"+8615423233434\",\n    \"accepts_marketing\": false,\n    \"subscribed_flag\": 6,\n    \"sms_subscribed_flag\": 5,\n    \"accepts_sms_marketing\": true,\n    \"orders_count\": 0,\n    \"total_spent\": \"0.0\",\n    \"tags\": \"New Customer,Repeat Customer\",\n    \"created_at\": \"2014-04-25T16:15:47-04:00\",\n    \"updated_at\": \"2014-04-25T16:15:47-04:00\",\n    \"default_address\": {\n      \"id\": \"2ffa86e9-f3f4-4684-84b6-05399ef19709\",\n      \"customer_id\": \"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\",\n      \"first_name\": \"Lee\",\n      \"last_name\": \"Le\",\n      \"name\": \"Lee Le\",\n      \"company\": \"abc company\",\n      \"address1\": \"1 Rue des Carrieres\",\n      \"address2\": \"\",\n      \"city\": \"Louisville\",\n      \"province\": \"Kentucky\",\n      \"province_code\": \"KY\",\n      \"country\": \"United States\",\n      \"country_code\": \"US\",\n      \"country_name\": \"United States\",\n      \"zip\": \"40202\",\n      \"phone\": \"+8615323233434\",\n      \"default\": true\n    },\n    \"addresses\": [\n      {\n        \"id\": \"2ffa86e9-f3f4-4684-84b6-05399ef19709\",\n        \"customer_id\": \"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\",\n        \"first_name\": \"Lee\",\n        \"last_name\": \"Le\",\n        \"name\": \"Lee Le\",\n        \"company\": \"abc company\",\n        \"address1\": \"Chestnut Street 92\",\n        \"address2\": \"\",\n        \"city\": \"Louisville\",\n        \"province\": \"Kentucky\",\n        \"province_code\": \"KY\",\n        \"country\": \"United States\",\n        \"country_code\": \"US\",\n        \"country_name\": \"United States\",\n        \"zip\": \"40202\",\n        \"phone\": \"+8615323233434\",\n        \"default\": true\n      }\n    ]\n  }\n}"
+              schema:
+                type: object
+                properties:
+                  customer:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: db4469f3-5e56-4c69-a2b6-03e81d24d5b5
+                      first_name:
+                        type: string
+                        example: Lee
+                      last_name:
+                        type: string
+                        example: Le
+                      name:
+                        type: string
+                        example: Lee Le
+                      email:
+                        type: string
+                        example: person@example.com
+                      phone:
+                        type: string
+                        example: '+8615423233434'
+                      registered:
+                        type: boolean
+                        example: true
+                      accepts_marketing:
+                        type: boolean
+                        example: false
+                        default: true
+                      subscribed_flag:
+                        type: integer
+                        example: 6
+                        default: 0
+                      sms_subscribed_flag:
+                        type: integer
+                        example: 5
+                        default: 0
+                      accepts_sms_marketing:
+                        type: boolean
+                        example: true
+                        default: true
+                      orders_count:
+                        type: integer
+                        example: 0
+                        default: 0
+                      total_spent:
+                        type: string
+                        example: '0.0'
+                      tags:
+                        type: string
+                        example: New Customer,Repeat Customer
+                      created_at:
+                        type: string
+                        example: '2014-04-25T16:15:47-04:00'
+                      updated_at:
+                        type: string
+                        example: '2014-04-25T16:15:47-04:00'
+                      default_address:
+                        type: object
+                        properties:
+                          id:
+                            type: string
+                            example: 2ffa86e9-f3f4-4684-84b6-05399ef19709
+                          customer_id:
+                            type: string
+                            example: db4469f3-5e56-4c69-a2b6-03e81d24d5b5
+                          first_name:
+                            type: string
+                            example: Lee
+                          last_name:
+                            type: string
+                            example: Le
+                          name:
+                            type: string
+                            example: Lee Le
+                          company:
+                            type: string
+                            example: abc company
+                          address1:
+                            type: string
+                            example: 1 Rue des Carrieres
+                          address2:
+                            type: string
+                            example: ''
+                          city:
+                            type: string
+                            example: Louisville
+                          province:
+                            type: string
+                            example: Kentucky
+                          province_code:
+                            type: string
+                            example: KY
+                          country:
+                            type: string
+                            example: United States
+                          country_code:
+                            type: string
+                            example: US
+                          country_name:
+                            type: string
+                            example: United States
+                          zip:
+                            type: string
+                            example: '40202'
+                          phone:
+                            type: string
+                            example: '+8615323233434'
+                          default:
+                            type: boolean
+                            example: true
+                            default: true
+                      addresses:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              example: 2ffa86e9-f3f4-4684-84b6-05399ef19709
+                            customer_id:
+                              type: string
+                              example: db4469f3-5e56-4c69-a2b6-03e81d24d5b5
+                            first_name:
+                              type: string
+                              example: Lee
+                            last_name:
+                              type: string
+                              example: Le
+                            name:
+                              type: string
+                              example: Lee Le
+                            company:
+                              type: string
+                              example: abc company
+                            address1:
+                              type: string
+                              example: Chestnut Street 92
+                            address2:
+                              type: string
+                              example: ''
+                            city:
+                              type: string
+                              example: Louisville
+                            province:
+                              type: string
+                              example: Kentucky
+                            province_code:
+                              type: string
+                              example: KY
+                            country:
+                              type: string
+                              example: United States
+                            country_code:
+                              type: string
+                              example: US
+                            country_name:
+                              type: string
+                              example: United States
+                            zip:
+                              type: string
+                              example: '40202'
+                            phone:
+                              type: string
+                              example: '+8615323233434'
+                            default:
+                              type: boolean
+                              example: true
+                              default: true
+        '422':
+          description: '422'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"errors\": [\"Email is invalid\"]\n}"
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: string
+                      example: Email is invalid
+      deprecated: false
+  /openapi/2022-01/customers/{id}:
+    get:
+      tags:
+      - Customer
+      summary: Customer Details
+      description: ''
+      operationId: customer-details
+      parameters:
+      - name: id
+        in: path
+        description: Customer's ID
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"customer\": {\n    \"id\": \"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\",\n    \"first_name\": \"Lee\",\n    \"last_name\": \"Le\",\n    \"name\": \"Lee Le\",\n    \"email\": \"person207@example.com\",\n    \"phone\": \"+8615323233434\",\n    \"accepts_marketing\": false,\n    \"accepts_sms_marketing\": true,\n    \"subscribed_flag\": 6,\n    \"sms_subscribed_flag\": 5,\n    \"orders_count\": 10,\n    \"last_order_at\": \"2022-11-15T08:43:50Z\",\n    \"total_spent\": \"100.10\",\n    \"tags\": \"a, b\",\n    \"created_at\": \"2014-04-25T16:15:47Z\",\n    \"updated_at\": \"2014-04-25T16:15:47Z\",\n    \"default_address\": {\n      \"id\": \"2ffa86e9-f3f4-4684-84b6-05399ef19709\",\n      \"customer_id\": \"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\",\n      \"first_name\": \"Lee\",\n      \"last_name\": \"Le\",\n      \"name\": \"Lee Le\",\n      \"company\": \"abc company\",\n      \"address1\": \"Chestnut Street 92\",\n      \"address2\": \"\",\n      \"city\": \"Louisville\",\n      \"province\": \"Kentucky\",\n      \"province_code\": \"KY\",\n      \"country\": \"United States\",\n      \"country_code\": \"US\",\n      \"country_name\": \"United States\",\n      \"zip\": \"40202\",\n      \"phone\": \"+8615323233434\",\n      \"default\": true\n    },\n    \"addresses\": [\n      {\n        \"id\": \"2ffa86e9-f3f4-4684-84b6-05399ef19709\",\n        \"customer_id\": \"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\",\n        \"first_name\": \"Lee\",\n        \"last_name\": \"Le\",\n        \"name\": \"Lee Le\",\n        \"company\": \"abc company\",\n        \"address1\": \"Chestnut Street 92\",\n        \"address2\": \"\",\n        \"city\": \"Louisville\",\n        \"province\": \"Kentucky\",\n        \"province_code\": \"KY\",\n        \"country\": \"United States\",\n        \"country_code\": \"US\",\n        \"country_name\": \"United States\",\n        \"zip\": \"40202\",\n        \"phone\": \"+8615323233434\",\n        \"default\": true\n      }\n    ]\n  }\n}"
+              schema:
+                type: object
+                properties:
+                  customer:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: db4469f3-5e56-4c69-a2b6-03e81d24d5b5
+                      first_name:
+                        type: string
+                        example: Lee
+                      last_name:
+                        type: string
+                        example: Le
+                      name:
+                        type: string
+                        example: Lee Le
+                      email:
+                        type: string
+                        example: person207@example.com
+                      phone:
+                        type: string
+                        example: '+8615323233434'
+                      accepts_marketing:
+                        type: boolean
+                        example: false
+                        default: true
+                      accepts_sms_marketing:
+                        type: boolean
+                        example: true
+                        default: true
+                      subscribed_flag:
+                        type: integer
+                        example: 6
+                        default: 0
+                      sms_subscribed_flag:
+                        type: integer
+                        example: 5
+                        default: 0
+                      orders_count:
+                        type: integer
+                        example: 10
+                        default: 0
+                      last_order_at:
+                        type: string
+                        example: '2022-11-15T08:43:50Z'
+                      total_spent:
+                        type: string
+                        example: '100.10'
+                      tags:
+                        type: string
+                        example: a, b
+                      created_at:
+                        type: string
+                        example: '2014-04-25T16:15:47Z'
+                      updated_at:
+                        type: string
+                        example: '2014-04-25T16:15:47Z'
+                      default_address:
+                        type: object
+                        properties:
+                          id:
+                            type: string
+                            example: 2ffa86e9-f3f4-4684-84b6-05399ef19709
+                          customer_id:
+                            type: string
+                            example: db4469f3-5e56-4c69-a2b6-03e81d24d5b5
+                          first_name:
+                            type: string
+                            example: Lee
+                          last_name:
+                            type: string
+                            example: Le
+                          name:
+                            type: string
+                            example: Lee Le
+                          company:
+                            type: string
+                            example: abc company
+                          address1:
+                            type: string
+                            example: Chestnut Street 92
+                          address2:
+                            type: string
+                            example: ''
+                          city:
+                            type: string
+                            example: Louisville
+                          province:
+                            type: string
+                            example: Kentucky
+                          province_code:
+                            type: string
+                            example: KY
+                          country:
+                            type: string
+                            example: United States
+                          country_code:
+                            type: string
+                            example: US
+                          country_name:
+                            type: string
+                            example: United States
+                          zip:
+                            type: string
+                            example: '40202'
+                          phone:
+                            type: string
+                            example: '+8615323233434'
+                          default:
+                            type: boolean
+                            example: true
+                            default: true
+                      addresses:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              example: 2ffa86e9-f3f4-4684-84b6-05399ef19709
+                            customer_id:
+                              type: string
+                              example: db4469f3-5e56-4c69-a2b6-03e81d24d5b5
+                            first_name:
+                              type: string
+                              example: Lee
+                            last_name:
+                              type: string
+                              example: Le
+                            name:
+                              type: string
+                              example: Lee Le
+                            company:
+                              type: string
+                              example: abc company
+                            address1:
+                              type: string
+                              example: Chestnut Street 92
+                            address2:
+                              type: string
+                              example: ''
+                            city:
+                              type: string
+                              example: Louisville
+                            province:
+                              type: string
+                              example: Kentucky
+                            province_code:
+                              type: string
+                              example: KY
+                            country:
+                              type: string
+                              example: United States
+                            country_code:
+                              type: string
+                              example: US
+                            country_name:
+                              type: string
+                              example: United States
+                            zip:
+                              type: string
+                              example: '40202'
+                            phone:
+                              type: string
+                              example: '+8615323233434'
+                            default:
+                              type: boolean
+                              example: true
+                              default: true
+        '404':
+          description: '404'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"errors\": [\"record not found\"]\n}"
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: string
+                      example: record not found
+      deprecated: false
+    put:
+      tags:
+      - Customer
+      summary: Update Customer
+      description: ''
+      operationId: update-customer
+      parameters:
+      - name: id
+        in: path
+        description: Customer's ID
+        schema:
+          type: string
+        required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                customer:
+                  type: object
+                  properties:
+                    first_name:
+                      type: string
+                      description: First Name, e.g. `Peter`
+                    last_name:
+                      type: string
+                      description: Last name, e.g. `Max`
+                    accepts_marketing:
+                      type: boolean
+                      description: Whether to subscribe marketing email campaign
+                      default: true
+                    accepts_sms_marketing:
+                      type: boolean
+                      description: Whether to subscribe marketing sms campaign
+                      default: true
+                    tags:
+                      type: string
+                      description: Tags, e.g. `New Customer,Repeat Customer`
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"customer\": {\n    \"id\": \"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\",\n    \"first_name\": \"Lee\",\n    \"last_name\": \"Le\",\n    \"name\": \"Lee Le\",\n    \"email\": \"person@example.com\",\n    \"phone\": \"+8615423233434\",\n    \"accepts_marketing\": false,\n    \"subscribed_flag\": 6,\n    \"sms_subscribed_flag\": 5,\n    \"accepts_sms_marketing\": true,\n    \"orders_count\": 0,\n    \"total_spent\": \"0.0\",\n    \"tags\": \"New Customer,Repeat Customer\",\n    \"created_at\": \"2014-04-25T16:15:47-04:00\",\n    \"updated_at\": \"2014-04-25T16:15:47-04:00\",\n    \"default_address\": {\n      \"id\": \"2ffa86e9-f3f4-4684-84b6-05399ef19709\",\n      \"customer_id\": \"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\",\n      \"first_name\": \"Lee\",\n      \"last_name\": \"Le\",\n      \"name\": \"Lee Le\",\n      \"company\": \"abc company\",\n      \"address1\": \"1 Rue des Carrieres\",\n      \"address2\": \"\",\n      \"city\": \"Louisville\",\n      \"province\": \"Kentucky\",\n      \"province_code\": \"KY\",\n      \"country\": \"United States\",\n      \"country_code\": \"US\",\n      \"country_name\": \"United States\",\n      \"zip\": \"40202\",\n      \"phone\": \"+8615323233434\",\n      \"default\": true\n    },\n    \"addresses\": [\n      {\n        \"id\": \"2ffa86e9-f3f4-4684-84b6-05399ef19709\",\n        \"customer_id\": \"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\",\n        \"first_name\": \"Lee\",\n        \"last_name\": \"Le\",\n        \"name\": \"Lee Le\",\n        \"company\": \"abc company\",\n        \"address1\": \"Chestnut Street 92\",\n        \"address2\": \"\",\n        \"city\": \"Louisville\",\n        \"province\": \"Kentucky\",\n        \"province_code\": \"KY\",\n        \"country\": \"United States\",\n        \"country_code\": \"US\",\n        \"country_name\": \"United States\",\n        \"zip\": \"40202\",\n        \"phone\": \"+8615323233434\",\n        \"default\": true\n      }\n    ]\n  }\n}"
+              schema:
+                type: object
+                properties:
+                  customer:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: db4469f3-5e56-4c69-a2b6-03e81d24d5b5
+                      first_name:
+                        type: string
+                        example: Lee
+                      last_name:
+                        type: string
+                        example: Le
+                      name:
+                        type: string
+                        example: Lee Le
+                      email:
+                        type: string
+                        example: person@example.com
+                      phone:
+                        type: string
+                        example: '+8615423233434'
+                      accepts_marketing:
+                        type: boolean
+                        example: false
+                        default: true
+                      subscribed_flag:
+                        type: integer
+                        example: 6
+                        default: 0
+                      sms_subscribed_flag:
+                        type: integer
+                        example: 5
+                        default: 0
+                      accepts_sms_marketing:
+                        type: boolean
+                        example: true
+                        default: true
+                      orders_count:
+                        type: integer
+                        example: 0
+                        default: 0
+                      total_spent:
+                        type: string
+                        example: '0.0'
+                      tags:
+                        type: string
+                        example: New Customer,Repeat Customer
+                      created_at:
+                        type: string
+                        example: '2014-04-25T16:15:47-04:00'
+                      updated_at:
+                        type: string
+                        example: '2014-04-25T16:15:47-04:00'
+                      default_address:
+                        type: object
+                        properties:
+                          id:
+                            type: string
+                            example: 2ffa86e9-f3f4-4684-84b6-05399ef19709
+                          customer_id:
+                            type: string
+                            example: db4469f3-5e56-4c69-a2b6-03e81d24d5b5
+                          first_name:
+                            type: string
+                            example: Lee
+                          last_name:
+                            type: string
+                            example: Le
+                          name:
+                            type: string
+                            example: Lee Le
+                          company:
+                            type: string
+                            example: abc company
+                          address1:
+                            type: string
+                            example: 1 Rue des Carrieres
+                          address2:
+                            type: string
+                            example: ''
+                          city:
+                            type: string
+                            example: Louisville
+                          province:
+                            type: string
+                            example: Kentucky
+                          province_code:
+                            type: string
+                            example: KY
+                          country:
+                            type: string
+                            example: United States
+                          country_code:
+                            type: string
+                            example: US
+                          country_name:
+                            type: string
+                            example: United States
+                          zip:
+                            type: string
+                            example: '40202'
+                          phone:
+                            type: string
+                            example: '+8615323233434'
+                          default:
+                            type: boolean
+                            example: true
+                            default: true
+                      addresses:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              example: 2ffa86e9-f3f4-4684-84b6-05399ef19709
+                            customer_id:
+                              type: string
+                              example: db4469f3-5e56-4c69-a2b6-03e81d24d5b5
+                            first_name:
+                              type: string
+                              example: Lee
+                            last_name:
+                              type: string
+                              example: Le
+                            name:
+                              type: string
+                              example: Lee Le
+                            company:
+                              type: string
+                              example: abc company
+                            address1:
+                              type: string
+                              example: Chestnut Street 92
+                            address2:
+                              type: string
+                              example: ''
+                            city:
+                              type: string
+                              example: Louisville
+                            province:
+                              type: string
+                              example: Kentucky
+                            province_code:
+                              type: string
+                              example: KY
+                            country:
+                              type: string
+                              example: United States
+                            country_code:
+                              type: string
+                              example: US
+                            country_name:
+                              type: string
+                              example: United States
+                            zip:
+                              type: string
+                              example: '40202'
+                            phone:
+                              type: string
+                              example: '+8615323233434'
+                            default:
+                              type: boolean
+                              example: true
+                              default: true
+        '422':
+          description: '422'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"errors\": [\"param is missing or the value is empty: customer\"]\n}"
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: string
+                      example: 'param is missing or the value is empty: customer'
+      deprecated: false
+  /openapi/2022-01/customers/count:
+    get:
+      tags:
+      - Customer
+      summary: Customer Count
+      description: ''
+      operationId: customer-count
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"count\": 1\n}"
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 1
+                    default: 0
+      deprecated: false
+  /openapi/2022-01/customers/{customer_id}/addresses:
+    get:
+      tags:
+      - Customer
+      summary: Get Address List
+      description: ''
+      operationId: get-address-list
+      parameters:
+      - name: customer_id
+        in: path
+        description: customer id
+        schema:
+          type: string
+        required: true
+      - name: limit
+        in: query
+        description: 'result per pge, maximum: `250`'
+        schema:
+          type: integer
+          format: int32
+          default: 10
+      - name: page
+        in: query
+        description: Page number
+        schema:
+          type: integer
+          format: int32
+          default: 1
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"addresses\": [\n    {\n      \"id\": \"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\",\n      \"customer_id\": \"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\",\n      \"first_name\": \"Lee\",\n      \"last_name\": \"Le\",\n      \"name\": \"Lee Le\",\n      \"gender\": \"male\",\n      \"email\": \"person@example.com\",\n      \"phone\": \"+86555-625-1199\",\n      \"company\": \"abc company\",\n      \"address1\": \"Chestnut Street 92\",\n      \"address2\": \"Suite 1234\",\n      \"area\": \"\",\n      \"city\": \"Louisville\",\n      \"province\": \"Kentucky\",\n      \"province_code\": \"KY\",\n      \"country\": \"United States\",\n      \"country_code\": \"US\",\n      \"country_name\": \"United States\",\n      \"zip\": \"40204\",\n      \"default\": true\n    }\n  ]\n}"
+              schema:
+                type: object
+                properties:
+                  addresses:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: db4469f3-5e56-4c69-a2b6-03e81d24d5b5
+                        customer_id:
+                          type: string
+                          example: db4469f3-5e56-4c69-a2b6-03e81d24d5b5
+                        first_name:
+                          type: string
+                          example: Lee
+                        last_name:
+                          type: string
+                          example: Le
+                        name:
+                          type: string
+                          example: Lee Le
+                        gender:
+                          type: string
+                          example: male
+                        email:
+                          type: string
+                          example: person@example.com
+                        phone:
+                          type: string
+                          example: +86555-625-1199
+                        company:
+                          type: string
+                          example: abc company
+                        address1:
+                          type: string
+                          example: Chestnut Street 92
+                        address2:
+                          type: string
+                          example: Suite 1234
+                        area:
+                          type: string
+                          example: ''
+                        city:
+                          type: string
+                          example: Louisville
+                        province:
+                          type: string
+                          example: Kentucky
+                        province_code:
+                          type: string
+                          example: KY
+                        country:
+                          type: string
+                          example: United States
+                        country_code:
+                          type: string
+                          example: US
+                        country_name:
+                          type: string
+                          example: United States
+                        zip:
+                          type: string
+                          example: '40204'
+                        default:
+                          type: boolean
+                          example: true
+                          default: true
+      deprecated: false
+    post:
+      tags:
+      - Customer
+      summary: Create Address
+      description: ''
+      operationId: create-address
+      parameters:
+      - name: customer_id
+        in: path
+        description: Customer's ID
+        schema:
+          type: string
+        required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - first_name
+              - last_name
+              - country
+              - country_code
+              properties:
+                first_name:
+                  type: string
+                  description: First name, e.g. `Peter`
+                last_name:
+                  type: string
+                  description: Last name, e.g. `Max`
+                gender:
+                  type: string
+                  description: Gender, e.g. `male`
+                email:
+                  type: string
+                  description: Email, e.g. `max@example.com`
+                phone:
+                  type: string
+                  description: Phone number, e.g. `5052814445`
+                phone_area_code:
+                  type: string
+                  description: Phone area cdoe, e.g. `575`
+                address1:
+                  type: string
+                  description: 'Address line #1, e.g. `1 Rue des Carrieres`'
+                address2:
+                  type: string
+                  description: 'Address line #2, e.g. `Suite 1234`'
+                area:
+                  type: string
+                  description: Area, e.g. `Bay Area`
+                city:
+                  type: string
+                  description: City, e.g. `SAN JOSE`
+                province:
+                  type: string
+                  description: Province, e.g. `New Mexico`
+                province_code:
+                  type: string
+                  description: Province code, e.g. `NW`
+                country:
+                  type: string
+                  description: Country, e.g. `United States`
+                country_code:
+                  type: string
+                  description: Country code, e.g. `US`
+                zip:
+                  type: string
+                  description: ZIP code, e.g. `87036`
+                company:
+                  type: string
+                  description: Company, e.g. `ABC Limited`
+                default:
+                  type: boolean
+                  description: Default address or not
+                  default: false
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"address\": {\n    \"id\": \"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\",\n    \"customer_id\": \"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\",\n    \"first_name\": \"Lee\",\n    \"last_name\": \"Le\",\n    \"name\": \"Lee Le\",\n    \"gender\": \"male\",\n    \"email\": \"person@example.com\",\n    \"phone\": \"+86555-625-1199\",\n    \"company\": \"abc company\",\n    \"address1\": \"Chestnut Street 92\",\n    \"address2\": \"Suite 1234\",\n    \"area\": \"\",\n    \"city\": \"Louisville\",\n    \"province\": \"Kentucky\",\n    \"province_code\": \"KY\",\n    \"country\": \"United States\",\n    \"country_code\": \"US\",\n    \"country_name\": \"United States\",\n    \"zip\": \"40204\",\n    \"default\": true\n  }\n}"
+              schema:
+                type: object
+                properties:
+                  address:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: db4469f3-5e56-4c69-a2b6-03e81d24d5b5
+                      customer_id:
+                        type: string
+                        example: db4469f3-5e56-4c69-a2b6-03e81d24d5b5
+                      first_name:
+                        type: string
+                        example: Lee
+                      last_name:
+                        type: string
+                        example: Le
+                      name:
+                        type: string
+                        example: Lee Le
+                      gender:
+                        type: string
+                        example: male
+                      email:
+                        type: string
+                        example: person@example.com
+                      phone:
+                        type: string
+                        example: +86555-625-1199
+                      company:
+                        type: string
+                        example: abc company
+                      address1:
+                        type: string
+                        example: Chestnut Street 92
+                      address2:
+                        type: string
+                        example: Suite 1234
+                      area:
+                        type: string
+                        example: ''
+                      city:
+                        type: string
+                        example: Louisville
+                      province:
+                        type: string
+                        example: Kentucky
+                      province_code:
+                        type: string
+                        example: KY
+                      country:
+                        type: string
+                        example: United States
+                      country_code:
+                        type: string
+                        example: US
+                      country_name:
+                        type: string
+                        example: United States
+                      zip:
+                        type: string
+                        example: '40204'
+                      default:
+                        type: boolean
+                        example: true
+                        default: true
+      deprecated: false
+  /openapi/2022-01/customers/{customer_id}/addresses/{address_id}:
+    get:
+      tags:
+      - Customer
+      summary: Get Address Details
+      description: ''
+      operationId: get-address-details
+      parameters:
+      - name: customer_id
+        in: path
+        description: Customer's ID
+        schema:
+          type: string
+        required: true
+      - name: address_id
+        in: path
+        description: Address's ID
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"address\": {\n    \"id\": \"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\",\n    \"customer_id\": \"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\",\n    \"first_name\": \"Lee\",\n    \"last_name\": \"Le\",\n    \"name\": \"Lee Le\",\n    \"gender\": \"male\",\n    \"email\": \"person@example.com\",\n    \"phone\": \"+86555-625-1199\",\n    \"company\": \"abc company\",\n    \"address1\": \"Chestnut Street 92\",\n    \"address2\": \"Suite 1234\",\n    \"area\": \"\",\n    \"city\": \"Louisville\",\n    \"province\": \"Kentucky\",\n    \"province_code\": \"KY\",\n    \"country\": \"United States\",\n    \"country_code\": \"US\",\n    \"country_name\": \"United States\",\n    \"zip\": \"40204\",\n    \"default\": true\n  }\n}"
+              schema:
+                type: object
+                properties:
+                  address:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: db4469f3-5e56-4c69-a2b6-03e81d24d5b5
+                      customer_id:
+                        type: string
+                        example: db4469f3-5e56-4c69-a2b6-03e81d24d5b5
+                      first_name:
+                        type: string
+                        example: Lee
+                      last_name:
+                        type: string
+                        example: Le
+                      name:
+                        type: string
+                        example: Lee Le
+                      gender:
+                        type: string
+                        example: male
+                      email:
+                        type: string
+                        example: person@example.com
+                      phone:
+                        type: string
+                        example: +86555-625-1199
+                      company:
+                        type: string
+                        example: abc company
+                      address1:
+                        type: string
+                        example: Chestnut Street 92
+                      address2:
+                        type: string
+                        example: Suite 1234
+                      area:
+                        type: string
+                        example: ''
+                      city:
+                        type: string
+                        example: Louisville
+                      province:
+                        type: string
+                        example: Kentucky
+                      province_code:
+                        type: string
+                        example: KY
+                      country:
+                        type: string
+                        example: United States
+                      country_code:
+                        type: string
+                        example: US
+                      country_name:
+                        type: string
+                        example: United States
+                      zip:
+                        type: string
+                        example: '40204'
+                      default:
+                        type: boolean
+                        example: true
+                        default: true
+      deprecated: false
+    put:
+      tags:
+      - Customer
+      summary: Update Address
+      description: ''
+      operationId: update-address
+      parameters:
+      - name: customer_id
+        in: path
+        description: Cusomer's ID
+        schema:
+          type: string
+        required: true
+      - name: address_id
+        in: path
+        description: Address's ID
+        schema:
+          type: string
+        required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                first_name:
+                  type: string
+                  description: First name, e.g. `Peter`
+                last_name:
+                  type: string
+                  description: Last name, e.g. `Max`
+                gender:
+                  type: string
+                  description: Gender, e.g. `male`
+                email:
+                  type: string
+                  description: Email, e.g. `max@example.com`
+                phone:
+                  type: string
+                  description: Phone number, e.g. `5052814445`
+                address1:
+                  type: string
+                  description: 'Address line #1, e.g. `"1 Rue des Carrieres"`'
+                address2:
+                  type: string
+                  description: 'Address line #2, e.g. `peter@example.com`'
+                area:
+                  type: string
+                  description: Area, e.g. `Bay Area`
+                city:
+                  type: string
+                  description: City, e.g. `SAN JOSE`
+                province:
+                  type: string
+                  description: Province, e.g. `New Mexico`
+                province_code:
+                  type: string
+                  description: Province code, e.g. `NW`
+                country:
+                  type: string
+                  description: Country, e.g. `United States`
+                country_code:
+                  type: string
+                  description: Country code, e.g. `US`
+                zip:
+                  type: string
+                  description: ZIP code, e.g. `87036`
+                company:
+                  type: string
+                  description: Company, e.g. `ABC Limited`
+                default:
+                  type: boolean
+                  description: Default address or not
+                  default: false
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"address\": {\n    \"id\": \"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\",\n    \"customer_id\": \"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\",\n    \"first_name\": \"Lee\",\n    \"last_name\": \"Le\",\n    \"name\": \"Lee Le\",\n    \"gender\": \"male\",\n    \"email\": \"person@example.com\",\n    \"phone\": \"+86555-625-1199\",\n    \"company\": \"abc company\",\n    \"address1\": \"Chestnut Street 92\",\n    \"address2\": \"Suite 1234\",\n    \"area\": \"\",\n    \"city\": \"Louisville\",\n    \"province\": \"Kentucky\",\n    \"province_code\": \"KY\",\n    \"country\": \"United States\",\n    \"country_code\": \"US\",\n    \"country_name\": \"United States\",\n    \"zip\": \"40204\",\n    \"default\": true\n  }\n}"
+              schema:
+                type: object
+                properties:
+                  address:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: db4469f3-5e56-4c69-a2b6-03e81d24d5b5
+                      customer_id:
+                        type: string
+                        example: db4469f3-5e56-4c69-a2b6-03e81d24d5b5
+                      first_name:
+                        type: string
+                        example: Lee
+                      last_name:
+                        type: string
+                        example: Le
+                      name:
+                        type: string
+                        example: Lee Le
+                      gender:
+                        type: string
+                        example: male
+                      email:
+                        type: string
+                        example: person@example.com
+                      phone:
+                        type: string
+                        example: +86555-625-1199
+                      company:
+                        type: string
+                        example: abc company
+                      address1:
+                        type: string
+                        example: Chestnut Street 92
+                      address2:
+                        type: string
+                        example: Suite 1234
+                      area:
+                        type: string
+                        example: ''
+                      city:
+                        type: string
+                        example: Louisville
+                      province:
+                        type: string
+                        example: Kentucky
+                      province_code:
+                        type: string
+                        example: KY
+                      country:
+                        type: string
+                        example: United States
+                      country_code:
+                        type: string
+                        example: US
+                      country_name:
+                        type: string
+                        example: United States
+                      zip:
+                        type: string
+                        example: '40204'
+                      default:
+                        type: boolean
+                        example: true
+                        default: true
+      deprecated: false
+    delete:
+      tags:
+      - Customer
+      summary: Delete Address
+      description: ''
+      operationId: delete-address
+      parameters:
+      - name: customer_id
+        in: path
+        description: Customer's ID
+        schema:
+          type: string
+        required: true
+      - name: address_id
+        in: path
+        description: Address's ID
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+  /openapi/2022-01/customers/{customer_id}/addresses/{address_id}/default:
+    put:
+      tags:
+      - Customer
+      summary: Set Default Address
+      description: ''
+      operationId: set-default-address
+      parameters:
+      - name: customer_id
+        in: path
+        description: Customer's ID
+        schema:
+          type: string
+        required: true
+      - name: address_id
+        in: path
+        description: Address's ID
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+components:
+  securitySchemes:
+    sec0:
+      type: apiKey
+      in: header
+      name: access-token
+      x-default: WPMSdB6M8Cpum4X1GoMYOKZpiESd8d2x7dZW8d79ZeQ
+    apikey-header-access-token:
+      type: apiKey
+      in: header
+      name: access-token
+      x-default: WPMSdB6M8Cpum4X1GoMYOKZpiESd8d2x7dZW8d79ZeQ
+x-standalone-page:
+  title: Standalone Page
+  content: Information that should be on a standalone page...
+x-readme:
+  headers: []
+  explorer-enabled: true
+  proxy-enabled: true
+  samples-enabled: true

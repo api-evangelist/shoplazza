@@ -1,0 +1,369 @@
+openapi: 3.1.0
+info:
+  title: SPZ Admin Access Redirect API
+  version: '2022.01'
+servers:
+- url: https://{subdomain}.myshoplaza.com
+  variables:
+    subdomain:
+      default: developer
+security:
+- sec0: []
+tags:
+- name: Redirect
+  description: ''
+paths:
+  /openapi/2022-01/redirects:
+    post:
+      tags:
+      - Redirect
+      summary: Create Redirect
+      description: ''
+      operationId: create-redirect
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - from_url
+              - redirect_url
+              - status
+              properties:
+                from_url:
+                  type: string
+                  description: The path set for redirect
+                redirect_url:
+                  type: string
+                  description: The redirect URL
+                status:
+                  type: string
+                  description: 'The status of the redirect, `open`: available, `close`: unavailable'
+                  default: open
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"id\": 128741725479905746,\n    \"store_id\": 11218,\n    \"status\": \"open\",\n    \"from_url\": \"/test\",\n    \"redirect_url\": \"https://www.shoplazza.dev/\"\n}"
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    example: 128741725479905740
+                    default: 0
+                  store_id:
+                    type: integer
+                    example: 11218
+                    default: 0
+                  status:
+                    type: string
+                    example: open
+                  from_url:
+                    type: string
+                    example: /test
+                  redirect_url:
+                    type: string
+                    example: https://www.shoplazza.dev/
+      deprecated: false
+    get:
+      tags:
+      - Redirect
+      summary: Redirect List
+      description: ''
+      operationId: redirect-list
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"count\": 2,\n    \"redirects\": [\n        {\n            \"id\": 128741725479905746,\n            \"store_id\": 11218,\n            \"status\": \"open\",\n            \"from_url\": \"/test\",\n            \"redirect_url\": \"https://www.shoplazza.dev/\"\n        },\n        {\n            \"id\": 127235391118911698,\n            \"store_id\": 11218,\n            \"status\": \"close\",\n            \"from_url\": \"/test/b\",\n            \"redirect_url\": \"https://www.shoplazza.com/\"\n        }\n    ]\n}"
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 2
+                    default: 0
+                  redirects:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 128741725479905740
+                          default: 0
+                        store_id:
+                          type: integer
+                          example: 11218
+                          default: 0
+                        status:
+                          type: string
+                          example: open
+                        from_url:
+                          type: string
+                          example: /test
+                        redirect_url:
+                          type: string
+                          example: https://www.shoplazza.dev/
+        '404':
+          description: '404'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"errors\": [\n        \"Record not found\"\n    ]\n}"
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: string
+                      example: Record not found
+      deprecated: false
+  /openapi/2022-01/redirects/{id}:
+    get:
+      tags:
+      - Redirect
+      summary: Redirect Detail
+      description: ''
+      operationId: redirect-detail
+      parameters:
+      - name: id
+        in: path
+        description: Redirect ID
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"id\": 128741725479905746,\n    \"store_id\": 11218,\n    \"status\": \"open\",\n    \"from_url\": \"/test\",\n    \"redirect_url\": \"https://www.shoplazza.dev/\"\n}"
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    example: 128741725479905740
+                    default: 0
+                  store_id:
+                    type: integer
+                    example: 11218
+                    default: 0
+                  status:
+                    type: string
+                    example: open
+                  from_url:
+                    type: string
+                    example: /test
+                  redirect_url:
+                    type: string
+                    example: https://www.shoplazza.dev/
+        '404':
+          description: '404'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"errors\": [\n        \"Record not found\"\n    ]\n}"
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: string
+                      example: Record not found
+      deprecated: false
+    put:
+      tags:
+      - Redirect
+      summary: Update Redirect
+      description: ''
+      operationId: update-redirect
+      parameters:
+      - name: id
+        in: path
+        description: Redirect ID
+        schema:
+          type: string
+        required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - from_url
+              - redirect_url
+              - status
+              properties:
+                from_url:
+                  type: string
+                  description: The path set for redirect
+                redirect_url:
+                  type: string
+                  description: The redirect URL
+                status:
+                  type: string
+                  description: 'The status of the redirect, `open`: available, `close`: unavailable'
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+        '404':
+          description: '404'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"errors\": [\n        \"Record not found\"\n    ]\n}"
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: string
+                      example: Record not found
+      deprecated: false
+    delete:
+      tags:
+      - Redirect
+      summary: Delete Redirect
+      description: ''
+      operationId: delete-redirect
+      parameters:
+      - name: id
+        in: path
+        description: Redirect ID
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+        '404':
+          description: '404'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"errors\": [\n        \"Record not found\"\n    ]\n}"
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: string
+                      example: Record not found
+      deprecated: false
+  /openapi/2022-01/redirects/detail:
+    post:
+      tags:
+      - Redirect
+      summary: Search Redirect
+      description: ''
+      operationId: search-redirect
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - from_url
+              properties:
+                from_url:
+                  type: string
+                  description: The path set for redirect
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"id\": 128741725479905746,\n    \"store_id\": 11218,\n    \"status\": \"open\",\n    \"from_url\": \"/test\",\n    \"redirect_url\": \"https://www.shoplazza.dev/\"\n}"
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    example: 128741725479905740
+                    default: 0
+                  store_id:
+                    type: integer
+                    example: 11218
+                    default: 0
+                  status:
+                    type: string
+                    example: open
+                  from_url:
+                    type: string
+                    example: /test
+                  redirect_url:
+                    type: string
+                    example: https://www.shoplazza.dev/
+        '404':
+          description: '404'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"errors\": [\n        \"Record not found\"\n    ]\n}"
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: string
+                      example: Record not found
+      deprecated: false
+components:
+  securitySchemes:
+    sec0:
+      type: apiKey
+      in: header
+      name: access-token
+      x-default: WPMSdB6M8Cpum4X1GoMYOKZpiESd8d2x7dZW8d79ZeQ
+    apikey-header-access-token:
+      type: apiKey
+      in: header
+      name: access-token
+      x-default: WPMSdB6M8Cpum4X1GoMYOKZpiESd8d2x7dZW8d79ZeQ
+x-standalone-page:
+  title: Standalone Page
+  content: Information that should be on a standalone page...
+x-readme:
+  headers: []
+  explorer-enabled: true
+  proxy-enabled: true
+  samples-enabled: true

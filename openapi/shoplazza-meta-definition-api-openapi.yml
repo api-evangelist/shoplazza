@@ -1,0 +1,463 @@
+openapi: 3.1.0
+info:
+  title: SPZ Admin Access Meta Definition API
+  version: '2022.01'
+servers:
+- url: https://{subdomain}.myshoplaza.com
+  variables:
+    subdomain:
+      default: developer
+security:
+- sec0: []
+tags:
+- name: Meta Definition
+  description: ''
+paths:
+  /openapi/2022-01/metafield_definition/{owner_resource}:
+    get:
+      tags:
+      - Meta Definition
+      summary: Metafield Definition List
+      description: ''
+      operationId: metafield-definition-list
+      parameters:
+      - name: owner_resource
+        in: path
+        description: Owner resource type of meta field definition, including 'product_variant' , 'product' , and 'collection'
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"definitions\": [\n        {\n            \"id\": \"257688239354176808\",\n            \"key\": \"productint3key\",\n            \"name\": \"productint3key\",\n            \"namespace\": \"name\",\n            \"owner_resource\": \"product\",\n            \"type\": \"multi_line_text_field\",\n            \"description\": \"productint3key\",\n            \"create_at\": \"2023-06-12T06:04:26Z\",\n            \"updated_at\": \"2023-06-12T06:04:26Z\"\n        },\n        {\n            \"id\": \"256682217130974760\",\n            \"key\": \"product2key\",\n            \"name\": \"product2key\",\n            \"namespace\": \"name\",\n            \"owner_resource\": \"product\",\n            \"type\": \"integer\",\n            \"description\": \"string\",\n            \"create_at\": \"2023-06-09T08:22:55Z\",\n            \"updated_at\": \"2023-06-09T08:22:55Z\"\n        }\n    ],\n    \"total\": 2\n}"
+              schema:
+                type: object
+                properties:
+                  definitions:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: '257688239354176808'
+                        key:
+                          type: string
+                          example: productint3key
+                        name:
+                          type: string
+                          example: productint3key
+                        namespace:
+                          type: string
+                          example: name
+                        owner_resource:
+                          type: string
+                          example: product
+                        type:
+                          type: string
+                          example: multi_line_text_field
+                        description:
+                          type: string
+                          example: productint3key
+                        create_at:
+                          type: string
+                          example: '2023-06-12T06:04:26Z'
+                        updated_at:
+                          type: string
+                          example: '2023-06-12T06:04:26Z'
+                  total:
+                    type: integer
+                    example: 2
+                    default: 0
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+    post:
+      tags:
+      - Meta Definition
+      summary: Create Metafield Definition
+      description: ''
+      operationId: create-metafield-definition
+      parameters:
+      - name: owner_resource
+        in: path
+        description: Owner resource type of meta field definition, including 'product_variant' , 'product' , and 'collection'
+        schema:
+          type: string
+        required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - namespace
+              - key
+              - type
+              - name
+              properties:
+                namespace:
+                  type: string
+                  description: Namespace of definition
+                key:
+                  type: string
+                  description: Key of definition
+                type:
+                  type: string
+                  description: Definition field type, choose from `date` `date_time` `weight` `volume` `dimension` `integer` `number_decimal` `file_reference` `single_line_text_field` `json` `multi_line_text_field` `color` `rating` `url` `boolean`
+                description:
+                  type: string
+                  description: Description of definition
+                name:
+                  type: string
+                  description: Name of definition
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"id\": \"256682217130974760\",\n  \"key\": \"product2key\",\n  \"name\": \"product2key\",\n  \"namespace\": \"name\",\n  \"owner_resource\": \"product\",\n  \"type\": \"integer\",\n  \"description\": \"string\",\n  \"create_at\": \"2023-06-12T06:04:26Z\",\n  \"updated_at\": \"2023-06-12T06:47:05Z\"\n}"
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: '256682217130974760'
+                  key:
+                    type: string
+                    example: product2key
+                  name:
+                    type: string
+                    example: product2key
+                  namespace:
+                    type: string
+                    example: name
+                  owner_resource:
+                    type: string
+                    example: product
+                  type:
+                    type: string
+                    example: integer
+                  description:
+                    type: string
+                    example: string
+                  create_at:
+                    type: string
+                    example: '2023-06-12T06:04:26Z'
+                  updated_at:
+                    type: string
+                    example: '2023-06-12T06:47:05Z'
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+  /openapi/2022-01/metafield_definition:
+    get:
+      tags:
+      - Meta Definition
+      summary: Metafield Definition Detail
+      description: ''
+      operationId: metafield-definition-detail
+      parameters:
+      - name: id
+        in: query
+        description: Metafield definition id
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"id\": \"256602195351325992\",\n    \"key\": \"productint2key\",\n    \"name\": \"productint2key\",\n    \"namespace\": \"name\",\n    \"owner_resource\": \"product\",\n    \"type\": \"integer\",\n    \"description\": \"productint2key\",\n    \"create_at\": \"2023-06-12T06:04:26Z\",\n    \"updated_at\": \"2023-06-12T06:04:26Z\"\n}"
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: '256602195351325992'
+                  key:
+                    type: string
+                    example: productint2key
+                  name:
+                    type: string
+                    example: productint2key
+                  namespace:
+                    type: string
+                    example: name
+                  owner_resource:
+                    type: string
+                    example: product
+                  type:
+                    type: string
+                    example: integer
+                  description:
+                    type: string
+                    example: productint2key
+                  create_at:
+                    type: string
+                    example: '2023-06-12T06:04:26Z'
+                  updated_at:
+                    type: string
+                    example: '2023-06-12T06:04:26Z'
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+  /openapi/2022-01/metafield_definition/{id}:
+    put:
+      tags:
+      - Meta Definition
+      summary: Update Metafield Definition
+      description: ''
+      operationId: update-metafield-definition
+      parameters:
+      - name: id
+        in: path
+        schema:
+          type: string
+        required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                description:
+                  type: string
+                  description: Description of meta field definition
+                name:
+                  type: string
+                  description: Name of meta field definition
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"id\": \"256602195351325992\",\n    \"key\": \"productint2key\",\n    \"name\": \"string\",\n    \"namespace\": \"name\",\n    \"owner_resource\": \"product\",\n    \"type\": \"integer\",\n    \"description\": \"string\",\n    \"create_at\": \"2023-06-12T06:04:26Z\",\n    \"updated_at\": \"2023-06-12T06:47:05Z\"\n}"
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: '256602195351325992'
+                  key:
+                    type: string
+                    example: productint2key
+                  name:
+                    type: string
+                    example: string
+                  namespace:
+                    type: string
+                    example: name
+                  owner_resource:
+                    type: string
+                    example: product
+                  type:
+                    type: string
+                    example: integer
+                  description:
+                    type: string
+                    example: string
+                  create_at:
+                    type: string
+                    example: '2023-06-12T06:04:26Z'
+                  updated_at:
+                    type: string
+                    example: '2023-06-12T06:47:05Z'
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+    delete:
+      tags:
+      - Meta Definition
+      summary: Delete Metafield Definition
+      description: ''
+      operationId: delete-metafield-definition
+      parameters:
+      - name: id
+        in: path
+        description: Meta field definition id
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            text/plain:
+              examples:
+                Result:
+                  value: 'null'
+              schema: {}
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+  /openapi/2022-01/metafield_definition/{owner_resource}/count:
+    get:
+      tags:
+      - Meta Definition
+      summary: Metafield Definition Count
+      description: ''
+      operationId: metafield-definition-count
+      parameters:
+      - name: owner_resource
+        in: path
+        description: Owner resource type of meta field definition, including 'product_variant' , 'product' , and 'collection'
+        schema:
+          type: string
+        required: true
+      - name: definition_ids
+        in: query
+        description: Meta field definition ids
+        required: true
+        schema:
+          type: array
+          items:
+            type: string
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"items\": [\n        {\n            \"metafield_count\": 1,\n            \"definition_id\": \"256602195351325992\"\n        }\n    ]\n}"
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        metafield_count:
+                          type: integer
+                          example: 1
+                          default: 0
+                        definition_id:
+                          type: string
+                          example: '256602195351325992'
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+  /openapi/2022-01/metafield_definition/group_count:
+    get:
+      tags:
+      - Meta Definition
+      summary: Metafield Definition By Group Count
+      description: ''
+      operationId: metafield-definition-by-group-count
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"items\": [\n        {\n            \"owner_resource\": \"product\",\n            \"count\": 2\n        }\n    ]\n}"
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        owner_resource:
+                          type: string
+                          example: product
+                        count:
+                          type: integer
+                          example: 2
+                          default: 0
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+components:
+  securitySchemes:
+    sec0:
+      type: apiKey
+      in: header
+      name: access-token
+      x-default: WPMSdB6M8Cpum4X1GoMYOKZpiESd8d2x7dZW8d79ZeQ
+    apikey-header-access-token:
+      type: apiKey
+      in: header
+      name: access-token
+      x-default: WPMSdB6M8Cpum4X1GoMYOKZpiESd8d2x7dZW8d79ZeQ
+x-standalone-page:
+  title: Standalone Page
+  content: Information that should be on a standalone page...
+x-readme:
+  headers: []
+  explorer-enabled: true
+  proxy-enabled: true
+  samples-enabled: true
