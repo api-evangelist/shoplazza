@@ -1,0 +1,67 @@
+generated: '2026-07-21'
+method: searched
+source: https://www.shoplazza.dev/docs/app/building-blocks/authentication/access-scopes/
+docs: https://www.shoplazza.dev/docs/app/building-blocks/authentication/access-scopes/
+schemes:
+- name: OAuth2
+  flow: authorizationCode
+  source: docs
+scopes:
+- scope: read_shop
+  description: Read access to shop information.
+- scope: read_themes
+  description: Read access to theme management.
+- scope: write_themes
+  description: Write access to theme management.
+- scope: read_shop_navigation
+  description: Read access to pages, blogs, articles, and redirects.
+- scope: write_shop_navigation
+  description: Write access to pages, blogs, articles, and redirects.
+- scope: read_product
+  description: Read access to products and variants.
+- scope: write_product
+  description: Write access to products and variants.
+- scope: read_collection
+  description: Read access to collections and collects.
+- scope: write_collection
+  description: Write access to collections and collects.
+- scope: read_comments
+  description: Read access to comments.
+- scope: write_comments
+  description: Write access to comments.
+- scope: read_payment_info
+  description: Read access to payments apps.
+- scope: write_payment_info
+  description: Write access to payments apps.
+- scope: read_order
+  description: Read access to orders.
+- scope: write_order
+  description: Write access to orders.
+- scope: read_customer
+  description: Read access to customers.
+- scope: write_customer
+  description: Write access to customers.
+- scope: read_price_rules
+  description: Read access to price rules — discount codes, coupons, flash sales, rebates, popups, and sales pops.
+- scope: write_price_rules
+  description: Write access to price rules — discount codes, coupons, flash sales, rebates, popups, and sales pops.
+- scope: read_gift_cards
+  description: Read access to gift cards.
+- scope: write_gift_cards
+  description: Write access to gift cards.
+- scope: read_app_proxy
+  description: Read access to app proxies.
+- scope: write_app_proxy
+  description: Write access to app proxies.
+- scope: read_data
+  description: Read access to data.
+- scope: write_data
+  description: Write access to data.
+- scope: read_script_tags
+  description: Read access to script tags.
+- scope: write_script_tags
+  description: Write access to script tags.
+- scope: read_finance
+  description: Read access to Shoplazza payment information.
+- scope: write_finance
+  description: Write access to Shoplazza payment information.

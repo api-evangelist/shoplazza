@@ -1,0 +1,35 @@
+generated: '2026-07-21'
+method: derived
+source: >-
+  Derived from openapi/shoplazza-admin-openapi-original.json and the Shoplazza
+  developer documentation (authentication, rate-limits, pagination, webhooks).
+standards:
+- id: oauth2
+  conforms: true
+  evidence: >-
+    Public apps are authorized with OAuth 2.0 authorization code grant; access
+    scopes are requested at install (docs authentication section).
+- id: openapi-3.1
+  conforms: true
+  evidence: Published OpenAPI 3.1.0 document (SPZ Admin API).
+- id: hmac-signature
+  conforms: true
+  evidence: OAuth callbacks and webhooks are verified with an HMAC signature (docs).
+- id: cursor-pagination
+  conforms: true
+  evidence: List endpoints use cursor/keyset pagination with data, cursor, has_more fields.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: Errors are returned as application/json, not application/problem+json.
+- id: webhooks
+  conforms: true
+  evidence: Documented webhook subscription API and event topics (products/create, orders/create, app/uninstalled, ...).
+- id: rate-limiting
+  conforms: true
+  evidence: Documented leaky-bucket request-based rate limits across app/store and store dimensions.
+- id: openid-connect
+  conforms: false
+- id: scim
+  conforms: false
+- id: fapi
+  conforms: false

@@ -1,0 +1,53 @@
+generated: '2026-07-21'
+method: searched
+source: https://www.shoplazza.dev/docs/app/developer-tools/shoplazza-cli/
+docs: https://www.shoplazza.dev/docs/app/developer-tools/shoplazza-cli/
+repo: https://github.com/Shoplazza/shoplazza-cli-v2
+name: Shoplazza CLI
+binary: shoplazza
+version: v2
+description: >-
+  Shoplazza CLI is a command-line tool for building Shoplazza apps, themes, and
+  extensions, covering the full development lifecycle from project scaffolding
+  and local development to deployment and version management. CLI v2 is a
+  ground-up rewrite adding a three-layer command system, OAuth 2.0
+  authentication, and structured output designed for both human developers and
+  AI agents.
+install:
+- method: homebrew
+  command: brew install shoplazza/tap/shoplazza
+  tap: https://github.com/Shoplazza/homebrew-tap
+command_model:
+  name: three-layer command system
+  layers:
+  - layer: Shortcuts
+    prefix: "+"
+    purpose: High-frequency operations with smart defaults.
+    example: shoplazza products +search --keyword "shirt"
+  - layer: API commands
+    prefix: ""
+    purpose: 1:1 mapping to platform API endpoints.
+    example: shoplazza products list --format table
+  - layer: Raw API
+    prefix: api rest
+    purpose: Escape hatch for any endpoint.
+    example: shoplazza api rest GET /openapi/2026-01/products
+capabilities:
+- App lifecycle — app init, app dev, app deploy
+- Theme development — scaffold, preview, push, publish themes
+- Extensions — build checkout extensions and theme extensions with bundled toolchains
+- Store data — manage products, orders, customers, discounts, and more
+- Billing & Webhooks — create subscriptions and register event hooks
+- Schema introspection — explore all available APIs with shoplazza schema
+domains:
+- domain: Products
+  shortcuts: [+search, +create, +set-price, +stock, +publish, +unpublish, +count]
+  api_commands: 78
+- domain: Orders
+  shortcuts: [+search, +count, +ship, +refund, +update-tracking]
+  api_commands: 36
+- domain: Discounts
+  shortcuts: [+search, +rebate, +flashsale, +mn-discount, +percent-code, +amount-code, +bxgy-code, +free-shipping-code]
+  api_commands: 15
+- domain: Customers
+  shortcuts: [+search]

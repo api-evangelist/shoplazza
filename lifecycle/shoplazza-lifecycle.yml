@@ -1,0 +1,31 @@
+generated: '2026-07-21'
+method: searched
+source: https://www.shoplazza.dev/changelog
+description: >-
+  Shoplazza runs a date-based, versioned REST Admin API. Versions follow the
+  vYYYYMM naming convention and are served under the /openapi/YYYY-MM/ path
+  prefix. A new API version is released every six months; older versions remain
+  supported for a period and are eventually sunset (each version carries a
+  Sunset field in the changelog).
+versioning:
+  scheme: date-based (uri-path)
+  format: vYYYYMM
+  path_prefix: /openapi/YYYY-MM/
+  current: '202601'
+  cadence: every six months
+  supported: ['202607', '202601', '202506', '202201']
+  docs: https://www.shoplazza.dev/changelog
+deprecation:
+  policy: >-
+    Each API version has a Status (Current / Supported) and a Sunset date tracked
+    in the API changelog. Existing integrations continue to work under their
+    version's prefix until sunset; migrating is usually just updating the version
+    in the path.
+  policy_url: https://www.shoplazza.dev/changelog
+  rss: https://www.shoplazza.dev/changelog/rss.xml
+changelog:
+  url: https://www.shoplazza.dev/changelog
+  rss: https://www.shoplazza.dev/changelog/rss.xml
+  detail: changelog/shoplazza-changelog.yml
+status_page: null
+deprecated_operations: []

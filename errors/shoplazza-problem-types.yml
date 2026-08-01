@@ -1,0 +1,31 @@
+generated: '2026-07-21'
+method: derived
+format: json
+source: >-
+  Derived from the 4xx responses declared across
+  openapi/shoplazza-admin-openapi-original.json (SPZ Admin API 2022.01), enriched
+  from the Shoplazza REST API HTTP status codes documentation. Shoplazza does NOT
+  use RFC 9457 application/problem+json; errors are returned as application/json.
+envelope:
+  media_type: application/json
+docs: https://www.shoplazza.dev/docs/app/building-blocks/rest-api/
+problems:
+- status: 400
+  title: Bad Request
+  meaning: The request was malformed or contained invalid parameters.
+  occurrences: 51
+- status: 404
+  title: Not Found
+  meaning: The requested resource does not exist or is not accessible to this app.
+  occurrences: 36
+- status: 422
+  title: Unprocessable Entity
+  meaning: The request was well-formed but failed validation (e.g. a business-rule constraint).
+  occurrences: 13
+- status: 429
+  title: Too Many Requests
+  meaning: >-
+    Rate limit exceeded — the app/store or store leaky-bucket capacity was
+    exhausted. See rate-limits/shoplazza-rate-limits.yml.
+  occurrences: 0
+  note: Documented rate-limit throttling response; not enumerated per-operation in the spec.

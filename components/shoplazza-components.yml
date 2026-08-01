@@ -1,0 +1,35 @@
+generated: '2026-07-21'
+method: searched
+source: https://www.shoplazza.dev/docs/app/developer-tools/app-bridge/
+description: >-
+  Client-side and embeddable surfaces Shoplazza provides for extending the admin
+  and storefront. Distinct from the server-side OAuth SDKs in packages/.
+families:
+- name: App Bridge
+  kind: embedded-admin
+  description: >-
+    JavaScript library to embed your app inside the Shoplazza admin using
+    session tokens and admin actions.
+  docs: https://www.shoplazza.dev/docs/app/developer-tools/app-bridge/
+- name: SPZ Components
+  kind: web-components
+  description: Shoplazza's shared front-end component library.
+  repo: https://github.com/Shoplazza/spz-components
+- name: Checkout extensions
+  kind: checkout-ui-extension
+  description: Extend the Shoplazza checkout with UI extensions (bundled toolchain via CLI).
+  docs: https://www.shoplazza.dev/docs/app/extensions/
+  template_repo: https://github.com/Shoplazza/app-checkout-extension-template
+- name: Theme extensions
+  kind: theme-app-extension
+  description: Extend storefront themes with theme blocks / app extensions.
+  docs: https://www.shoplazza.dev/docs/app/extensions/
+  template_repo: https://github.com/Shoplazza/app-theme-extension-template
+- name: Function extensions
+  kind: function-extension
+  description: Server-side function extensions for customizing platform behavior.
+  template_repo: https://github.com/Shoplazza/app-function-extension-template
+- name: Liquid / storefront themes
+  kind: templating
+  description: Liquid objects, tags, and filters plus JSON sections for rendering storefront themes.
+  docs: https://www.shoplazza.dev/docs/theme/references/liquid/

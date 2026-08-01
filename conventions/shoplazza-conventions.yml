@@ -1,0 +1,57 @@
+generated: '2026-07-21'
+method: searched
+source: https://www.shoplazza.dev/docs/app/building-blocks/rest-api/
+description: >-
+  Cross-cutting request/response conventions that apply across every Shoplazza
+  Admin API endpoint: authentication style, versioning, pagination, error
+  envelope, and rate-limit signaling. Captured from the Shoplazza developer
+  docs and the published OpenAPI 3.1 spec.
+base_url: https://{shop}.myshoplaza.com/openapi/{version}
+api_style: REST over HTTPS, JSON requests and responses
+
+authentication:
+  scheme: OAuth 2.0 access token presented in the access-token header
+  callback_verification: HMAC signature (OAuth callbacks and webhooks)
+  docs: https://www.shoplazza.dev/docs/app/building-blocks/authentication/
+  detail: authentication/shoplazza-authentication.yml
+
+idempotency:
+  supported: false
+  note: >-
+    Shoplazza does not document a client-supplied idempotency-key header for the
+    Admin API. Retries are not de-duplicated by the platform.
+
+pagination:
+  style: cursor
+  also_known_as: keyset pagination
+  request_param: cursor
+  response_fields:
+    data: Array of result objects.
+    cursor: Opaque bookmark pointing at your position in the result set; pass it to fetch the next page.
+    has_more: Boolean indicating whether additional results are available.
+  docs: https://www.shoplazza.dev/docs/app/building-blocks/rest-api/pagination
+
+versioning:
+  scheme: date-based
+  format: vYYYYMM
+  path_prefix: /openapi/YYYY-MM/
+  cadence: A new API version is released every six months.
+  current: '202601'
+  supported: ['202607', '202601', '202506', '202201']
+  docs: https://www.shoplazza.dev/changelog
+  detail: lifecycle/shoplazza-lifecycle.yml
+
+error_envelope:
+  media_type: application/json
+  status_codes: [200, 400, 404, 422]
+  problem_json: false
+  detail: errors/shoplazza-problem-types.yml
+
+rate_limiting:
+  model: leaky bucket, request-based
+  dimensions: [app-store-pair, store]
+  throttled_status: 429
+  detail: rate-limits/shoplazza-rate-limits.yml
+
+webhooks:
+  detail: asyncapi/shoplazza-webhooks.yml

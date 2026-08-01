@@ -1,0 +1,87 @@
+generated: '2026-07-21'
+method: derived
+source: >-
+  Derived from the path structure and tags of
+  openapi/shoplazza-admin-openapi-original.json (SPZ Admin API). Relationships
+  are inferred from nested resource paths (e.g. /products/{id}/variants) and
+  standard e-commerce id-reference fields.
+entities:
+- name: Shop
+  description: The merchant store — root singleton for the Admin API.
+- name: Product
+  description: A sellable product with variants, images, and metafields.
+- name: Variant
+  description: A purchasable variant (SKU) of a product.
+- name: Collection
+  description: A grouping of products (manual or smart/automatic).
+- name: Collect
+  description: The join between a product and a collection.
+- name: Order
+  description: A customer order with line items, transactions, fulfillments, and risks.
+- name: Fulfillment
+  description: Shipment/fulfillment of order line items.
+- name: Transaction
+  description: A payment transaction against an order.
+- name: OrderRisk
+  description: Fraud/risk assessment attached to an order.
+- name: Customer
+  description: A store customer with addresses and order history.
+- name: PriceRule
+  description: A discount rule that generates discount codes (legacy; replaced by Discounts API in 202601).
+- name: DiscountCode
+  description: A redeemable discount code.
+- name: GiftCard
+  description: A stored-value gift card.
+- name: Metafield
+  description: Custom key/value metadata attached to products, orders, and other resources.
+- name: Webhook
+  description: A subscription to a store event topic.
+- name: Theme
+  description: A storefront theme and its assets.
+- name: Page
+  description: A content page (online store navigation).
+relationships:
+- from: Product
+  to: Variant
+  type: has_many
+  via: /products/{id}/variants
+- from: Product
+  to: ProductImage
+  type: has_many
+  via: /products/{id}/images
+- from: Product
+  to: Metafield
+  type: has_many
+  via: /products/{id}/metafields
+- from: Collection
+  to: Collect
+  type: has_many
+  via: collects
+- from: Collect
+  to: Product
+  type: belongs_to
+  via: product_id
+- from: Order
+  to: Fulfillment
+  type: has_many
+  via: /orders/{id}/fulfillments
+- from: Order
+  to: Transaction
+  type: has_many
+  via: /orders/{id}/transactions
+- from: Order
+  to: OrderRisk
+  type: has_many
+  via: /orders/{id}/risks
+- from: Order
+  to: Customer
+  type: belongs_to
+  via: customer_id
+- from: Customer
+  to: CustomerAddress
+  type: has_many
+  via: /customers/{id}/addresses
+- from: PriceRule
+  to: DiscountCode
+  type: has_many
+  via: /price_rules/{id}/discount_codes

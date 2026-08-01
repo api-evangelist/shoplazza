@@ -1,0 +1,44 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+provider: Shoplazza
+providerId: shoplazza
+generated: '2026-07-21'
+method: searched
+source: https://www.shoplazza.dev/docs/app/building-blocks/rest-api/rate-limits
+created: '2026-07-21'
+modified: '2026-07-21'
+tags:
+- Rate Limiting
+- E-Commerce
+description: >-
+  The Shoplazza REST Admin API is request-based and rate-limited with a leaky
+  bucket across two independent dimensions: an app/store pair bucket and a
+  per-store bucket. Each request is counted against both; it succeeds only when
+  both buckets have capacity, otherwise it is throttled.
+responseCodes:
+  throttled: 429
+limits:
+- name: App/store bucket size
+  scope: app-store-pair
+  metric: bucket_size
+  limit: 40
+  timeFrame: burst
+- name: App/store leak rate
+  scope: app-store-pair
+  metric: requests_per_second
+  limit: 2
+  timeFrame: second
+- name: Store bucket size
+  scope: store
+  metric: bucket_size
+  limit: 80
+  timeFrame: burst
+- name: Store leak rate
+  scope: store
+  metric: requests_per_second
+  limit: 20
+  timeFrame: second
+notes: >-
+  Limits are request-based (each request counts equally regardless of payload
+  size). Defaults shown; the store dimension is shared across all apps calling
+  that store.

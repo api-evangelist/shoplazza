@@ -1,0 +1,25 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Shoplazza Admin API
+  version: 1.0.0
+extends: openapi/shoplazza-admin-openapi-original.json
+actions:
+- target: $.info
+  update:
+    x-apievangelist-provider: shoplazza
+    x-apievangelist-rating-round: '2026-07-21'
+    x-authentication: authentication/shoplazza-authentication.yml
+    x-oauth-scopes: scopes/shoplazza-scopes.yml
+    x-conventions: conventions/shoplazza-conventions.yml
+    x-rate-limits: rate-limits/shoplazza-rate-limits.yml
+    x-webhooks: asyncapi/shoplazza-webhooks.yml
+    x-lifecycle: lifecycle/shoplazza-lifecycle.yml
+    x-error-catalog: errors/shoplazza-problem-types.yml
+- target: $.info
+  update:
+    description: >-
+      Shoplazza SPZ Admin REST API. OAuth 2.0 access tokens presented via the
+      access-token header; cursor pagination (data/cursor/has_more); date-based
+      versioning (/openapi/YYYY-MM/); leaky-bucket rate limiting. Enhanced by API
+      Evangelist with derived authentication, scopes, conventions, error catalog,
+      lifecycle, and webhook artifacts (see the x-* pointers on info).

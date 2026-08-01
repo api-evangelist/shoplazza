@@ -1,0 +1,38 @@
+generated: '2026-07-21'
+method: searched
+type: Webhooks
+source: https://www.shoplazza.dev/docs/app/building-blocks/webhooks/overview
+docs: https://www.shoplazza.dev/docs/app/building-blocks/webhooks/webhook-events
+description: >-
+  Shoplazza webhooks let an app passively receive store events. When a store
+  event occurs (an order is created, a product is updated, an app is
+  uninstalled, ...) Shoplazza POSTs the event payload to the HTTPS URL the app
+  registered in advance. No published AsyncAPI document exists; this catalogs the
+  webhook surface from the developer docs.
+mechanism:
+  delivery: HTTP POST (JSON) to the subscriber address
+  auth_header: 'Access-Token: <access_token>'
+  signature: HMAC signature verification (same algorithm as OAuth callbacks)
+  registration_endpoint: POST https://{shop}/openapi/{version}/webhooks
+  subscription_object:
+    fields: [id, topic, address, format, created_at, updated_at]
+  version_note: >-
+    In 2022-01 the subscription request body is flat ({topic, address}). From
+    2025-06 onward the body must wrap the subscription in a webhook object
+    ({webhook: {topic, address}}).
+topics_confirmed:
+- products/create
+- orders/create
+- app/uninstalled
+topics_note: >-
+  The full topic list (per resource: create/update/delete and lifecycle events)
+  is published at the Webhook Events reference. Only topics explicitly confirmed
+  from the docs/spec are enumerated here to avoid fabrication.
+management:
+  operations:
+  - openapi/shoplazza-admin-openapi-original.json#webhook-list
+  - openapi/shoplazza-admin-openapi-original.json#webhook-count
+  - openapi/shoplazza-admin-openapi-original.json#create-webhook
+  - openapi/shoplazza-admin-openapi-original.json#webhook-details
+  - openapi/shoplazza-admin-openapi-original.json#update-webhook
+  - openapi/shoplazza-admin-openapi-original.json#delete-webhook

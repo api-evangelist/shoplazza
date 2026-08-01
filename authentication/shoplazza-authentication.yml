@@ -1,0 +1,41 @@
+generated: '2026-07-21'
+method: searched
+source: https://www.shoplazza.dev/docs/app/building-blocks/authentication/
+docs: https://www.shoplazza.dev/docs/app/building-blocks/authentication/
+summary:
+  types: [oauth2, apiKey]
+  api_key_in: [header]
+  api_key_name: access-token
+  oauth2_flows: [authorizationCode]
+  notes: >-
+    Shoplazza uses OAuth 2.0 (authorization code grant) to authorize third-party
+    public apps. The app receives an access token (with refresh token) that is
+    sent on every Admin API request in the access-token request header. OAuth
+    callbacks and webhooks are additionally verified with an HMAC signature.
+    App Bridge embedded apps use short-lived session tokens.
+schemes:
+- name: OAuth2 (authorization code)
+  type: oauth2
+  flow: authorizationCode
+  description: >-
+    Public apps request access scopes from the merchant during installation and
+    exchange an authorization code for an access token + refresh token. Token is
+    then presented as the access-token header on Admin API calls.
+  scopes_ref: scopes/shoplazza-scopes.yml
+  source: docs
+- name: apikey-header-access-token
+  type: apiKey
+  in: header
+  parameter_name: access-token
+  description: >-
+    The OAuth-issued access token is presented on every Admin API request via
+    the access-token HTTP header (declared as the operation-level security
+    scheme in the OpenAPI spec).
+  sources: [openapi/shoplazza-admin-openapi-original.json]
+signature_verification:
+  method: HMAC
+  applies_to: [oauth-callbacks, webhooks]
+  docs: https://www.shoplazza.dev/docs/app/building-blocks/authentication/
+embedded_session_tokens:
+  used_by: App Bridge
+  docs: https://www.shoplazza.dev/docs/app/developer-tools/app-bridge/

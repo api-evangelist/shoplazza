@@ -1,0 +1,34 @@
+generated: '2026-07-21'
+method: searched
+source: https://www.shoplazza.dev/docs/app/developer-tools/api-libraries
+docs: https://www.shoplazza.dev/docs/app/developer-tools/api-libraries
+notes: >-
+  Shoplazza publishes official OAuth SDKs (Go and PHP) for the OAuth 2.0
+  authorization flow, plus the Shoplazza CLI. Full Admin API client libraries
+  are listed as "coming soon" in the docs. All packages below are first-party,
+  published under the Shoplazza GitHub organization.
+packages:
+- language: go
+  registry: github
+  name: Shoplazza/oauth-sdk-go
+  url: https://github.com/Shoplazza/oauth-sdk-go
+  install: go get github.com/Shoplazza/oauth-sdk-go
+  official: true
+  description: OAuth2 client implementation for Golang against the Shoplazza OAuth 2.0 spec.
+- language: php
+  registry: github
+  name: Shoplazza/oauth-sdk-php
+  url: https://github.com/Shoplazza/oauth-sdk-php
+  install: composer require shoplazza/oauth-sdk-php
+  official: true
+  description: OAuth2 client implementation for PHP against the Shoplazza OAuth 2.0 spec.
+- language: shell
+  registry: homebrew
+  name: shoplazza-cli
+  url: https://github.com/Shoplazza/homebrew-tap
+  install: brew install shoplazza/tap/shoplazza
+  official: true
+  kind: cli
+  description: >-
+    Shoplazza CLI (v2) — command-line tool for building Shoplazza apps, themes,
+    and extensions. Command surface catalogued in cli/shoplazza-cli.yml.

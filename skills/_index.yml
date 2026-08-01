@@ -1,0 +1,17 @@
+generated: '2026-07-21'
+method: generated
+source: >-
+  Generated from openapi/shoplazza-admin-openapi-original.json operations plus
+  conventions/, scopes/, and errors/ artifacts. Every operationId referenced is
+  verified present in the spec.
+api: openapi/shoplazza-admin-openapi-original.json
+skills:
+- file: shoplazza-manage-products.md
+  name: Manage Shoplazza products and variants
+  operations: [product_list, product_show, create_product, update_product, delete_product, create_variant, variant_list, update_variant]
+- file: shoplazza-fulfill-and-refund-orders.md
+  name: Process Shoplazza orders (fulfill, cancel, refund)
+  operations: [order-list, order-details, order-details-by-number, cancel-order, close-order, re-open-order, order-refund, partial-order-refund]
+- file: shoplazza-subscribe-webhooks.md
+  name: Subscribe to Shoplazza store events with webhooks
+  operations: [create-webhook, webhook-list, webhook-count, webhook-details, update-webhook, delete-webhook]

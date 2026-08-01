@@ -1,0 +1,45 @@
+generated: '2026-07-21'
+method: searched
+source: https://www.shoplazza.dev/changelog
+rss: https://www.shoplazza.dev/changelog/rss.xml
+description: >-
+  Shoplazza API changelog tracking breaking changes, new endpoints, and removed
+  endpoints between OpenAPI versions. Versions follow the vYYYYMM naming
+  convention and increment the /openapi/YYYY-MM/ path prefix.
+scheme: date-based (vYYYYMM)
+current_version: '202601'
+entries:
+- version: '202607'
+  status: Current
+  api_prefix: /openapi/2026-07/
+  previous: /openapi/2026-01/
+  breaking: false
+  highlights:
+  - >-
+    Routine release incrementing the API prefix from 2026-01 to 2026-07. Existing
+    integrations using the previous prefix continue to work with the same
+    functional behavior; updating the base path to /openapi/2026-07/ is required
+    to access this version, with no other migration steps.
+- version: '202601'
+  status: Supported
+  api_prefix: /openapi/2026-01/
+  previous: /openapi/2025-06/
+  breaking: true
+  highlights:
+  - Price rules and discount codes endpoints are fully replaced by a new unified Discounts API.
+  - >-
+    New Discounts endpoints support automatic and non-automatic discounts, code
+    lookup, combine configurations, batch operations, and cancellation.
+  - Asynchronous smart collection creation is introduced for better performance.
+- version: '202506'
+  status: Supported
+  api_prefix: /openapi/2025-06/
+  highlights:
+  - >-
+    Webhook subscription request body changed to wrap the subscription in a
+    webhook object (from the flat 2022-01 body shape).
+- version: '202201'
+  status: Supported
+  api_prefix: /openapi/2022-01/
+  highlights:
+  - Original published Admin API version (baseline of the OpenAPI spec in this repo).
