@@ -258,6 +258,8 @@ x-enrichment:
   artifacts_added: 23
   pass: local-v1
 common:
+- type: Overlay
+  url: overlays/shoplazza-admin-overlay.yaml
 - type: DomainSecurity
   url: security/shoplazza-domain-security.yml
 - type: DeveloperPortal
