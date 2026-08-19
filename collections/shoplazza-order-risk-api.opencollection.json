@@ -1,0 +1,166 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SPZ Admin Access Order Risk API",
+    "version": "2022.01"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "access-token",
+      "value": "{{access-token}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Order Risk",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Order Risk",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/orders/:id/risks",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Order's ID"
+              }
+            ]
+          },
+          "docs": "Order Risk"
+        },
+        {
+          "info": {
+            "name": "Order Risk List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/orders/:order_id/risks/list",
+            "params": [
+              {
+                "name": "order_id",
+                "value": "",
+                "type": "path",
+                "description": "Order's ID"
+              }
+            ]
+          },
+          "docs": "Order Risk List"
+        },
+        {
+          "info": {
+            "name": "Order Risk Detail",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/orders/:order_id/risks/:id",
+            "params": [
+              {
+                "name": "order_id",
+                "value": "",
+                "type": "path",
+                "description": "Order's ID"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Risk's ID"
+              }
+            ]
+          },
+          "docs": "Order Risk Detail"
+        },
+        {
+          "info": {
+            "name": "Update Order Risk",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/orders/:order_id/risks/:id",
+            "params": [
+              {
+                "name": "order_id",
+                "value": "",
+                "type": "path",
+                "description": "Order's ID"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Risk's ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update Order Risk"
+        },
+        {
+          "info": {
+            "name": "Delete Order Risk",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/orders/:order_id/risks/:id",
+            "params": [
+              {
+                "name": "order_id",
+                "value": "",
+                "type": "path",
+                "description": "Order's ID"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Risk's ID"
+              }
+            ]
+          },
+          "docs": "Delete Order Risk"
+        },
+        {
+          "info": {
+            "name": "Create Order Risk",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/orders/:order_id/risks",
+            "params": [
+              {
+                "name": "order_id",
+                "value": "",
+                "type": "path",
+                "description": "Order's ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Order Risk"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

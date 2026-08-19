@@ -1,0 +1,191 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SPZ Admin Access Data API",
+    "version": "2022.01"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "access-token",
+      "value": "{{access-token}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Data",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Data Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/data/task",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "query",
+                "description": "Event ID to query, will query the last record if id is null"
+              }
+            ]
+          },
+          "docs": "Data Details"
+        },
+        {
+          "info": {
+            "name": "Data Count",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/data/count"
+          },
+          "docs": "Data Count"
+        },
+        {
+          "info": {
+            "name": "Data List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/data/tasks",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number, e.g. `2`"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Result per page, e.g. `15`"
+              }
+            ]
+          },
+          "docs": "Data List"
+        },
+        {
+          "info": {
+            "name": "Create Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/data/query",
+            "params": [
+              {
+                "name": "event",
+                "value": "",
+                "type": "query",
+                "description": "Event type, supported types: `impressions`, `add_payment_info`, `add_to_cart`, `begin_checkout`, `pageview`, `place_order`, `product_search`, `product_view`, `purchase_product`, `refund_order`, will query all event types except `impressions`, if query params not provided."
+              },
+              {
+                "name": "beginTime",
+                "value": "",
+                "type": "query",
+                "description": "Event query at after date, e.g. `2020-12-30T15:04:05`"
+              },
+              {
+                "name": "endTime",
+                "value": "",
+                "type": "query",
+                "description": "Event query at before the date, e.g. `2020-12-30T15:04:05`, the duration between beginning time and end time can not larger than 24 hours."
+              }
+            ]
+          },
+          "docs": "Create Data"
+        },
+        {
+          "info": {
+            "name": "Data Analysis",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/data/analysis",
+            "params": [
+              {
+                "name": "begin_time",
+                "value": "",
+                "type": "query",
+                "description": "Begin time of analysis data, e.g. `1666512000`"
+              },
+              {
+                "name": "end_time",
+                "value": "",
+                "type": "query",
+                "description": "End time of analysis data, e.g. `1682323199`"
+              },
+              {
+                "name": "tz",
+                "value": "",
+                "type": "query",
+                "description": "Time zone, e.g. `8`"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit per page, default `20`, max `200`"
+              },
+              {
+                "name": "sort_by",
+                "value": "",
+                "type": "query",
+                "description": "Sort, choose from field of `indicator`"
+              },
+              {
+                "name": "sort_direction",
+                "value": "",
+                "type": "query",
+                "description": "Sort direction, choose from `asc` `desc`"
+              },
+              {
+                "name": "dt_by",
+                "value": "",
+                "type": "query",
+                "description": "Time aggregation granularity, choose `dt_by_hour` `dt_by_day`"
+              },
+              {
+                "name": "dimension",
+                "value": "",
+                "type": "query",
+                "description": "Analysis dimension, analysis `shop dimension` when field is empty,  analysis `country dimension` when choose  from `country_code`, analysis `utm dimension` when choose  from`utm_source` `utm_medium` `utm_term` `utm_campaign` `utm_content`"
+              },
+              {
+                "name": "indicator",
+                "value": "",
+                "type": "query",
+                "description": "Analysis indicator,  all dimension can choose from `pv` `uv` `add_cart_uv` `begin_checkout_pv` `begin_checkout_uv` `orders` `sales`, `shop` or `country dimension` can additionally choose from `conversion_rate` `add_cart_qty` `add_payment_info_uv`"
+              },
+              {
+                "name": "filters",
+                "value": "",
+                "type": "query",
+                "description": "Analysis filters, e.g. `utm_source=google` `country_code=CN`"
+              }
+            ]
+          },
+          "docs": "Data Analysis"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

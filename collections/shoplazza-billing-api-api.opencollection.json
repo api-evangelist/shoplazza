@@ -1,0 +1,348 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SPZ Admin Access Billing API API",
+    "version": "2022.01"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "access-token",
+      "value": "{{access-token}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Billing API",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Complete Payment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/payments_apps/complete_callbacks",
+            "headers": [
+              {
+                "name": "Access-Token",
+                "value": ""
+              },
+              {
+                "name": "Shoplazza-Shop-Domain",
+                "value": ""
+              },
+              {
+                "name": "Shoplazza-Hmac-Sha256",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Complete Payment"
+        },
+        {
+          "info": {
+            "name": "Notify Payment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/payments_apps/notify_callbacks",
+            "headers": [
+              {
+                "name": "Access-Token",
+                "value": ""
+              },
+              {
+                "name": "Shoplazza-Shop-Domain",
+                "value": ""
+              },
+              {
+                "name": "Shoplazza-Hmac-Sha256",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Notify Payment"
+        },
+        {
+          "info": {
+            "name": "Get Application Charge List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/application_charges",
+            "params": [
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "since_id",
+                "value": "",
+                "type": "query",
+                "description": "Restrict results to after the specified ID."
+              },
+              {
+                "name": "charges_status",
+                "value": "",
+                "type": "query",
+                "description": "Filter charges by charges status, separated by comma, for example: `pending,accepted,declined,active,expired,frozen,cancelled,paid_failed,paying`"
+              }
+            ]
+          },
+          "docs": "get application charge list"
+        },
+        {
+          "info": {
+            "name": "Create application charge",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/application_charges",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create application charge"
+        },
+        {
+          "info": {
+            "name": "Get Application Charge Detail",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/application_charges/:charge_id",
+            "params": [
+              {
+                "name": "charge_id",
+                "value": "",
+                "type": "path",
+                "description": "the application charge id"
+              }
+            ]
+          },
+          "docs": "get application charge detail"
+        },
+        {
+          "info": {
+            "name": "Get Recurring Application Charge List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/recurring_application_charges",
+            "params": [
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "since_id",
+                "value": "",
+                "type": "query",
+                "description": "Restrict results to after the specified ID."
+              },
+              {
+                "name": "charges_status",
+                "value": "",
+                "type": "query",
+                "description": "Filter charges by charges status, separated by comma, for example: `pending,accepted,declined,active,expired,frozen,cancelled,paid_failed,paying`"
+              }
+            ]
+          },
+          "docs": "get recurring application charge list"
+        },
+        {
+          "info": {
+            "name": "Create Recurring Aplication Charge",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/recurring_application_charges",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "create recurring application charge"
+        },
+        {
+          "info": {
+            "name": "Get Recurring Application Charge",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/recurring_application_charges/:charge_id",
+            "params": [
+              {
+                "name": "charge_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "get rucurring application charge"
+        },
+        {
+          "info": {
+            "name": "Cancel Recurring Application Charge",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/recurring_application_charges/:charge_id",
+            "params": [
+              {
+                "name": "charge_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "cancel recurring application charge"
+        },
+        {
+          "info": {
+            "name": "Order Payment Success",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/orders/:id/payment/success",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Order's ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Order Payment Success"
+        },
+        {
+          "info": {
+            "name": "Get Usage Charge List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/recurring_application_charges/:recurring_charge_id/usage_charge",
+            "params": [
+              {
+                "name": "recurring_charge_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "since_id",
+                "value": "",
+                "type": "query",
+                "description": "Restrict results to after the specified ID."
+              }
+            ]
+          },
+          "docs": "Get Usage Charge List"
+        },
+        {
+          "info": {
+            "name": "Create Usage Charge",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/recurring_application_charges/:recurring_charge_id/usage_charge",
+            "params": [
+              {
+                "name": "recurring_charge_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Usage Charge"
+        },
+        {
+          "info": {
+            "name": "Get Usage Charge",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/recurring_application_charges/:recurring_charge_id/usage_charge/:usage_charge_id",
+            "params": [
+              {
+                "name": "recurring_charge_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "usage_charge_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get Usage Charge"
+        },
+        {
+          "info": {
+            "name": "Update The Capped Amount Of Recurring Application Charge",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/recurring_application_charges/:recurring_charge_id/customize",
+            "params": [
+              {
+                "name": "recurring_charge_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Change the usage charge capped amount for recurring application charge in the activated state. Note, that you cannot use this endpoint to modify properties other than the capped amount of the recurring application charge."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

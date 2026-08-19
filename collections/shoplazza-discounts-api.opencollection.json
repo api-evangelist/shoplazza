@@ -1,0 +1,526 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SPZ Admin Access Discounts API",
+    "version": "2022.01"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "access-token",
+      "value": "{{access-token}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Discounts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Price Rule List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/price_rules",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Result per page, max: `250`"
+              },
+              {
+                "name": "starts_at_min",
+                "value": "",
+                "type": "query",
+                "description": "Filter price rule started after date, timestamp format, e.g. `1581152471`"
+              },
+              {
+                "name": "starts_at_max",
+                "value": "",
+                "type": "query",
+                "description": "Filter price rule started before date, timestamp format, e.g. `1581152471`"
+              },
+              {
+                "name": "ends_at_min",
+                "value": "",
+                "type": "query",
+                "description": "Filter price rule ended before date, timestamp format, e.g. `1581152471`"
+              },
+              {
+                "name": "ends_at_max",
+                "value": "",
+                "type": "query",
+                "description": "Filter price rule ended after date, timestamp format, e.g. `1581152471`"
+              },
+              {
+                "name": "times_used",
+                "value": "",
+                "type": "query",
+                "description": "Used count for this price rule"
+              }
+            ]
+          },
+          "docs": "Price Rule List"
+        },
+        {
+          "info": {
+            "name": "Create Price Rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/price_rules",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Price Rule"
+        },
+        {
+          "info": {
+            "name": "Price Rule Count",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/price_rules/count"
+          },
+          "docs": "Price Rule Count"
+        },
+        {
+          "info": {
+            "name": "Price Rule Detail",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/price_rules/:price_rule_id",
+            "params": [
+              {
+                "name": "price_rule_id",
+                "value": "",
+                "type": "path",
+                "description": "Price rule ID"
+              }
+            ]
+          },
+          "docs": "Price Rule Detail"
+        },
+        {
+          "info": {
+            "name": "Update Price Rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/price_rules/:price_rule_id",
+            "params": [
+              {
+                "name": "price_rule_id",
+                "value": "",
+                "type": "path",
+                "description": "Price rule ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update Price Rule"
+        },
+        {
+          "info": {
+            "name": "Delete Price Rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/price_rules/:price_rule_id",
+            "params": [
+              {
+                "name": "price_rule_id",
+                "value": "",
+                "type": "path",
+                "description": "Price rule ID"
+              }
+            ]
+          },
+          "docs": "Delete Price Rule"
+        },
+        {
+          "info": {
+            "name": "Get Discount Code List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/price_rules/:price_rule_id/discount_codes",
+            "params": [
+              {
+                "name": "price_rule_id",
+                "value": "",
+                "type": "path",
+                "description": "Price rule ID"
+              }
+            ]
+          },
+          "docs": "Get Discount Code List"
+        },
+        {
+          "info": {
+            "name": "Create Discount Code",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/price_rules/:price_rule_id/discount_codes",
+            "params": [
+              {
+                "name": "price_rule_id",
+                "value": "",
+                "type": "path",
+                "description": "Price rule ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Discount Code"
+        },
+        {
+          "info": {
+            "name": "Delete Discount Code",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/price_rules/:price_rule_id/discount_codes",
+            "params": [
+              {
+                "name": "price_rule_id",
+                "value": "",
+                "type": "path",
+                "description": "Price rule ID"
+              }
+            ]
+          },
+          "docs": "Delete Discount Code"
+        },
+        {
+          "info": {
+            "name": "Get Discount Code Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/price_rules/:price_rule_id/discount_codes/:discount_code_id",
+            "params": [
+              {
+                "name": "price_rule_id",
+                "value": "",
+                "type": "path",
+                "description": "Price rule ID"
+              },
+              {
+                "name": "discount_code_id",
+                "value": "",
+                "type": "path",
+                "description": "Discount code ID"
+              }
+            ]
+          },
+          "docs": "Get Discount Code Details"
+        },
+        {
+          "info": {
+            "name": "Update Discount Code",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/price_rules/:price_rule_id/discount_codes/:discount_code_id",
+            "params": [
+              {
+                "name": "price_rule_id",
+                "value": "",
+                "type": "path",
+                "description": "Price rule ID"
+              },
+              {
+                "name": "discount_code_id",
+                "value": "",
+                "type": "path",
+                "description": "Discount code ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update Discount Code"
+        },
+        {
+          "info": {
+            "name": "Search Discount Code",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/discount_codes/lookup",
+            "params": [
+              {
+                "name": "code",
+                "value": "",
+                "type": "query",
+                "description": "Discount code, for example: `SUMMERSALE10OFF`"
+              }
+            ]
+          },
+          "docs": "Search Discount Code"
+        },
+        {
+          "info": {
+            "name": "Coupon List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/coupons",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit count per page"
+              },
+              {
+                "name": "progress",
+                "value": "",
+                "type": "query",
+                "description": "Progress of coupons, available: `not_started`, `ongoing`, `finished`"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Type of coupons, available: `fixed_amount`, `percentage `"
+              },
+              {
+                "name": "keywords",
+                "value": "",
+                "type": "query",
+                "description": "Search coupons' title"
+              }
+            ]
+          },
+          "docs": "Coupon List"
+        },
+        {
+          "info": {
+            "name": "Receive Coupons",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/coupons/receive",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Receive Coupons"
+        },
+        {
+          "info": {
+            "name": "Discount Code List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/discount_codes",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit per page"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number"
+              },
+              {
+                "name": "need_detail_url",
+                "value": "",
+                "type": "query",
+                "description": "details url return in responses"
+              }
+            ]
+          },
+          "docs": "Retrieves a list of discount code."
+        },
+        {
+          "info": {
+            "name": "Discount Rebate List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/discount_rebates",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit per page"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number"
+              },
+              {
+                "name": "need_detail_url",
+                "value": "",
+                "type": "query",
+                "description": "details url return in responses"
+              }
+            ]
+          },
+          "docs": "Discount Rebate List"
+        },
+        {
+          "info": {
+            "name": "Discount Flashsale List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/discount_flashsales",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit per page"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number"
+              },
+              {
+                "name": "need_detail_url",
+                "value": "",
+                "type": "query",
+                "description": "details url return in responses"
+              }
+            ]
+          },
+          "docs": "Discount Flashsale List"
+        },
+        {
+          "info": {
+            "name": "Popup List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/popups",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit count per page"
+              }
+            ]
+          },
+          "docs": "Popup List"
+        },
+        {
+          "info": {
+            "name": "Get Salespop Config",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/salespops/config"
+          },
+          "docs": "Get Salespop Config"
+        },
+        {
+          "info": {
+            "name": "Get Salespop Datagraph",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/salespops/datagraph",
+            "params": [
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "The  data type, example: `banner`"
+              },
+              {
+                "name": "subtype",
+                "value": "",
+                "type": "query",
+                "description": "The data subtype, example: `sales_pop_exposure`"
+              },
+              {
+                "name": "begin_time",
+                "value": "",
+                "type": "query",
+                "description": "The `datagraph` begin time, in timestamp."
+              },
+              {
+                "name": "end_time",
+                "value": "",
+                "type": "query",
+                "description": "The `datagraph` end time, in timestamp."
+              },
+              {
+                "name": "tz",
+                "value": "",
+                "type": "query",
+                "description": "The time zone, example:  `8`"
+              }
+            ]
+          },
+          "docs": "Get Salespop Datagraph"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

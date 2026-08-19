@@ -1,0 +1,218 @@
+{
+  "item": [
+    {
+      "id": "f23dcd2d-5e20-453f-a040-b34a1ac30a10",
+      "name": "Access",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "996ffa37-4a24-4673-b116-c521806d77a4",
+          "name": "Get Access Scopes",
+          "request": {
+            "name": "Get Access Scopes",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "openapi",
+                "2022-01",
+                "oauth",
+                "access_scopes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{subdomain}}",
+                  "key": "subdomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "846462b3-e525-46d7-bb6c-c88ef89c357c",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "oauth",
+                    "access_scopes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"access_scopes\\\": [\\n        {\\n            \\\"handle\\\": \\\"read_product\\\"\\n        },\\n        {\\n            \\\"handle\\\": \\\"write_product\\\"\\n        },\\n        {\\n            \\\"handle\\\": \\\"read_order\\\"\\n        },\\n        {\\n            \\\"handle\\\": \\\"write_order\\\"\\n        },\\n        {\\n            \\\"handle\\\": \\\"read_comments\\\"\\n        },\\n        {\\n            \\\"handle\\\": \\\"write_comments\\\"\\n        },\\n        {\\n            \\\"handle\\\": \\\"read_script_tags\\\"\\n        },\\n        {\\n            \\\"handle\\\": \\\"write_script_tags\\\"\\n        },\\n        {\\n            \\\"handle\\\": \\\"read_collection\\\"\\n        },\\n        {\\n            \\\"handle\\\": \\\"write_collection\\\"\\n        },\\n        {\\n            \\\"handle\\\": \\\"read_shop\\\"\\n        },\\n        {\\n            \\\"handle\\\": \\\"read_customer\\\"\\n        },\\n        {\\n            \\\"handle\\\": \\\"write_customer\\\"\\n        },\\n        {\\n            \\\"handle\\\": \\\"read_app_proxy\\\"\\n        },\\n        {\\n            \\\"handle\\\": \\\"write_app_proxy\\\"\\n        },\\n        {\\n            \\\"handle\\\": \\\"read_data\\\"\\n        },\\n        {\\n            \\\"handle\\\": \\\"write_data\\\"\\n        },\\n        {\\n            \\\"handle\\\": \\\"read_price_rules\\\"\\n        },\\n        {\\n            \\\"handle\\\": \\\"write_price_rules\\\"\\n        },\\n        {\\n            \\\"handle\\\": \\\"read_shop_navigation\\\"\\n        },\\n        {\\n            \\\"handle\\\": \\\"write_shop_navigation\\\"\\n        },\\n        {\\n            \\\"handle\\\": \\\"read_search_api\\\"\\n        },\\n        {\\n            \\\"handle\\\": \\\"write_search_api\\\"\\n        }\\n    ]\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d68e0fa3-870d-4528-b873-8aadda4a185a",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "oauth",
+                    "access_scopes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "developer",
+      "key": "subdomain"
+    },
+    {
+      "type": "string",
+      "value": "https://{{subdomain}}.myshoplaza.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "access-token"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "9358ed97-1fff-431c-bb18-3788bab0741b",
+    "name": "SPZ Admin Access API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

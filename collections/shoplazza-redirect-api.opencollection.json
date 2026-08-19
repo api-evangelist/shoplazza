@@ -1,0 +1,128 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SPZ Admin Access Redirect API",
+    "version": "2022.01"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "access-token",
+      "value": "{{access-token}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Redirect",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Redirect List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/redirects"
+          },
+          "docs": "Redirect List"
+        },
+        {
+          "info": {
+            "name": "Create Redirect",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/redirects",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Redirect"
+        },
+        {
+          "info": {
+            "name": "Redirect Detail",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/redirects/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Redirect ID"
+              }
+            ]
+          },
+          "docs": "Redirect Detail"
+        },
+        {
+          "info": {
+            "name": "Update Redirect",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/redirects/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Redirect ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update Redirect"
+        },
+        {
+          "info": {
+            "name": "Delete Redirect",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/redirects/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Redirect ID"
+              }
+            ]
+          },
+          "docs": "Delete Redirect"
+        },
+        {
+          "info": {
+            "name": "Search Redirect",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/redirects/detail",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Search Redirect"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

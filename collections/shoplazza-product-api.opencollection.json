@@ -1,0 +1,1004 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SPZ Admin Access Product API",
+    "version": "2022.01"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "access-token",
+      "value": "{{access-token}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Product",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Product List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/products",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Product's IDs, separated by comma, for example: `9e79ca1f-9ff2-409b-976f-98be343d38a3,9e79ca1f-9ff2-409b-976f-98be343d38ae`"
+              },
+              {
+                "name": "title",
+                "value": "",
+                "type": "query",
+                "description": "product's title"
+              },
+              {
+                "name": "collection_id",
+                "value": "",
+                "type": "query",
+                "description": "Collection UUID, for example: `9e79ca1f-9ff2-409b-976f-98be343d38a3`"
+              },
+              {
+                "name": "created_at_min",
+                "value": "",
+                "type": "query",
+                "description": "filter products created at or after date, for example: `2018-10-01T16:15:47-04:00`"
+              },
+              {
+                "name": "created_at_max",
+                "value": "",
+                "type": "query",
+                "description": "filter products created at or before date, for example: `2018-10-01T16:15:47-04:00`"
+              },
+              {
+                "name": "updated_at_min",
+                "value": "",
+                "type": "query",
+                "description": "filter products last updated at or after date, for example: `2018-10-01T16:15:47-04:00`"
+              },
+              {
+                "name": "updated_at_max",
+                "value": "",
+                "type": "query",
+                "description": "filter products last updated at or before date, for example: `2018-10-01T16:15:47-04:00`"
+              },
+              {
+                "name": "published_at_min",
+                "value": "",
+                "type": "query",
+                "description": "filter products published at or after date, for example: `2018-10-01T16:15:47-04:00`"
+              },
+              {
+                "name": "published_at_max",
+                "value": "",
+                "type": "query",
+                "description": "filter products published at or before date, for example: `2018-10-01T16:15:47-04:00`"
+              },
+              {
+                "name": "published_status",
+                "value": "",
+                "type": "query",
+                "description": "filter by published status: `published`, `unpublished`, `any`"
+              },
+              {
+                "name": "spus",
+                "value": "",
+                "type": "query",
+                "description": "Product's SPUs, separated by comma,  for example: `spu1,spu2`"
+              },
+              {
+                "name": "pre_cursor",
+                "value": "",
+                "type": "query",
+                "description": "pre cursor-based pagination, please see https://www.shoplazza.dev/reference/cursor-pagination for more information"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "cursor-based pagination, please see https://www.shoplazza.dev/reference/cursor-pagination for more information"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "limit per page"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "filter fields return in responses, separated by comma, for example: `title, id`"
+              }
+            ]
+          },
+          "docs": "Product List"
+        },
+        {
+          "info": {
+            "name": "Create Product",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/products",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Product"
+        },
+        {
+          "info": {
+            "name": "Product Total Count",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/products/count",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Product's IDs, separated by comma, for example: `9e79ca1f-9ff2-409b-976f-98be343d38a3,9e79ca1f-9ff2-409b-976f-98be343d38ae`"
+              },
+              {
+                "name": "title",
+                "value": "",
+                "type": "query",
+                "description": "product's title"
+              },
+              {
+                "name": "collection_id",
+                "value": "",
+                "type": "query",
+                "description": "Collection's ID, for example: `9e79ca1f-9ff2-409b-976f-98be343d38a3`"
+              },
+              {
+                "name": "created_at_min",
+                "value": "",
+                "type": "query",
+                "description": "filter products created at or after date, for example: `2018-10-01T16:15:47-04:00`"
+              },
+              {
+                "name": "created_at_max",
+                "value": "",
+                "type": "query",
+                "description": "filter products created at or before date, for example: `2018-10-01T16:15:47-04:00`"
+              },
+              {
+                "name": "updated_at_min",
+                "value": "",
+                "type": "query",
+                "description": "filter products last updated at or after date, for example: `2018-10-01T16:15:47-04:00`"
+              },
+              {
+                "name": "updated_at_max",
+                "value": "",
+                "type": "query",
+                "description": "filter products last updated at or before date, for example: `2018-10-01T16:15:47-04:00`"
+              },
+              {
+                "name": "published_at_min",
+                "value": "",
+                "type": "query",
+                "description": "filter products published at or after date, for example: `2018-10-01T16:15:47-04:00`"
+              },
+              {
+                "name": "published_at_max",
+                "value": "",
+                "type": "query",
+                "description": "filter products published at or before date, for example: `2018-10-01T16:15:47-04:00`"
+              },
+              {
+                "name": "published_status",
+                "value": "",
+                "type": "query",
+                "description": "filter by publish status: `published`, `unpublished`, `any`"
+              }
+            ]
+          },
+          "docs": "Product Total Count"
+        },
+        {
+          "info": {
+            "name": "Product Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/products/:product_id",
+            "params": [
+              {
+                "name": "product_id",
+                "value": "",
+                "type": "path",
+                "description": "Product's ID"
+              }
+            ]
+          },
+          "docs": "Product Details"
+        },
+        {
+          "info": {
+            "name": "Update Product",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/products/:product_id",
+            "params": [
+              {
+                "name": "product_id",
+                "value": "",
+                "type": "path",
+                "description": "Product's ID"
+              },
+              {
+                "name": "no_entity",
+                "value": "",
+                "type": "query",
+                "description": "If no_entity is true, it will return empty object while update successfully"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update Product"
+        },
+        {
+          "info": {
+            "name": "Delete Product",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/products/:product_id",
+            "params": [
+              {
+                "name": "product_id",
+                "value": "",
+                "type": "path",
+                "description": "Product's ID"
+              }
+            ]
+          },
+          "docs": "Delete Product"
+        },
+        {
+          "info": {
+            "name": "Variant Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/variants/:variant_id",
+            "params": [
+              {
+                "name": "variant_id",
+                "value": "",
+                "type": "path",
+                "description": "Variant's ID"
+              }
+            ]
+          },
+          "docs": "Variant Details"
+        },
+        {
+          "info": {
+            "name": "Update Variant",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/variants/:variant_id",
+            "params": [
+              {
+                "name": "variant_id",
+                "value": "",
+                "type": "path",
+                "description": "Variant's ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update Variant"
+        },
+        {
+          "info": {
+            "name": "Variant Total Count",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/products/:product_id/variants/count",
+            "params": [
+              {
+                "name": "product_id",
+                "value": "",
+                "type": "path",
+                "description": "Product's ID"
+              }
+            ]
+          },
+          "docs": "Variant Total Count"
+        },
+        {
+          "info": {
+            "name": "Variant List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/products/:product_id/variants",
+            "params": [
+              {
+                "name": "product_id",
+                "value": "",
+                "type": "path",
+                "description": "Product's ID"
+              }
+            ]
+          },
+          "docs": "Variant List"
+        },
+        {
+          "info": {
+            "name": "Create Variant",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/products/:product_id/variants",
+            "params": [
+              {
+                "name": "product_id",
+                "value": "",
+                "type": "path",
+                "description": "Product's ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Variant"
+        },
+        {
+          "info": {
+            "name": "Product Image List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/products/:product_id/images",
+            "params": [
+              {
+                "name": "product_id",
+                "value": "",
+                "type": "path",
+                "description": "Product's ID"
+              }
+            ]
+          },
+          "docs": "Product Image List"
+        },
+        {
+          "info": {
+            "name": "Create Product Image",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/products/:product_id/images",
+            "params": [
+              {
+                "name": "product_id",
+                "value": "",
+                "type": "path",
+                "description": "Product's ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Product Image"
+        },
+        {
+          "info": {
+            "name": "Delete Variant",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/products/:product_id/variants/:variant_id",
+            "params": [
+              {
+                "name": "product_id",
+                "value": "",
+                "type": "path",
+                "description": "Product's ID"
+              },
+              {
+                "name": "variant_id",
+                "value": "",
+                "type": "path",
+                "description": "Variant's ID"
+              }
+            ]
+          },
+          "docs": "Delete Variant"
+        },
+        {
+          "info": {
+            "name": "Product Image Count",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/products/:product_id/images/count",
+            "params": [
+              {
+                "name": "product_id",
+                "value": "",
+                "type": "path",
+                "description": "Product's ID"
+              }
+            ]
+          },
+          "docs": "Product Image Count"
+        },
+        {
+          "info": {
+            "name": "Product Image Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/products/:product_id/images/:image_id",
+            "params": [
+              {
+                "name": "product_id",
+                "value": "",
+                "type": "path",
+                "description": "Product's ID"
+              },
+              {
+                "name": "image_id",
+                "value": "",
+                "type": "path",
+                "description": "Image's ID"
+              }
+            ]
+          },
+          "docs": "Product Image Details"
+        },
+        {
+          "info": {
+            "name": "Update Product Image",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/products/:product_id/images/:image_id",
+            "params": [
+              {
+                "name": "product_id",
+                "value": "",
+                "type": "path",
+                "description": "Product's ID"
+              },
+              {
+                "name": "image_id",
+                "value": "",
+                "type": "path",
+                "description": "Image's ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update Product Image"
+        },
+        {
+          "info": {
+            "name": "Delete Product Image",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/products/:product_id/images/:image_id",
+            "params": [
+              {
+                "name": "product_id",
+                "value": "",
+                "type": "path",
+                "description": "Product's ID"
+              },
+              {
+                "name": "image_id",
+                "value": "",
+                "type": "path",
+                "description": "Image's ID"
+              }
+            ]
+          },
+          "docs": "Delete Product Image"
+        },
+        {
+          "info": {
+            "name": "Metafield List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/products/:product_id/metafields",
+            "params": [
+              {
+                "name": "product_id",
+                "value": "",
+                "type": "path",
+                "description": "Product ID"
+              }
+            ]
+          },
+          "docs": "Metafield List"
+        },
+        {
+          "info": {
+            "name": "Create Metafield",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/products/:product_id/metafields",
+            "params": [
+              {
+                "name": "product_id",
+                "value": "",
+                "type": "path",
+                "description": "Product ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Metafield"
+        },
+        {
+          "info": {
+            "name": "Metafield Count",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/products/:product_id/metafields/count",
+            "params": [
+              {
+                "name": "product_id",
+                "value": "",
+                "type": "path",
+                "description": "Product ID"
+              }
+            ]
+          },
+          "docs": "Metafield Count"
+        },
+        {
+          "info": {
+            "name": "Metafield Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/products/:product_id/metafields/:metafield_id",
+            "params": [
+              {
+                "name": "product_id",
+                "value": "",
+                "type": "path",
+                "description": "Product ID"
+              },
+              {
+                "name": "metafield_id",
+                "value": "",
+                "type": "path",
+                "description": "Metafield ID"
+              }
+            ]
+          },
+          "docs": "Metafield Details"
+        },
+        {
+          "info": {
+            "name": "Update Metafield",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/products/:product_id/metafields/:metafield_id",
+            "params": [
+              {
+                "name": "product_id",
+                "value": "",
+                "type": "path",
+                "description": "Product ID"
+              },
+              {
+                "name": "metafield_id",
+                "value": "",
+                "type": "path",
+                "description": "Metafield ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update Metafield"
+        },
+        {
+          "info": {
+            "name": "Delete Metafield",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/products/:product_id/metafields/:metafield_id",
+            "params": [
+              {
+                "name": "product_id",
+                "value": "",
+                "type": "path",
+                "description": "Product ID"
+              },
+              {
+                "name": "metafield_id",
+                "value": "",
+                "type": "path",
+                "description": "Metafield ID"
+              }
+            ]
+          },
+          "docs": "Delete Metafield"
+        },
+        {
+          "info": {
+            "name": "Update Variant By SKU",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/variants/sku/:sku",
+            "params": [
+              {
+                "name": "sku",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update Variant By SKU"
+        },
+        {
+          "info": {
+            "name": "Variant List By SKU",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/products/sku/:sku/variants",
+            "params": [
+              {
+                "name": "sku",
+                "value": "-A-A001002",
+                "type": "path",
+                "description": "SKU"
+              }
+            ]
+          },
+          "docs": "Variant List By SKU"
+        },
+        {
+          "info": {
+            "name": "Collection List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/collections",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Collection's IDs, separated by comma, for example: `0097cfc8-6ec3-40ed,40ed-ab9f-6f2231b7`"
+              },
+              {
+                "name": "updated_at_min",
+                "value": "",
+                "type": "query",
+                "description": "filter collections updated at or after date, for example: `2018-10-01T16:15:47-04:00`"
+              },
+              {
+                "name": "updated_at_max",
+                "value": "",
+                "type": "query",
+                "description": "filter collections updated at or before date, for example: `2018-10-01T16:15:47-04:00`"
+              },
+              {
+                "name": "product_id",
+                "value": "",
+                "type": "query",
+                "description": "Product's ID, for example: `0097cfc8-6ec3-40ed-ab9f-6f2231b705a6`"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "page number"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "limit collection result per page"
+              }
+            ]
+          },
+          "docs": "Collection List"
+        },
+        {
+          "info": {
+            "name": "Create Collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/collections",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Collection"
+        },
+        {
+          "info": {
+            "name": "Collection Count",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/collections/count",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Collection's IDs, separated by comma, for example: `0097cfc8-6ec3-40ed,40ed-ab9f-6f2231b7`"
+              },
+              {
+                "name": "updated_at_min",
+                "value": "",
+                "type": "query",
+                "description": "filter collections updated at or after date, for example: `2018-10-01T16:15:47-04:00`"
+              },
+              {
+                "name": "updated_at_max",
+                "value": "",
+                "type": "query",
+                "description": "filter collections updated at or before date, for example: `2018-10-01T16:15:47-04:00`"
+              }
+            ]
+          },
+          "docs": "Collection Count"
+        },
+        {
+          "info": {
+            "name": "Collection Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/collections/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Collection's ID"
+              }
+            ]
+          },
+          "docs": "Collection Details"
+        },
+        {
+          "info": {
+            "name": "Update Collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/collections/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Collection's ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update Collection"
+        },
+        {
+          "info": {
+            "name": "Delete Collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/collections/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Collection's ID"
+              }
+            ]
+          },
+          "docs": "Delete Collection"
+        },
+        {
+          "info": {
+            "name": "Collect List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/collects",
+            "params": [
+              {
+                "name": "collection_id",
+                "value": "",
+                "type": "query",
+                "description": "Collection's ID, for example: `0097cfc8-6ec3-40ed`"
+              },
+              {
+                "name": "product_id",
+                "value": "",
+                "type": "query",
+                "description": "Product's ID, for example: `0097cfc8-6ec3-40ed`"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "page number"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "limit result per page"
+              }
+            ]
+          },
+          "docs": "Collect List"
+        },
+        {
+          "info": {
+            "name": "Create Collect",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/collects",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Collect"
+        },
+        {
+          "info": {
+            "name": "Collect Count",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2020-07/collects/count",
+            "params": [
+              {
+                "name": "collection_id",
+                "value": "",
+                "type": "query",
+                "description": "Collection's ID, for example: `0097cfc8-6ec3-40ed`"
+              },
+              {
+                "name": "product_id",
+                "value": "",
+                "type": "query",
+                "description": "Product's ID, for example: `0097cfc8-6ec3-40ed`"
+              }
+            ]
+          },
+          "docs": "Collect Count"
+        },
+        {
+          "info": {
+            "name": "Collect Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/collects/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Collect's ID"
+              }
+            ]
+          },
+          "docs": "Collect Details"
+        },
+        {
+          "info": {
+            "name": "Delete Collect",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/collects/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Collect's ID"
+              }
+            ]
+          },
+          "docs": "Delete Collect"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

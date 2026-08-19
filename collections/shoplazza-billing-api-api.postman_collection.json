@@ -1,0 +1,2997 @@
+{
+  "item": [
+    {
+      "id": "3c3155e6-1f40-4375-a82a-82d9351cd586",
+      "name": "Billing API",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d10f2c0e-0983-4c65-af64-1a24496a171b",
+          "name": "Complete Payment",
+          "request": {
+            "name": "Complete Payment",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "openapi",
+                "2022-01",
+                "payments_apps",
+                "complete_callbacks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{subdomain}}",
+                  "key": "subdomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Oauth's Access Token",
+                "key": "Access-Token",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) Shoplazza's store domain",
+                "key": "Shoplazza-Shop-Domain",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) the hmac signature for this request",
+                "key": "Shoplazza-Hmac-Sha256",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"app_id\": \"<string>\",\n  \"payment_id\": \"<string>\",\n  \"amount\": \"<float>\",\n  \"currency\": \"<string>\",\n  \"transaction_no\": \"<string>\",\n  \"type\": \"<string>\",\n  \"test\": \"<boolean>\",\n  \"status\": \"<string>\",\n  \"timestamp\": \"<string>\",\n  \"extension\": {}\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "161d8c2a-2e65-49e5-9a0e-79e0e8c9ef21",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "payments_apps",
+                    "complete_callbacks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Oauth's Access Token",
+                    "key": "Access-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Shoplazza's store domain",
+                    "key": "Shoplazza-Shop-Domain",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) the hmac signature for this request",
+                    "key": "Shoplazza-Hmac-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"app_id\": \"<string>\",\n  \"payment_id\": \"<string>\",\n  \"amount\": \"<float>\",\n  \"currency\": \"<string>\",\n  \"transaction_no\": \"<string>\",\n  \"type\": \"<string>\",\n  \"test\": \"<boolean>\",\n  \"status\": \"<string>\",\n  \"timestamp\": \"<string>\",\n  \"extension\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{ \\\"redirect_url\\\": \\\"https://developer.myshoplaza.com/products/test_product\\\" }\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "232b23cb-429a-49da-b481-521976302ae1",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "payments_apps",
+                    "complete_callbacks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Oauth's Access Token",
+                    "key": "Access-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Shoplazza's store domain",
+                    "key": "Shoplazza-Shop-Domain",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) the hmac signature for this request",
+                    "key": "Shoplazza-Hmac-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"app_id\": \"<string>\",\n  \"payment_id\": \"<string>\",\n  \"amount\": \"<float>\",\n  \"currency\": \"<string>\",\n  \"transaction_no\": \"<string>\",\n  \"type\": \"<string>\",\n  \"test\": \"<boolean>\",\n  \"status\": \"<string>\",\n  \"timestamp\": \"<string>\",\n  \"extension\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "42d58428-02dc-4b98-8f20-d6c50c742287",
+          "name": "Notify Payment",
+          "request": {
+            "name": "Notify Payment",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "openapi",
+                "2022-01",
+                "payments_apps",
+                "notify_callbacks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{subdomain}}",
+                  "key": "subdomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Oauth's Access Token",
+                "key": "Access-Token",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) Shoplazza's store domain",
+                "key": "Shoplazza-Shop-Domain",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) the hmac signature for this request",
+                "key": "Shoplazza-Hmac-Sha256",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"app_id\": \"<string>\",\n  \"payment_id\": \"<string>\",\n  \"amount\": \"<float>\",\n  \"status\": \"<string>\",\n  \"currency\": \"<string>\",\n  \"transaction_no\": \"<string>\",\n  \"type\": \"<string>\",\n  \"test\": \"<boolean>\",\n  \"timestamp\": \"<string>\",\n  \"message\": \"<string>\",\n  \"error_code\": \"<string>\",\n  \"extension\": {}\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f752d482-56a5-490f-b5a8-024c555365a8",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "payments_apps",
+                    "notify_callbacks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Oauth's Access Token",
+                    "key": "Access-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Shoplazza's store domain",
+                    "key": "Shoplazza-Shop-Domain",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) the hmac signature for this request",
+                    "key": "Shoplazza-Hmac-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"app_id\": \"<string>\",\n  \"payment_id\": \"<string>\",\n  \"amount\": \"<float>\",\n  \"status\": \"<string>\",\n  \"currency\": \"<string>\",\n  \"transaction_no\": \"<string>\",\n  \"type\": \"<string>\",\n  \"test\": \"<boolean>\",\n  \"timestamp\": \"<string>\",\n  \"message\": \"<string>\",\n  \"error_code\": \"<string>\",\n  \"extension\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7a26df89-a3c6-4923-8f95-021828b8ffdb",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "payments_apps",
+                    "notify_callbacks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Oauth's Access Token",
+                    "key": "Access-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Shoplazza's store domain",
+                    "key": "Shoplazza-Shop-Domain",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) the hmac signature for this request",
+                    "key": "Shoplazza-Hmac-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"app_id\": \"<string>\",\n  \"payment_id\": \"<string>\",\n  \"amount\": \"<float>\",\n  \"status\": \"<string>\",\n  \"currency\": \"<string>\",\n  \"transaction_no\": \"<string>\",\n  \"type\": \"<string>\",\n  \"test\": \"<boolean>\",\n  \"timestamp\": \"<string>\",\n  \"message\": \"<string>\",\n  \"error_code\": \"<string>\",\n  \"extension\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bbf4ddcf-0948-437c-aa9d-5bfca8b1d8f5",
+          "name": "Create application charge",
+          "request": {
+            "name": "Create application charge",
+            "description": {
+              "content": "Create application charge",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "openapi",
+                "2022-01",
+                "application_charges"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{subdomain}}",
+                  "key": "subdomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"application_charge\": {\n    \"name\": \"<string>\",\n    \"price\": \"<string>\",\n    \"return_url\": \"<string>\",\n    \"test\": \"<boolean>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ab725c7d-b065-4355-aae3-a3ed7e0cedd3",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "application_charges"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"application_charge\": {\n    \"name\": \"test\",\n    \"price\": \"2000\",\n    \"return_url\": \"https://shoplazza.com\",\n    \"test\": false\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"id\\\": \\\"675931192\\\",\\n  \\\"name\\\": \\\"Super Duper Expensive action\\\",\\n  \\\"price\\\": \\\"100.00\\\",\\n  \\\"return_url\\\": \\\"http://test.myshoplaza.com\\\",\\n  \\\"status\\\": \\\"pending\\\",\\n  \\\"test\\\": false,\\n  \\\"created_at\\\": \\\"2022-06-27T08:48:27Z\\\",\\n  \\\"updated_at\\\": \\\"2022-12-27T08:47:27Z\\\"\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "012036e0-f7fa-4516-aea1-44f9a06cdd47",
+              "name": "422",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "application_charges"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"application_charge\": {\n    \"name\": \"test\",\n    \"price\": \"2000\",\n    \"return_url\": \"https://shoplazza.com\",\n    \"test\": false\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n\\t\\\"errors\\\":[\\\"The chargetype configuration in the plan does not match with the listing, please check \\\"]\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bbfcd8d1-e32d-43b0-b05c-12b663456b3d",
+          "name": "Get Application Charge List",
+          "request": {
+            "name": "Get Application Charge List",
+            "description": {
+              "content": "get application charge list",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "openapi",
+                "2022-01",
+                "application_charges"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "10"
+                },
+                {
+                  "disabled": false,
+                  "key": "since_id",
+                  "value": "<string>",
+                  "description": "Restrict results to after the specified ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "charges_status",
+                  "value": "<string>",
+                  "description": "Filter charges by charges status, separated by comma, for example: `pending,accepted,declined,active,expired,frozen,cancelled,paid_failed,paying`"
+                }
+              ],
+              "variable": [
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{subdomain}}",
+                  "key": "subdomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "87c4d5d5-390b-4498-be28-720ecc34b7d6",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "application_charges"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "since_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "charges_status",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"count\\\": 1,\\n    \\\"application_charges\\\": [\\n        {\\n            \\\"id\\\": \\\"196935770592782247\\\",\\n            \\\"application_id\\\": \\\"Cg5za12Pp3pwNA9Zw3t4Up5PFQGBsgYW_dyqs8wsiBg\\\",\\n            \\\"name\\\": \\\"one time charge\\\",\\n            \\\"price\\\": \\\"200\\\",\\n            \\\"confirm_url\\\": \\\"https://test.dev.myshoplaza.com/admin/smart_apps/angora/app_store/charges/Cg5za12Pp3pwNA9Zw3t4Up5PFQGBsgYW_dyqs8wsiBg/196935770592782247/one-time/confirm?signature=a636857cb3ed214c67026905d31c9f51\\\",\\n            \\\"return_url\\\": \\\"https://www.myshoplazza.com\\\",\\n            \\\"status\\\": \\\"active\\\",\\n            \\\"test\\\": false,\\n            \\\"created_at\\\": \\\"2022-12-26T10:32:27Z\\\",\\n            \\\"updated_at\\\": \\\"2022-12-26T10:32:38Z\\\"\\n        }\\n    ]\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3c6284ee-83af-41f8-b94e-932c50adbf0e",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "application_charges"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "since_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "charges_status",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9c8f12c6-67f1-44eb-aeb5-325fa2d8dc64",
+          "name": "Get Application Charge Detail",
+          "request": {
+            "name": "Get Application Charge Detail",
+            "description": {
+              "content": "get application charge detail",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "openapi",
+                "2022-01",
+                "application_charges",
+                ":charge_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "charge_id",
+                  "description": "(Required) the application charge id"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{subdomain}}",
+                  "key": "subdomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "338fb3cd-3b2e-40d3-b56f-ed1c8f4fc391",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "application_charges",
+                    ":charge_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "charge_id",
+                      "description": "(Required) the application charge id"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"application_charge\\\": {\\n        \\\"id\\\": \\\"19693577059278247\\\",\\n        \\\"application_id\\\": \\\"Cg5za12Pp3pwNA9Zw3t4Up5PFQGBsgYW_dyqs8wsiBg\\\",\\n        \\\"name\\\": \\\"one time charge\\\",\\n        \\\"price\\\": \\\"200\\\",\\n        \\\"confirm_url\\\": \\\"https://test.dev.myshoplaza.com/admin/smart_apps/angora/app_store/charges/Cg5za12Pp3pwNA9Zw3t4Up5PFQGBsgYW_dyqs8wsiBg/196935770592782247/one-time/confirm?signature=a636857cb3ed214c67026905d31c9f51\\\",\\n        \\\"return_url\\\": \\\"https://www.myshoplazza.com\\\",\\n        \\\"status\\\": \\\"active\\\",\\n        \\\"test\\\": false,\\n        \\\"created_at\\\": \\\"2022-12-26T10:32:27Z\\\",\\n        \\\"updated_at\\\": \\\"2022-12-26T10:32:38Z\\\"\\n    }\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8ae72549-84cd-4978-be78-505a8e1a0699",
+              "name": "404",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "application_charges",
+                    ":charge_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "charge_id",
+                      "description": "(Required) the application charge id"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n\\t\\\"errors\\\":[\\\"record not found\\\"]\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "311e0b8c-8b31-4acf-9032-7c2d4256c83e",
+          "name": "Create Recurring Aplication Charge",
+          "request": {
+            "name": "Create Recurring Aplication Charge",
+            "description": {
+              "content": "create recurring application charge",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "openapi",
+                "2022-01",
+                "recurring_application_charges"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{subdomain}}",
+                  "key": "subdomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"recurring_application_charge\": {\n    \"name\": \"<string>\",\n    \"price\": \"<string>\",\n    \"return_url\": \"<string>\",\n    \"trial_days\": \"<integer>\",\n    \"capped_amount\": \"<string>\",\n    \"terms\": \"<string>\",\n    \"test\": \"<boolean>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "39967887-6f74-4521-b22b-b3cb13f7c050",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "recurring_application_charges"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"recurring_application_charge\": {\n    \"name\": \"<string>\",\n    \"price\": \"<string>\",\n    \"return_url\": \"<string>\",\n    \"trial_days\": \"<integer>\",\n    \"capped_amount\": \"<string>\",\n    \"terms\": \"<string>\",\n    \"test\": \"<boolean>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"id\\\": \\\"197305863545821979\\\",\\n    \\\"name\\\": \\\"Super Duper Plan\\\",\\n    \\\"price\\\": \\\"10.00\\\",\\n    \\\"status\\\": \\\"pending\\\",\\n    \\\"return_url\\\": \\\"http://test.myshoplazza.com/\\\",\\n    \\\"billing_on\\\": null,\\n    \\\"created_at\\\": \\\"2022-10-03T12:52:58Z\\\",\\n    \\\"updated_at\\\": \\\"2022-10-03T12:52:58Z\\\",\\n    \\\"test\\\": true,\\n    \\\"capped_amount\\\": \\\"0\\\",\\n    \\\"terms\\\": \\\"\\\",\\n    \\\"activated_on\\\": null,\\n    \\\"cancelled_on\\\": null,\\n    \\\"trial_days\\\": 0,\\n    \\\"trial_ends_on\\\": null,\\n    \\\"confirmation_url\\\": \\\"https://test.myshoplaza.com/admin/smart_apps/angora/app_store/charges/JRmYDxJEutAwkQFpaw8PDRfPIrgUBpJOJZYaOKg3kPU/197305863545821979/recurring/confirm?signature=eba7691fe062b6fa9357398a115d4e01\\\"\\n }\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8ecdc205-490a-4ed6-bfad-988bf00c7553",
+              "name": "422",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "recurring_application_charges"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"recurring_application_charge\": {\n    \"name\": \"<string>\",\n    \"price\": \"<string>\",\n    \"return_url\": \"<string>\",\n    \"trial_days\": \"<integer>\",\n    \"capped_amount\": \"<string>\",\n    \"terms\": \"<string>\",\n    \"test\": \"<boolean>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n\\t\\\"errors\\\":[\\\"The chargetype configuration in the plan does not match with the listing, please check\\\"]\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "70d21b9e-dfc7-4bf7-9819-e90d7fa1a8c3",
+          "name": "Get Recurring Application Charge List",
+          "request": {
+            "name": "Get Recurring Application Charge List",
+            "description": {
+              "content": "get recurring application charge list",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "openapi",
+                "2022-01",
+                "recurring_application_charges"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "10"
+                },
+                {
+                  "disabled": false,
+                  "key": "since_id",
+                  "value": "<string>",
+                  "description": "Restrict results to after the specified ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "charges_status",
+                  "value": "<string>",
+                  "description": "Filter charges by charges status, separated by comma, for example: `pending,accepted,declined,active,expired,frozen,cancelled,paid_failed,paying`"
+                }
+              ],
+              "variable": [
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{subdomain}}",
+                  "key": "subdomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2e6a94a8-f03c-47a9-ac26-3f090a2007ec",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "recurring_application_charges"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "since_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "charges_status",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"count\\\": 1,\\n    \\\"recurring_application_charges\\\": [{\\n    \\\"id\\\": \\\"197305863545821979\\\",\\n    \\\"name\\\": \\\"Super Duper Plan\\\",\\n    \\\"price\\\": \\\"10.00\\\",\\n    \\\"status\\\": \\\"pending\\\",\\n    \\\"return_url\\\": \\\"http://test.myshoplazza.com/\\\",\\n    \\\"billing_on\\\": null,\\n    \\\"created_at\\\": \\\"2022-10-03T12:52:58Z\\\",\\n    \\\"updated_at\\\": \\\"2022-10-03T12:52:58Z\\\",\\n    \\\"test\\\": true,\\n    \\\"activated_on\\\": null,\\n    \\\"cancelled_on\\\": null,\\n    \\\"trial_days\\\": 0,\\n    \\\"trial_ends_on\\\": null,\\n    \\\"confirmation_url\\\": \\\"https://test.myshoplaza.com/admin/smart_apps/angora/app_store/charges/JRmYDxJEutAwkQFpaw8PDRfPIrgUBpJOJZYaOKg3kPU/197305863545821979/recurring/confirm?signature=eba7691fe062b6fa9357398a115d4e01\\\"\\n  }]\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0ce710d7-d2a3-4964-9aa7-8347ef8b6eb5",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "recurring_application_charges"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "since_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "charges_status",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "00e598ac-c0af-45ed-aca5-4680154d3de9",
+          "name": "Get Recurring Application Charge",
+          "request": {
+            "name": "Get Recurring Application Charge",
+            "description": {
+              "content": "get rucurring application charge",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "openapi",
+                "2022-01",
+                "recurring_application_charges",
+                ":charge_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "charge_id",
+                  "description": "(Required) "
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{subdomain}}",
+                  "key": "subdomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ac147e8e-1556-415b-b259-8f53a0bfe832",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "recurring_application_charges",
+                    ":charge_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "charge_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"recurring_application_charges\\\": {\\n    \\\"id\\\": \\\"197305863545821979\\\",\\n    \\\"name\\\": \\\"Super Duper Plan\\\",\\n    \\\"price\\\": \\\"10.00\\\",\\n    \\\"status\\\": \\\"pending\\\",\\n    \\\"return_url\\\": \\\"http://test.myshoplazza.com/\\\",\\n    \\\"billing_on\\\": null,\\n    \\\"created_at\\\": \\\"2022-10-03T12:52:58Z\\\",\\n    \\\"updated_at\\\": \\\"2022-10-03T12:52:58Z\\\",\\n    \\\"test\\\": true,\\n    \\\"activated_on\\\": null,\\n    \\\"cancelled_on\\\": null,\\n    \\\"trial_days\\\": 0,\\n    \\\"trial_ends_on\\\": null,\\n    \\\"confirmation_url\\\": \\\"https://test.myshoplaza.com/admin/smart_apps/angora/app_store/charges/JRmYDxJEutAwkQFpaw8PDRfPIrgUBpJOJZYaOKg3kPU/197305863545821979/recurring/confirm?signature=eba7691fe062b6fa9357398a115d4e01\\\"\\n  }\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7fb81074-f2c5-4f51-855f-8ddadab351c9",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "recurring_application_charges",
+                    ":charge_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "charge_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c6a33da7-f581-4a38-9f9b-1f084bdfa2b2",
+          "name": "Cancel Recurring Application Charge",
+          "request": {
+            "name": "Cancel Recurring Application Charge",
+            "description": {
+              "content": "cancel recurring application charge",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "openapi",
+                "2022-01",
+                "recurring_application_charges",
+                ":charge_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "charge_id",
+                  "description": "(Required) "
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{subdomain}}",
+                  "key": "subdomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "af1864cf-ab84-4dfa-b78b-a621ba97c0b8",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "recurring_application_charges",
+                    ":charge_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "charge_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3f33adc6-5824-4445-9e59-2fd3d76da002",
+              "name": "404",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "recurring_application_charges",
+                    ":charge_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "charge_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n\\t\\\"errors\\\":[\\\"record not found\\\"]\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5dd79cee-58ac-4c4e-b6d7-e6083883ead1",
+          "name": "Order Payment Success",
+          "request": {
+            "name": "Order Payment Success",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "openapi",
+                "2022-01",
+                "orders",
+                ":id",
+                "payment",
+                "success"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Order's ID"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{subdomain}}",
+                  "key": "subdomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"billing_address\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<string>\",\n    \"country\": \"<string>\",\n    \"country_code\": \"<string>\",\n    \"province\": \"<string>\",\n    \"province_code\": \"<string>\",\n    \"area\": \"<string>\",\n    \"city\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"company\": \"<string>\",\n    \"latitude\": \"<string>\",\n    \"longitude\": \"<string>\",\n    \"zip\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e052faf5-d4ea-4729-adaa-2296ee0bcecf",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "orders",
+                    ":id",
+                    "payment",
+                    "success"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Order's ID"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"billing_address\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<string>\",\n    \"country\": \"<string>\",\n    \"country_code\": \"<string>\",\n    \"province\": \"<string>\",\n    \"province_code\": \"<string>\",\n    \"area\": \"<string>\",\n    \"city\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"company\": \"<string>\",\n    \"latitude\": \"<string>\",\n    \"longitude\": \"<string>\",\n    \"zip\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"order\\\": {\\n        \\\"id\\\": \\\"11218-00000001\\\",\\n        \\\"note\\\": \\\"abc\\\",\\n        \\\"number\\\": \\\"00000001\\\",\\n        \\\"financial_status\\\": \\\"paid\\\",\\n        \\\"status\\\": \\\"placed\\\",\\n        \\\"cancel_reason\\\": null,\\n        \\\"payment_method\\\": \\\"online\\\",\\n        \\\"fulfillment_status\\\": \\\"partially_shipped\\\",\\n        \\\"discount_code\\\": \\\"\\\",\\n        \\\"discount_applications\\\": \\\"[]\\\",\\n        \\\"customer_note\\\": \\\"note\\\",\\n        \\\"landing_site\\\": \\\"http://www.example.com?source=abc\\\",\\n        \\\"buyer_accepts_marketing\\\": false,\\n        \\\"currency\\\": \\\"USD\\\",\\n        \\\"total_price\\\": \\\"16.99\\\",\\n        \\\"total_discount\\\": \\\"100.00\\\",\\n        \\\"total_tax\\\": \\\"10.00\\\",\\n        \\\"total_shipping\\\": \\\"1.00\\\",\\n        \\\"sub_total\\\": \\\"15.00\\\",\\n        \\\"code_discount_total\\\": \\\"1.00\\\",\\n        \\\"line_item_discount_total\\\": \\\"1.00\\\",\\n        \\\"tags\\\": \\\"a, b\\\",\\n        \\\"created_at\\\": \\\"2014-04-25T16:15:47Z\\\",\\n        \\\"updated_at\\\": \\\"2014-04-25T16:15:47Z\\\",\\n        \\\"canceled_at\\\": null,\\n        \\\"customer_deleted_at\\\": \\\"2014-04-25T16:15:47Z\\\",\\n        \\\"deleted_at\\\": \\\"2014-04-25T16:15:47Z\\\",\\n        \\\"placed_at\\\": \\\"2014-04-25T16:15:47Z\\\",\\n        \\\"total_refund_price\\\": \\\"0.00\\\",\\n        \\\"total_refund_tax\\\": \\\"0.00\\\",\\n        \\\"total_refund_discount\\\": \\\"0.00\\\",\\n        \\\"refund_status\\\": \\\"none\\\",\\n        \\\"total_tip_received\\\": \\\"0.00\\\",\\n        \\\"browser_ip\\\": \\\"192.168.0.1\\\",\\n        \\\"source\\\": \\\"http://www.example.com?source=abc\\\",\\n        \\\"last_landing_url\\\": \\\"http://www.example.com?source=abc\\\",\\n        \\\"email_status\\\": \\\"send\\\",\\n        \\\"recovery_status\\\": \\\"success\\\",\\n        \\\"total_paid\\\": \\\"16.99\\\",\\n        \\\"source_name\\\": {\\n            \\\"data\\\": \\\"Direct\\\",\\n            \\\"created_at\\\": \\\"2014-04-25T16:15:47Z\\\"\\n        },\\n        \\\"last_referrer_show\\\": {\\n            \\\"data\\\": \\\"Others\\\",\\n            \\\"created_at\\\": \\\"2014-04-25T16:15:47Z\\\"\\n        },\\n        \\\"shipping_line\\\": {\\n            \\\"name\\\": \\\"free\\\"\\n        },\\n        \\\"customer\\\": {\\n            \\\"id\\\": \\\"ef0318fe-e0ed-4551-a5bc-8b8e36c4f90f\\\",\\n            \\\"email\\\": \\\"bob.norman@hostmail.com\\\",\\n            \\\"first_name\\\": \\\"Bob\\\",\\n            \\\"last_name\\\": \\\"Norman\\\",\\n            \\\"phone\\\": \\\"\\\",\\n            \\\"created_at\\\": \\\"2018-11-02T12:30:10Z\\\",\\n            \\\"updated_at\\\": \\\"2018-11-02T12:30:10Z\\\",\\n            \\\"orders_count\\\": 1,\\n            \\\"total_spent\\\": \\\"41.94\\\"\\n        },\\n        \\\"shipping_address\\\": {\\n            \\\"first_name\\\": \\\"Bob\\\",\\n            \\\"last_name\\\": \\\"Norman\\\",\\n            \\\"address1\\\": \\\"Chestnut Street 92\\\",\\n            \\\"address2\\\": \\\"\\\",\\n            \\\"phone\\\": \\\"555-625-1199\\\",\\n            \\\"city\\\": \\\"Louisville\\\",\\n            \\\"zip\\\": \\\"40202\\\",\\n            \\\"province\\\": \\\"Kentucky\\\",\\n            \\\"country\\\": \\\"United States\\\",\\n            \\\"company\\\": \\\"\\\",\\n            \\\"latitude\\\": \\\"45.41634\\\",\\n            \\\"longitude\\\": \\\"-75.6868\\\",\\n            \\\"name\\\": \\\"Bob Norman\\\",\\n            \\\"country_code\\\": \\\"US\\\",\\n            \\\"province_code\\\": \\\"US-KY\\\",\\n            \\\"phone_area_code\\\": \\\"80\\\",\\n            \\\"email\\\": \\\"bob.norman@hostmail.com\\\",\\n            \\\"area\\\": \\\"sz\\\",\\n            \\\"extra_info\\\": {\\n                \\\"cpf\\\": \\\"123\\\",\\n                \\\"tax_text\\\": \\\"CPF/CNPJ\\\"\\n            }\\n        },\\n        \\\"billing_address\\\": {\\n            \\\"first_name\\\": \\\"Bob\\\",\\n            \\\"last_name\\\": \\\"Norman\\\",\\n            \\\"address1\\\": \\\"Chestnut Street 92\\\",\\n            \\\"address2\\\": \\\"\\\",\\n            \\\"city\\\": \\\"Louisville\\\",\\n            \\\"zip\\\": \\\"40202\\\",\\n            \\\"province\\\": \\\"Kentucky\\\",\\n            \\\"country\\\": \\\"United States\\\",\\n            \\\"company\\\": \\\"\\\",\\n            \\\"latitude\\\": \\\"45.41634\\\",\\n            \\\"longitude\\\": \\\"-75.6868\\\",\\n            \\\"name\\\": \\\"Bob Norman\\\",\\n            \\\"country_code\\\": \\\"US\\\",\\n            \\\"province_code\\\": \\\"KY\\\",\\n            \\\"email\\\": \\\"test@gmail.com\\\",\\n            \\\"area\\\": \\\"sz\\\"\\n        },\\n        \\\"payment_line\\\": {\\n            \\\"payment_channel\\\": \\\"paypal\\\",\\n            \\\"payment_method\\\": \\\"online\\\",\\n            \\\"transaction_no\\\": \\\"52Y26167A2351800A\\\",\\n            \\\"merchant_id\\\": \\\"26167A23518\\\",\\n            \\\"merchant_email\\\": \\\"abc@def.com\\\"\\n        },\\n        \\\"line_items\\\": [\\n            {\\n                \\\"id\\\": \\\"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\\\",\\n                \\\"product_id\\\": \\\"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\\\",\\n                \\\"variant_id\\\": \\\"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\\\",\\n                \\\"variant_title\\\": \\\"XXX\\\",\\n                \\\"product_title\\\": \\\"abc\\\",\\n                \\\"product_handle\\\": \\\"abc\\\",\\n                \\\"quantity\\\": 10,\\n                \\\"note\\\": \\\"red\\\",\\n                \\\"fulfillment_status\\\": \\\"waiting\\\",\\n                \\\"sku\\\": \\\"xxx\\\",\\n                \\\"weight_unit\\\": \\\"g\\\",\\n                \\\"vendor\\\": \\\"XXX\\\",\\n                \\\"product_url\\\": \\\"http://www.a.com/abc\\\",\\n                \\\"compare_at_price\\\": \\\"12.34\\\",\\n                \\\"image\\\": \\\"http://www.a.com/xxx.jpg\\\",\\n                \\\"price\\\": \\\"12.34\\\",\\n                \\\"total\\\": \\\"123.40\\\",\\n                \\\"weight\\\": \\\"1.23\\\",\\n                \\\"properties\\\": [\\n                    {\\n                        \\\"name\\\": \\\"color\\\",\\n                        \\\"value\\\": \\\"red\\\"\\n                    }\\n                ],\\n                \\\"custom_properties\\\": {\\n                    \\\"prop\\\": \\\"value\\\"\\n                },\\n                \\\"refund_quantity\\\": 0,\\n                \\\"refund_total\\\": \\\"0.00\\\"\\n            }\\n        ],\\n        \\\"fulfillments\\\": [\\n            {\\n                \\\"id\\\": \\\"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\\\",\\n                \\\"order_id\\\": \\\"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\\\",\\n                \\\"status\\\": \\\"waiting\\\",\\n                \\\"tracking_company\\\": \\\"company\\\",\\n                \\\"tracking_number\\\": \\\"1Z2345\\\",\\n                \\\"tracking_company_code\\\": \\\"3306\\\",\\n                \\\"created_at\\\": \\\"2018-11-02T12:30:10Z\\\",\\n                \\\"updated_at\\\": \\\"2018-11-02T12:30:10Z\\\",\\n                \\\"line_items\\\": [\\n                    {\\n                        \\\"id\\\": \\\"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\\\",\\n                        \\\"product_id\\\": \\\"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\\\",\\n                        \\\"variant_id\\\": \\\"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\\\",\\n                        \\\"variant_title\\\": \\\"XXX\\\",\\n                        \\\"product_title\\\": \\\"abc\\\",\\n                        \\\"product_handle\\\": \\\"abc\\\",\\n                        \\\"quantity\\\": 10,\\n                        \\\"note\\\": \\\"red\\\",\\n                        \\\"fulfillment_status\\\": \\\"waiting\\\",\\n                        \\\"sku\\\": \\\"xxx\\\",\\n                        \\\"weight_unit\\\": \\\"g\\\",\\n                        \\\"vendor\\\": \\\"XXX\\\",\\n                        \\\"product_url\\\": \\\"http://www.a.com/abc\\\",\\n                        \\\"compare_at_price\\\": \\\"12.34\\\",\\n                        \\\"image\\\": \\\"http://www.a.com/xxx.jpg\\\",\\n                        \\\"price\\\": \\\"12.34\\\",\\n                        \\\"total\\\": \\\"123.40\\\",\\n                        \\\"weight\\\": \\\"1.23\\\",\\n                        \\\"properties\\\": [\\n                            {\\n                                \\\"name\\\": \\\"color\\\",\\n                                \\\"value\\\": \\\"red\\\"\\n                            }\\n                        ],\\n                        \\\"custom_properties\\\": {\\n                            \\\"prop\\\": \\\"value\\\"\\n                        },\\n                        \\\"refund_quantity\\\": 0,\\n                        \\\"refund_total\\\": \\\"0.00\\\",\\n                        \\\"taxable\\\": false,\\n                        \\\"requires_shipping\\\": true,\\n                        \\\"shipping_quantity\\\": 1\\n                    }\\n                ]\\n            }\\n        ]\\n    }\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2c956e07-ce0b-4c55-a195-194770019d05",
+              "name": "404",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "orders",
+                    ":id",
+                    "payment",
+                    "success"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Order's ID"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"billing_address\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<string>\",\n    \"country\": \"<string>\",\n    \"country_code\": \"<string>\",\n    \"province\": \"<string>\",\n    \"province_code\": \"<string>\",\n    \"area\": \"<string>\",\n    \"city\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"company\": \"<string>\",\n    \"latitude\": \"<string>\",\n    \"longitude\": \"<string>\",\n    \"zip\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"errors\\\": [\\n        \\\"Unable to find resource\\\"\\n    ]\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5965ab74-59df-45b2-a2a2-5548adfd111d",
+          "name": "Create Usage Charge",
+          "request": {
+            "name": "Create Usage Charge",
+            "description": {
+              "content": "Create Usage Charge",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "openapi",
+                "2022-01",
+                "recurring_application_charges",
+                ":recurring_charge_id",
+                "usage_charge"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "recurring_charge_id",
+                  "description": "(Required) "
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{subdomain}}",
+                  "key": "subdomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"usage_charge\": {\n    \"description\": \"<string>\",\n    \"price\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b7973c55-3005-4f8f-b447-489ae049037d",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "recurring_application_charges",
+                    ":recurring_charge_id",
+                    "usage_charge"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "recurring_charge_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"usage_charge\": {\n    \"description\": \"<string>\",\n    \"price\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"usage_charge\\\": {\\n        \\\"id\\\": 1034618208,\\n        \\\"description\\\": \\\"Super Mega Plan 1000 emails\\\",\\n        \\\"price\\\": \\\"1.00\\\",\\n        \\\"created_at\\\": \\\"2023-02-02T09:32:50-05:00\\\",\\n        \\\"balance_used\\\": 11,\\n        \\\"balance_remaining\\\": 89\\n    }\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e15a5638-702b-4b1a-af4e-a71219ac502c",
+              "name": "422",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "recurring_application_charges",
+                    ":recurring_charge_id",
+                    "usage_charge"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "recurring_charge_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"usage_charge\": {\n    \"description\": \"<string>\",\n    \"price\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n\\t\\\"errors\\\":[\\\"Total price exceeds balance remaining\\\"]\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e9c2fb77-3d0d-46a0-8382-c56bd1813d21",
+          "name": "Get Usage Charge List",
+          "request": {
+            "name": "Get Usage Charge List",
+            "description": {
+              "content": "Get Usage Charge List",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "openapi",
+                "2022-01",
+                "recurring_application_charges",
+                ":recurring_charge_id",
+                "usage_charge"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "since_id",
+                  "value": "<string>",
+                  "description": "Restrict results to after the specified ID."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "recurring_charge_id",
+                  "description": "(Required) "
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{subdomain}}",
+                  "key": "subdomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "91f87e7a-eaf8-4bfa-869b-4ba5b43787aa",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "recurring_application_charges",
+                    ":recurring_charge_id",
+                    "usage_charge"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "per_page",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "since_id",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "recurring_charge_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"usage_charges\\\": [\\n        {\\n            \\\"balance_remaining\\\": \\\"-10.00\\\",\\n            \\\"balance_used\\\": \\\"30.00\\\",\\n            \\\"created_at\\\": \\\"2023-03-15T17:09:30Z\\\",\\n            \\\"description\\\": \\\"1\\\",\\n            \\\"id\\\": \\\"225188148840247794\\\",\\n            \\\"price\\\": \\\"10.00\\\"\\n        }\\n    ]\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "55b73869-ce34-4f93-b0cb-a0a96633e2c9",
+              "name": "422",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "recurring_application_charges",
+                    ":recurring_charge_id",
+                    "usage_charge"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "per_page",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "since_id",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "recurring_charge_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n\\t\\\"errors\\\":[\\\"PerPage is required\\\"]\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "53da8d78-a244-4fb1-a11c-4c168acf6f66",
+          "name": "Get Usage Charge",
+          "request": {
+            "name": "Get Usage Charge",
+            "description": {
+              "content": "Get Usage Charge",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "openapi",
+                "2022-01",
+                "recurring_application_charges",
+                ":recurring_charge_id",
+                "usage_charge",
+                ":usage_charge_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "recurring_charge_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "usage_charge_id",
+                  "description": "(Required) "
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{subdomain}}",
+                  "key": "subdomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "44d963ee-67a8-4fdf-95bb-6941c786bde1",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "recurring_application_charges",
+                    ":recurring_charge_id",
+                    "usage_charge",
+                    ":usage_charge_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "recurring_charge_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "usage_charge_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"balance_remaining\\\": \\\"-10.00\\\",\\n    \\\"balance_used\\\": \\\"30.00\\\",\\n    \\\"created_at\\\": \\\"2023-03-15T17:09:32Z\\\",\\n    \\\"description\\\": \\\"2\\\",\\n    \\\"id\\\": \\\"225188148840247795\\\",\\n    \\\"price\\\": \\\"20.00\\\"\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f2bb0581-ab38-49e0-816b-adf9f24453e9",
+              "name": "422",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "recurring_application_charges",
+                    ":recurring_charge_id",
+                    "usage_charge",
+                    ":usage_charge_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "recurring_charge_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "usage_charge_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n\\t\\\"errors\\\":[\\\"Record not found\\\"]\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b1561171-e174-4750-9be7-a0a7d3063ff6",
+          "name": "Update The Capped Amount Of Recurring Application Charge",
+          "request": {
+            "name": "Update The Capped Amount Of Recurring Application Charge",
+            "description": {
+              "content": "Change the usage charge capped amount for recurring application charge in the activated state. Note, that you cannot use this endpoint to modify properties other than the capped amount of the recurring application charge.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "openapi",
+                "2022-01",
+                "recurring_application_charges",
+                ":recurring_charge_id",
+                "customize"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "recurring_charge_id",
+                  "description": "(Required) "
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{subdomain}}",
+                  "key": "subdomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"capped_amount\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4c50af2b-b68e-4ce1-beca-5c7c3bb24a31",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "recurring_application_charges",
+                    ":recurring_charge_id",
+                    "customize"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "recurring_charge_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"capped_amount\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"recurring_application_charge\\\": {\\n        \\\"id\\\": \\\"225188148840247793\\\",\\n        \\\"name\\\": \\\"20每月\\\",\\n        \\\"price\\\": \\\"20\\\",\\n        \\\"activated_on\\\": \\\"2023-03-15T17:08:54Z\\\",\\n        \\\"billing_on\\\": \\\"2023-04-15T17:08:58Z\\\",\\n        \\\"cancelled_on\\\": null,\\n        \\\"capped_amount\\\": \\\"20\\\",\\n        \\\"return_url\\\": \\\"https://feature-usage---xishng.dev.myshoplaza.com\\\",\\n        \\\"status\\\": \\\"active\\\",\\n        \\\"terms\\\": \\\"amet proident velit eiusmod quis\\\",\\n        \\\"test\\\": false,\\n        \\\"trial_days\\\": 7,\\n        \\\"trial_ends_on\\\": null,\\n        \\\"update_capped_amount_url\\\": \\\"https://.dev.myshoplaza.com/admin/smart_apps/angora/app_store/charges/ITK6sdTeyZuxIoxHpNfxXPMe6BRx5mT8I1SUpBvi6i4/225188148840247793/recurring_usage_charge/confirm?signature=1c4677cebe838d1c96937fca5a36176e&adjust_id=225561993354936384\\\",\\n        \\\"created_at\\\": \\\"2023-03-14T09:37:19Z\\\",\\n        \\\"updated_at\\\": \\\"2023-03-15T09:09:11Z\\\"\\n    }\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a8786d44-1be3-4fd0-87db-57fa99cbe6dd",
+              "name": "404",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "recurring_application_charges",
+                    ":recurring_charge_id",
+                    "customize"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "recurring_charge_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"capped_amount\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"errors\\\": [\\n        \\\"Record not found\\\"\\n    ]\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "821220bb-caa4-4a92-bcc5-709a693b78d8",
+              "name": "422",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "recurring_application_charges",
+                    ":recurring_charge_id",
+                    "customize"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "recurring_charge_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"capped_amount\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n\\t\\\"errors\\\":[\\\"Record not found\\\"]\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "developer",
+      "key": "subdomain"
+    },
+    {
+      "type": "string",
+      "value": "https://{{subdomain}}.myshoplaza.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "access-token"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "8dde0287-0514-467e-bc98-8b4c5295687a",
+    "name": "SPZ Admin Access Billing API API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

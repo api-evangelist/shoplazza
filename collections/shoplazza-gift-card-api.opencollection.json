@@ -1,0 +1,113 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SPZ Admin Access Gift Card API",
+    "version": "2022.01"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "access-token",
+      "value": "{{access-token}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Gift Card",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Authentication",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/gift_cards"
+          },
+          "docs": "Authentication"
+        },
+        {
+          "info": {
+            "name": "Create Gift Card",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/gift_cards",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Gift Card"
+        },
+        {
+          "info": {
+            "name": "Get Gift Card Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/gift_cards/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Gift card's ID"
+              }
+            ]
+          },
+          "docs": "Get Gift Card Details"
+        },
+        {
+          "info": {
+            "name": "Update Gift Card",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/gift_cards/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Gift card's ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update Gift Card"
+        },
+        {
+          "info": {
+            "name": "Disable Gift Card",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/gift_cards/:id/disable",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Gift card's ID"
+              }
+            ]
+          },
+          "docs": "Disable Gift Card"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,509 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SPZ Admin Access Order API",
+    "version": "2022.01"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "access-token",
+      "value": "{{access-token}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Order",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Order List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/orders",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Order's IDs, please use comma as separator, for example `183211-00000005,183211-00000006`"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit per page, default: `10`, maximum: `250`"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number"
+              },
+              {
+                "name": "created_at_min",
+                "value": "",
+                "type": "query",
+                "description": "Filter orders created at or after date, for example: `2016-01-18T23:41:00Z`"
+              },
+              {
+                "name": "created_at_max",
+                "value": "",
+                "type": "query",
+                "description": "Filter orders created at or before date, for example: `2016-01-18T23:41:00Z`"
+              },
+              {
+                "name": "updated_at_min",
+                "value": "",
+                "type": "query",
+                "description": "Filter orders last updated at or after date, for example:  `2016-01-18T23:41:00Z`"
+              },
+              {
+                "name": "updated_at_max",
+                "value": "",
+                "type": "query",
+                "description": "Filter orders last updated at or before date, for example: `2016-01-18T23:41:00Z`"
+              },
+              {
+                "name": "placed_at_min",
+                "value": "",
+                "type": "query",
+                "description": "Filter orders placed at or after date, for example: `2016-01-18T23:41:00Z`"
+              },
+              {
+                "name": "placed_at_max",
+                "value": "",
+                "type": "query",
+                "description": "Filter orders placed at or before date, for example: `2016-01-18T23:41:00Z`"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Filter orders by status: `opened`, `placed`, `finished`, `cancelled`"
+              },
+              {
+                "name": "financial_status",
+                "value": "",
+                "type": "query",
+                "description": "Filter orders by financial status: `waiting`, `paying`, `paid`, `cancelled`, `failed`, `refunding`, `refund_failed`, `refunded`, `partially_refunded`"
+              },
+              {
+                "name": "fulfillment_status",
+                "value": "",
+                "type": "query",
+                "description": "Filter orders by fulfillment status: `initialled`, `waiting`, `partially_shipped`, `shipped`, `partially_finished`, `finished`, `cancelled`, `returning`, `returned`"
+              },
+              {
+                "name": "recovery_status",
+                "value": "",
+                "type": "query",
+                "description": "Filter orders by recovery status: `waiting`, `sending`, `recalling`, `failed`, `success`"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "access-token",
+              "value": "{{access-token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Order List"
+        },
+        {
+          "info": {
+            "name": "Create Order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/orders",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "access-token",
+              "value": "{{access-token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Create Order"
+        },
+        {
+          "info": {
+            "name": "Order Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/orders/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Order's ID"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "access-token",
+              "value": "{{access-token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Order Details"
+        },
+        {
+          "info": {
+            "name": "Update Order",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/orders/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Order's ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "access-token",
+              "value": "{{access-token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Update Order"
+        },
+        {
+          "info": {
+            "name": "Delete Order",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/orders/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Order's ID"
+              }
+            ]
+          },
+          "docs": "Delete Order"
+        },
+        {
+          "info": {
+            "name": "Get Order Details By Number",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/orders/number/:number",
+            "params": [
+              {
+                "name": "number",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get Order Details By Number"
+        },
+        {
+          "info": {
+            "name": "Order Count",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/orders/count",
+            "params": [
+              {
+                "name": "created_at_min",
+                "value": "",
+                "type": "query",
+                "description": "Filter orders created at or after date, for example: `2016-01-18T23:41:00Z`"
+              },
+              {
+                "name": "created_at_max",
+                "value": "",
+                "type": "query",
+                "description": "Filter orders created at or before date, for example: `2016-01-18T23:41:00Z`"
+              },
+              {
+                "name": "updated_at_min",
+                "value": "",
+                "type": "query",
+                "description": "Filter orders updated_at at or after date, for example: `2016-01-18T23:41:00Z`"
+              },
+              {
+                "name": "updated_at_max",
+                "value": "",
+                "type": "query",
+                "description": "Filter orders updated at or after date, for example: `2016-01-18T23:41:00Z`"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Filter by order's status: `opened`, `placed`, `finished`, `cancelled`"
+              },
+              {
+                "name": "financial_status",
+                "value": "",
+                "type": "query",
+                "description": "Filter by financial status: `waiting`, `paying`, `paid`, `cancelled`, `failed`, `refunding`, `refund_failed`, `refunded`, `partially_refunded`"
+              },
+              {
+                "name": "fulfillment_status",
+                "value": "",
+                "type": "query",
+                "description": "Filter by fulfillment status: `initialled`, `waiting`, `partially_shipped`, `shipped`, `partially_finished`, `finished`, `cancelled`, `returning`, `returned`"
+              }
+            ]
+          },
+          "docs": "Order Count"
+        },
+        {
+          "info": {
+            "name": "Cancel Order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/orders/:id/cancel",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Order's ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Cancel Order"
+        },
+        {
+          "info": {
+            "name": "Refund List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/orders/:id/refund",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Order's ID"
+              }
+            ]
+          },
+          "docs": "Refund List"
+        },
+        {
+          "info": {
+            "name": "Order Refund",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/orders/:id/refund",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Order's ID"
+              }
+            ]
+          },
+          "docs": "Order Refund"
+        },
+        {
+          "info": {
+            "name": "Partial Order Refund",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/orders/:id/partial_refund",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Order's ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Partial Order Refund"
+        },
+        {
+          "info": {
+            "name": "After Sales List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/orders/after_sales_list",
+            "params": [
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "After-sales status"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Limit per page"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number"
+              },
+              {
+                "name": "created_at_start",
+                "value": "",
+                "type": "query",
+                "description": "Filter orders created after the date, for example: `2016-01-18T23:41:00Z`"
+              },
+              {
+                "name": "created_at_end",
+                "value": "",
+                "type": "query",
+                "description": "Filter orders created before the date, for example: `2016-01-18T23:41:00Z`"
+              }
+            ]
+          },
+          "docs": "After Sales List"
+        },
+        {
+          "info": {
+            "name": "Close Order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/orders/:id/close",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Order's ID"
+              }
+            ]
+          },
+          "docs": "Close Order"
+        },
+        {
+          "info": {
+            "name": "Re-Open Order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/orders/:id/open",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Order's ID"
+              }
+            ]
+          },
+          "docs": "Re-Open Order"
+        },
+        {
+          "info": {
+            "name": "Transaction List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/orders/:id/transactions",
+            "params": [
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "authorized， void， processing， success， error， refunding， refunded， refund_failed， expire"
+              },
+              {
+                "name": "payment_channel",
+                "value": "",
+                "type": "query",
+                "description": "Channels for trading"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Order's ID"
+              }
+            ]
+          },
+          "docs": "Retrieves a list of transactions."
+        },
+        {
+          "info": {
+            "name": "Create Transaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/orders/:id/transactions",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Order's ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a transaction for an order."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

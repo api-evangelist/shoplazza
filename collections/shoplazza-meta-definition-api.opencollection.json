@@ -1,0 +1,164 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SPZ Admin Access Meta Definition API",
+    "version": "2022.01"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "access-token",
+      "value": "{{access-token}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Meta Definition",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Metafield Definition List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/metafield_definition/:owner_resource",
+            "params": [
+              {
+                "name": "owner_resource",
+                "value": "",
+                "type": "path",
+                "description": "Owner resource type of meta field definition, including 'product_variant' , 'product' , and 'collection'"
+              }
+            ]
+          },
+          "docs": "Metafield Definition List"
+        },
+        {
+          "info": {
+            "name": "Create Metafield Definition",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/metafield_definition/:owner_resource",
+            "params": [
+              {
+                "name": "owner_resource",
+                "value": "",
+                "type": "path",
+                "description": "Owner resource type of meta field definition, including 'product_variant' , 'product' , and 'collection'"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Metafield Definition"
+        },
+        {
+          "info": {
+            "name": "Metafield Definition Detail",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/metafield_definition",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "query",
+                "description": "Metafield definition id"
+              }
+            ]
+          },
+          "docs": "Metafield Definition Detail"
+        },
+        {
+          "info": {
+            "name": "Update Metafield Definition",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/metafield_definition/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update Metafield Definition"
+        },
+        {
+          "info": {
+            "name": "Delete Metafield Definition",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/metafield_definition/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Meta field definition id"
+              }
+            ]
+          },
+          "docs": "Delete Metafield Definition"
+        },
+        {
+          "info": {
+            "name": "Metafield Definition Count",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/metafield_definition/:owner_resource/count",
+            "params": [
+              {
+                "name": "owner_resource",
+                "value": "",
+                "type": "path",
+                "description": "Owner resource type of meta field definition, including 'product_variant' , 'product' , and 'collection'"
+              },
+              {
+                "name": "definition_ids",
+                "value": "",
+                "type": "query",
+                "description": "Meta field definition ids"
+              }
+            ]
+          },
+          "docs": "Metafield Definition Count"
+        },
+        {
+          "info": {
+            "name": "Metafield Definition By Group Count",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/metafield_definition/group_count"
+          },
+          "docs": "Metafield Definition By Group Count"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

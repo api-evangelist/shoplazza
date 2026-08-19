@@ -1,0 +1,410 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SPZ Admin Access Metafield API",
+    "version": "2022.01"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "access-token",
+      "value": "{{access-token}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Metafield",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Shop Metafield List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/metafields",
+            "params": [
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "query",
+                "description": "A container for a group of metafields."
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "query",
+                "description": "The key of the metafield."
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "The type of data that the metafield stores in the `value` field."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit per page"
+              },
+              {
+                "name": "since_id",
+                "value": "",
+                "type": "query",
+                "description": "Show metafields created after the specified ID."
+              },
+              {
+                "name": "create_at_min",
+                "value": "",
+                "type": "query",
+                "description": "Show metafields created after date, ISO-8601 format, e.g. \"2022-12-02T09:46:30Z\""
+              },
+              {
+                "name": "create_at_max",
+                "value": "",
+                "type": "query",
+                "description": "Show metafields created before date, ISO-8601 format, e.g. \"2022-12-02T09:46:30Z\""
+              },
+              {
+                "name": "update_at_min",
+                "value": "",
+                "type": "query",
+                "description": "Show metafields last updated after date, ISO-8601 format, e.g. \"2022-12-02T09:46:30Z\""
+              },
+              {
+                "name": "update_at_max",
+                "value": "",
+                "type": "query",
+                "description": "Show metafields last updated before date, ISO-8601 format, e.g. \"2022-12-02T09:46:30Z\""
+              }
+            ]
+          },
+          "docs": "Get metafields attached to the Shop resource"
+        },
+        {
+          "info": {
+            "name": "Create Shop Matefield",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/metafields",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a metafield for the Shop resource"
+        },
+        {
+          "info": {
+            "name": "Get Shop Metafield Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/metafields/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Metafield's ID"
+              }
+            ]
+          },
+          "docs": "Get a single metafield attached to the Shop resource"
+        },
+        {
+          "info": {
+            "name": "Update Shop Matefield",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/metafields/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Metafield's ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a metafield for a Shop resource"
+        },
+        {
+          "info": {
+            "name": "Delete Shop Metafield",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/metafields/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Metafield's ID"
+              }
+            ]
+          },
+          "docs": "Delete a metafield by its ID for the Shop resource"
+        },
+        {
+          "info": {
+            "name": "Get Shop Metafields Count",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/metafields/count"
+          },
+          "docs": "Get a count of metafields attached to the Shop resource"
+        },
+        {
+          "info": {
+            "name": "Get Metafield List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/:resource/:resource_id/metafields",
+            "params": [
+              {
+                "name": "resource",
+                "value": "",
+                "type": "path",
+                "description": "The type of resource that the metafield is attached to. Available resources: `shop`, `product`, `product_image`, `product_variant`, `order`, `page`, `customer`, `collection`, `blog`, `article`."
+              },
+              {
+                "name": "resource_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique ID of the resource that the metafield is attached to."
+              },
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "query",
+                "description": "A container for a group of metafields."
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "query",
+                "description": "The key of the metafield."
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "The type of data that the metafield stores in the `value` field."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit per page"
+              },
+              {
+                "name": "since_id",
+                "value": "",
+                "type": "query",
+                "description": "Show metafields created after the specified ID."
+              },
+              {
+                "name": "create_at_min",
+                "value": "",
+                "type": "query",
+                "description": "Show metafields created after date, ISO-8601 format, e.g. \"2022-12-02T09:46:30Z\""
+              },
+              {
+                "name": "create_at_max",
+                "value": "",
+                "type": "query",
+                "description": "Show metafields created before date, ISO-8601 format, e.g. \"2022-12-02T09:46:30Z\""
+              },
+              {
+                "name": "update_at_min",
+                "value": "",
+                "type": "query",
+                "description": "Show metafields last updated after date, ISO-8601 format, e.g. \"2022-12-02T09:46:30Z\""
+              },
+              {
+                "name": "update_at_max",
+                "value": "",
+                "type": "query",
+                "description": "Show metafields last updated before date, ISO-8601 format, e.g. \"2022-12-02T09:46:30Z\""
+              }
+            ]
+          },
+          "docs": "Get Metafield List"
+        },
+        {
+          "info": {
+            "name": "Create Matefield",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/:resource/:resource_id/metafields",
+            "params": [
+              {
+                "name": "resource",
+                "value": "",
+                "type": "path",
+                "description": "The type of resource that the metafield is attached to. Available resources: `shop`, `product`, `product_image`, `product_variant`, `order`, `page`, `customer`, `collection`, `blog`, `article`."
+              },
+              {
+                "name": "resource_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique ID of the resource that the metafield is attached to."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a metafield for the a resource"
+        },
+        {
+          "info": {
+            "name": "Get Metafield Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/:resource/:resource_id/metafields/:id",
+            "params": [
+              {
+                "name": "resource",
+                "value": "",
+                "type": "path",
+                "description": "The type of resource that the metafield is attached to. Available resources: `shop`, `product`, `product_image`, `product_variant`, `order`, `page`, `customer`, `collection`, `blog`, `article`."
+              },
+              {
+                "name": "resource_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique ID of the resource that the metafield is attached to."
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Metafield's ID"
+              }
+            ]
+          },
+          "docs": "Get a single metafield attached to a resource"
+        },
+        {
+          "info": {
+            "name": "Update Matefield",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/:resource/:resource_id/metafields/:id",
+            "params": [
+              {
+                "name": "resource",
+                "value": "",
+                "type": "path",
+                "description": "The type of resource that the metafield is attached to. Available resources: `shop`, `product`, `product_image`, `product_variant`, `order`, `page`, `customer`, `collection`, `blog`, `article`."
+              },
+              {
+                "name": "resource_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique ID of the resource that the metafield is attached to."
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Metafield's ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a metafield for a resource"
+        },
+        {
+          "info": {
+            "name": "Delete Metafield",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/:resource/:resource_id/metafields/:id",
+            "params": [
+              {
+                "name": "resource",
+                "value": "",
+                "type": "path",
+                "description": "The type of resource that the metafield is attached to. Available resources: `shop`, `product`, `product_image`, `product_variant`, `order`, `page`, `customer`, `collection`, `blog`, `article`."
+              },
+              {
+                "name": "resource_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique ID of the resource that the metafield is attached to."
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Metafield's ID"
+              }
+            ]
+          },
+          "docs": "Delete a metafield by its ID for the Shop resource"
+        },
+        {
+          "info": {
+            "name": "Get Metafields Count",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/:resource/:resource_id/metafields/count",
+            "params": [
+              {
+                "name": "resource",
+                "value": "",
+                "type": "path",
+                "description": "The type of resource that the metafield is attached to. Available resources: `shop`, `product`, `product_image`, `product_variant`, `order`, `page`, `customer`, `collection`, `blog`, `article`."
+              },
+              {
+                "name": "resource_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique ID of the resource that the metafield is attached to."
+              }
+            ]
+          },
+          "docs": "Get a count of metafields attached to a resource"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

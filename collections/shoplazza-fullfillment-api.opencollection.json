@@ -1,0 +1,251 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SPZ Admin Access Fullfillment API",
+    "version": "2022.01"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "access-token",
+      "value": "{{access-token}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Fullfillment",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Fulfillment List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/orders/:order_id/fulfillments",
+            "params": [
+              {
+                "name": "order_id",
+                "value": "",
+                "type": "path",
+                "description": "Order's ID"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "result per page, default: `50`, maximum: `250`"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number"
+              },
+              {
+                "name": "created_at_min",
+                "value": "",
+                "type": "query",
+                "description": "filter fulfillments created at or after date, for example: `2016-01-18T23:41:00Z`"
+              },
+              {
+                "name": "created_at_max",
+                "value": "",
+                "type": "query",
+                "description": "filter fulfillments created at or before date, for example: `2016-01-18T23:41:00Z`"
+              },
+              {
+                "name": "updated_at_min",
+                "value": "",
+                "type": "query",
+                "description": "filter fulfillments last updated at or after date, for example: `2016-01-18T23:41:00Z`"
+              },
+              {
+                "name": "updated_at_max",
+                "value": "",
+                "type": "query",
+                "description": "filter fulfillments last updated at or before date, for example: `2016-01-18T23:41:00Z`"
+              }
+            ]
+          },
+          "docs": "Fulfillment List"
+        },
+        {
+          "info": {
+            "name": "Create Fulfillment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/orders/:order_id/fulfillments",
+            "params": [
+              {
+                "name": "order_id",
+                "value": "",
+                "type": "path",
+                "description": "Order's ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Fulfillment"
+        },
+        {
+          "info": {
+            "name": "Fulfillment Total Count",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/orders/:order_id/fulfillments/count",
+            "params": [
+              {
+                "name": "order_id",
+                "value": "",
+                "type": "path",
+                "description": "Order's ID"
+              },
+              {
+                "name": "created_at_min",
+                "value": "",
+                "type": "query",
+                "description": "filter fulfillments created at or after date, for example: `2016-01-18T23:41:00Z`"
+              },
+              {
+                "name": "created_at_max",
+                "value": "",
+                "type": "query",
+                "description": "filter fulfillments created at or before date, for example: `2016-01-18T23:41:00Z`"
+              },
+              {
+                "name": "updated_at_min",
+                "value": "",
+                "type": "query",
+                "description": "filter fulfillments last updated at or after date, for example: `2016-01-18T23:41:00Z`"
+              },
+              {
+                "name": "updated_at_max",
+                "value": "",
+                "type": "query",
+                "description": "filter fulfillments last updated at or before date, for example: `2016-01-18T23:41:00Z`"
+              }
+            ]
+          },
+          "docs": "Fulfillment Total Count"
+        },
+        {
+          "info": {
+            "name": "Fulfillment Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/orders/:order_id/fulfillments/:fulfillment_id",
+            "params": [
+              {
+                "name": "order_id",
+                "value": "",
+                "type": "path",
+                "description": "Order's ID"
+              },
+              {
+                "name": "fulfillment_id",
+                "value": "",
+                "type": "path",
+                "description": "Fulfillment's ID"
+              }
+            ]
+          },
+          "docs": "Fulfillment Details"
+        },
+        {
+          "info": {
+            "name": "Update Fulfillment",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/orders/:order_id/fulfillments/:fulfillment_id",
+            "params": [
+              {
+                "name": "order_id",
+                "value": "",
+                "type": "path",
+                "description": "Order's ID"
+              },
+              {
+                "name": "fulfillment_id",
+                "value": "",
+                "type": "path",
+                "description": "Fulfillment id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update Fulfillment"
+        },
+        {
+          "info": {
+            "name": "Complete Fulfillment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/orders/:order_id/fulfillments/:fulfillment_id/complete",
+            "params": [
+              {
+                "name": "order_id",
+                "value": "",
+                "type": "path",
+                "description": "Order's ID"
+              },
+              {
+                "name": "fulfillment_id",
+                "value": "",
+                "type": "path",
+                "description": "Fulfillment id"
+              }
+            ]
+          },
+          "docs": "Complete Fulfillment"
+        },
+        {
+          "info": {
+            "name": "Cancel Fulfillment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/orders/:order_id/fulfillments/:fulfillment_id/cancel",
+            "params": [
+              {
+                "name": "order_id",
+                "value": "",
+                "type": "path",
+                "description": "Order's ID"
+              },
+              {
+                "name": "fulfillment_id",
+                "value": "",
+                "type": "path",
+                "description": "Fulfillment id"
+              }
+            ]
+          },
+          "docs": "Cancel Fulfillment"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

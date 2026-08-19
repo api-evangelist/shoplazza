@@ -1,0 +1,289 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SPZ Admin Access Shop API",
+    "version": "2022.01"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "access-token",
+      "value": "{{access-token}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Shop",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Shop Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/shop",
+            "params": [
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "To specify which fields you wanna get, separated by comma, e.g. `id,name,email`, possible fields are: `id`, `name`, `email`, `domain`, `address1`, `zip`, `city`, `phone`, `primary_locale`, `address2`, `created_at`, `updated_at`, `country_code`, `currency`, `customer_email`, `timezone`, `shop_owner`, `account`, `province_code`, `icon`, `system_domain`, `root_url`"
+              }
+            ]
+          },
+          "docs": "Shop Details"
+        },
+        {
+          "info": {
+            "name": "Update Shop",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/shop/:shop_id",
+            "params": [
+              {
+                "name": "shop_id",
+                "value": "",
+                "type": "path",
+                "description": "Shop's ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update Shop"
+        },
+        {
+          "info": {
+            "name": "Create Comment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/comments",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Comment"
+        },
+        {
+          "info": {
+            "name": "Batch Create Comment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/comments/batch",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Batch Create Comment"
+        },
+        {
+          "info": {
+            "name": "Get Script Tag List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/script_tags",
+            "params": [
+              {
+                "name": "event_type",
+                "value": "",
+                "type": "query",
+                "description": "Event type, e.g. `myapp`"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number, e.g. `1`"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "result per page, e.g. `50`"
+              }
+            ]
+          },
+          "docs": "Get Script Tag List"
+        },
+        {
+          "info": {
+            "name": "Create Script Tag",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/script_tags",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Script Tag"
+        },
+        {
+          "info": {
+            "name": "Get Script Tag",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/script_tags/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Script's ID"
+              }
+            ]
+          },
+          "docs": "Get Script Tag"
+        },
+        {
+          "info": {
+            "name": "Update Script Tag",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/script_tags/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Script's ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update Script Tag"
+        },
+        {
+          "info": {
+            "name": "Delete Script Tag",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/script_tags/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Script's ID"
+              }
+            ]
+          },
+          "docs": "Delete Script Tag"
+        },
+        {
+          "info": {
+            "name": "Get Script Tag Count",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/script_tags/count"
+          },
+          "docs": "Get Script Tag Count"
+        },
+        {
+          "info": {
+            "name": "Get Comment List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/comments/list",
+            "params": [
+              {
+                "name": "product_id",
+                "value": "",
+                "type": "query",
+                "description": "Product's IDs, e.g. `9e79ca1f-9ff2-409b-976f-98be343d38a3`"
+              },
+              {
+                "name": "created_at_min",
+                "value": "",
+                "type": "query",
+                "description": "Filter comments created at or after date, for example: `2018-10-01T16:15:47-04:00`"
+              },
+              {
+                "name": "created_at_max",
+                "value": "",
+                "type": "query",
+                "description": "Filter comments created at or before date, for example: `2018-10-01T16:15:47-04:00`"
+              },
+              {
+                "name": "updated_at_min",
+                "value": "",
+                "type": "query",
+                "description": "Filter comments last updated at or after date, for example: `2018-10-01T16:15:47-04:00`"
+              },
+              {
+                "name": "updated_at_max",
+                "value": "",
+                "type": "query",
+                "description": "Filter comments last updated at or before date, for example: `2018-10-01T16:15:47-04:00`"
+              },
+              {
+                "name": "sort_by",
+                "value": "",
+                "type": "query",
+                "description": "Specify the sort field, e.g. `star` or `created_at`"
+              },
+              {
+                "name": "sort_direction",
+                "value": "",
+                "type": "query",
+                "description": "Specify the sort direction, e.g. `asc` or `desc`"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit per page, 10, 20, 50, 100 allowed"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Comment status, `1`: published, `0`: unpublished"
+              }
+            ]
+          },
+          "docs": "Get Comment List"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

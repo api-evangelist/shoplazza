@@ -1,0 +1,106 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SPZ Admin Access Custom Area API",
+    "version": "2022.01"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "access-token",
+      "value": "{{access-token}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Custom Area",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Province List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/areas/country/:country_code/province",
+            "params": [
+              {
+                "name": "country_code",
+                "value": "",
+                "type": "path",
+                "description": "Country code, eg. US"
+              }
+            ]
+          },
+          "docs": "Get Province List"
+        },
+        {
+          "info": {
+            "name": "Create Custom Areas",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/areas/country/:country_code/province",
+            "params": [
+              {
+                "name": "country_code",
+                "value": "",
+                "type": "path",
+                "description": "Country code, eg. US"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Custom Areas"
+        },
+        {
+          "info": {
+            "name": "Delete Custom Areas",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/areas/country/:country_code/province",
+            "params": [
+              {
+                "name": "country_code",
+                "value": "",
+                "type": "path",
+                "description": "Country code, eg. US"
+              }
+            ]
+          },
+          "docs": "Delete Custom Areas"
+        },
+        {
+          "info": {
+            "name": "Get Custom Children Areas",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/areas/:area_code/children",
+            "params": [
+              {
+                "name": "area_code",
+                "value": "",
+                "type": "path",
+                "description": "Area code, eg. US-CA"
+              }
+            ]
+          },
+          "docs": "Get Custom Children Areas"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

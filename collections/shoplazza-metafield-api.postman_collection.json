@@ -1,0 +1,2092 @@
+{
+  "item": [
+    {
+      "id": "3ef75aba-336c-4ed0-bb29-fd419db293a4",
+      "name": "Metafield",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "aaf4b8c0-5328-4175-8fdc-60702374087c",
+          "name": "Create Shop Matefield",
+          "request": {
+            "name": "Create Shop Matefield",
+            "description": {
+              "content": "Create a metafield for the Shop resource",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "openapi",
+                "2022-01",
+                "metafields"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{subdomain}}",
+                  "key": "subdomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"namespace\": \"<string>\",\n  \"key\": \"<string>\",\n  \"value\": \"<mixed type>\",\n  \"type\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a44e2b64-f275-4f11-9929-580388093927",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "metafields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"namespace\": \"<string>\",\n  \"key\": \"<string>\",\n  \"value\": \"<mixed type>\",\n  \"type\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"metafield\\\": {\\n        \\\"id\\\": \\\"200140628510648018\\\",\\n        \\\"store_id\\\": 11218,\\n        \\\"created_at\\\": \\\"2022-12-13T06:47:32.806438731Z\\\",\\n        \\\"updated_at\\\": \\\"2022-12-13T06:47:32.806438806Z\\\",\\n        \\\"owner_resource\\\": \\\"shop\\\",\\n        \\\"owner_id\\\": \\\"11218\\\",\\n        \\\"namespace\\\": \\\"my_namespace\\\",\\n        \\\"key\\\": \\\"my_key\\\",\\n        \\\"type\\\": \\\"string\\\",\\n        \\\"value\\\": \\\"my_value\\\",\\n        \\\"description\\\": \\\"\\\",\\n        \\\"definition_id\\\": \\\"0\\\"\\n    }\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9877dc14-617c-457f-b562-b5c311aadfa7",
+          "name": "Get Shop Metafield List",
+          "request": {
+            "name": "Get Shop Metafield List",
+            "description": {
+              "content": "Get metafields attached to the Shop resource",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "openapi",
+                "2022-01",
+                "metafields"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "namespace",
+                  "value": "<string>",
+                  "description": "A container for a group of metafields."
+                },
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "The key of the metafield."
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "The type of data that the metafield stores in the `value` field."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Limit per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "since_id",
+                  "value": "<string>",
+                  "description": "Show metafields created after the specified ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "create_at_min",
+                  "value": "<string>",
+                  "description": "Show metafields created after date, ISO-8601 format, e.g. \"2022-12-02T09:46:30Z\""
+                },
+                {
+                  "disabled": false,
+                  "key": "create_at_max",
+                  "value": "<string>",
+                  "description": "Show metafields created before date, ISO-8601 format, e.g. \"2022-12-02T09:46:30Z\""
+                },
+                {
+                  "disabled": false,
+                  "key": "update_at_min",
+                  "value": "<string>",
+                  "description": "Show metafields last updated after date, ISO-8601 format, e.g. \"2022-12-02T09:46:30Z\""
+                },
+                {
+                  "disabled": false,
+                  "key": "update_at_max",
+                  "value": "<string>",
+                  "description": "Show metafields last updated before date, ISO-8601 format, e.g. \"2022-12-02T09:46:30Z\""
+                }
+              ],
+              "variable": [
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{subdomain}}",
+                  "key": "subdomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "81bd5a76-fe45-4d47-9250-9628b876cace",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "metafields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "namespace",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "since_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "create_at_min",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "create_at_max",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "update_at_min",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "update_at_max",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"metafields\\\": [\\n        {\\n            \\\"id\\\": \\\"200140664313226962\\\",\\n            \\\"store_id\\\": 11218,\\n            \\\"created_at\\\": \\\"2022-12-13T06:53:42Z\\\",\\n            \\\"updated_at\\\": \\\"2022-12-13T06:53:42Z\\\",\\n            \\\"owner_resource\\\": \\\"shop\\\",\\n            \\\"owner_id\\\": \\\"11218\\\",\\n            \\\"namespace\\\": \\\"my_namespace\\\",\\n            \\\"key\\\": \\\"my_key\\\",\\n            \\\"type\\\": \\\"string\\\",\\n            \\\"value\\\": \\\"my_value\\\",\\n            \\\"description\\\": \\\"some description\\\",\\n            \\\"definition_id\\\": \\\"0\\\"\\n        },\\n        {\\n            \\\"id\\\": \\\"200142450046543570\\\",\\n            \\\"store_id\\\": 11218,\\n            \\\"created_at\\\": \\\"2022-12-14T06:54:43Z\\\",\\n            \\\"updated_at\\\": \\\"2022-02-14T06:54:43Z\\\",\\n            \\\"owner_resource\\\": \\\"shop\\\",\\n            \\\"owner_id\\\": \\\"11218\\\",\\n            \\\"namespace\\\": \\\"my_namespace\\\",\\n            \\\"key\\\": \\\"my_key_2\\\",\\n            \\\"type\\\": \\\"integer\\\",\\n            \\\"value\\\": 200,\\n            \\\"description\\\": \\\"\\\",\\n            \\\"definition_id\\\": \\\"0\\\"\\n        }\\n    ],\\n    \\\"last_id\\\": \\\"200142450046543570\\\",\\n    \\\"total\\\": 2,\\n    \\\"remain\\\": 0,\\n    \\\"page\\\": 1,\\n    \\\"total_page\\\": 1,\\n    \\\"have_next\\\": false\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8440870e-41bc-4548-a1cc-7ce364e7a9cb",
+          "name": "Get Shop Metafield Details",
+          "request": {
+            "name": "Get Shop Metafield Details",
+            "description": {
+              "content": "Get a single metafield attached to the Shop resource",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "openapi",
+                "2022-01",
+                "metafields",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Metafield's ID"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{subdomain}}",
+                  "key": "subdomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fe22b49d-148c-4c62-a1c6-484fa551a581",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "metafields",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Metafield's ID"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"metafield\\\": {\\n        \\\"id\\\": \\\"200140628510648018\\\",\\n        \\\"store_id\\\": 11218,\\n        \\\"created_at\\\": \\\"2022-12-13T06:47:32.806438731Z\\\",\\n        \\\"updated_at\\\": \\\"2022-12-13T06:47:32.806438806Z\\\",\\n        \\\"owner_resource\\\": \\\"shop\\\",\\n        \\\"owner_id\\\": \\\"11218\\\",\\n        \\\"namespace\\\": \\\"my_namespace\\\",\\n        \\\"key\\\": \\\"my_key\\\",\\n        \\\"type\\\": \\\"string\\\",\\n        \\\"value\\\": \\\"my_value\\\",\\n        \\\"description\\\": \\\"\\\",\\n        \\\"definition_id\\\": \\\"0\\\"\\n    }\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "959b6c6b-ae41-40d9-97d0-1969d5a0a342",
+          "name": "Update Shop Matefield",
+          "request": {
+            "name": "Update Shop Matefield",
+            "description": {
+              "content": "Update a metafield for a Shop resource",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "openapi",
+                "2022-01",
+                "metafields",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Metafield's ID"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{subdomain}}",
+                  "key": "subdomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"value\": \"<string>\",\n  \"type\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5f59887d-81c6-4307-9c68-7f1dad66c6ee",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "metafields",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Metafield's ID"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"value\": \"<string>\",\n  \"type\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"metafield\\\": {\\n        \\\"id\\\": \\\"200140628510648018\\\",\\n        \\\"store_id\\\": 11218,\\n        \\\"created_at\\\": \\\"2022-12-13T06:47:32.806438731Z\\\",\\n        \\\"updated_at\\\": \\\"2022-12-13T06:47:32.806438806Z\\\",\\n        \\\"owner_resource\\\": \\\"shop\\\",\\n        \\\"owner_id\\\": \\\"11218\\\",\\n        \\\"namespace\\\": \\\"my_namespace\\\",\\n        \\\"key\\\": \\\"my_key\\\",\\n        \\\"type\\\": \\\"string\\\",\\n        \\\"value\\\": \\\"my_value\\\",\\n        \\\"description\\\": \\\"\\\",\\n        \\\"definition_id\\\": \\\"0\\\"\\n    }\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "16380951-f504-4075-b099-e5746e9eba68",
+          "name": "Delete Shop Metafield",
+          "request": {
+            "name": "Delete Shop Metafield",
+            "description": {
+              "content": "Delete a metafield by its ID for the Shop resource",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "openapi",
+                "2022-01",
+                "metafields",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Metafield's ID"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{subdomain}}",
+                  "key": "subdomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2f588009-017e-4761-99a6-cf14c9c41f71",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "metafields",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Metafield's ID"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "005f37f7-4993-4d93-81d6-0745cbff0e47",
+              "name": "404",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "metafields",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Metafield's ID"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"code\\\": 5,\\n    \\\"message\\\": \\\"data not found\\\",\\n    \\\"details\\\": []\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e312c5c9-2031-4420-a0f4-bda46c886ef7",
+          "name": "Get Shop Metafields Count",
+          "request": {
+            "name": "Get Shop Metafields Count",
+            "description": {
+              "content": "Get a count of metafields attached to the Shop resource",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "openapi",
+                "2022-01",
+                "metafields",
+                "count"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{subdomain}}",
+                  "key": "subdomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d8c71b6a-3444-4022-bbb6-3375cbb75faa",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "metafields",
+                    "count"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"count\\\": 10\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b99ff375-357c-4501-9fe8-77e32d9dfa09",
+          "name": "Get Metafield List",
+          "request": {
+            "name": "Get Metafield List",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "openapi",
+                "2022-01",
+                ":resource",
+                ":resource_id",
+                "metafields"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "namespace",
+                  "value": "<string>",
+                  "description": "A container for a group of metafields."
+                },
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "The key of the metafield."
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "The type of data that the metafield stores in the `value` field."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<string>",
+                  "description": "Limit per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "since_id",
+                  "value": "<string>",
+                  "description": "Show metafields created after the specified ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "create_at_min",
+                  "value": "<string>",
+                  "description": "Show metafields created after date, ISO-8601 format, e.g. \"2022-12-02T09:46:30Z\""
+                },
+                {
+                  "disabled": false,
+                  "key": "create_at_max",
+                  "value": "<string>",
+                  "description": "Show metafields created before date, ISO-8601 format, e.g. \"2022-12-02T09:46:30Z\""
+                },
+                {
+                  "disabled": false,
+                  "key": "update_at_min",
+                  "value": "<string>",
+                  "description": "Show metafields last updated after date, ISO-8601 format, e.g. \"2022-12-02T09:46:30Z\""
+                },
+                {
+                  "disabled": false,
+                  "key": "update_at_max",
+                  "value": "<string>",
+                  "description": "Show metafields last updated before date, ISO-8601 format, e.g. \"2022-12-02T09:46:30Z\""
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resource",
+                  "description": "(Required) The type of resource that the metafield is attached to. Available resources: `shop`, `product`, `product_image`, `product_variant`, `order`, `page`, `customer`, `collection`, `blog`, `article`."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resource_id",
+                  "description": "(Required) The unique ID of the resource that the metafield is attached to."
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{subdomain}}",
+                  "key": "subdomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "593dafdb-7ba4-4279-a956-dca6d9979716",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    ":resource",
+                    ":resource_id",
+                    "metafields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "namespace",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "since_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "create_at_min",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "create_at_max",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "update_at_min",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "update_at_max",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resource",
+                      "description": "(Required) The type of resource that the metafield is attached to. Available resources: `shop`, `product`, `product_image`, `product_variant`, `order`, `page`, `customer`, `collection`, `blog`, `article`."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resource_id",
+                      "description": "(Required) The unique ID of the resource that the metafield is attached to."
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"metafields\\\": [\\n        {\\n            \\\"id\\\": \\\"200140664313226962\\\",\\n            \\\"store_id\\\": 11218,\\n            \\\"created_at\\\": \\\"2022-12-13T06:53:42Z\\\",\\n            \\\"updated_at\\\": \\\"2022-12-13T06:53:42Z\\\",\\n            \\\"owner_resource\\\": \\\"product\\\",\\n            \\\"owner_id\\\": \\\"ad6e30c4-51b8-4402-a459-718476ce7050\\\",\\n            \\\"namespace\\\": \\\"my_namespace\\\",\\n            \\\"key\\\": \\\"my_key\\\",\\n            \\\"type\\\": \\\"string\\\",\\n            \\\"value\\\": \\\"my_value\\\",\\n            \\\"description\\\": \\\"some description\\\",\\n            \\\"definition_id\\\": \\\"0\\\"\\n        },\\n        {\\n            \\\"id\\\": \\\"200142450046543570\\\",\\n            \\\"store_id\\\": 11218,\\n            \\\"created_at\\\": \\\"2022-12-14T06:54:43Z\\\",\\n            \\\"updated_at\\\": \\\"2022-02-14T06:54:43Z\\\",\\n            \\\"owner_resource\\\": \\\"product\\\",\\n            \\\"owner_id\\\": \\\"ad6e30c4-51b8-4402-a459-718476ce7050\\\",\\n            \\\"namespace\\\": \\\"my_namespace\\\",\\n            \\\"key\\\": \\\"my_key_2\\\",\\n            \\\"type\\\": \\\"integer\\\",\\n            \\\"value\\\": 200,\\n            \\\"description\\\": \\\"\\\",\\n            \\\"definition_id\\\": \\\"0\\\"\\n        }\\n    ],\\n    \\\"last_id\\\": \\\"200142450046543570\\\",\\n    \\\"total\\\": 2,\\n    \\\"remain\\\": 0,\\n    \\\"page\\\": 1,\\n    \\\"total_page\\\": 1,\\n    \\\"have_next\\\": false\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9086508f-cdfe-46d1-96df-476dd5f8e8fd",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    ":resource",
+                    ":resource_id",
+                    "metafields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "namespace",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "since_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "create_at_min",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "create_at_max",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "update_at_min",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "update_at_max",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resource",
+                      "description": "(Required) The type of resource that the metafield is attached to. Available resources: `shop`, `product`, `product_image`, `product_variant`, `order`, `page`, `customer`, `collection`, `blog`, `article`."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resource_id",
+                      "description": "(Required) The unique ID of the resource that the metafield is attached to."
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bfb887d6-3859-488b-91b0-d7fd424e2ba6",
+          "name": "Create Matefield",
+          "request": {
+            "name": "Create Matefield",
+            "description": {
+              "content": "Create a metafield for the a resource",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "openapi",
+                "2022-01",
+                ":resource",
+                ":resource_id",
+                "metafields"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resource",
+                  "description": "(Required) The type of resource that the metafield is attached to. Available resources: `shop`, `product`, `product_image`, `product_variant`, `order`, `page`, `customer`, `collection`, `blog`, `article`."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resource_id",
+                  "description": "(Required) The unique ID of the resource that the metafield is attached to."
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{subdomain}}",
+                  "key": "subdomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"namespace\": \"<string>\",\n  \"key\": \"<string>\",\n  \"value\": \"<mixed type>\",\n  \"type\": \"<string>\",\n  \"description\": \"<string>\",\n  \"definition_id\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b9fd4d45-a7ec-439d-9cce-0ff81917f3a3",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    ":resource",
+                    ":resource_id",
+                    "metafields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resource",
+                      "description": "(Required) The type of resource that the metafield is attached to. Available resources: `shop`, `product`, `product_image`, `product_variant`, `order`, `page`, `customer`, `collection`, `blog`, `article`."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resource_id",
+                      "description": "(Required) The unique ID of the resource that the metafield is attached to."
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"namespace\": \"<string>\",\n  \"key\": \"<string>\",\n  \"value\": \"<mixed type>\",\n  \"type\": \"<string>\",\n  \"description\": \"<string>\",\n  \"definition_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"metafield\\\": {\\n        \\\"id\\\": \\\"200140628510648018\\\",\\n        \\\"store_id\\\": 11218,\\n        \\\"created_at\\\": \\\"2022-12-13T06:47:32.806438731Z\\\",\\n        \\\"updated_at\\\": \\\"2022-12-13T06:47:32.806438806Z\\\",\\n        \\\"owner_resource\\\": \\\"product\\\",\\n        \\\"owner_id\\\": \\\"ad6e30c4-51b8-4402-a459-718476ce7050\\\",\\n        \\\"namespace\\\": \\\"my_namespace\\\",\\n        \\\"key\\\": \\\"my_key\\\",\\n        \\\"type\\\": \\\"string\\\",\\n        \\\"value\\\": \\\"my_value\\\",\\n        \\\"description\\\": \\\"\\\",\\n        \\\"definition_id\\\": \\\"0\\\"\\n    }\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8f083e2d-4189-474d-9158-1e357dfd4042",
+          "name": "Get Metafield Details",
+          "request": {
+            "name": "Get Metafield Details",
+            "description": {
+              "content": "Get a single metafield attached to a resource",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "openapi",
+                "2022-01",
+                ":resource",
+                ":resource_id",
+                "metafields",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resource",
+                  "description": "(Required) The type of resource that the metafield is attached to. Available resources: `shop`, `product`, `product_image`, `product_variant`, `order`, `page`, `customer`, `collection`, `blog`, `article`."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resource_id",
+                  "description": "(Required) The unique ID of the resource that the metafield is attached to."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Metafield's ID"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{subdomain}}",
+                  "key": "subdomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e3ca0392-6c51-45de-92d5-d3c6b7b8d912",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    ":resource",
+                    ":resource_id",
+                    "metafields",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resource",
+                      "description": "(Required) The type of resource that the metafield is attached to. Available resources: `shop`, `product`, `product_image`, `product_variant`, `order`, `page`, `customer`, `collection`, `blog`, `article`."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resource_id",
+                      "description": "(Required) The unique ID of the resource that the metafield is attached to."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Metafield's ID"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"metafield\\\": {\\n        \\\"id\\\": \\\"200140628510648018\\\",\\n        \\\"store_id\\\": 11218,\\n        \\\"created_at\\\": \\\"2022-12-13T06:47:32.806438731Z\\\",\\n        \\\"updated_at\\\": \\\"2022-12-13T06:47:32.806438806Z\\\",\\n        \\\"owner_resource\\\": \\\"product\\\",\\n        \\\"owner_id\\\": \\\"ad6e30c4-51b8-4402-a459-718476ce7050\\\",\\n        \\\"namespace\\\": \\\"my_namespace\\\",\\n        \\\"key\\\": \\\"my_key\\\",\\n        \\\"type\\\": \\\"string\\\",\\n        \\\"value\\\": \\\"my_value\\\",\\n        \\\"description\\\": \\\"\\\",\\n        \\\"definition_id\\\": \\\"0\\\"\\n    }\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ea73d3a4-126d-474d-84f0-69f3a1a5752d",
+          "name": "Update Matefield",
+          "request": {
+            "name": "Update Matefield",
+            "description": {
+              "content": "Update a metafield for a resource",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "openapi",
+                "2022-01",
+                ":resource",
+                ":resource_id",
+                "metafields",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resource",
+                  "description": "(Required) The type of resource that the metafield is attached to. Available resources: `shop`, `product`, `product_image`, `product_variant`, `order`, `page`, `customer`, `collection`, `blog`, `article`."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resource_id",
+                  "description": "(Required) The unique ID of the resource that the metafield is attached to."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Metafield's ID"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{subdomain}}",
+                  "key": "subdomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"value\": \"<string>\",\n  \"type\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1bc89a43-e101-46d5-8705-ec96ddec5222",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    ":resource",
+                    ":resource_id",
+                    "metafields",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resource",
+                      "description": "(Required) The type of resource that the metafield is attached to. Available resources: `shop`, `product`, `product_image`, `product_variant`, `order`, `page`, `customer`, `collection`, `blog`, `article`."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resource_id",
+                      "description": "(Required) The unique ID of the resource that the metafield is attached to."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Metafield's ID"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"value\": \"<string>\",\n  \"type\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"metafield\\\": {\\n        \\\"id\\\": \\\"200140628510648018\\\",\\n        \\\"store_id\\\": 11218,\\n        \\\"created_at\\\": \\\"2022-12-13T06:47:32.806438731Z\\\",\\n        \\\"updated_at\\\": \\\"2022-12-13T06:47:32.806438806Z\\\",\\n        \\\"owner_resource\\\": \\\"product\\\",\\n        \\\"owner_id\\\": \\\"ad6e30c4-51b8-4402-a459-718476ce7050\\\",\\n        \\\"namespace\\\": \\\"my_namespace\\\",\\n        \\\"key\\\": \\\"my_key\\\",\\n        \\\"type\\\": \\\"string\\\",\\n        \\\"value\\\": \\\"my_value\\\",\\n        \\\"description\\\": \\\"\\\",\\n        \\\"definition_id\\\": \\\"0\\\"\\n    }\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ba5bba25-600e-4d65-b3dc-fa9af80e3808",
+          "name": "Delete Metafield",
+          "request": {
+            "name": "Delete Metafield",
+            "description": {
+              "content": "Delete a metafield by its ID for the Shop resource",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "openapi",
+                "2022-01",
+                ":resource",
+                ":resource_id",
+                "metafields",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resource",
+                  "description": "(Required) The type of resource that the metafield is attached to. Available resources: `shop`, `product`, `product_image`, `product_variant`, `order`, `page`, `customer`, `collection`, `blog`, `article`."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resource_id",
+                  "description": "(Required) The unique ID of the resource that the metafield is attached to."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Metafield's ID"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{subdomain}}",
+                  "key": "subdomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8c814316-1431-4067-9ebc-809355e146d1",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    ":resource",
+                    ":resource_id",
+                    "metafields",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resource",
+                      "description": "(Required) The type of resource that the metafield is attached to. Available resources: `shop`, `product`, `product_image`, `product_variant`, `order`, `page`, `customer`, `collection`, `blog`, `article`."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resource_id",
+                      "description": "(Required) The unique ID of the resource that the metafield is attached to."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Metafield's ID"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e1260c40-acf1-43e7-a93c-963323dee7d5",
+              "name": "404",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    ":resource",
+                    ":resource_id",
+                    "metafields",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resource",
+                      "description": "(Required) The type of resource that the metafield is attached to. Available resources: `shop`, `product`, `product_image`, `product_variant`, `order`, `page`, `customer`, `collection`, `blog`, `article`."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resource_id",
+                      "description": "(Required) The unique ID of the resource that the metafield is attached to."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Metafield's ID"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"code\\\": 5,\\n    \\\"message\\\": \\\"data not found\\\",\\n    \\\"details\\\": []\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "07f009e3-472e-4511-9994-fdde4ee2b83c",
+          "name": "Get Metafields Count",
+          "request": {
+            "name": "Get Metafields Count",
+            "description": {
+              "content": "Get a count of metafields attached to a resource",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "openapi",
+                "2022-01",
+                ":resource",
+                ":resource_id",
+                "metafields",
+                "count"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resource",
+                  "description": "(Required) The type of resource that the metafield is attached to. Available resources: `shop`, `product`, `product_image`, `product_variant`, `order`, `page`, `customer`, `collection`, `blog`, `article`."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resource_id",
+                  "description": "(Required) The unique ID of the resource that the metafield is attached to."
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{subdomain}}",
+                  "key": "subdomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a6f8e051-69db-417d-888a-096905dd6fa6",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    ":resource",
+                    ":resource_id",
+                    "metafields",
+                    "count"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resource",
+                      "description": "(Required) The type of resource that the metafield is attached to. Available resources: `shop`, `product`, `product_image`, `product_variant`, `order`, `page`, `customer`, `collection`, `blog`, `article`."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resource_id",
+                      "description": "(Required) The unique ID of the resource that the metafield is attached to."
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"count\\\": 10\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "developer",
+      "key": "subdomain"
+    },
+    {
+      "type": "string",
+      "value": "https://{{subdomain}}.myshoplaza.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "access-token"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "57068bc1-d28c-4032-9063-460aefc7bf00",
+    "name": "SPZ Admin Access Metafield API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

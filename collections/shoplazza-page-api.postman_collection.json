@@ -1,0 +1,1117 @@
+{
+  "item": [
+    {
+      "id": "0fd5bd82-c771-47b5-9d37-556f95dafc12",
+      "name": "Page",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "eac6eb0f-4c06-49ee-b668-7161d4315de0",
+          "name": "Get Page List",
+          "request": {
+            "name": "Get Page List",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "openapi",
+                "2022-01",
+                "pages"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number"
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "50",
+                  "description": "Limit per page, e.g. 50"
+                }
+              ],
+              "variable": [
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{subdomain}}",
+                  "key": "subdomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1ce3e33d-ea39-4abc-ba98-5f0b7425c512",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "pages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"page\\\": 1,\\n  \\\"per_page\\\": 50,\\n  \\\"pages\\\": [\\n    {\\n      \\\"id\\\": 854521,\\n      \\\"store_id\\\": 183211,\\n      \\\"title\\\": \\\"123123213\\\",\\n      \\\"content\\\": \\\"231312321\\\",\\n      \\\"status\\\": 1,\\n      \\\"created_at\\\": \\\"1626849179\\\",\\n      \\\"updated_at\\\": \\\"1626849179\\\",\\n      \\\"independent_seo\\\": false,\\n      \\\"url\\\": \\\"/pages/123123213\\\",\\n      \\\"meta_title\\\": \\\"123123213\\\",\\n      \\\"meta_keyword\\\": \\\"\\\",\\n      \\\"meta_description\\\": \\\"231312321\\\"\\n    },\\n    {\\n      \\\"id\\\": 854519,\\n      \\\"store_id\\\": 183211,\\n      \\\"title\\\": \\\"return policy\\\",\\n      \\\"content\\\": \\\"<h3><b><img src=\\\\\\\"https://img.staticdj.com/a08bfdcfafe4bf06f52348070386f258.jpeg\\\\\\\" alt=\\\\\\\"\\\\\\\" height=\\\\\\\"203\\\\\\\" width=\\\\\\\"746\\\\\\\" /></b></h3>\\\\n<h3><b>Return Policy</b></h3>\\\\n<div class=\\\\\\\"np\\\\\\\">We aim to offer services that will benefit all our customers. We hope you are happy with every purchase you make. In certain circumstances, you may want to return some items. Please read our return policy below, we will do our best to assist you.</div>\\\\n<h3><b>Returnable items</b></h3>\\\\n<div class=\\\\\\\"dot\\\\\\\">Items that can be returned/refunded or exchanged within the warranty* follow the criteria as below:<br />1. Faulty items damaged/broken, or soiled upon arrival.<br />2. Items received in the incorrect size/color.</div>\\\\n<div span=\\\\\\\"\\\\\\\">*Warranty:&nbsp;&nbsp;<br />-&nbsp;<b>1&nbsp;year</b>&nbsp;for&nbsp;Faucets&nbsp;and&nbsp;Lights&nbsp;&amp;&nbsp;Lighting&nbsp;Category&nbsp;(excluding&nbsp;Light&nbsp;Bulbs/&nbsp;LED&nbsp;Strip&nbsp;Lights/&nbsp;LED&nbsp;String&nbsp;Lights/&nbsp;D&eacute;cor&nbsp;&amp;&nbsp;Night&nbsp;Light)<br />-&nbsp;<b>30&nbsp;days</b>&nbsp;for&nbsp;the&nbsp;rest&nbsp;of&nbsp;the&nbsp;items</div>\\\\n<div class=\\\\\\\"dot\\\\\\\"></div>\\\\n<div class=\\\\\\\"dot\\\\\\\">*<b>7&nbsp;Days&nbsp;No&nbsp;Reason&nbsp;Return</b><br /><br />If&nbsp;you&nbsp;are&nbsp;not&nbsp;satisfied&nbsp;with&nbsp;your&nbsp;purchase,&nbsp;and&nbsp;the&nbsp;product&nbsp;is&nbsp;still&nbsp;in&nbsp;<font color=\\\\\\\"#ff0000\\\\\\\">brand&nbsp;new&nbsp;condition</font>,&nbsp;we&nbsp;can&nbsp;arrange&nbsp;the&nbsp;refund&nbsp;of&nbsp;the&nbsp;item&nbsp;price.&nbsp;<b>You&nbsp;will&nbsp;be&nbsp;responsible&nbsp;for&nbsp;paying&nbsp;the&nbsp;return&nbsp;shipping&nbsp;fees</b>.&nbsp;Please&nbsp;submit&nbsp;a&nbsp;\\\\\\\"Return&nbsp;or&nbsp;Exchange\\\\\\\"&nbsp;ticket&nbsp;within&nbsp;<font color=\\\\\\\"#ff0000\\\\\\\">7&nbsp;days</font>&nbsp;of&nbsp;the&nbsp;order&nbsp;being&nbsp;received.&nbsp;<br /><br />Note:&nbsp;Items&nbsp;that&nbsp;can&nbsp;be&nbsp;returned/refunded&nbsp;within&nbsp;7&nbsp;days&nbsp;of&nbsp;receiving&nbsp;must&nbsp;follow&nbsp;the&nbsp;criteria&nbsp;as&nbsp;below:<br />1.&nbsp;<b>Items&nbsp;are&nbsp;in&nbsp;the&nbsp;original&nbsp;packing&nbsp;with&nbsp;tags</b>.<br />2.&nbsp;<b>Items&nbsp;are&nbsp;in&nbsp;brand&nbsp;new&nbsp;condition:&nbsp;unwashed,&nbsp;unworn,&nbsp;unused,&nbsp;and&nbsp;unaltered</b>.<br /><br />*<font color=\\\\\\\"#ff0000\\\\\\\">14&nbsp;days&nbsp;for&nbsp;women's&nbsp;swimwear/&nbsp;Cases&nbsp;&amp;&nbsp;Covers</font><b><br /></b></div>\\\\n<h4>Return Conditions：</h4>\\\\n<div>For items with no quality issue, please understand that we will not be responsible for the return shipping cost.<span>&nbsp;</span><b>All return requests must be authorized by our customer service team before shipping to our returned address</b>.&nbsp;</div>\\\\n<h3><b>Non-Returnable Items</b></h3>\\\\n<div>We cannot accept returns under the following conditions:<br />1. Items outside the warranty time-frame.<br />2. Washed, worn, used, tag-removed, or misused items.<br />3.<span>&nbsp;</span><b>Items under the following categories are non-returnable for customer's reason</b>:<br /><br /></div>\\\\n<div>\\\\n<div class=\\\\\\\"np\\\\\\\">*Customer's Reason: no longer needed, bought by mistake, not as expected, changed mind, etc</div>\\\\n</div>\\\\n<h3><b>Before Making a Return Request</b></h3>\\\\n<div class=\\\\\\\"dot\\\\\\\">For any reason, if you would like to cancel your order while the order is under the shipping process, you will need to wait until you receive the package in hand before making a return request. Because Cross-Border Shipping involves complicated procedures, domestic and international customs clearance, and local and international shipping carriers and agencies.</div>\\\\n<div class=\\\\\\\"dot\\\\\\\">If you refuse to take the delivery package from the postman or do not pick up your delivery package from your local pick-up stores, our Customer Service will not be able to judge the situation of the package and therefore cannot handle your return requests.</div>\\\\n<div class=\\\\\\\"dot dot3\\\\\\\">If the package is returned to our warehouse because of a&nbsp;<b>customer's personal reason (Check details below)</b>, we'll contact you about re-paying the reshipment postage (by PayPal) and arrange the reshipment. However, please understand that<span>&nbsp;</span><b>no refund</b><span>&nbsp;</span>will be issued in this situation.&nbsp;&nbsp;<span>Details for customer's personal reason:</span></div>\\\\n<div class=\\\\\\\"dot dot3\\\\\\\">\\\\n<div class=\\\\\\\"np\\\\\\\">*&nbsp;<span>Wrong address/no consignee</span></div>\\\\n<div class=\\\\\\\"np\\\\\\\">*&nbsp;<span>Invalid contact information/ no answer to the delivery calls &amp; emails</span></div>\\\\n<div class=\\\\\\\"np\\\\\\\">*&nbsp;<span>Customer refuses to accept package/pay tax fee/ complete customs clearance</span></div>\\\\n<div class=\\\\\\\"np\\\\\\\">\\\\n<div class=\\\\\\\"np\\\\\\\">*&nbsp;<span>Didn't collect package by the deadline</span></div>\\\\n</div>\\\\n</div>\\\\n<h3><b>Return address &amp; refunds</b></h3>\\\\n<div class=\\\\\\\"dot\\\\\\\"><span>Return address</span>: You will need to send your returning products to our warehouse in China. Please always submit a\\\\\\\"<u><span>&nbsp;</span><font color=\\\\\\\"#ff0000\\\\\\\">Return or Exchange</font><span>&nbsp;</span></u>\\\\\\\"Ticket to customer service first to obtain the return address.&nbsp;<span>Please DON'T returns your package to any address indicated on the shipping label of the package received, we cannot be held responsible if packages are returned to the wrong address.</span></div>\\\\n<div class=\\\\\\\"dot dot3\\\\\\\"><span>Refunds</span>: The refund will be issued to your LightInTheBox Credit Account. You can either use Credits to pay for new order or withdraw it to the original account/card you paid earlier. The original shipping fee and insurance are non-refundable.&nbsp;</div>\\\\n<h3>Note:</h3>\\\\n<div>If you want to return the product, please confirm that you&rsquo;ve received your package, by clicking \\\\\\\"<a target=\\\\\\\"_blank\\\\\\\" href=\\\\\\\"https://www.lightinthebox.com/index.php?main_page=account\\\\\\\" rel=\\\\\\\"noopener\\\\\\\">Order Received</a>\\\\\\\". Then submit a \\\\\\\"Return or Exchange\\\\\\\" Ticket with supportive proof(photos or videos).<span>&nbsp;</span><font color=\\\\\\\"#ff0000\\\\\\\">After you submit your ticket, our Customer Service will approve your return request according to our policy, warranty, product status, and the proof you provided</font>.</div>\\\\n<div class=\\\\\\\"np\\\\\\\"><span>Trackable Packages Inquiry Period</span></div>\\\\n<div class=\\\\\\\"np\\\\\\\">Please note that all shipping companies only accept inquires submitted within the Inquiry Period. If you would like to check for packages you didn't receive, please contact customer service within the required period. Thank you for your cooperation:</div>\\\\n<div class=\\\\\\\"np\\\\\\\">* Expedited Express:&nbsp;<span>30</span>&nbsp;days from the shipped day</div>\\\\n<div class=\\\\\\\"np\\\\\\\">* Expedited Postal/Priority Line/Economy Air:&nbsp;<span>60</span>&nbsp;days from the shipped day</div>\\\\n<div class=\\\\\\\"np\\\\\\\">* Postal service - tracking:&nbsp;<span>90</span>&nbsp;days from the shipped day<br /><br />\\\\n<div class=\\\\\\\"np\\\\\\\"><b>Package Delivery Follow-Up &amp; Review Invitation</b></div>\\\\n<div class=\\\\\\\"np\\\\\\\">We'll send a delivery follow-up email to you after a certain shipping period and invite you to share the shopping experience.</div>\\\\n<div class=\\\\\\\"np\\\\\\\">* Hope you enjoyed our service. You're welcome to confirm the delivery and write reviews to win shopping rewards. (Our system will auto-confirm the delivery if no update comes from your side.)</div>\\\\n<div class=\\\\\\\"np\\\\\\\">* If you haven't received the package yet, please contact Customer service for help.</div>\\\\n</div>\\\\n<div class=\\\\\\\"np\\\\\\\">If you need assistance, please&nbsp;<a target=\\\\\\\"_blank\\\\\\\" href=\\\\\\\"https://www.lightinthebox.com/r/contact-us.html\\\\\\\" rel=\\\\\\\"noopener\\\\\\\">Contact Us</a>.</div>\\\",\\n      \\\"status\\\": 1,\\n      \\\"created_at\\\": \\\"1626849179\\\",\\n      \\\"updated_at\\\": \\\"1626849179\\\",\\n      \\\"independent_seo\\\": false,\\n      \\\"url\\\": \\\"/pages/return-policy\\\",\\n      \\\"meta_title\\\": \\\"return policy\\\",\\n      \\\"meta_keyword\\\": \\\"\\\",\\n      \\\"meta_description\\\": \\\"\\\\nReturn Policy\\\\nWe aim to offer services that will benefit all our customers. We hope you are happy with every purchase you make. In certain circumstances, you may want to return some items. Please read our return policy below, we will do our best to assist you.\\\\nReturnable items\\\\nItems that can be returned/refunded or exchanged within the warranty* follow the criteria as below:1. Faulty items damaged/broken, or soiled upon arrival.2. Items received in the incorrect size/color.\\\\n*Warranty:-1yearforFaucetsandLightsLightingCategory(excludingLightBulbs/LEDStripLights/LEDStringLights/DcorNightLight)-30daysfortherestoftheitems\\\\n*7DaysNoReasonReturnIfyouarenotsatisfiedwithyourpurchase,andtheproductisstillinbrandnewcondition,wecanarrangetherefundoftheitemprice.Youwillberesponsibleforpayingthereturnshippingfees.Pleasesubmita\\\\\\\"ReturnorExchange\\\\\\\"ticketwithin7daysoftheorderbeingreceived.Note:Itemsthatcanbereturned/refundedwithin7daysofreceivingmustfollowthecriteriaasbelow:1.Itemsareintheoriginalpackingwithtags.2.Itemsareinbrandnewcondition:unwashed,unworn,unused,andunaltered.*14daysforwomen'sswimwear/CasesCovers\\\\nReturn Conditions：\\\\nFor items with no quality issue, please understand that we will not be responsible for the return shipping cost.All return requests must be authorized by our customer service team before shipping to our returned address.\\\\nNon-Returnable Items\\\\nWe cannot accept returns under the following conditions:1. Items outside the warranty time-frame.2. Washed, worn, used, tag-removed, or misused items.3.Items under the following categories are non-returnable for customer's reason:\\\\n*Customer's Reason: no longer needed, bought by mistake, not as expected, changed mind, etc\\\\nBefore Making a Return Request\\\\nFor any reason, if you would like to cancel your order while the order is under the shipping process, you will need to wait until you receive the package in hand before making a return request. Because Cross-Border Shipping involves complicated procedures, domestic and international customs clearance, and local and international shipping carriers and agencies.\\\\nIf you refuse to take the delivery package from the postman or do not pick up your delivery package from your local pick-up stores, our Customer Service will not be able to judge the situation of the package and therefore cannot handle your return requests.\\\\nIf the package is returned to our warehouse because of acustomer's personal reason (Check details below), we'll contact you about re-paying the reshipment postage (by PayPal) and arrange the reshipment. However, please understand thatno refundwill be issued in this situation.Details for customer's personal reason:\\\\n*Wrong address/no consignee\\\\n*Invalid contact information/ no answer to the delivery calls  emails\\\\n*Customer refuses to accept package/pay tax fee/ complete customs clearance\\\\n*Didn't collect package by the deadline\\\\nReturn address  refunds\\\\nReturn address: You will need to send your returning products to our warehouse in China. Please always submit a\\\\\\\"Return or Exchange\\\\\\\"Ticket to customer service first to obtain the return address.Please DON'T returns your package to any address indicated on the shipping label of the package received, we cannot be held responsible if packages are returned to the wrong address.\\\\nRefunds: The refund will be issued to your LightInTheBox Credit Account. You can either use Credits to pay for new order or withdraw it to the original account/card you paid earlier. The original shipping fee and insurance are non-refundable.\\\\nNote:\\\\nIf you want to return the product, please confirm that youve received your package, by clicking \\\\\\\"Order Received\\\\\\\". Then submit a \\\\\\\"Return or Exchange\\\\\\\" Ticket with supportive proof(photos or videos).After you submit your ticket, our Customer Service will approve your return request according to our policy, warranty, product status, and the proof you provided.\\\\nTrackable Packages Inquiry Period\\\\nPlease note that all shipping companies only accept inquires submitted within the Inquiry Period. If you would like to check for packages you didn't receive, please contact customer service within the required period. Thank you for your cooperation:\\\\n* Expedited Express:30days from the shipped day\\\\n* Expedited Postal/Priority Line/Economy Air:60days from the shipped day\\\\n* Postal service - tracking:90days from the shipped day\\\\nPackage Delivery Follow-Up  Review Invitation\\\\nWe'll send a delivery follow-up email to you after a certain shipping period and invite you to share the shopping experience.\\\\n* Hope you enjoyed our service. You're welcome to confirm the delivery and write reviews to win shopping rewards. (Our system will auto-confirm the delivery if no update comes from your side.)\\\\n* If you haven't received the package yet, please contact Customer service for help.\\\\nIf you need assistance, pleaseContact Us.\\\"\\n    },\\n    {\\n      \\\"id\\\": 854517,\\n      \\\"store_id\\\": 183211,\\n      \\\"title\\\": \\\"PRIVACY POLICY\\\",\\n      \\\"content\\\": \\\"<div class=\\\\\\\"right_big_con margin_t big\\\\\\\">\\\\n<h1 class=\\\\\\\"static_h1\\\\\\\">Privacy Notice</h1>\\\\n<br /><br />\\\\n<ul class=\\\\\\\"border_b_d pad_bottom\\\\\\\">\\\\n<ul class=\\\\\\\"border_b_d pad_bottom\\\\\\\">Light In The Box Limited (registration number 1141168), located at Room 705-706, 7/F., China Insurance Group Building, No. 141 Des Voeux Road Central, Hong Kong (hereinafter \\\\\\\"Lightinthebox\\\\\\\" or \\\\\\\"we\\\\\\\" or \\\\\\\"us\\\\\\\"), is committed to protecting your privacy. LightInTheBox.com respects your privacy and takes your online safety seriously. In order to provide you with the best products, efficient customer service, and timely updates, we record a variety of information from your visit to our site.To better protect your privacy, we provide the notice below explaining our online information practices and the choices you can make about the way your information is collected and used. When you use any of our Services (as defined below) or send e-mails to us, you are communicating with us electronically. We will communicate with you electronically in a variety of ways, such as by e-mail, text, in-app push notices or by posting e-mail messages or communications on the website or through the other services. For contractual purposes, you agree that all agreements, notices, disclosures and other communications that we provide you electronically satisfy any legal requirement that such communications be in writing, unless mandatory applicable laws specifically require a different form of communication.</ul>\\\\n</ul>\\\\n<br /><br />\\\\n<h4 class=\\\\\\\"margin_t\\\\\\\"><b>LightInTheBox's Privacy Notice</b></h4>\\\\n<br />\\\\n<ul class=\\\\\\\"border_b_d pad_bottom\\\\\\\">\\\\n<ul class=\\\\\\\"border_b_d pad_bottom\\\\\\\">Thank you for accessing the website, mobile applications, devices and other software (collectively, the \\\\\\\"Site\\\\\\\") of LightInTheBox.com (all references to &ldquo;us&rdquo; and &ldquo;our\\\\\\\" refer to LightInTheBox.com). We respect your privacy and want you to know about the Privacy Notice policies we have in place to protect your personal information. This Privacy Notice applies to all of our services, tools and products (including via mobile devices, mobile applications or mobile-optimized websites) (collectively, the &ldquo;Services&rdquo;). If you have any questions regarding the processing of your personal information, please contact us at the above address or by e-mail at dataprotectionofficer@lightinthebox.com ,it_security@lightinthebox.com.</ul>\\\\n</ul>\\\\n<br /><br /><strong>This Privacy Notice explains:</strong><br />\\\\n<ul class=\\\\\\\"border_b_d pad_bottom\\\\\\\">\\\\n<ul class=\\\\\\\"border_b_d pad_bottom\\\\\\\">How we collect, use, and (under certain conditions) disclose your personal information.</ul>\\\\n</ul>\\\\n<br />\\\\n<ul class=\\\\\\\"border_b_d pad_bottom\\\\\\\">\\\\n<ul class=\\\\\\\"border_b_d pad_bottom\\\\\\\">The steps we&rsquo;ve taken to secure your personal information.</ul>\\\\n</ul>\\\\n<br />\\\\n<ul class=\\\\\\\"border_b_d pad_bottom\\\\\\\">\\\\n<ul class=\\\\\\\"border_b_d pad_bottom\\\\\\\">Your options regarding the collection, use, and disclosure of your personal information.</ul>\\\\n</ul>\\\\n<br />\\\\n<ul class=\\\\\\\"border_b_d pad_bottom\\\\\\\">\\\\n<ul class=\\\\\\\"border_b_d pad_bottom\\\\\\\">This Privacy Notice applies only to this website. LightInTheBox.com may link to other websites.</ul>\\\\n</ul>\\\\n<br />\\\\n<ul class=\\\\\\\"border_b_d pad_bottom\\\\\\\">\\\\n<ul class=\\\\\\\"border_b_d pad_bottom\\\\\\\">We are not responsible for the content or privacy practices on any website other than LightInTheBox.</ul>\\\\n</ul>\\\\n<br /><br />\\\\n<ul class=\\\\\\\"border_b_d pad_bottom\\\\\\\">\\\\n<ul class=\\\\\\\"border_b_d pad_bottom\\\\\\\">By visiting our Site, you accept the practices described in this Notice.</ul>\\\\n</ul>\\\\n<br /><strong>I.How does LightInTheBox.com collect information about me?<br />II.How does LightInTheBox.com use my personal information?<br />III.How are cookies and other technologies used to collect information?<br />IV.Does LightInTheBox.com ever give out my personal information?<br />V.How does LightInTheBox.com secure information collected about me?<br />VI.What choices do I have about LightInTheBox.com&rsquo;s collection of my information?<br />VII.How long do we keep your personal Information?<br />VIII.Visitors from the European Union?<br />IX.Visitors from California?<br />X.Are children allowed to use LightInTheBox.com?<br />XI.Where can I find updates to this notice?</strong></div>\\\\n<h4 class=\\\\\\\"margin_t\\\\\\\"><b>I.How does LightInTheBox.com collect information about me?</b></h4>\\\\n<br /><span>We collect information from Site users in several different ways, with the goal of providing an efficient, meaningful, and customized shopping experience. For example, we can use your personal information to:</span><br /><br /><span>&nbsp;&nbsp; * Register you with our Site and provide you with our Services</span><br /><span>&nbsp;&nbsp; * Record and quickly bring up information you&rsquo;ve given previously</span><br /><span>&nbsp;&nbsp; * Help you quickly find information about our products, and Services</span><br /><span>&nbsp;&nbsp; * Diagnose and improve Site content to provide you with customer service</span><br /><span>&nbsp;&nbsp; * Provide you with new information about our products and Services</span><br /><span>&nbsp;&nbsp; * We use your personal information to to prevent and detect fraud and abuse in order to protect the security of our customers. We may also use scoring methods to assess and manage credit risks.</span><br /><span>&nbsp; &nbsp; * We use your information as otherwise disclosed or permitted by law.</span><br /><br /><strong>We collect personal information in the following ways:</strong>\\\\n<p></p>\\\\n<br /><span>We collect information directly from you:</span><br /><strong>Registration and Ordering:</strong><span>In order to use certain parts of this Site or order products, all customers must fill out an online registration form with personal information, including but not limited to, your name, gender, shipping and billing address(es), phone number, email address, and financial information, like your credit card number. In addition, we may ask for your country of residence and/or your organization's country of operation, so that we can comply with applicable laws and regulations. This information is used for billing, order processing and internal marketing as well as to communicate with you about your order and our Site.</span><br /><strong>Email Addresses:</strong><span>&nbsp;Several locations on the Site allow you to enter your email address for purposes including but not limited to: registering for free promotional notices, requesting notification when new brands or product styles arrive, or signing up for our email newsletter. In addition, any participation in promotional contests organized by LightInTheBox.com is completely voluntary and requires disclosure of contact information needed to notify winners and award prizes. We may post the names and cities of contest winners on our Site.</span><br /><strong>Phone Number:</strong><span>&nbsp;Several locations on the Site allow you to enter your phone number for purposes including but not limited to: SMS verification, registering for free promotional notices, requesting notification when new brands or product styles arrive, or signing up for our SMS newsletter. We store your e-mail address and telephone number until you request that we delete it.</span><br /><strong>Product Reviews:</strong><span>&nbsp;We ask for an email address and location along with the submission of all product reviews. Your email address will be kept private, but your location will be visible to other users. All other personal information that you choose to submit as part of the review will be available to other visitors to the Site.</span><br /><br /><br /><span>We use cookies and other tracking technologies to automatically collect information from you:</span><br /><strong>Log Files:</strong><br /><span>&bull; IP address (internet protocol address) of the end device accessing our website;</span><br /><span>&bull; Internet address of the website referring to our website (referrer URL);</span><br /><span>&bull; Information on the provider through which access to our website takes place;</span><br /><span>&bull; Name of accessed files and information;</span><br /><span>&bull; Date, time and duration of access;</span><br /><span>&bull; Quantity of transferred data;</span><br /><span>&bull; Operating system and information on the browser being used;</span><br /><span>&bull; Status of the page view (e.g. \\\\\\\"Query successful\\\\\\\").</span><br /><br /><span>The data is stored in log files order to identify malfunctions and for security reasons (e.g. to investigate attempted attacks) and then deleted. Log files, the further storage of which is necessary for evidence purposes, are excluded from deletion until final clarification of the respective incident and may be passed on to investigating authorities in individual cases.</span><br /><br />\\\\n<h4 class=\\\\\\\"margin_t\\\\\\\"><b>II.How does LightInTheBox.com use my personal information?</b></h4>\\\\n<strong>Internal Use:</strong><span>&nbsp;We use your personal information to process your order and provide you with customer service. We may use your personal information internally to collect general information about visitors to this Site, improve Site content and layout, improve our outreach, and market our Services.</span><br /><strong>Communication with You:</strong><span>&nbsp;We will use your personal information to communicate with you about your orders and our Site. All customers must provide an email address to allow communication with LightInTheBox.com regarding orders placed. We may send you a confirmation email or a SMS verification after you register with us as well as service related announcements as necessary (for example, temporary suspension of service for maintenance.) You may also submit your email address or phone number to request notification when we receive a new brand, product style or product, or to sign up for our email newsletter, SMS newsletter and special offers. You can unsubscribe or opt out of future emails at any time (see the section of &ldquo;What choices doe I have about LightInTheBox.com&rsquo;s collection of my information?&rdquo; below for more details).</span><br />\\\\n<div class=\\\\\\\"right_big_con margin_t big\\\\\\\"><br />\\\\n<h4 class=\\\\\\\"margin_t\\\\\\\"><b>III.How are cookies and other technologies used to collect information?</b></h4>\\\\nCookies are small pieces of information that your Internet browser stores as text files on your computer's hard drive. Most browsers accept cookies by default, but setting your browser to reject cookies or remove them from your hard drive will prevent you from using parts of this Site. For instance, if you block or otherwise reject our cookies, you will not be able to add products to your shopping cart, proceed to checkout or use any of our Services that require you to sign in. The Site uses cookies to:<br />&nbsp;&nbsp; * speed up navigation<br />&nbsp;&nbsp; * track site usage<br />&nbsp;&nbsp; * recognize users and user access privileges and preference<br />&nbsp;&nbsp; * enable and track selection and purchase products on this Site, and record your browsing activity and purchases<br />&nbsp;&nbsp; * conduct research and diagnostics to improve our content, products and Services<br />&nbsp;&nbsp; * improve Site security<br /><br />On this Site and some unaffiliated sites, we display interest-based advertising using information you make available to us when you interact with our Site, content or Services. Interest-based ads, also sometimes referred to as personalized or targeted ads, are displayed to you based on information from activities such as purchasing on the Site, visiting sites that contain our content or ads, interacting with our tools or using our payment services. In particular, the following technologies are used: the third party tools such as Google Analytics and other tracking / marketing applications are used by Lightinthebox.<br /><br />Like other online ad networks, we use cookies, web beacons (also known as action tags or single-pixel gifs), and other technologies, which enable us to learn about what ads you see, what ads you click, and other actions you take on our Sites and other sites. This allows us to provide you with more useful and relevant ads.<br /><br />We do not associate your interaction with unaffiliated sites with your identity in providing you with interest-based ads.<br /><br />We do not provide any personal information to advertisers or to third party sites that display our interest-based ads. However, advertisers and other third-parties (including the ad networks, ad-serving companies, and other service providers they may use) may assume that users who interact with or click on a personalized ad or content are part of the group that the ad or content is directed towards (for example, users in a particular geographical area or users who bought or browsed for classical music). Also, some third-parties may provide us information about you (such as demographic information or sites where you have been shown ads) from online sources that we may use to provide you more relevant and useful advertising.<br /><br />Third party advertisers or advertising companies working on their behalf sometimes use technology to serve the advertisements that appear on our Site directly to your browser. They automatically receive your IP address when this happens. They may also use cookies to measure the effectiveness of their advertisements and to personalize advertising content. We do not have access to or control over cookies or other features that advertisers and third party sites may use, and the information practices of these advertisers and third party websites are not covered by our Privacy Notice. Please contact them directly for more information about their privacy practices.<br /><br /><strong>How to block cookies on your browser?</strong><span>&nbsp;</span>Take Chorme as an example.</div>\\\\n<a href=\\\\\\\"https://support.google.com/chrome/answer/95647?hl=en&amp;co=GENIE.Platform=Desktop\\\\\\\" target=\\\\\\\"_blank\\\\\\\" rel=\\\\\\\"noopener\\\\\\\">https://support.google.com/chrome/answer/95647?hl=en&amp;co=GENIE.Platform=Desktop&amp;co=GENIE.Platform=Desktop</a><span></span>\\\\n<h4 class=\\\\\\\"margin_t\\\\\\\"><b>IV.Does LightInTheBox.com ever give out my personal information?</b></h4>\\\\n<div class=\\\\\\\"right_big_con margin_t big\\\\\\\"><strong>We sell merchandise, not information<span>&nbsp;</span></strong>&mdash; We do not sell, rent, trade, or license your personal or financial information . We will only disclose your personal or financial information in the following specific situations:<br /><br /><strong>Third-party service providers:<span>&nbsp;</span></strong>Like most online retailers, we sometimes use third-party service providers to perform specific functions on our behalf. Any information disclosed to them is solely to help in their provision of service and such services will only be performed under a valid legal contract in writiing, clearly defining the scope and nature of processing. For example, we provide your name, shipping address, email and phone number to partners such as DHL and UPS in order to guarantee delivery of your orders, and we may use relevant customer information in order to monitor the quality of the third party&rsquo;s service. Similarly, we must provide your credit card number to financial services organizations such as credit card processors and issuers in order to process payments. We protect all submissions of your credit card number for authorization with state-of-the-art data encryption. (More on this below in the &ldquo;How does LightInTheBox.com secure information collected about me?&rdquo; section.)<br /><br /><strong>Legal requirement to disclose information or to protect ourselves, our customers or others:<span>&nbsp;</span></strong>We may be required to disclose personal information if subpoenaed, served with a court order or requested by law-enforcement officials conducting investigations, or if we are otherwise required by law to disclose such information. We will also release personal information when necessary to protect our legal rights or enforce our Terms of Use and other agreements. For example, we may share information to reduce the risk of fraud, or to prevent fraud by users who attempt fraud or other illegal activity on our Site. We reserve the right to report to law enforcement agencies any activities that we in good faith believe to be unlawful.<br /><br /><strong>Merger and/or sale of assets:<span>&nbsp;</span></strong>We do not normally sell, trade or rent personal information to other companies in the course of our business. However, it is possible that we might acquire, merge with or be acquired by another company, or that we might dispose of some or all of our assets, in which case your personal information could be disclosed to another company, subject to the Privacy Notice in effect.<br /><br /><strong>We may share personal information for other reasons we may describe to you from time to time, as permitted by law.</strong><span>&nbsp;</span><strong>Non-personally identifiable information:<span>&nbsp;</span></strong>We may share information that does not identify you or any user, such as the number of daily visitors to a particular page, or the size of an order placed on a certain date, with third parties such as advertising partners.</div>\\\\n<div class=\\\\\\\"right_big_con margin_t big\\\\\\\"></div>\\\\n<div class=\\\\\\\"right_big_con margin_t big\\\\\\\">\\\\n<h4 class=\\\\\\\"margin_t\\\\\\\">V.How does LightInTheBox.com secure information collected about me?</h4>\\\\nThis Site incorporates physical, electronic, and administrative procedures to safeguard the confidentiality of your personal information, such as:<br />&nbsp;&nbsp;&nbsp; * Safeguarding all financial transactions done through this Site with Secure Sockets Layer (\\\\\\\"SSL\\\\\\\") encryption<br />&nbsp;&nbsp;&nbsp; * Granting only employees who are providing a specific service access to your personal information<br />&nbsp;&nbsp;&nbsp; * Working only with third-party service providers who we believe adequately secure all computer hardware.<br />While our business is designed with safeguarding your personal information in mind, please remember that 100% security does not presently exist anywhere, online.</div>\\\\n<div class=\\\\\\\"right_big_con margin_t big\\\\\\\"></div>\\\\n<div class=\\\\\\\"right_big_con margin_t big\\\\\\\">\\\\n<h4 class=\\\\\\\"margin_t\\\\\\\">VI.What choices do I have regarding LightInTheBox.com&rsquo;s collection of my information?</h4>\\\\nYou can always choose not to provide information, even though it might be needed to make a purchase or to take advantage of certain features on the Site.<br /><br />You can choose to:<br />&nbsp;&nbsp;&nbsp; * Correct or update your personal information<br />&nbsp;&nbsp;&nbsp; * Stop receiving mail to your email address<br />&nbsp;&nbsp;&nbsp; * Stop receiving SMS messages to your phones<br />&nbsp;&nbsp;&nbsp; * Disable your account to prevent any future purchases through that account<br />&nbsp;&nbsp;&nbsp; * Block cookies on your computer to stop using featured service on the Site<br /><br />To correct or update your personal information, log in to My Accounts and submit a request through the online Customer Service.<br /><br />To unsubscribe from emails you receive from LightInTheBox.com, follow the unsubscribe link at the bottom of the email and select the option appropriate for you. Alternatively, you may log into MY Accounts and select the option appropriate to you.<br /><br />To unsubscribe SMS messages you receive from LightInTheBox.com, log in to My Accounts and select the option appropriate for you.<br /><br />To block the cookies on your computer the Help feature on most browsers and devices will tell you how to prevent your browser or device from accepting new cookies, how to have the browser notify you when you receive a new cookie or how to disable cookies altogether. Because cookies allow you to take advantage of some essential service on the Site, we recommend that you leave them turned on. For instance, if you block or otherwise reject our cookies, you will not be able to add items to your shopping cart or proceed to checkout, or use any of our Services that require you to sign in.<br />\\\\n<h4 class=\\\\\\\"margin_t\\\\\\\">VII.How long do we keep your personal Information?</h4>\\\\nWe keep your personal information to enable your continued use of our Services, for as long as it is required in order to fulfill the relevant purposes described in this Privacy Notice, as may be required by law such as for tax and accounting purposes, or as otherwise communicated to you. For example, we retain your transaction history so that you can review past purchases (and repeat orders if desired) and what addresses you have shipped orders to, and to improve the relevancy of products and content we recommend.</div>\\\\n<strong>If you are a visitor from the European Union, please refer to \\\\\\\"Visitors from the European Union?\\\\\\\" as follows for more information.</strong><span></span>\\\\n<div class=\\\\\\\"right_big_con margin_t big\\\\\\\"><br />\\\\n<h4 class=\\\\\\\"margin_t\\\\\\\">VIII.Visitors from the European Union?</h4>\\\\nThis section of the Privacy Notice applies only if you use our Site or Services covered by this Privacy Notice from a country that is a Member State of the European Union, and supplements the information in this Privacy Notice.</div>\\\\n<div class=\\\\\\\"right_big_con margin_t big\\\\\\\"><br /><strong>What legal rights exist in the processing of personal information?</strong><span>&nbsp;</span>You can contact us at any time at our e-mail address mentioned in section 1 or by post if you wish to assert your rights. As a registered customer, you can also make settings in the \\\\\\\"My account\\\\\\\" section (e.g. to change your data or the settings for receiving e-mails and SMS).<br /><br />You are entitled to the following rights, subject to the applicable legal requirements and limits:<br /><strong>Right to information and disclosure:</strong><span>&nbsp;</span>You have the right to request information and receive confirmation about whether we process your personal information. You have the right to be provided with clear and easily understandable information about how we use your information and your rights. This is why we are providing you with the information in this Privacy Notice.<br /><br /><strong>Correction and erasure rights:</strong><span>&nbsp;</span>You have the right to have your personal information corrected if it is incorrect or incomplete. At your request, we will delete your personal information if any of the so-called &ldquo;right to be forgotten&rdquo; conditions set forth in the GDPR applies, or if any similar conditions are met under equivalent local laws or regulations. It may be impossible to completely delete your information without some residual information because of backups.<br /><br /><strong>Limitation of processing:</strong><span>&nbsp;</span>You have the right to ask us to stop using your personal information where we are doing so under legitimate interests, unless it is needed for dealing with legal claims or we have other compelling legitimate reasons that override your rights.<br /><br /><strong>Data portability:</strong><span>&nbsp;</span>If data processing is based on a contract or consent, you may request that we transmit the data you have provided to us in a structured, common and machine-readable format. If technically feasible, you may also request that the data be transferred to a third party.<br /><br /><strong>Objection to direct marketing:</strong><span>&nbsp;</span>You can object to the processing of your personal information for advertising or direct marketing purposes at any time. Where you object to processing for advertising or direct marketing purposes, the personal information shall no longer be processed for such purposes.<br /><br /><strong>Revocation of consent:</strong><span>&nbsp;</span>If you have given us your consent to the processing of your data, you can revoke it at any time with effect for the future. The legality of the processing of your data until revocation remains unaffected.<br /><br /><strong>Right of appeal to the supervisory authority:</strong><span>&nbsp;</span>You have the right to submit a complaint to a data protection authority. You can, for example, contact the data protection authority responsible for your place of residence or federal state.<br /><br />You can correct your personal information and exercise your privacy preferences by submitting a request online at dataprotectionofficer@lightinthebox.com ,it_security@lightinthebox.com.<br /><br />Please include your name, address, and/or email address when you contact us. We will take reasonable steps to verify your identity prior to responding to your requests. The verification steps will vary depending on the sensitivity of your personal information and whether you have an account with us.Our legal basis for processing:<br />&nbsp;&nbsp;&nbsp; &bull; We process your contact information, registration and ordering details with your consent.<br />&nbsp;&nbsp;&nbsp; &bull; We process log data based on our legitimate interest in the elimination of disturbances and the security of our website<br />&nbsp;&nbsp;&nbsp; &bull; We may process personal information to comply with our legal obligations.<br />&nbsp;&nbsp;&nbsp; &bull; We will only transfer your personal information to our vendors who perform services on our behalf, if this is necessary to fulfill the contract, if we have a justified interest in the transfer or if you have consented to this.<br /><br />Whenever we transfer personal information to countries outside of the European Economic Area in the course of sharing information, we will transfer that information in accordance with this Privacy Notice and as permitted by the applicable laws on data protection.<br /><br />Requests should be submitted by contacting us through our Data Protection Officer at dataprotectionofficer@lightinthebox.com ,it_security@lightinthebox.com.<br /><strong>If you are a visitor from the state of California, USA, please refer to \\\\\\\"Visitors from California?\\\\\\\" as follows for more information.</strong><br />\\\\n<h4 class=\\\\\\\"margin_t\\\\\\\">IX.Visitors from California?</h4>\\\\n<strong>What legal rights exist in the processing of personal information?</strong><br />You can contact us at any time at our e-mail address mentioned in section 1 or by post if you wish to assert your rights. As a registered customer, you can also make settings in the \\\\\\\"My account\\\\\\\" section (e.g. to change your data or the settings for receiving e-mails and SMS).<br /><br />You are entitled to the following rights, subject to the applicable legal requirements and limits:<br /><strong>Right to know.<span>&nbsp;</span></strong>California residents have the right to request disclosure of the following information: 1) the categories of personal information that we have collected about you; 2) the categories of sources from which we have collected personal information about you; 3) the business or commercial purpose for collecting or selling your personal information; 4) the categories of personal information that we have sold about you and the categories of outside parties to whom the personal information was sold; 5) the categories of personal information that we have disclosed about you for our business purposes and the categories of vendors to whom the personal information was disclosed; and 6) the specific pieces of personal information that we has collected about you.<br /><br /><strong>Right to delete.</strong><span>&nbsp;</span>You have the right to request that we delete any personal information we have collected from you.<br /><br /><strong>Shine the Light.</strong><span>&nbsp;</span>California law entitles California users to request information concerning whether a business has disclosed certain information about you to any third parties for the third parties&rsquo; direct marketing purposes. California users who wish to request further information in compliance with this law or have questions or concerns about our privacy practices and policies may contact us at<br /><br />dataprotectionofficer@lightinthebox.com ,it_security@lightinthebox.com.<br />You may designate an authorized agent to exercise any rights available to you on your behalf.<br />Your authorized agent should submit proof that they have been authorized to act on your behalf.<br />We will not discriminate against you for exercising any of your CCPA rights described here.<br />We do not sell your personal information.<br /><br />The following categories of personal information are disclosed for the following business purposes:<br />&nbsp;&nbsp;&nbsp; *<span>&nbsp;</span><strong>shipping and contact information:</strong><span>&nbsp;</span>we share your name, shipping address, email and phone number with our partners such as DHL and UPS in order to guarantee delivery of your orders, and we may use relevant customer information in order to monitor the quality of the third party&rsquo;s service.<br />&nbsp;&nbsp;&nbsp; *<span>&nbsp;</span><strong>financial information:</strong><span>&nbsp;</span>we must provide your credit card number to financial services organizations such as credit card processors and issuers in order to process payments.<br /><br />\\\\n<h4 class=\\\\\\\"margin_t\\\\\\\">X.Are children allowed to use LightInTheBox.com?</h4>\\\\n<br />We respect children's privacy. We do not knowingly or intentionally collect personal information from children under age 13. Elsewhere on this Site, you have represented and warranted that you are either 18 years of age or are using the Site with the supervision of a parent or guardian.<br /><br />If you are under the age of 13, please do not submit any personal information to us, and rely on a parent or guardian to assist you when using the Site.<br /><br />\\\\n<h4 class=\\\\\\\"margin_t\\\\\\\">XI.Where can I find updates to this policy?</h4>\\\\n<br />To keep you informed of what information we collect, use, and disclose, we will post any changes or updates to this Privacy Notice on this Site and encourage you to review this Privacy Notice from time to time. Please contact us with any questions about the Privacy Notice.</div>\\\",\\n      \\\"status\\\": 1,\\n      \\\"created_at\\\": \\\"1626849179\\\",\\n      \\\"updated_at\\\": \\\"1626849179\\\",\\n      \\\"independent_seo\\\": false,\\n      \\\"url\\\": \\\"/pages/privacy-policy\\\",\\n      \\\"meta_title\\\": \\\"PRIVACY POLICY\\\",\\n      \\\"meta_keyword\\\": \\\"\\\",\\n      \\\"meta_description\\\": \\\"\\\\nPrivacy Notice\\\\nLight In The Box Limited (registration number 1141168), located at Room 705-706, 7/F., China Insurance Group Building, No. 141 Des Voeux Road Central, Hong Kong (hereinafter \\\\\\\"Lightinthebox\\\\\\\" or \\\\\\\"we\\\\\\\" or \\\\\\\"us\\\\\\\"), is committed to protecting your privacy. LightInTheBox.com respects your privacy and takes your online safety seriously. In order to provide you with the best products, efficient customer service, and timely updates, we record a variety of information from your visit to our site.To better protect your privacy, we provide the notice below explaining our online information practices and the choices you can make about the way your information is collected and used. When you use any of our Services (as defined below) or send e-mails to us, you are communicating with us electronically. We will communicate with you electronically in a variety of ways, such as by e-mail, text, in-app push notices or by posting e-mail messages or communications on the website or through the other services. For contractual purposes, you agree that all agreements, notices, disclosures and other communications that we provide you electronically satisfy any legal requirement that such communications be in writing, unless mandatory applicable laws specifically require a different form of communication.\\\\nLightInTheBox's Privacy Notice\\\\nThank you for accessing the website, mobile applications, devices and other software (collectively, the \\\\\\\"Site\\\\\\\") of LightInTheBox.com (all references to us and our\\\\\\\" refer to LightInTheBox.com). We respect your privacy and want you to know about the Privacy Notice policies we have in place to protect your personal information. This Privacy Notice applies to all of our services, tools and products (including via mobile devices, mobile applications or mobile-optimized websites) (collectively, the Services). If you have any questions regarding the processing of your personal information, please contact us at the above address or by e-mail at dataprotectionofficer@lightinthebox.com ,it_security@lightinthebox.com.\\\\nThis Privacy Notice explains:\\\\nHow we collect, use, and (under certain conditions) disclose your personal information.\\\\nThe steps weve taken to secure your personal information.\\\\nYour options regarding the collection, use, and disclosure of your personal information.\\\\nThis Privacy Notice applies only to this website. LightInTheBox.com may link to other websites.\\\\nWe are not responsible for the content or privacy practices on any website other than LightInTheBox.\\\\nBy visiting our Site, you accept the practices described in this Notice.\\\\nI.How does LightInTheBox.com collect information about me?II.How does LightInTheBox.com use my personal information?III.How are cookies and other technologies used to collect information?IV.Does LightInTheBox.com ever give out my personal information?V.How does LightInTheBox.com secure information collected about me?VI.What choices do I have about LightInTheBox.coms collection of my information?VII.How long do we keep your personal Information?VIII.Visitors from the European Union?IX.Visitors from California?X.Are children allowed to use LightInTheBox.com?XI.Where can I find updates to this notice?\\\\nI.How does LightInTheBox.com collect information about me?\\\\nWe collect information from Site users in several different ways, with the goal of providing an efficient, meaningful, and customized shopping experience. For example, we can use your personal information to: * Register you with our Site and provide you with our Services * Record and quickly bring up information youve given previously * Help you quickly find information about our products, and Services * Diagnose and improve Site content to provide you with customer service * Provide you with new information about our products and Services * We use your personal information to to prevent and detect fraud and abuse in order to protect the security of our customers. We may also use scoring methods to assess and manage credit risks.  * We use your information as otherwise disclosed or permitted by law.We collect personal information in the following ways:\\\\nWe collect information directly from you:Registration and Ordering:In order to use certain parts of this Site or order products, all customers must fill out an online registration form with personal information, including but not limited to, your name, gender, shipping and billing address(es), phone number, email address, and financial information, like your credit card number. In addition, we may ask for your country of residence and/or your organization's country of operation, so that we can comply with applicable laws and regulations. This information is used for billing, order processing and internal marketing as well as to communicate with you about your order and our Site.Email Addresses:Several locations on the Site allow you to enter your email address for purposes including but not limited to: registering for free promotional notices, requesting notifi\\\"\\n    },\\n    {\\n      \\\"id\\\": 854515,\\n      \\\"store_id\\\": 183211,\\n      \\\"title\\\": \\\"SHIPPING PRIVACY\\\",\\n      \\\"content\\\": \\\"<p><strong>ACCEPTANCE OF THIS PRIVACY POLICY</strong></p>\\\\n<p>By using the Unipac Shipping and Continental Agency website, you agree to the terms and conditions set forth in this Privacy Policy. If you do not agree to this Privacy Policy, you may not access or use our website and or software applications. We reserve the right to modify the terms and conditions of this Privacy Policy at any time without prior notice to you.</p>\\\\n<p><strong>WHAT PERSONAL INFORMATION DO WE COLLECT FROM VISITORS TO OUR WEBSITE?</strong></p>\\\\n<p>Unipac Shipping and Continental Agency collects personal information that you voluntary provide to us in connection with actual or potential business or employment opportunities. Accordingly, we may obtain personal and business contact information, financial information, trade information, supply chain information, or employment information.</p>\\\\n<p><strong>DO WE USE &lsquo;COOKIES&rsquo;?</strong></p>\\\\n<p>Unipac Shipping and Continental Agency may also collect certain automated non-personal information provided by your web browser. This website uses Google Analytics, a web analytics service provided by Google. Google Analytics uses &lsquo;cookies&rsquo; that allow Unipac Shipping and Continental Agency to monitor and analyze how visitors use this website. This automated non-personal information may include your IP address, browser information, internet service provider information, and page view information. You can opt out of this website&rsquo;s &lsquo;cookie&rsquo; by having your computer warn you each time a cookie is being sent or by blocking cookies altogether.</p>\\\\n<p><strong>HOW DO WE USE YOUR PERSONAL INFORMATION?</strong></p>\\\\n<p>We may use the information we collect from you to:</p>\\\\n<ul>\\\\n<li>Provide information or services that you request.</li>\\\\n<li>Assess creditworthiness of you or your business.</li>\\\\n<li>Improve our products and services, including this website.</li>\\\\n<li>Evaluate potential employment opportunities at one of our Offices.</li>\\\\n</ul>\\\\n<p><strong>HOW DO WE PROTECT YOUR INFORMATION?</strong></p>\\\\n<p>We do not sell or disclose your personal information to outside parties other than as necessary to fulfill services you request or as otherwise required by law. We have in place reasonable administrative and technological precautions to safeguard your information both online and offline. Unfortunately, no precautions to safeguard your information are failsafe. By using our website, software, and/or services, you agree to indemnify and hold harmless Unipac Shipping and Continental Agency for any injury caused by the disclosure of your information, whether caused by inadvertence, security breach, or any other act resulting in disclosure.</p>\\\\n<p><strong>THIRD-PARTY SITES</strong></p>\\\\n<p>Our website may provide links to other third-party websites outside the control of Unipac Shipping and Continental Agency. These third-party websites should have their own privacy policies. Unipac Shipping and Continental Agency are not liable for the privacy practices of third-party websites.</p>\\\\n<p><strong>COPPA (CHILDREN ONLINE PRIVACY PROTECTION ACT)</strong></p>\\\\n<p>Our website and our services are not intended for children under the age of 13 years old without the permission of a parent or guardian.</p>\\\\n<p><strong>CONTACTING US</strong></p>\\\\n<p>If there are any questions regarding this Privacy Policy, you may contact us&nbsp;using the information below.</p>\\\",\\n      \\\"status\\\": 1,\\n      \\\"created_at\\\": \\\"1626849179\\\",\\n      \\\"updated_at\\\": \\\"1626849179\\\",\\n      \\\"independent_seo\\\": false,\\n      \\\"url\\\": \\\"/pages/shipping-privacy\\\",\\n      \\\"meta_title\\\": \\\"SHIPPING PRIVACY\\\",\\n      \\\"meta_keyword\\\": \\\"\\\",\\n      \\\"meta_description\\\": \\\"ACCEPTANCE OF THIS PRIVACY POLICY\\\\nBy using the Unipac Shipping and Continental Agency website, you agree to the terms and conditions set forth in this Privacy Policy. If you do not agree to this Privacy Policy, you may not access or use our website and or software applications. We reserve the right to modify the terms and conditions of this Privacy Policy at any time without prior notice to you.\\\\nWHAT PERSONAL INFORMATION DO WE COLLECT FROM VISITORS TO OUR WEBSITE?\\\\nUnipac Shipping and Continental Agency collects personal information that you voluntary provide to us in connection with actual or potential business or employment opportunities. Accordingly, we may obtain personal and business contact information, financial information, trade information, supply chain information, or employment information.\\\\nDO WE USE COOKIES?\\\\nUnipac Shipping and Continental Agency may also collect certain automated non-personal information provided by your web browser. This website uses Google Analytics, a web analytics service provided by Google. Google Analytics uses cookies that allow Unipac Shipping and Continental Agency to monitor and analyze how visitors use this website. This automated non-personal information may include your IP address, browser information, internet service provider information, and page view information. You can opt out of this websites cookie by having your computer warn you each time a cookie is being sent or by blocking cookies altogether.\\\\nHOW DO WE USE YOUR PERSONAL INFORMATION?\\\\nWe may use the information we collect from you to:\\\\nProvide information or services that you request.\\\\nAssess creditworthiness of you or your business.\\\\nImprove our products and services, including this website.\\\\nEvaluate potential employment opportunities at one of our Offices.\\\\nHOW DO WE PROTECT YOUR INFORMATION?\\\\nWe do not sell or disclose your personal information to outside parties other than as necessary to fulfill services you request or as otherwise required by law. We have in place reasonable administrative and technological precautions to safeguard your information both online and offline. Unfortunately, no precautions to safeguard your information are failsafe. By using our website, software, and/or services, you agree to indemnify and hold harmless Unipac Shipping and Continental Agency for any injury caused by the disclosure of your information, whether caused by inadvertence, security breach, or any other act resulting in disclosure.\\\\nTHIRD-PARTY SITES\\\\nOur website may provide links to other third-party websites outside the control of Unipac Shipping and Continental Agency. These third-party websites should have their own privacy policies. Unipac Shipping and Continental Agency are not liable for the privacy practices of third-party websites.\\\\nCOPPA (CHILDREN ONLINE PRIVACY PROTECTION ACT)\\\\nOur website and our services are not intended for children under the age of 13 years old without the permission of a parent or guardian.\\\\nCONTACTING US\\\\nIf there are any questions regarding this Privacy Policy, you may contact ususing the information below.\\\"\\n    },\\n    {\\n      \\\"id\\\": 854513,\\n      \\\"store_id\\\": 183211,\\n      \\\"title\\\": \\\"ABOUT US\\\",\\n      \\\"content\\\": \\\"<h1 class=\\\\\\\"static_h1\\\\\\\">About</h1>\\\\n<p>variety store is a global online retail company that delivers products directly to consumers around the world. Founded in 2007, LightInTheBox has offered customers a convenient way to shop for a wide selection of lifestyle products at attractive prices through www.lightinthebox.com, www.miniinthebox.com, and other websites, which are available in multiple major languages.</p>\\\\n<p>LightInTheBox offers products in the three core categories of apparel, small accessories and gadgets and home and garden.</p>\\\\n<p>LightInTheBox's innovative data-driven business model allows itself to offer customized products, such as wedding dress and evening dress, at scale for optimal marketing, merchandising and fulfillment.</p>\\\\n<h1 class=\\\\\\\"static_h1\\\\\\\">Legal Information</h1>\\\\n<p>Please do not send any return items to the addresses below, returns sent to these addresses cannot be processed.<br />If you need to return a product, please<span>&nbsp;</span><a class=\\\\\\\"blue u\\\\\\\" href=\\\\\\\"http://www.lightinthebox.com/r/contact-us.html\\\\\\\">contact customer service</a><span>&nbsp;</span>by submitting a ticket.</p>\\\\n<p>China Address:<br />Room F3-325, Tower A, Win Center，Building 6，Yard 33，Baiziwan Road，Chaoyang District，Beijing 100020, People&rsquo;s Republic of China.</p>\\\\n<p>US Address:<br />600 1st Ave, Seattle, WA 98104</p>\\\\n<p>US EIN: 46-4354332</p>\\\\n<p>UK Address (not for return):<br />85 Tottenham Court Rd, Fitzrovia, London, United Kingdom, W1T 4TQ<br />VAT: GB 272944380</p>\\\",\\n      \\\"status\\\": 1,\\n      \\\"created_at\\\": \\\"1626849179\\\",\\n      \\\"updated_at\\\": \\\"1626849179\\\",\\n      \\\"independent_seo\\\": false,\\n      \\\"url\\\": \\\"/pages/about-us\\\",\\n      \\\"meta_title\\\": \\\"ABOUT US\\\",\\n      \\\"meta_keyword\\\": \\\"\\\",\\n      \\\"meta_description\\\": \\\"About\\\\nvariety store is a global online retail company that delivers products directly to consumers around the world. Founded in 2007, LightInTheBox has offered customers a convenient way to shop for a wide selection of lifestyle products at attractive prices through www.lightinthebox.com, www.miniinthebox.com, and other websites, which are available in multiple major languages.\\\\nLightInTheBox offers products in the three core categories of apparel, small accessories and gadgets and home and garden.\\\\nLightInTheBox's innovative data-driven business model allows itself to offer customized products, such as wedding dress and evening dress, at scale for optimal marketing, merchandising and fulfillment.\\\\nLegal Information\\\\nPlease do not send any return items to the addresses below, returns sent to these addresses cannot be processed.If you need to return a product, pleasecontact customer serviceby submitting a ticket.\\\\nChina Address:Room F3-325, Tower A, Win Center，Building 6，Yard 33，Baiziwan Road，Chaoyang District，Beijing 100020, Peoples Republic of China.\\\\nUS Address:600 1st Ave, Seattle, WA 98104\\\\nUS EIN: 46-4354332\\\\nUK Address (not for return):85 Tottenham Court Rd, Fitzrovia, London, United Kingdom, W1T 4TQVAT: GB 272944380\\\"\\n    },\\n    {\\n      \\\"id\\\": 854511,\\n      \\\"store_id\\\": 183211,\\n      \\\"title\\\": \\\"CONTACT US\\\",\\n      \\\"content\\\": \\\"<p>China Address:<br />Room F3-325, Tower A, Win Center，Building 6，Yard 33，Baiziwan Road，Chaoyang District，Beijing 100020, People&rsquo;s Republic of China.</p>\\\\n<p>US Address:<br />600 1st Ave, Seattle, WA 98104</p>\\\\n<p>US EIN: 46-4354332</p>\\\\n<p>UK Address (not for return):<br />85 Tottenham Court Rd, Fitzrovia, London, United Kingdom, W1T 4TQ<br />VAT: GB 272944380</p>\\\",\\n      \\\"status\\\": 1,\\n      \\\"created_at\\\": \\\"1626849178\\\",\\n      \\\"updated_at\\\": \\\"1626849178\\\",\\n      \\\"independent_seo\\\": false,\\n      \\\"url\\\": \\\"/pages/contact-us\\\",\\n      \\\"meta_title\\\": \\\"CONTACT US\\\",\\n      \\\"meta_keyword\\\": \\\"\\\",\\n      \\\"meta_description\\\": \\\"China Address:Room F3-325, Tower A, Win Center，Building 6，Yard 33，Baiziwan Road，Chaoyang District，Beijing 100020, Peoples Republic of China.\\\\nUS Address:600 1st Ave, Seattle, WA 98104\\\\nUS EIN: 46-4354332\\\\nUK Address (not for return):85 Tottenham Court Rd, Fitzrovia, London, United Kingdom, W1T 4TQVAT: GB 272944380\\\"\\n    },\\n    {\\n      \\\"id\\\": 854509,\\n      \\\"store_id\\\": 183211,\\n      \\\"title\\\": \\\"Ads\\\",\\n      \\\"status\\\": 1,\\n      \\\"created_at\\\": \\\"1626849178\\\",\\n      \\\"updated_at\\\": \\\"1626849178\\\",\\n      \\\"independent_seo\\\": false,\\n      \\\"url\\\": \\\"/pages/ads\\\",\\n      \\\"meta_title\\\": \\\"Ads\\\",\\n      \\\"meta_keyword\\\": \\\"\\\",\\n      \\\"meta_description\\\": \\\"\\\"\\n    }\\n  ],\\n  \\\"count\\\": 7,\\n  \\\"has_more\\\": 0\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6648cd29-0f38-42a4-861e-9b3abf468041",
+          "name": "Create Page",
+          "request": {
+            "name": "Create Page",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "openapi",
+                "2022-01",
+                "pages"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{subdomain}}",
+                  "key": "subdomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"<string>\",\n  \"content\": \"<string>\",\n  \"url\": \"<string>\",\n  \"meta_title\": \"<string>\",\n  \"meta_keyword\": \"<string>\",\n  \"meta_description\": \"<string>\",\n  \"independent_seo\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2a279447-4d51-46f0-896e-22b8886032ac",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "pages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"content\": \"<string>\",\n  \"url\": \"<string>\",\n  \"meta_title\": \"<string>\",\n  \"meta_keyword\": \"<string>\",\n  \"meta_description\": \"<string>\",\n  \"independent_seo\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"page\\\": {\\n    \\\"id\\\": 854521,\\n    \\\"title\\\": \\\"123123213\\\",\\n    \\\"content\\\": \\\"231312321\\\",\\n    \\\"status\\\": 1,\\n    \\\"created_at\\\": \\\"1626849179\\\",\\n    \\\"updated_at\\\": \\\"1626849179\\\",\\n    \\\"url\\\": \\\"/pages/123123213\\\",\\n    \\\"meta_title\\\": \\\"123123213\\\",\\n    \\\"meta_keyword\\\": \\\"\\\",\\n    \\\"meta_description\\\": \\\"231312321\\\",\\n    \\\"independent_seo\\\": false\\n  }\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "625e9b87-9652-4259-a70b-1d9366e518ec",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "pages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"content\": \"<string>\",\n  \"url\": \"<string>\",\n  \"meta_title\": \"<string>\",\n  \"meta_keyword\": \"<string>\",\n  \"meta_description\": \"<string>\",\n  \"independent_seo\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0114a3c5-c294-4166-90ca-ecdaf57a4884",
+          "name": "Get Page Details",
+          "request": {
+            "name": "Get Page Details",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "openapi",
+                "2022-01",
+                "pages",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Page's ID"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{subdomain}}",
+                  "key": "subdomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5549b2dd-3a66-4fb2-85b9-721ee38e750b",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "pages",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Page's ID"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"page\\\": {\\n    \\\"id\\\": 854521,\\n    \\\"title\\\": \\\"123123213\\\",\\n    \\\"content\\\": \\\"231312321\\\",\\n    \\\"status\\\": 1,\\n    \\\"created_at\\\": \\\"1626849179\\\",\\n    \\\"updated_at\\\": \\\"1626849179\\\",\\n    \\\"url\\\": \\\"/pages/123123213\\\",\\n    \\\"meta_title\\\": \\\"123123213\\\",\\n    \\\"meta_keyword\\\": \\\"\\\",\\n    \\\"meta_description\\\": \\\"231312321\\\",\\n    \\\"independent_seo\\\": false\\n  }\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "811b97a1-4538-46cf-893a-d652fd7dc933",
+              "name": "404",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "pages",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Page's ID"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"errors\\\": [\\n    \\\"page not found\\\"\\n  ]\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "66bd6086-ba5a-485a-864e-2587f695da9a",
+          "name": "Update Page",
+          "request": {
+            "name": "Update Page",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "openapi",
+                "2022-01",
+                "pages",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Page's id"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{subdomain}}",
+                  "key": "subdomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"<string>\",\n  \"content\": \"<string>\",\n  \"url\": \"<string>\",\n  \"meta_title\": \"<string>\",\n  \"meta_keyword\": \"<string>\",\n  \"meta_description\": \"<string>\",\n  \"independent_seo\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "03e76f9e-96cd-4f25-bc4a-b8665500a153",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "pages",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Page's id"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"content\": \"<string>\",\n  \"url\": \"<string>\",\n  \"meta_title\": \"<string>\",\n  \"meta_keyword\": \"<string>\",\n  \"meta_description\": \"<string>\",\n  \"independent_seo\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"page\\\": {\\n    \\\"id\\\": 854521,\\n    \\\"title\\\": \\\"123123213\\\",\\n    \\\"content\\\": \\\"231312321\\\",\\n    \\\"status\\\": 1,\\n    \\\"created_at\\\": \\\"1626849179\\\",\\n    \\\"updated_at\\\": \\\"1626849179\\\",\\n    \\\"url\\\": \\\"/pages/123123213\\\",\\n    \\\"meta_title\\\": \\\"123123213\\\",\\n    \\\"meta_keyword\\\": \\\"\\\",\\n    \\\"meta_description\\\": \\\"231312321\\\",\\n    \\\"independent_seo\\\": false\\n  }\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cdd80d59-0ae6-4b2f-b214-f97df8a47c0a",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "pages",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Page's id"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"content\": \"<string>\",\n  \"url\": \"<string>\",\n  \"meta_title\": \"<string>\",\n  \"meta_keyword\": \"<string>\",\n  \"meta_description\": \"<string>\",\n  \"independent_seo\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "516f65a6-98ba-4261-a3c7-6b0d94f2b5c0",
+          "name": "Delete Page",
+          "request": {
+            "name": "Delete Page",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "openapi",
+                "2022-07",
+                "pages",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Page's id"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{subdomain}}",
+                  "key": "subdomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "640f3103-4595-4d7b-b939-8cde1f33f796",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-07",
+                    "pages",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Page's id"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "71b7dd18-76a2-4079-90c8-6d90416a5c6c",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-07",
+                    "pages",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Page's id"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f187a2a7-a050-4592-a3c8-ea2f63f1953f",
+          "name": "Count Page",
+          "request": {
+            "name": "Count Page",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "openapi",
+                "2022-01",
+                "pages",
+                "count"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "title",
+                  "value": "<string>",
+                  "description": "The title of the page."
+                }
+              ],
+              "variable": [
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{subdomain}}",
+                  "key": "subdomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "42c588a2-4826-4301-89eb-fc19bcfe12a8",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "pages",
+                    "count"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "title",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n\\tcount:5\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a1dff64a-434e-44f9-a378-38fd6b39f572",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "pages",
+                    "count"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "title",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "developer",
+      "key": "subdomain"
+    },
+    {
+      "type": "string",
+      "value": "https://{{subdomain}}.myshoplaza.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "access-token"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "c7371562-df8e-4b78-82e2-f6a390247588",
+    "name": "SPZ Admin Access Page API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,127 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SPZ Admin Access File API",
+    "version": "2022.01"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "access-token",
+      "value": "{{access-token}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "File",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get File List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/file",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "folder",
+                "value": "",
+                "type": "query",
+                "description": "File type, choose from：`product`、`all_upload`"
+              }
+            ]
+          },
+          "docs": "Get File List"
+        },
+        {
+          "info": {
+            "name": "Create File",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/file",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create File"
+        },
+        {
+          "info": {
+            "name": "Get Create  File Task",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/file/task/:task_id",
+            "params": [
+              {
+                "name": "task_id",
+                "value": "",
+                "type": "path",
+                "description": "Task id"
+              }
+            ]
+          },
+          "docs": "Get Create  File Task"
+        },
+        {
+          "info": {
+            "name": "Get File Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/file/:file_uri",
+            "params": [
+              {
+                "name": "file_uri",
+                "value": "",
+                "type": "path",
+                "description": "File uri"
+              }
+            ]
+          },
+          "docs": "Get File Details"
+        },
+        {
+          "info": {
+            "name": "Delete File",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/file/:file_uri",
+            "params": [
+              {
+                "name": "file_uri",
+                "value": "",
+                "type": "path",
+                "description": "File uri"
+              }
+            ]
+          },
+          "docs": "Delete File"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

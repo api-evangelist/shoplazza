@@ -1,0 +1,3277 @@
+{
+  "item": [
+    {
+      "id": "fc10b315-20aa-4fd0-8d85-5929049f6bb9",
+      "name": "Discounts",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "15bf28b9-9887-4e63-b954-f24d64795f45",
+          "name": "Price Rule List",
+          "request": {
+            "name": "Price Rule List",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "openapi",
+                "2022-01",
+                "price_rules"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "50",
+                  "description": "Result per page, max: `250`"
+                },
+                {
+                  "disabled": false,
+                  "key": "starts_at_min",
+                  "value": "<integer>",
+                  "description": "Filter price rule started after date, timestamp format, e.g. `1581152471`"
+                },
+                {
+                  "disabled": false,
+                  "key": "starts_at_max",
+                  "value": "<integer>",
+                  "description": "Filter price rule started before date, timestamp format, e.g. `1581152471`"
+                },
+                {
+                  "disabled": false,
+                  "key": "ends_at_min",
+                  "value": "<integer>",
+                  "description": "Filter price rule ended before date, timestamp format, e.g. `1581152471`"
+                },
+                {
+                  "disabled": false,
+                  "key": "ends_at_max",
+                  "value": "<integer>",
+                  "description": "Filter price rule ended after date, timestamp format, e.g. `1581152471`"
+                },
+                {
+                  "disabled": false,
+                  "key": "times_used",
+                  "value": "<integer>",
+                  "description": "Used count for this price rule"
+                }
+              ],
+              "variable": [
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{subdomain}}",
+                  "key": "subdomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "24176900-f26d-49b0-8a64-f0c562cc9d04",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "price_rules"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "key": "starts_at_min",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "starts_at_max",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "ends_at_min",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "ends_at_max",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "times_used",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"price_rules\\\": [\\n        {\\n            \\\"id\\\": \\\"91f9a466-7c8c-46e7-9774-64874a641534\\\",\\n            \\\"title\\\": \\\"Buy $180 get $20 off，once for one customer\\\",\\n            \\\"value\\\": 20,\\n            \\\"value_type\\\": \\\"fixed_amount\\\",\\n            \\\"usage_limit\\\": \\\"-1\\\",\\n            \\\"times_used\\\": \\\"0\\\",\\n            \\\"allocation_method\\\": \\\"\\\",\\n            \\\"allocation_limit\\\": \\\"0\\\",\\n            \\\"once_per_customer\\\": \\\"1\\\",\\n            \\\"prerequisite\\\": \\\"1\\\",\\n            \\\"customer_selection\\\": \\\"all\\\",\\n            \\\"target_selection\\\": \\\"all\\\",\\n            \\\"target_type\\\": \\\"\\\",\\n            \\\"created_at\\\": \\\"2022-06-17 15:00:03\\\",\\n            \\\"updated_at\\\": \\\"2022-06-17 15:00:03\\\",\\n            \\\"starts_at\\\": \\\"1655431200\\\",\\n            \\\"ends_at\\\": \\\"-1\\\",\\n            \\\"entitled_product_ids\\\": [],\\n            \\\"entitled_filter_ids\\\": [],\\n            \\\"entitled_filter_list\\\": [],\\n            \\\"variant_product_ids\\\": [],\\n            \\\"prerequisite_subtotal_range\\\": [\\n                {\\n                    \\\"greater_than_or_equal_to\\\": \\\"180\\\",\\n                    \\\"value\\\": \\\"20\\\",\\n                    \\\"value_condition\\\": \\\"less_than_or_equal_to\\\",\\n                    \\\"target_type\\\": \\\"\\\",\\n                    \\\"target_data\\\": [],\\n                    \\\"target_data_variant\\\": [],\\n                    \\\"target_data_collection\\\": []\\n                }\\n            ],\\n            \\\"prerequisite_quantity_range\\\": null\\n        },\\n        {\\n            \\\"id\\\": \\\"b2bc789e-4f27-4dac-8a9e-7eab140a7281\\\",\\n            \\\"title\\\": \\\"$20 off for all products, no conditions, used up to 100 times\\\",\\n            \\\"value\\\": 20,\\n            \\\"value_type\\\": \\\"fixed_amount\\\",\\n            \\\"usage_limit\\\": \\\"100\\\",\\n            \\\"times_used\\\": \\\"0\\\",\\n            \\\"allocation_method\\\": \\\"\\\",\\n            \\\"allocation_limit\\\": \\\"0\\\",\\n            \\\"once_per_customer\\\": \\\"0\\\",\\n            \\\"prerequisite\\\": \\\"0\\\",\\n            \\\"customer_selection\\\": \\\"all\\\",\\n            \\\"target_selection\\\": \\\"all\\\",\\n            \\\"target_type\\\": \\\"\\\",\\n            \\\"created_at\\\": \\\"2022-06-17 15:00:02\\\",\\n            \\\"updated_at\\\": \\\"2022-06-17 15:00:02\\\",\\n            \\\"starts_at\\\": \\\"1655431200\\\",\\n            \\\"ends_at\\\": \\\"-1\\\",\\n            \\\"entitled_product_ids\\\": [],\\n            \\\"entitled_filter_ids\\\": [],\\n            \\\"entitled_filter_list\\\": [],\\n            \\\"variant_product_ids\\\": []\\n        }\\n    ]\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1cd24709-e443-417b-b98a-020c38ff6657",
+          "name": "Create Price Rule",
+          "request": {
+            "name": "Create Price Rule",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "openapi",
+                "2022-01",
+                "price_rules"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{subdomain}}",
+                  "key": "subdomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"price_rule\": {\n    \"title\": \"<string>\",\n    \"value\": \"<double>\",\n    \"value_type\": \"<string>\",\n    \"target_selection\": \"<string>\",\n    \"starts_at\": \"<string>\",\n    \"ends_at\": \"<string>\",\n    \"usage_limit\": \"<integer>\",\n    \"allocation_limit\": 0,\n    \"once_per_customer\": \"<integer>\",\n    \"prerequisite\": 1,\n    \"target_type\": \"line_item\",\n    \"entitled_product_ids\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"entitled_variant_ids\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"entitled_collection_ids\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"prerequisite_subtotal_range\": [\n      {\n        \"greater_than_or_equal_to\": \"<string>\",\n        \"value\": \"<string>\",\n        \"target_type\": \"<string>\"\n      },\n      {\n        \"greater_than_or_equal_to\": \"<string>\",\n        \"value\": \"<string>\",\n        \"target_type\": \"<string>\"\n      }\n    ],\n    \"prerequisite_quantity_range\": [\n      {\n        \"greater_than_or_equal_to\": \"<string>\",\n        \"value\": \"<string>\",\n        \"target_type\": \"<string>\"\n      },\n      {\n        \"greater_than_or_equal_to\": \"<string>\",\n        \"value\": \"<string>\",\n        \"target_type\": \"<string>\"\n      }\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "156ce348-3a51-4a86-adb8-1aabec0eefba",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "price_rules"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"price_rule\": {\n    \"title\": \"<string>\",\n    \"value\": \"<double>\",\n    \"value_type\": \"<string>\",\n    \"target_selection\": \"<string>\",\n    \"starts_at\": \"<string>\",\n    \"ends_at\": \"<string>\",\n    \"usage_limit\": \"<integer>\",\n    \"allocation_limit\": 0,\n    \"once_per_customer\": \"<integer>\",\n    \"prerequisite\": 1,\n    \"target_type\": \"line_item\",\n    \"entitled_product_ids\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"entitled_variant_ids\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"entitled_collection_ids\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"prerequisite_subtotal_range\": [\n      {\n        \"greater_than_or_equal_to\": \"<string>\",\n        \"value\": \"<string>\",\n        \"target_type\": \"<string>\"\n      },\n      {\n        \"greater_than_or_equal_to\": \"<string>\",\n        \"value\": \"<string>\",\n        \"target_type\": \"<string>\"\n      }\n    ],\n    \"prerequisite_quantity_range\": [\n      {\n        \"greater_than_or_equal_to\": \"<string>\",\n        \"value\": \"<string>\",\n        \"target_type\": \"<string>\"\n      },\n      {\n        \"greater_than_or_equal_to\": \"<string>\",\n        \"value\": \"<string>\",\n        \"target_type\": \"<string>\"\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"price_rule\\\": {\\n        \\\"id\\\": \\\"2d7e416a-444f-4491-ae04-c50f47154140\\\",\\n        \\\"title\\\": \\\"TITLE\\\",\\n        \\\"value\\\": 0,\\n        \\\"value_type\\\": \\\"percentage\\\",\\n        \\\"usage_limit\\\": \\\"-1\\\",\\n        \\\"times_used\\\": \\\"0\\\", \\n        \\\"allocation_method\\\": \\\"\\\",\\n        \\\"allocation_limit\\\": \\\"0\\\",\\n        \\\"once_per_customer\\\": \\\"1\\\",\\n        \\\"prerequisite\\\": \\\"1\\\",\\n        \\\"customer_selection\\\": \\\"all\\\",\\n        \\\"target_selection\\\": \\\"entitled\\\",\\n        \\\"target_type\\\": \\\"\\\",\\n        \\\"created_at\\\": \\\"2020-03-06 17:00:32\\\",\\n        \\\"updated_at\\\": \\\"2020-03-12 15:29:44\\\",\\n        \\\"starts_at\\\": \\\"1583424000\\\",\\n        \\\"ends_at\\\": \\\"1583942399\\\",\\n        \\\"entitled_product_ids\\\": [\\n            \\\"cea210d5-a419-4d4e-a17d-5bbd0bc4af76\\\",\\n            \\\"de2c55f5-c3e1-45e1-92f6-e65faf816ecc\\\",\\n            \\\"47734e19-1b5c-468b-8695-31159d6d4478\\\"\\n        ],\\n        \\\"entitled_variant_ids\\\": [],\\n        \\\"prerequisite_quantity_range\\\": [\\n            {\\n                \\\"greater_than_or_equal_to\\\": \\\"1\\\",\\n                \\\"value\\\": \\\"5\\\",\\n                \\\"target_type\\\": \\\"\\\",\\n                \\\"target_data\\\": []\\n            }\\n        ],\\n        \\\"prerequisite_subtotal_range\\\": null\\n    }\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9d1301bf-abb6-4ef5-b469-327fe035e202",
+          "name": "Price Rule Count",
+          "request": {
+            "name": "Price Rule Count",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "openapi",
+                "2022-01",
+                "price_rules",
+                "count"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{subdomain}}",
+                  "key": "subdomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a1d19dd4-85aa-41f0-8a38-11abec58fe88",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "price_rules",
+                    "count"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"count\\\": \\\"398\\\"\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3671a2c4-d6db-4984-82c3-a7fd8385d5d6",
+          "name": "Price Rule Detail",
+          "request": {
+            "name": "Price Rule Detail",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "openapi",
+                "2022-01",
+                "price_rules",
+                ":price_rule_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "price_rule_id",
+                  "description": "(Required) Price rule ID"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{subdomain}}",
+                  "key": "subdomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3a0689f1-67ad-4322-b358-b57ccafb9edf",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "price_rules",
+                    ":price_rule_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "price_rule_id",
+                      "description": "(Required) Price rule ID"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"price_rule\\\": {\\n        \\\"id\\\": \\\"00095d6a-419d-4499-a497-f265fb2edaa5\\\",\\n        \\\"title\\\": \\\"title-update\\\",\\n        \\\"value\\\": 0,\\n        \\\"value_type\\\": \\\"percentage\\\",\\n        \\\"usage_limit\\\": \\\"-1\\\",\\n        \\\"times_used\\\": \\\"0\\\",\\n        \\\"allocation_method\\\": \\\"\\\",\\n        \\\"allocation_limit\\\": \\\"0\\\",\\n        \\\"once_per_customer\\\": \\\"1\\\",\\n        \\\"prerequisite\\\": \\\"1\\\",\\n        \\\"customer_selection\\\": \\\"all\\\",\\n        \\\"target_selection\\\": \\\"entitled\\\",\\n        \\\"target_type\\\": \\\"\\\",\\n        \\\"created_at\\\": \\\"2020-03-06 17:00:32\\\",\\n        \\\"updated_at\\\": \\\"2020-03-12 15:29:44\\\",\\n        \\\"starts_at\\\": \\\"1583424000\\\",\\n        \\\"ends_at\\\": \\\"1583942399\\\",\\n        \\\"entitled_product_ids\\\": [\\n            \\\"cea210d5-a419-4d4e-a17d-5bbd0bc4af76\\\",\\n            \\\"de2c55f5-c3e1-45e1-92f6-e65faf816ecc\\\",\\n            \\\"47734e19-1b5c-468b-8695-31159d6d4478\\\"\\n        ],\\n        \\\"entitled_variant_ids\\\": [],\\n        \\\"prerequisite_quantity_range\\\": [\\n            {\\n                \\\"greater_than_or_equal_to\\\": \\\"1\\\",\\n                \\\"value\\\": \\\"5\\\",\\n                \\\"target_type\\\": \\\"\\\",\\n                \\\"target_data\\\": []\\n            }\\n        ],\\n        \\\"prerequisite_subtotal_range\\\": null\\n    }\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5294cd4d-fc95-4ca7-a051-6b10f8e13f85",
+              "name": "404",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "price_rules",
+                    ":price_rule_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "price_rule_id",
+                      "description": "(Required) Price rule ID"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"errors\\\": [\\n        \\\"Not found\\\"\\n    ]\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1e306a88-3025-48f8-9216-51577419985b",
+          "name": "Update Price Rule",
+          "request": {
+            "name": "Update Price Rule",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "openapi",
+                "2022-01",
+                "price_rules",
+                ":price_rule_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "price_rule_id",
+                  "description": "(Required) Price rule ID"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{subdomain}}",
+                  "key": "subdomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"price_rule\": {\n    \"title\": \"<string>\",\n    \"value\": \"<double>\",\n    \"value_type\": \"<string>\",\n    \"usage_limit\": \"<integer>\",\n    \"allocation_limit\": \"<integer>\",\n    \"once_per_customer\": \"<integer>\",\n    \"prerequisite\": 1,\n    \"target_selection\": \"<string>\",\n    \"target_type\": \"<string>\",\n    \"starts_at\": \"<string>\",\n    \"ends_at\": \"<string>\",\n    \"entitled_product_ids\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"entitled_variant_ids\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"entitled_collection_ids\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"prerequisite_subtotal_range\": [\n      {\n        \"greater_than_or_equal_to\": \"<string>\",\n        \"value\": \"<string>\",\n        \"target_type\": \"<string>\"\n      },\n      {\n        \"greater_than_or_equal_to\": \"<string>\",\n        \"value\": \"<string>\",\n        \"target_type\": \"<string>\"\n      }\n    ],\n    \"prerequisite_quantity_range\": [\n      {\n        \"greater_than_or_equal_to\": \"<string>\",\n        \"value\": \"<string>\",\n        \"target_type\": \"<string>\"\n      },\n      {\n        \"greater_than_or_equal_to\": \"<string>\",\n        \"value\": \"<string>\",\n        \"target_type\": \"<string>\"\n      }\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a3cfa198-408d-43f2-85f3-d42c3be69062",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "price_rules",
+                    ":price_rule_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "price_rule_id",
+                      "description": "(Required) Price rule ID"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"price_rule\": {\n    \"title\": \"<string>\",\n    \"value\": \"<double>\",\n    \"value_type\": \"<string>\",\n    \"usage_limit\": \"<integer>\",\n    \"allocation_limit\": \"<integer>\",\n    \"once_per_customer\": \"<integer>\",\n    \"prerequisite\": 1,\n    \"target_selection\": \"<string>\",\n    \"target_type\": \"<string>\",\n    \"starts_at\": \"<string>\",\n    \"ends_at\": \"<string>\",\n    \"entitled_product_ids\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"entitled_variant_ids\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"entitled_collection_ids\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"prerequisite_subtotal_range\": [\n      {\n        \"greater_than_or_equal_to\": \"<string>\",\n        \"value\": \"<string>\",\n        \"target_type\": \"<string>\"\n      },\n      {\n        \"greater_than_or_equal_to\": \"<string>\",\n        \"value\": \"<string>\",\n        \"target_type\": \"<string>\"\n      }\n    ],\n    \"prerequisite_quantity_range\": [\n      {\n        \"greater_than_or_equal_to\": \"<string>\",\n        \"value\": \"<string>\",\n        \"target_type\": \"<string>\"\n      },\n      {\n        \"greater_than_or_equal_to\": \"<string>\",\n        \"value\": \"<string>\",\n        \"target_type\": \"<string>\"\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"price_rule\\\": {\\n        \\\"id\\\": \\\"00095d6a-419d-4499-a497-f265fb2edaa5\\\",\\n        \\\"title\\\": \\\"title-update\\\",\\n        \\\"value\\\": 0,\\n        \\\"value_type\\\": \\\"percentage\\\",\\n        \\\"usage_limit\\\": \\\"-1\\\",\\n        \\\"times_used\\\": \\\"0\\\",\\n        \\\"allocation_method\\\": \\\"\\\",\\n        \\\"allocation_limit\\\": \\\"0\\\",\\n        \\\"once_per_customer\\\": \\\"1\\\",\\n        \\\"prerequisite\\\": \\\"1\\\",\\n        \\\"customer_selection\\\": \\\"all\\\",\\n        \\\"target_selection\\\": \\\"entitled\\\",\\n        \\\"target_type\\\": \\\"\\\",\\n        \\\"created_at\\\": \\\"2020-03-06 17:00:32\\\",\\n        \\\"updated_at\\\": \\\"2020-03-12 15:29:44\\\",\\n        \\\"starts_at\\\": \\\"1583424000\\\",\\n        \\\"ends_at\\\": \\\"1583942399\\\",\\n        \\\"entitled_product_ids\\\": [\\n            \\\"cea210d5-a419-4d4e-a17d-5bbd0bc4af76\\\",\\n            \\\"de2c55f5-c3e1-45e1-92f6-e65faf816ecc\\\",\\n            \\\"47734e19-1b5c-468b-8695-31159d6d4478\\\"\\n        ],\\n        \\\"entitled_variant_ids\\\": [],\\n        \\\"prerequisite_quantity_range\\\": [\\n            {\\n                \\\"greater_than_or_equal_to\\\": \\\"1\\\",\\n                \\\"value\\\": \\\"5\\\",\\n                \\\"target_type\\\": \\\"\\\",\\n                \\\"target_data\\\": []\\n            }\\n        ],\\n        \\\"prerequisite_subtotal_range\\\": null\\n    }\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "48d427c1-0f71-4d04-9d2b-953ed829a45c",
+              "name": "404",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "price_rules",
+                    ":price_rule_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "price_rule_id",
+                      "description": "(Required) Price rule ID"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"price_rule\": {\n    \"title\": \"<string>\",\n    \"value\": \"<double>\",\n    \"value_type\": \"<string>\",\n    \"usage_limit\": \"<integer>\",\n    \"allocation_limit\": \"<integer>\",\n    \"once_per_customer\": \"<integer>\",\n    \"prerequisite\": 1,\n    \"target_selection\": \"<string>\",\n    \"target_type\": \"<string>\",\n    \"starts_at\": \"<string>\",\n    \"ends_at\": \"<string>\",\n    \"entitled_product_ids\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"entitled_variant_ids\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"entitled_collection_ids\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"prerequisite_subtotal_range\": [\n      {\n        \"greater_than_or_equal_to\": \"<string>\",\n        \"value\": \"<string>\",\n        \"target_type\": \"<string>\"\n      },\n      {\n        \"greater_than_or_equal_to\": \"<string>\",\n        \"value\": \"<string>\",\n        \"target_type\": \"<string>\"\n      }\n    ],\n    \"prerequisite_quantity_range\": [\n      {\n        \"greater_than_or_equal_to\": \"<string>\",\n        \"value\": \"<string>\",\n        \"target_type\": \"<string>\"\n      },\n      {\n        \"greater_than_or_equal_to\": \"<string>\",\n        \"value\": \"<string>\",\n        \"target_type\": \"<string>\"\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"errors\\\": [\\n        \\\"Not found\\\"\\n    ]\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "53618e99-f80c-471f-92b2-cdaa9ebf1307",
+          "name": "Delete Price Rule",
+          "request": {
+            "name": "Delete Price Rule",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "openapi",
+                "2022-01",
+                "price_rules",
+                ":price_rule_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "price_rule_id",
+                  "description": "(Required) Price rule ID"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{subdomain}}",
+                  "key": "subdomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4284b1b5-311e-4823-844c-758ec8284c93",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "price_rules",
+                    ":price_rule_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "price_rule_id",
+                      "description": "(Required) Price rule ID"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "102722bf-64fd-403d-98b7-752e47fde0a4",
+              "name": "404",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "price_rules",
+                    ":price_rule_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "price_rule_id",
+                      "description": "(Required) Price rule ID"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"errors\\\": [\\n        \\\"Not found\\\"\\n    ]\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3601a685-ac69-4892-910c-9fd106126713",
+          "name": "Create Discount Code",
+          "request": {
+            "name": "Create Discount Code",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "openapi",
+                "2022-01",
+                "price_rules",
+                ":price_rule_id",
+                "discount_codes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "price_rule_id",
+                  "description": "(Required) Price rule ID"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{subdomain}}",
+                  "key": "subdomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"discount_code\": {\n    \"code\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c0304111-f8b0-458c-ae15-349e39f54aa4",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "price_rules",
+                    ":price_rule_id",
+                    "discount_codes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "price_rule_id",
+                      "description": "(Required) Price rule ID"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"discount_code\": {\n    \"code\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"discount_code\\\": {\\n        \\\"id\\\": \\\"f819c126-a581-4d66-a909-08282dd35916\\\",\\n        \\\"price_rule_id\\\": \\\"588fea0b-f15d-4c1d-9390-23661f0194fa\\\",\\n        \\\"code\\\": \\\"VIJK8GB0\\\",\\n        \\\"created_at\\\": \\\"2022-06-17 07:48:29\\\",\\n        \\\"updated_at\\\": \\\"2022-06-17 07:48:29\\\",\\n        \\\"use_with_other\\\": \\\"1\\\",\\n        \\\"usage_count\\\": \\\"0\\\"\\n    }\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "43cd5624-302a-4c6a-88a3-e01a0745ba9d",
+          "name": "Get Discount Code List",
+          "request": {
+            "name": "Get Discount Code List",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "openapi",
+                "2022-01",
+                "price_rules",
+                ":price_rule_id",
+                "discount_codes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "price_rule_id",
+                  "description": "(Required) Price rule ID"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{subdomain}}",
+                  "key": "subdomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a533fd61-d040-4a9b-8f60-faaa1b2d7127",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "price_rules",
+                    ":price_rule_id",
+                    "discount_codes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "price_rule_id",
+                      "description": "(Required) Price rule ID"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"discount_code\\\": {\\n        \\\"id\\\": \\\"f819c126-a581-4d66-a909-08282dd35916\\\",\\n        \\\"price_rule_id\\\": \\\"588fea0b-f15d-4c1d-9390-23661f0194fa\\\",\\n        \\\"code\\\": \\\"VIJK8GB0\\\",\\n        \\\"created_at\\\": \\\"2022-06-17 07:48:29\\\",\\n        \\\"updated_at\\\": \\\"2022-06-17 07:48:29\\\",\\n        \\\"use_with_other\\\": \\\"1\\\",\\n        \\\"usage_count\\\": \\\"0\\\"\\n    }\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bf935085-335b-47f4-8dc0-dd3c2f39ffbd",
+          "name": "Delete Discount Code",
+          "request": {
+            "name": "Delete Discount Code",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "openapi",
+                "2022-01",
+                "price_rules",
+                ":price_rule_id",
+                "discount_codes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "price_rule_id",
+                  "description": "(Required) Price rule ID"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{subdomain}}",
+                  "key": "subdomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "57531a3f-600e-41c3-913c-c042335f7a9b",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "price_rules",
+                    ":price_rule_id",
+                    "discount_codes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "price_rule_id",
+                      "description": "(Required) Price rule ID"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "82211253-4b60-423e-b18d-9316f7d2ada1",
+              "name": "404",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "price_rules",
+                    ":price_rule_id",
+                    "discount_codes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "price_rule_id",
+                      "description": "(Required) Price rule ID"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"errors\\\": [\\n        \\\"Not found\\\"\\n    ]\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4820da71-9b5d-47c9-9dde-78972068c458",
+          "name": "Update Discount Code",
+          "request": {
+            "name": "Update Discount Code",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "openapi",
+                "2022-01",
+                "price_rules",
+                ":price_rule_id",
+                "discount_codes",
+                ":discount_code_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "price_rule_id",
+                  "description": "(Required) Price rule ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "discount_code_id",
+                  "description": "(Required) Discount code ID"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{subdomain}}",
+                  "key": "subdomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"discount_code\": {\n    \"code\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "72abd56a-ad89-471a-a11c-c755accddd1e",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "price_rules",
+                    ":price_rule_id",
+                    "discount_codes",
+                    ":discount_code_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "price_rule_id",
+                      "description": "(Required) Price rule ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "discount_code_id",
+                      "description": "(Required) Discount code ID"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"discount_code\": {\n    \"code\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"discount_code\\\": {\\n        \\\"id\\\": \\\"f819c126-a581-4d66-a909-08282dd35916\\\",\\n        \\\"price_rule_id\\\": \\\"588fea0b-f15d-4c1d-9390-23661f0194fa\\\",\\n        \\\"code\\\": \\\"VIJK8GB0\\\",\\n        \\\"created_at\\\": \\\"2022-06-17 07:48:29\\\",\\n        \\\"updated_at\\\": \\\"2022-06-17 07:48:29\\\",\\n        \\\"use_with_other\\\": \\\"1\\\",\\n        \\\"usage_count\\\": \\\"0\\\"\\n    }\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "013a15b7-ba5b-457c-b915-7c78d72e4188",
+          "name": "Get Discount Code Details",
+          "request": {
+            "name": "Get Discount Code Details",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "openapi",
+                "2022-01",
+                "price_rules",
+                ":price_rule_id",
+                "discount_codes",
+                ":discount_code_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "price_rule_id",
+                  "description": "(Required) Price rule ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "discount_code_id",
+                  "description": "(Required) Discount code ID"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{subdomain}}",
+                  "key": "subdomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0a55f5ba-e7c4-4463-bf9f-2f86fbbfe4db",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "price_rules",
+                    ":price_rule_id",
+                    "discount_codes",
+                    ":discount_code_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "price_rule_id",
+                      "description": "(Required) Price rule ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "discount_code_id",
+                      "description": "(Required) Discount code ID"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"discount_code\\\": {\\n        \\\"id\\\": \\\"f819c126-a581-4d66-a909-08282dd35916\\\",\\n        \\\"price_rule_id\\\": \\\"588fea0b-f15d-4c1d-9390-23661f0194fa\\\",\\n        \\\"code\\\": \\\"VIJK8GB0\\\",\\n        \\\"created_at\\\": \\\"2022-06-17 07:48:29\\\",\\n        \\\"updated_at\\\": \\\"2022-06-17 07:48:29\\\",\\n        \\\"use_with_other\\\": \\\"1\\\",\\n        \\\"usage_count\\\": \\\"0\\\"\\n    }\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "044032a3-e06e-47b0-ba10-4a5f0b2900eb",
+          "name": "Search Discount Code",
+          "request": {
+            "name": "Search Discount Code",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "openapi",
+                "2022-01",
+                "discount_codes",
+                "lookup"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "code",
+                  "value": "<string>",
+                  "description": "Discount code, for example: `SUMMERSALE10OFF`"
+                }
+              ],
+              "variable": [
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{subdomain}}",
+                  "key": "subdomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "433a1d1b-30ce-412d-84c2-d4122e8702c8",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "discount_codes",
+                    "lookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "code",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"discount_code\\\": {\\n        \\\"id\\\": \\\"f819c126-a581-4d66-a909-08282dd35916\\\",\\n        \\\"price_rule_id\\\": \\\"588fea0b-f15d-4c1d-9390-23661f0194fa\\\",\\n        \\\"code\\\": \\\"VIJK8GB0\\\",\\n        \\\"created_at\\\": \\\"2022-06-17 07:48:29\\\",\\n        \\\"updated_at\\\": \\\"2022-06-17 07:48:29\\\",\\n        \\\"use_with_other\\\": \\\"1\\\",\\n        \\\"usage_count\\\": \\\"0\\\"\\n    }\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "aef8cafa-99d9-48ec-b5ba-97aeeccf67e1",
+          "name": "Coupon List",
+          "request": {
+            "name": "Coupon List",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "openapi",
+                "2022-01",
+                "coupons"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "Page number"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Limit count per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "progress",
+                  "value": "<string>",
+                  "description": "Progress of coupons, available: `not_started`, `ongoing`, `finished`"
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "Type of coupons, available: `fixed_amount`, `percentage `"
+                },
+                {
+                  "disabled": false,
+                  "key": "keywords",
+                  "value": "<string>",
+                  "description": "Search coupons' title"
+                }
+              ],
+              "variable": [
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{subdomain}}",
+                  "key": "subdomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c413b3ae-f1d5-4381-920a-2731c6d1a667",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "coupons"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "progress",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "keywords",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"page\\\": 0,\\n    \\\"limit\\\": 10,\\n    \\\"total\\\": 2,\\n    \\\"data\\\": [\\n        {\\n            \\\"id\\\": \\\"202314454241654711\\\",\\n            \\\"store_id\\\": 11218,\\n            \\\"life_cycle_type\\\": \\\"begin_end\\\",\\n            \\\"survival_time\\\": 86400,\\n            \\\"starts_at\\\": 1673246985,\\n            \\\"ends_at\\\": -1,\\n            \\\"status\\\": 0,\\n            \\\"discount_type\\\": \\\"percentage\\\",\\n            \\\"value_type\\\": \\\"percentage\\\",\\n            \\\"value\\\": \\\"10\\\",\\n            \\\"usage_limit\\\": -1,\\n            \\\"once_per_customer\\\": 0,\\n            \\\"title\\\": \\\"coupon1\\\",\\n            \\\"stock\\\": 0,\\n            \\\"code\\\": \\\"\\\",\\n            \\\"prerequisite\\\": 0,\\n            \\\"is_admin_show\\\": 0,\\n            \\\"target_selection\\\": \\\"all\\\",\\n            \\\"progress\\\": \\\"ongoing\\\",\\n            \\\"using_state\\\": \\\"\\\",\\n            \\\"allocation_limit_amount\\\": \\\"0\\\",\\n            \\\"entitled_area_list\\\": [],\\n            \\\"prerequisite_quantity_range\\\": [\\n                {\\n                    \\\"greater_than_or_equal_to\\\": \\\"\\\",\\n                    \\\"value\\\": \\\"\\\",\\n                    \\\"value_condition\\\": \\\"\\\",\\n                    \\\"target_type\\\": \\\"\\\",\\n                    \\\"target_data\\\": null,\\n                    \\\"target_data_variant\\\": null,\\n                    \\\"target_data_collection\\\": null\\n                }\\n            ],\\n            \\\"prerequisite_subtotal_range\\\": [\\n                {\\n                    \\\"greater_than_or_equal_to\\\": \\\"\\\",\\n                    \\\"value\\\": \\\"\\\",\\n                    \\\"value_condition\\\": \\\"\\\",\\n                    \\\"target_type\\\": \\\"\\\",\\n                    \\\"target_data\\\": null,\\n                    \\\"target_data_variant\\\": null,\\n                    \\\"target_data_collection\\\": null\\n                }\\n            ],\\n            \\\"entitled_product_ids\\\": [],\\n            \\\"entitled_variant_ids\\\": [],\\n            \\\"entitled_sort\\\": [],\\n            \\\"times_used\\\": 1,\\n            \\\"sort\\\": {\\n                \\\"by\\\": \\\"sales\\\",\\n                \\\"direction\\\": \\\"desc\\\"\\n            },\\n            \\\"use_with_other\\\": 0,\\n            \\\"prerequisite_customer_ids\\\": [],\\n            \\\"prerequisite_customer_segment_ids\\\": [],\\n            \\\"config\\\": {\\n                \\\"banner_url\\\": \\\"\\\",\\n                \\\"banner_size\\\": \\\"\\\",\\n                \\\"count_down\\\": {\\n                    \\\"show_count_down\\\": false,\\n                    \\\"format\\\": \\\"\\\",\\n                    \\\"background_color_start\\\": \\\"\\\",\\n                    \\\"background_color_end\\\": \\\"\\\",\\n                    \\\"color\\\": \\\"\\\",\\n                    \\\"count_down_background_color\\\": \\\"\\\",\\n                    \\\"count_down_color\\\": \\\"\\\",\\n                    \\\"detail_page_show_code\\\": false\\n                }\\n            },\\n            \\\"allocation_method\\\": \\\"\\\",\\n            \\\"allocation_limit\\\": 0,\\n            \\\"customer_selection\\\": \\\"\\\",\\n            \\\"entitled_collection_ids\\\": [],\\n            \\\"tips\\\": {\\n                \\\"msg\\\": \\\"\\\",\\n                \\\"countdown\\\": \\\"\\\",\\n                \\\"countdown_day\\\": \\\"\\\",\\n                \\\"use_code\\\": \\\"\\\",\\n                \\\"copy_code\\\": \\\"\\\"\\n            },\\n            \\\"entitled_extra_list\\\": null,\\n            \\\"prerequisite_customer_range\\\": null,\\n            \\\"buysPrerequisiteValue\\\": 0,\\n            \\\"getsMaxOrderUseValue\\\": 0,\\n            \\\"getsDiscountValue\\\": 0,\\n            \\\"only_valid_first_order_customer\\\": false\\n        },\\n        {\\n            \\\"id\\\": \\\"202310134632812624\\\",\\n            \\\"store_id\\\": 11218,\\n            \\\"life_cycle_type\\\": \\\"begin_end\\\",\\n            \\\"survival_time\\\": 86400,\\n            \\\"starts_at\\\": 1673246985,\\n            \\\"ends_at\\\": -1,\\n            \\\"status\\\": 0,\\n            \\\"discount_type\\\": \\\"percentage\\\",\\n            \\\"value_type\\\": \\\"percentage\\\",\\n            \\\"value\\\": \\\"10\\\",\\n            \\\"usage_limit\\\": -1,\\n            \\\"once_per_customer\\\": 0,\\n            \\\"title\\\": \\\"coupon2\\\",\\n            \\\"stock\\\": 0,\\n            \\\"code\\\": \\\"\\\",\\n            \\\"prerequisite\\\": 0,\\n            \\\"is_admin_show\\\": 0,\\n            \\\"target_selection\\\": \\\"all\\\",\\n            \\\"progress\\\": \\\"ongoing\\\",\\n            \\\"using_state\\\": \\\"\\\",\\n            \\\"allocation_limit_amount\\\": \\\"0\\\",\\n            \\\"entitled_area_list\\\": [],\\n            \\\"prerequisite_quantity_range\\\": [\\n                {\\n                    \\\"greater_than_or_equal_to\\\": \\\"\\\",\\n                    \\\"value\\\": \\\"\\\",\\n                    \\\"value_condition\\\": \\\"\\\",\\n                    \\\"target_type\\\": \\\"\\\",\\n                    \\\"target_data\\\": null,\\n                    \\\"target_data_variant\\\": null,\\n                    \\\"target_data_collection\\\": null\\n                }\\n            ],\\n            \\\"prerequisite_subtotal_range\\\": [\\n                {\\n                    \\\"greater_than_or_equal_to\\\": \\\"\\\",\\n                    \\\"value\\\": \\\"\\\",\\n                    \\\"value_condition\\\": \\\"\\\",\\n                    \\\"target_type\\\": \\\"\\\",\\n                    \\\"target_data\\\": null,\\n                    \\\"target_data_variant\\\": null,\\n                    \\\"target_data_collection\\\": null\\n                }\\n            ],\\n            \\\"entitled_product_ids\\\": [],\\n            \\\"entitled_variant_ids\\\": [],\\n            \\\"entitled_sort\\\": [],\\n            \\\"times_used\\\": 0,\\n            \\\"sort\\\": {\\n                \\\"by\\\": \\\"sales\\\",\\n                \\\"direction\\\": \\\"desc\\\"\\n            },\\n            \\\"use_with_other\\\": 0,\\n            \\\"prerequisite_customer_ids\\\": [],\\n            \\\"prerequisite_customer_segment_ids\\\": [],\\n            \\\"config\\\": {\\n                \\\"banner_url\\\": \\\"\\\",\\n                \\\"banner_size\\\": \\\"\\\",\\n                \\\"count_down\\\": {\\n                    \\\"show_count_down\\\": false,\\n                    \\\"format\\\": \\\"\\\",\\n                    \\\"background_color_start\\\": \\\"\\\",\\n                    \\\"background_color_end\\\": \\\"\\\",\\n                    \\\"color\\\": \\\"\\\",\\n                    \\\"count_down_background_color\\\": \\\"\\\",\\n                    \\\"count_down_color\\\": \\\"\\\",\\n                    \\\"detail_page_show_code\\\": false\\n                }\\n            },\\n            \\\"allocation_method\\\": \\\"\\\",\\n            \\\"allocation_limit\\\": 0,\\n            \\\"customer_selection\\\": \\\"\\\",\\n            \\\"entitled_collection_ids\\\": [],\\n            \\\"tips\\\": {\\n                \\\"msg\\\": \\\"\\\",\\n                \\\"countdown\\\": \\\"\\\",\\n                \\\"countdown_day\\\": \\\"\\\",\\n                \\\"use_code\\\": \\\"\\\",\\n                \\\"copy_code\\\": \\\"\\\"\\n            },\\n            \\\"entitled_extra_list\\\": null,\\n            \\\"prerequisite_customer_range\\\": null,\\n            \\\"buysPrerequisiteValue\\\": 0,\\n            \\\"getsMaxOrderUseValue\\\": 0,\\n            \\\"getsDiscountValue\\\": 0,\\n            \\\"only_valid_first_order_customer\\\": false\\n        }\\n    ]\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "61278cb2-b667-40bc-91f4-7612a2a5a819",
+          "name": "Receive Coupons",
+          "request": {
+            "name": "Receive Coupons",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "openapi",
+                "2022-01",
+                "coupons",
+                "receive"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{subdomain}}",
+                  "key": "subdomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"customer_id\": \"<string>\",\n  \"coupon_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "24387037-9857-4ed8-99d8-d7106fe678d8",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "coupons",
+                    "receive"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customer_id\": \"<string>\",\n  \"coupon_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"status\\\": 0,\\n    \\\"items\\\": [\\n        {\\n            \\\"id\\\": \\\"202314454241654711\\\",\\n            \\\"status\\\": 0,\\n            \\\"value\\\": \\\"0\\\",\\n            \\\"stock\\\": 20,\\n            \\\"coupon_status\\\": 1,\\n            \\\"received_count\\\": 1,\\n            \\\"discount_text\\\": \\\"\\\",\\n            \\\"prerequisite_text\\\": \\\"\\\",\\n            \\\"is_first_order\\\": false\\n        }\\n    ],\\n    \\\"limit\\\": 0,\\n    \\\"has_more\\\": false,\\n    \\\"cursor\\\": \\\"0\\\"\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d4de9a5f-4358-4c99-9d02-1e779cf9f991",
+          "name": "Discount Code List",
+          "request": {
+            "name": "Discount Code List",
+            "description": {
+              "content": "Retrieves a list of discount code.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "openapi",
+                "2022-01",
+                "discount_codes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Limit per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "Page number"
+                },
+                {
+                  "disabled": false,
+                  "key": "need_detail_url",
+                  "value": "<boolean>",
+                  "description": "details url return in responses"
+                }
+              ],
+              "variable": [
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{subdomain}}",
+                  "key": "subdomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a2ae38cb-667c-4634-82d2-6a1e6d9ea3bb",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "discount_codes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "need_detail_url",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"page\\\": 1,\\n  \\\"limit\\\": 20,\\n  \\\"total\\\": \\\"1\\\",\\n  \\\"data\\\": [\\n    {\\n      \\\"allocation_limit\\\": \\\"1\\\",\\n      \\\"allocation_limit_amount\\\": \\\"0.0000\\\",\\n      \\\"allocation_method\\\": \\\"\\\",\\n      \\\"app_id\\\": \\\"\\\",\\n      \\\"code\\\": \\\"123234\\\",\\n      \\\"customer_selection\\\": \\\"all\\\",\\n      \\\"detail_url\\\": \\\"tzt.myshoplaza.com/promotions/coupon/1783371b-76c1-41ab-a09c-531ff54425fc\\\",\\n      \\\"discount_type\\\": \\\"percentage\\\",\\n      \\\"ends_at\\\": \\\"-1\\\",\\n      \\\"entitled_filter_ids\\\": [],\\n      \\\"entitled_filter_list\\\": [],\\n      \\\"entitled_product_ids\\\": [],\\n      \\\"id\\\": \\\"1783371b-76c1-41ab-a09c-531ff54425fc\\\",\\n      \\\"is_admin_show\\\": \\\"1\\\",\\n      \\\"once_per_customer\\\": \\\"1\\\",\\n      \\\"prerequisite\\\": \\\"0\\\",\\n      \\\"prerequisite_customer_ids\\\": [],\\n      \\\"prerequisite_customer_segment_ids\\\": [],\\n      \\\"product_num\\\": null,\\n      \\\"progress\\\": \\\"ongoing\\\",\\n      \\\"sort\\\": \\\"{\\\\\\\"by\\\\\\\":\\\\\\\"title\\\\\\\",\\\\\\\"direction\\\\\\\":\\\\\\\"asc\\\\\\\"}\\\",\\n      \\\"starts_at\\\": \\\"1682652119\\\",\\n      \\\"status\\\": \\\"1\\\",\\n      \\\"target_price_type\\\": \\\"combined_price\\\",\\n      \\\"target_selection\\\": \\\"all\\\",\\n      \\\"target_type\\\": \\\"line_item\\\",\\n      \\\"times_used\\\": \\\"0\\\",\\n      \\\"title\\\": \\\"tzt-优惠码-促进成交\\\",\\n      \\\"usage_limit\\\": \\\"1\\\",\\n      \\\"use_with_other\\\": \\\"0\\\",\\n      \\\"using_state\\\": \\\"normal\\\",\\n      \\\"value\\\": 1,\\n      \\\"value_type\\\": \\\"percentage\\\",\\n      \\\"variant_product_ids\\\": []\\n    }\\n  ]\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "722f37cd-89a6-4933-8114-1b391087ba67",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "discount_codes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "need_detail_url",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "de717864-abf1-45b6-955b-047e4bad3e63",
+          "name": "Discount Rebate List",
+          "request": {
+            "name": "Discount Rebate List",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "openapi",
+                "2022-01",
+                "discount_rebates"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Limit per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "Page number"
+                },
+                {
+                  "disabled": false,
+                  "key": "need_detail_url",
+                  "value": "<boolean>",
+                  "description": "details url return in responses"
+                }
+              ],
+              "variable": [
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{subdomain}}",
+                  "key": "subdomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6c2ae8e7-64fd-48a2-bd7b-d4ed5ee42ee2",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "discount_rebates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "need_detail_url",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"page\\\": 1,\\n  \\\"limit\\\": 20,\\n  \\\"total\\\": \\\"1\\\",\\n  \\\"data\\\": [\\n    {\\n      \\\"allocation_limit\\\": \\\"0\\\",\\n      \\\"allocation_limit_amount\\\": \\\"0.0000\\\",\\n      \\\"allocation_method\\\": \\\"across\\\",\\n      \\\"customer_selection\\\": \\\"all\\\",\\n      \\\"detail_url\\\": \\\"tzt.myshoplaza.com/promotions/rebate/47d2a827-e914-49e0-a14c-3161edb1ae9e\\\",\\n      \\\"discount_type\\\": \\\"fixed_amount\\\",\\n      \\\"ends_at\\\": \\\"-1\\\",\\n      \\\"entitled_filter_ids\\\": [],\\n      \\\"entitled_filter_list\\\": [],\\n      \\\"entitled_product_ids\\\": [],\\n      \\\"global_show_text\\\": \\\"close\\\",\\n      \\\"id\\\": \\\"47d2a827-e914-49e0-a14c-3161edb1ae9e\\\",\\n      \\\"once_per_customer\\\": \\\"0\\\",\\n      \\\"popups_id\\\": \\\"\\\",\\n      \\\"popups_setting\\\": \\\"close\\\",\\n      \\\"prerequisite\\\": \\\"1\\\",\\n      \\\"prerequisite_customer_ids\\\": [],\\n      \\\"prerequisite_customer_range\\\": null,\\n      \\\"prerequisite_customer_segment_ids\\\": [],\\n      \\\"prerequisite_quantity_range\\\": null,\\n      \\\"prerequisite_subtotal_range\\\": [\\n        {\\n          \\\"greater_than_or_equal_to\\\": \\\"123\\\",\\n          \\\"value\\\": \\\"1\\\",\\n          \\\"value_event_type\\\": \\\"\\\",\\n          \\\"value_condition\\\": \\\"less_than_or_equal_to\\\",\\n          \\\"target_type\\\": \\\"\\\",\\n          \\\"target_data\\\": [],\\n          \\\"target_data_variant\\\": [],\\n          \\\"target_data_collection\\\": []\\n        }\\n      ],\\n      \\\"prerequisite_threshold_quantity_range\\\": null,\\n      \\\"prerequisite_threshold_subtotal_range\\\": null,\\n      \\\"product_num\\\": null,\\n      \\\"progress\\\": \\\"ongoing\\\",\\n      \\\"sort\\\": \\\"{\\\\\\\"by\\\\\\\":\\\\\\\"title\\\\\\\",\\\\\\\"direction\\\\\\\":\\\\\\\"asc\\\\\\\"}\\\",\\n      \\\"starts_at\\\": \\\"1682652084\\\",\\n      \\\"status\\\": \\\"1\\\",\\n      \\\"target_price_type\\\": \\\"combined_price\\\",\\n      \\\"target_selection\\\": \\\"all\\\",\\n      \\\"target_type\\\": \\\"\\\",\\n      \\\"times_used\\\": \\\"0\\\",\\n      \\\"title\\\": \\\"tzt-满减活动-吸引客户购买更多\\\",\\n      \\\"usage_limit\\\": \\\"0\\\",\\n      \\\"value\\\": 0,\\n      \\\"value_type\\\": \\\"fixed_amount\\\",\\n      \\\"variant_product_ids\\\": []\\n    }\\n  ]\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8279ac07-4d38-425e-a2ea-4f1ccf5c7ed5",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "discount_rebates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "need_detail_url",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bb6aa54f-43dd-4829-a407-5c8dad7ed0dd",
+          "name": "Discount Flashsale List",
+          "request": {
+            "name": "Discount Flashsale List",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "openapi",
+                "2022-01",
+                "discount_flashsales"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Limit per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "Page number"
+                },
+                {
+                  "disabled": false,
+                  "key": "need_detail_url",
+                  "value": "<boolean>",
+                  "description": "details url return in responses"
+                }
+              ],
+              "variable": [
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{subdomain}}",
+                  "key": "subdomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bfcffaff-d120-44f1-9e22-68aca5d1c4d1",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "discount_flashsales"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "need_detail_url",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"page\\\": 1,\\n  \\\"limit\\\": 20,\\n  \\\"total\\\": 1,\\n  \\\"data\\\": [\\n    {\\n      \\\"id\\\": \\\"14f759fe-cb07-4778-8448-e1ba4b686439\\\",\\n      \\\"title\\\": \\\"tzt-限时促销-刺激客户下单\\\",\\n      \\\"discount_type\\\": \\\"percentage\\\",\\n      \\\"once_per_customer\\\": 0,\\n      \\\"starts_at\\\": 1682651959,\\n      \\\"ends_at\\\": -1,\\n      \\\"status\\\": 1,\\n      \\\"sort\\\": \\\"{\\\\\\\"by\\\\\\\":\\\\\\\"title\\\\\\\",\\\\\\\"direction\\\\\\\":\\\\\\\"asc\\\\\\\"}\\\",\\n      \\\"allocation_method\\\": \\\"none\\\",\\n      \\\"allow_oversold\\\": \\\"uncheck\\\",\\n      \\\"progress\\\": \\\"ongoing\\\",\\n      \\\"product_num\\\": 410,\\n      \\\"detail_url\\\": \\\"tzt.myshoplaza.com/promotions/flashsale/14f759fe-cb07-4778-8448-e1ba4b686439\\\"\\n    }\\n  ]\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b216dbf5-f581-48a3-991f-5bb8f5fa130e",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "discount_flashsales"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "need_detail_url",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a0517176-61f0-4546-ad61-3e2c8dbaf29d",
+          "name": "Popup List",
+          "request": {
+            "name": "Popup List",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "openapi",
+                "2022-01",
+                "popups"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "8",
+                  "description": "Limit count per page"
+                }
+              ],
+              "variable": [
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{subdomain}}",
+                  "key": "subdomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9d6dc80f-3046-494a-bbf6-d71cc2b30c2b",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "popups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "8"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"page\\\": 1,\\n  \\\"limit\\\": 8,\\n  \\\"total\\\": \\\"1\\\",\\n  \\\"data\\\": [\\n    {\\n      \\\"abrogation_condition\\\": {\\n        \\\"trigger_num\\\": 0,\\n        \\\"closed\\\": 0,\\n        \\\"participated\\\": 0\\n      },\\n      \\\"activity_id\\\": \\\"47d2a827-e914-49e0-a14c-3161edb1ae9e\\\",\\n      \\\"activity_type\\\": \\\"rebate\\\",\\n      \\\"app_type\\\": \\\"\\\",\\n      \\\"cart_amount\\\": {\\n        \\\"limit\\\": 0,\\n        \\\"min\\\": null,\\n        \\\"max\\\": null\\n      },\\n      \\\"cart_num\\\": {\\n        \\\"limit\\\": 0,\\n        \\\"min\\\": null,\\n        \\\"max\\\": null\\n      },\\n      \\\"config\\\": {\\n        \\\"global\\\": {\\n          \\\"sections\\\": {\\n            \\\"global\\\": [\\n              \\\"setting\\\",\\n              \\\"overlay\\\",\\n              \\\"modalSize\\\"\\n            ]\\n          },\\n          \\\"overlay\\\": {\\n            \\\"type\\\": \\\"overlay\\\",\\n            \\\"style\\\": {\\n              \\\"background-color\\\": \\\"rgba(0,0,0,0.6)\\\"\\n            }\\n          },\\n          \\\"modalSize\\\": {\\n            \\\"type\\\": \\\"size\\\",\\n            \\\"style\\\": {\\n              \\\"width\\\": \\\"480px\\\"\\n            }\\n          },\\n          \\\"setting\\\": {\\n            \\\"type\\\": \\\"setting\\\",\\n            \\\"value\\\": {\\n              \\\"device-type\\\": \\\"all\\\",\\n              \\\"prerequisiteType\\\": \\\"single\\\"\\n            }\\n          }\\n        },\\n        \\\"basic_setting\\\": {\\n          \\\"sections\\\": {\\n            \\\"activity\\\": [\\n              \\\"selectActivity\\\"\\n            ],\\n            \\\"activityUrl\\\": [\\n              \\\"activityUrl\\\"\\n            ]\\n          },\\n          \\\"selectActivity\\\": {\\n            \\\"type\\\": \\\"select\\\",\\n            \\\"activity_name\\\": \\\"tzt-满减活动-吸引客户购买更多\\\",\\n            \\\"prerequisite_array\\\": [\\n              {\\n                \\\"greater_than_or_equal_to\\\": \\\"123\\\",\\n                \\\"value\\\": \\\"1\\\",\\n                \\\"value_event_type\\\": \\\"\\\",\\n                \\\"value_condition\\\": \\\"less_than_or_equal_to\\\",\\n                \\\"target_type\\\": \\\"\\\",\\n                \\\"target_data\\\": [],\\n                \\\"target_data_variant\\\": [],\\n                \\\"target_data_collection\\\": []\\n              }\\n            ]\\n          },\\n          \\\"activityUrl\\\": {\\n            \\\"type\\\": \\\"jumpUrl\\\",\\n            \\\"value\\\": \\\"/promotions/rebate/47d2a827-e914-49e0-a14c-3161edb1ae9e\\\"\\n          }\\n        },\\n        \\\"advanced_setting\\\": {\\n          \\\"sections\\\": {\\n            \\\"modal\\\": [\\n              \\\"modal\\\"\\n            ],\\n            \\\"content\\\": [\\n              \\\"title\\\",\\n              \\\"couponContent\\\",\\n              \\\"declaration\\\",\\n              \\\"mainButton\\\",\\n              \\\"closeButton\\\",\\n              \\\"coupon\\\"\\n            ]\\n          },\\n          \\\"modal\\\": {\\n            \\\"type\\\": \\\"gradient\\\",\\n            \\\"style\\\": {\\n              \\\"image\\\": \\\"none\\\",\\n              \\\"background\\\": \\\"linear-gradient(180deg, #ff704f, #ff274b, #ff274b) no-repeat scroll center center/cover\\\",\\n              \\\"background1\\\": \\\"#ff704f\\\",\\n              \\\"background2\\\": \\\"#ff274b\\\",\\n              \\\"backgroundImageTemplate\\\": \\\"linear-gradient(180deg, $bg1, $bg2, $bg2)\\\"\\n            }\\n          },\\n          \\\"title\\\": {\\n            \\\"type\\\": \\\"text\\\",\\n            \\\"value\\\": \\\"<span style=\\\\\\\"font-size: 26px; font-weight: 700; font-family: Lato, Lato-Black; color: #fefffe;\\\\\\\" data-mce-style=\\\\\\\"font-size: 26px; font-weight: 700; font-family: Lato, Lato-Black; color: #fefffe;\\\\\\\">SPECIAL OFFER</span>\\\",\\n            \\\"style\\\": {\\n              \\\"background-color\\\": \\\"#FF704F\\\"\\n            }\\n          },\\n          \\\"couponContent\\\": {\\n            \\\"type\\\": \\\"text\\\",\\n            \\\"titleName\\\": \\\"popups.activity_text\\\",\\n            \\\"single\\\": {\\n              \\\"amount_percentage\\\": {\\n                \\\"value\\\": \\\"<div style=\\\\\\\"color:#ff2f4b;font-family: Lato, Lato-Regular;white-space: nowrap;\\\\\\\" data-mce-style=\\\\\\\"color:#ff2f4b;font-family: Lato, Lato-Regular;white-space: nowrap;\\\\\\\">\\\\n              <div style=\\\\\\\"display: flex;justify-content: center;\\\\\\\" data-mce-style=\\\\\\\"display: flex;justify-content: center;\\\\\\\">\\\\n                <span style=\\\\\\\"font-size: 88px; color: #ff2f4b;line-height: 1em;\\\\\\\" data-mce-style=\\\\\\\"display: block;font-size: 88px; color: inherit;line-height: 1em;\\\\\\\">{{rebate}}</span>\\\\n                <div style=\\\\\\\"margin-left: 12px;display: flex;flex-direction: column;justify-content: center;\\\\\\\" data-mce-style=\\\\\\\"margin-left: 5px;display: flex;flex-direction: column;justify-content: center;\\\\\\\">\\\\n                  <span style=\\\\\\\"font-size: 48px;display: block;line-height: 1em;\\\\\\\" data-mce-style=\\\\\\\"display: block;font-size: 48px; color: #ff2f4b;line-height: 1em;\\\\\\\">%</span>\\\\n                  <span style=\\\\\\\"color:#b06410;font-size: 24px;line-height: 1em;\\\\\\\" data-mce-style=\\\\\\\"color:#b06410;font-size: 24px;line-height: 1em;\\\\\\\">OFF</span>\\\\n                </div>\\\\n              </div>\\\\n              <div style=\\\\\\\"margin-top: 10px;color: #AE6002;font-size: 24px;line-height: 1em;\\\\\\\" data-mce-style=\\\\\\\"margin-top: 10px;color: #AE6002;font-size: 24px;line-height: 1em;\\\\\\\">ON ORDER OF</div>\\\\n              <div style=\\\\\\\"margin-top: 10px;font-size: 32px; font-weight: bold; color: #ff2f4b;line-height: 1em; white-space: nowrap;\\\\\\\" data-mce-style=\\\\\\\"margin-top: 10px;font-size: 32px; font-weight: bold; color: #ff2f4b;line-height: 1em; white-space: nowrap;\\\\\\\">{{amount}}+</div>\\\\n              </div>\\\\n              \\\",\\n                \\\"style\\\": {\\n                  \\\"background-color\\\": \\\"#FFFBF2\\\"\\n                }\\n              },\\n              \\\"item_fixed_amount\\\": {\\n                \\\"value\\\": \\\"<div style=\\\\\\\"color:#ff2f4b;font-family: Lato, Lato-Regular;white-space: nowrap;\\\\\\\" data-mce-style=\\\\\\\"color:#ff2f4b;font-family: Lato, Lato-Regular;white-space: nowrap;\\\\\\\">\\\\n              <span class=\\\\\\\"popups___need_scale\\\\\\\" style=\\\\\\\"line-height: 1em;display: block;font-size: 60px; color: #ff2f4b;font-weight: bold; white-space: nowrap;\\\\\\\" data-mce-style=\\\\\\\"line-height: 1em;display: block;font-size: 60px; color: #ff2f4b;font-weight: bold; white-space: nowrap;\\\\\\\">-{{rebate}}</span>\\\\n              <div class=\\\\\\\"popups___needless_scale\\\\\\\" style=\\\\\\\"line-height: 1em;margin-top: 14px;font-size: 34px; color: #ff2f4b;font-weight: bold;\\\\\\\" data-mce-style=\\\\\\\"line-height: 1em;margin-top: 14px;font-size: 34px; color: #ff2f4b;font-weight: bold;\\\\\\\">{{amount}} <span style=\\\\\\\"color: #AE6002;font-weight: normal;\\\\\\\" data-mce-style=\\\\\\\"color: #AE6002;font-weight: normal;\\\\\\\">ITEMS+</span></div>\\\\n              <div class=\\\\\\\"popups___needless_scale\\\\\\\" style=\\\\\\\"line-height: 1em;margin-top: 10px;color: #AE6002;font-size: 24px;opacity: 0.3;\\\\\\\" data-mce-style=\\\\\\\"line-height: 1em;margin-top: 10px;color: #AE6002;font-size: 24px;opacity: 0.3;\\\\\\\">FOR ORDER OVER</div>\\\\n              </div>\\\",\\n                \\\"style\\\": {\\n                  \\\"background-color\\\": \\\"#FFFBF2\\\"\\n                }\\n              },\\n              \\\"fixed_amount\\\": {\\n                \\\"value\\\": \\\"<div style=\\\\\\\"text-align: center;font-family: Lato, Lato-Regular;white-space: nowrap;\\\\\\\" data-mce-style=\\\\\\\"text-align: center;font-family: Lato, Lato-Regular;white-space: nowrap;\\\\\\\">\\\\n                <span class=\\\\\\\"popups___need_scale\\\\\\\" style=\\\\\\\"display: block;font-size: 64px; font-weight: bold; color: #ff2f4b;line-height: 1em; white-space: nowrap;\\\\\\\" data-mce-style=\\\\\\\"display: block;font-size: 64px; font-weight: bold; color: #ff2f4b;line-height: 1em; white-space: nowrap;\\\\\\\">-{{rebate}}</span>\\\\n                <span class=\\\\\\\"popups___need_scale\\\\\\\" style=\\\\\\\"display: block;font-size: 40px; color: #b06410;margin-top: 16px;line-height: 1em;\\\\\\\" data-mce-style=\\\\\\\"display: block;font-size: 40px; color: #b06410;margin-top: 16px;line-height: 1em;\\\\\\\">BUY {{amount}}</span>\\\\n              </div>\\\\n              \\\",\\n                \\\"style\\\": {\\n                  \\\"background-color\\\": \\\"#FFFBF2\\\"\\n                }\\n              },\\n              \\\"percentage\\\": {\\n                \\\"across\\\": {\\n                  \\\"value\\\": \\\"<div style=\\\\\\\"color:#ff2f4b;font-family: Lato, Lato-Regular;white-space: nowrap;\\\\\\\" data-mce-style=\\\\\\\"color:#ff2f4b;font-family: Lato, Lato-Regular;white-space: nowrap;\\\\\\\">\\\\n                <div style=\\\\\\\"display: flex;justify-content: center;\\\\\\\" data-mce-style=\\\\\\\"display: flex;justify-content: center;\\\\\\\">\\\\n                  <span style=\\\\\\\"font-size: 88px; color: #ff2f4b;line-height: 1em;\\\\\\\" data-mce-style=\\\\\\\"display: block;font-size: 88px; color: inherit;line-height: 1em;\\\\\\\">{{rebate}}</span>\\\\n                  <div style=\\\\\\\"margin-left: 12px;display: flex;flex-direction: column;justify-content: center;\\\\\\\" data-mce-style=\\\\\\\"margin-left: 5px;display: flex;flex-direction: column;justify-content: center;\\\\\\\">\\\\n                    <span style=\\\\\\\"font-size: 48px;display: block;line-height: 1em;\\\\\\\" data-mce-style=\\\\\\\"display: block;font-size: 48px; color: #ff2f4b;line-height: 1em;\\\\\\\">%</span>\\\\n                    <span style=\\\\\\\"color:#b06410;font-size: 24px;line-height: 1em;\\\\\\\" data-mce-style=\\\\\\\"color:#b06410;font-size: 24px;line-height: 1em;\\\\\\\">OFF</span>\\\\n                  </div>\\\\n                </div>\\\\n                <div style=\\\\\\\"margin-top: 10px;font-size: 36px; color: #ff2f4b;line-height: 1em;\\\\\\\" data-mce-style=\\\\\\\"margin-top: 10px;font-size: 36px; color: #ff2f4b;line-height: 1em;\\\\\\\"><span style=\\\\\\\"font-weight: bold;\\\\\\\" data-mce-style=\\\\\\\"font-weight: bold;\\\\\\\">{{amount}}</span> <span style=\\\\\\\"color: #AE6002;\\\\\\\" data-mce-style=\\\\\\\"color: #AE6002;\\\\\\\">ITEMS+</span></div>\\\\n                <div style=\\\\\\\"margin-top: 10px;color: #AE6002;font-size: 24px;opacity: 0.3;line-height: 1em;\\\\\\\" data-mce-style=\\\\\\\"margin-top: 10px;color: #AE6002;font-size: 24px;opacity: 0.3;\\\\\\\">FOR ORDER OVER</div>\\\\n                </div>\\\"\\n                },\\n                \\\"each\\\": {\\n                  \\\"value\\\": \\\"<div style=\\\\\\\"color:#ff2f4b;font-family: Lato, Lato-Regular;white-space: nowrap;\\\\\\\" data-mce-style=\\\\\\\"color:#ff2f4b;font-family: Lato, Lato-Regular;white-space: nowrap;\\\\\\\">\\\\n                <div style=\\\\\\\"display: flex;justify-content: center;\\\\\\\" data-mce-style=\\\\\\\"display: flex;justify-content: center;\\\\\\\">\\\\n                  <span style=\\\\\\\"font-size: 88px; color: #ff2f4b;line-height: 1em;\\\\\\\" data-mce-style=\\\\\\\"display: block;font-size: 88px; color: inherit;line-height: 1em;\\\\\\\">{{rebate}}</span>\\\\n                  <div style=\\\\\\\"margin-left: 12px;display: flex;flex-direction: column;justify-content: center;\\\\\\\" data-mce-style=\\\\\\\"margin-left: 5px;display: flex;flex-direction: column;justify-content: center;\\\\\\\">\\\\n                    <span style=\\\\\\\"font-size: 48px;display: block;line-height: 1em;\\\\\\\" data-mce-style=\\\\\\\"display: block;font-size: 48px; color: #ff2f4b;line-height: 1em;\\\\\\\">%</span>\\\\n                    <span style=\\\\\\\"color:#ff2f4b;font-size: 24px;line-height: 1em;\\\\\\\" data-mce-style=\\\\\\\"color:#ff2f4b;font-size: 24px;line-height: 1em;\\\\\\\">OFF</span>\\\\n                  </div>\\\\n                </div>\\\\n                <div style=\\\\\\\"margin-top: 10px;color: #AE6002;font-size: 20px;opacity: 0.3;line-height: 1em;\\\\\\\" data-mce-style=\\\\\\\"margin-top: 10px;color: #AE6002;font-size: 20px;opacity: 0.3;\\\\\\\">FOR THE</div>\\\\n                <div style=\\\\\\\"margin-top: 10px;font-size: 24px; color: #AE6002;line-height: 1em;\\\\\\\" data-mce-style=\\\\\\\"margin-top: 10px;font-size: 24px; color: #AE6002;line-height: 1em;\\\\\\\">{{amount}} <span style=\\\\\\\"color: #AE6002;\\\\\\\" data-mce-style=\\\\\\\"color: #AE6002;\\\\\\\">ITEM</span></div>\\\\n                </div>\\\"\\n                },\\n                \\\"style\\\": {\\n                  \\\"background-color\\\": \\\"#FFFBF2\\\"\\n                }\\n              }\\n            }\\n          },\\n          \\\"coupon\\\": {\\n            \\\"type\\\": \\\"overlay\\\",\\n            \\\"titleName\\\": \\\"popups.coupons\\\",\\n            \\\"style\\\": {\\n              \\\"background-color\\\": \\\"#FFFBF2\\\"\\n            }\\n          },\\n          \\\"declaration\\\": {\\n            \\\"type\\\": \\\"text\\\",\\n            \\\"titleName\\\": \\\"popups.activity_declaration\\\",\\n            \\\"value\\\": \\\"<span style=\\\\\\\"font-size: 14px; color: #ffffff;font-family: Lato, Lato-Regular;\\\\\\\" data-mce-style=\\\\\\\"font-size: 14px; color: #ffffff;font-family: Lato, Lato-Regular;\\\\\\\">*Discounts would automatically apply when placing an order</span>\\\",\\n            \\\"style\\\": {\\n              \\\"background-color\\\": \\\"#FF274B\\\"\\n            }\\n          },\\n          \\\"mainButton\\\": {\\n            \\\"type\\\": \\\"button\\\",\\n            \\\"value\\\": \\\"<span style=\\\\\\\"color: #FF0022; font-size: 16px; font-weight: bold;font-family: Lato, Lato-Regular;\\\\\\\" data-mce-style=\\\\\\\"color: #FF0022; font-size: 16px; font-weight: bold;font-family: Lato, Lato-Regular;\\\\\\\">COLLECT ALL</span>\\\",\\n            \\\"style\\\": {\\n              \\\"background-color\\\": \\\"#fff3be\\\",\\n              \\\"border-color\\\": \\\"#fff3be\\\"\\n            }\\n          },\\n          \\\"closeButton\\\": {\\n            \\\"type\\\": \\\"closeBtn\\\",\\n            \\\"modifier\\\": \\\"show\\\",\\n            \\\"toolShowCloseBtn\\\": false,\\n            \\\"showCloseBtn\\\": true,\\n            \\\"style\\\": {\\n              \\\"color\\\": \\\"#ffffff\\\"\\n            }\\n          }\\n        },\\n        \\\"reset\\\": []\\n      },\\n      \\\"conversion_rate\\\": \\\"100.00\\\",\\n      \\\"coupon_code\\\": null,\\n      \\\"create_type\\\": \\\"manual\\\",\\n      \\\"discount_type\\\": \\\"fixed_amount\\\",\\n      \\\"ends_at\\\": \\\"-1\\\",\\n      \\\"exposure\\\": \\\"1\\\",\\n      \\\"frequency_num\\\": \\\"1\\\",\\n      \\\"frequency_type\\\": \\\"6\\\",\\n      \\\"id\\\": \\\"4b8395bb-09a0-4bb1-84c9-749375d9562b\\\",\\n      \\\"name\\\": \\\"tzt-满减活动-吸引客户购买更多\\\",\\n      \\\"opportunity\\\": \\\"1\\\",\\n      \\\"order_amount\\\": {\\n        \\\"limit\\\": 0,\\n        \\\"min\\\": null,\\n        \\\"max\\\": null\\n      },\\n      \\\"order_num\\\": {\\n        \\\"limit\\\": 0,\\n        \\\"min\\\": null,\\n        \\\"max\\\": null\\n      },\\n      \\\"pages_type\\\": \\\"1\\\",\\n      \\\"progress\\\": \\\"ongoing\\\",\\n      \\\"resource_id\\\": \\\"\\\",\\n      \\\"starts_at\\\": \\\"1682652084\\\",\\n      \\\"status\\\": \\\"1\\\",\\n      \\\"subscribe\\\": \\\"1\\\",\\n      \\\"target_user\\\": \\\"1\\\",\\n      \\\"theme\\\": \\\"template_rebate_1\\\",\\n      \\\"type\\\": \\\"popups\\\",\\n      \\\"user_login\\\": \\\"0\\\",\\n      \\\"user_subscribe\\\": \\\"0\\\",\\n      \\\"wait_seconds\\\": \\\"0\\\",\\n      \\\"activity_detail\\\": {\\n        \\\"id\\\": \\\"47d2a827-e914-49e0-a14c-3161edb1ae9e\\\",\\n        \\\"title\\\": \\\"tzt-满减活动-吸引客户购买更多\\\",\\n        \\\"price_rule_id\\\": \\\"1d5c3eba-ac32-49a5-8961-b5b705e61db1\\\",\\n        \\\"discount_type\\\": \\\"fixed_amount\\\",\\n        \\\"starts_at\\\": \\\"1682652084\\\",\\n        \\\"ends_at\\\": \\\"-1\\\",\\n        \\\"status\\\": \\\"1\\\",\\n        \\\"popups_setting\\\": \\\"close\\\",\\n        \\\"global_show_text\\\": \\\"close\\\",\\n        \\\"popups_id\\\": \\\"\\\",\\n        \\\"prerequisite_subtotal_range\\\": [\\n          {\\n            \\\"greater_than_or_equal_to\\\": \\\"123\\\",\\n            \\\"value\\\": \\\"1\\\",\\n            \\\"value_event_type\\\": \\\"\\\",\\n            \\\"value_condition\\\": \\\"less_than_or_equal_to\\\",\\n            \\\"target_type\\\": \\\"\\\",\\n            \\\"target_data\\\": [],\\n            \\\"target_data_variant\\\": [],\\n            \\\"target_data_collection\\\": []\\n          }\\n        ],\\n        \\\"prerequisite_quantity_range\\\": null,\\n        \\\"prerequisite_customer_range\\\": null,\\n        \\\"prerequisite_threshold_subtotal_range\\\": null,\\n        \\\"prerequisite_threshold_quantity_range\\\": null,\\n        \\\"allocation_method\\\": \\\"across\\\"\\n      }\\n    }\\n  ]\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4b3f3945-02d8-44b3-9da3-42e5eb718a11",
+          "name": "Get Salespop Config",
+          "request": {
+            "name": "Get Salespop Config",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "openapi",
+                "2022-01",
+                "salespops",
+                "config"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{subdomain}}",
+                  "key": "subdomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e341ec10-3350-4565-9486-b8663a12f741",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "salespops",
+                    "config"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "{\n    \"template_config\": {\n        \"template\": \"template1\", // 浮窗模版1/2/3\n        \"replace_switch\": false,\n        \"default_time\": \"24\",\n        \"anonymity_switch\": false,\n    },\n    \"order_status\": \"all\",// 商品范围 all/paid\n    \"time\": \"3\",    //商品范围 -> 推荐的订单产生于最近{}\n    \"time_unit\": \"month\",//商品范围 -> 推荐的订单产生于最近的单位\n    \"status\": \"open\", // 状态 开启/关闭\n    ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "367f6c12-01f6-4db8-8872-d1be50cbbcc0",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "salespops",
+                    "config"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d3e1afb8-1e33-414a-8b19-ff2c07479d49",
+          "name": "Get Salespop Datagraph",
+          "request": {
+            "name": "Get Salespop Datagraph",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "openapi",
+                "2022-01",
+                "salespops",
+                "datagraph"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "(Required) The  data type, example: `banner`"
+                },
+                {
+                  "disabled": false,
+                  "key": "subtype",
+                  "value": "<string>",
+                  "description": "(Required) The data subtype, example: `sales_pop_exposure`"
+                },
+                {
+                  "disabled": false,
+                  "key": "begin_time",
+                  "value": "<dateTime>",
+                  "description": "(Required) The `datagraph` begin time, in timestamp."
+                },
+                {
+                  "disabled": false,
+                  "key": "end_time",
+                  "value": "<dateTime>",
+                  "description": "(Required) The `datagraph` end time, in timestamp."
+                },
+                {
+                  "disabled": false,
+                  "key": "tz",
+                  "value": "<integer>",
+                  "description": "(Required) The time zone, example:  `8`"
+                }
+              ],
+              "variable": [
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{subdomain}}",
+                  "key": "subdomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5a52fddc-1bbb-4359-9d11-9f503a202330",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "salespops",
+                    "datagraph"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "subtype",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "begin_time",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end_time",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "tz",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "{\n  \"checkout\": 0,\n  \"click\": 0,\n  \"exposure\": 0,\n  \"purchase\": 0,\n  \"sales\": 0\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ca1ea9ad-b26e-4b52-84cb-24637f2c5079",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "salespops",
+                    "datagraph"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "subtype",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "begin_time",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end_time",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "tz",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "developer",
+      "key": "subdomain"
+    },
+    {
+      "type": "string",
+      "value": "https://{{subdomain}}.myshoplaza.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "access-token"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "4e7015a3-28db-4801-9f4a-27a1c5c3ed14",
+    "name": "SPZ Admin Access Discounts API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

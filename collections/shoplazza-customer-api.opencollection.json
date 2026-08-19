@@ -1,0 +1,313 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SPZ Admin Access Customer API",
+    "version": "2022.01"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "access-token",
+      "value": "{{access-token}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Customer",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Customer List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/customers",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "ID list, separate with comma, e.g. `701670d5-4afd-40b5-8d4f-7e0e55683849,da1bb9af-2489-40df-a15e-f54abdf7fd86`"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "record count in every page, maximum: `250`"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "page number"
+              },
+              {
+                "name": "created_at_min",
+                "value": "",
+                "type": "query",
+                "description": "filter customer created at after date, e.g. `2016-01-18T23:41:00Z`"
+              },
+              {
+                "name": "created_at_max",
+                "value": "",
+                "type": "query",
+                "description": "filter customer created_at before date, e.g. `2016-01-18T23:41:00Z`"
+              },
+              {
+                "name": "updated_at_min",
+                "value": "",
+                "type": "query",
+                "description": "filter customer last updated at after, e.g. `2016-01-18T23:41:00Z`"
+              },
+              {
+                "name": "updated_at_max",
+                "value": "",
+                "type": "query",
+                "description": "filter customer last updated at before date, e.g. `2016-01-18T23:41:00Z`"
+              },
+              {
+                "name": "email",
+                "value": "",
+                "type": "query",
+                "description": "filter by email, e.g. `abc@def.com`"
+              }
+            ]
+          },
+          "docs": "Customer List"
+        },
+        {
+          "info": {
+            "name": "Create Customer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/customers",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Customer"
+        },
+        {
+          "info": {
+            "name": "Customer Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/customers/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Customer's ID"
+              }
+            ]
+          },
+          "docs": "Customer Details"
+        },
+        {
+          "info": {
+            "name": "Update Customer",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/customers/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Customer's ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update Customer"
+        },
+        {
+          "info": {
+            "name": "Customer Count",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/customers/count"
+          },
+          "docs": "Customer Count"
+        },
+        {
+          "info": {
+            "name": "Get Address List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/customers/:customer_id/addresses",
+            "params": [
+              {
+                "name": "customer_id",
+                "value": "",
+                "type": "path",
+                "description": "customer id"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "result per pge, maximum: `250`"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number"
+              }
+            ]
+          },
+          "docs": "Get Address List"
+        },
+        {
+          "info": {
+            "name": "Create Address",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/customers/:customer_id/addresses",
+            "params": [
+              {
+                "name": "customer_id",
+                "value": "",
+                "type": "path",
+                "description": "Customer's ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Address"
+        },
+        {
+          "info": {
+            "name": "Get Address Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/customers/:customer_id/addresses/:address_id",
+            "params": [
+              {
+                "name": "customer_id",
+                "value": "",
+                "type": "path",
+                "description": "Customer's ID"
+              },
+              {
+                "name": "address_id",
+                "value": "",
+                "type": "path",
+                "description": "Address's ID"
+              }
+            ]
+          },
+          "docs": "Get Address Details"
+        },
+        {
+          "info": {
+            "name": "Update Address",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/customers/:customer_id/addresses/:address_id",
+            "params": [
+              {
+                "name": "customer_id",
+                "value": "",
+                "type": "path",
+                "description": "Cusomer's ID"
+              },
+              {
+                "name": "address_id",
+                "value": "",
+                "type": "path",
+                "description": "Address's ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update Address"
+        },
+        {
+          "info": {
+            "name": "Delete Address",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/customers/:customer_id/addresses/:address_id",
+            "params": [
+              {
+                "name": "customer_id",
+                "value": "",
+                "type": "path",
+                "description": "Customer's ID"
+              },
+              {
+                "name": "address_id",
+                "value": "",
+                "type": "path",
+                "description": "Address's ID"
+              }
+            ]
+          },
+          "docs": "Delete Address"
+        },
+        {
+          "info": {
+            "name": "Set Default Address",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/customers/:customer_id/addresses/:address_id/default",
+            "params": [
+              {
+                "name": "customer_id",
+                "value": "",
+                "type": "path",
+                "description": "Customer's ID"
+              },
+              {
+                "name": "address_id",
+                "value": "",
+                "type": "path",
+                "description": "Address's ID"
+              }
+            ]
+          },
+          "docs": "Set Default Address"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

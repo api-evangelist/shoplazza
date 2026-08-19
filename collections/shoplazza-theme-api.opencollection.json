@@ -1,0 +1,285 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SPZ Admin Access Theme API",
+    "version": "2022.01"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "access-token",
+      "value": "{{access-token}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Theme",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Theme",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/themes/:theme_id",
+            "params": [
+              {
+                "name": "theme_id",
+                "value": "",
+                "type": "path",
+                "description": "Theme ID"
+              }
+            ]
+          },
+          "docs": "Get the theme information"
+        },
+        {
+          "info": {
+            "name": "Delete Theme",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/themes/:theme_id",
+            "params": [
+              {
+                "name": "theme_id",
+                "value": "",
+                "type": "path",
+                "description": "Theme ID"
+              }
+            ]
+          },
+          "docs": "Delete the specified store theme"
+        },
+        {
+          "info": {
+            "name": "Get Default Theme",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/themes/default-theme"
+          },
+          "docs": "Get information about the currently published theme"
+        },
+        {
+          "info": {
+            "name": "Get Theme List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/themes"
+          },
+          "docs": "Get a list of store themes"
+        },
+        {
+          "info": {
+            "name": "Publish Theme",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/themes/:theme_id/publish",
+            "params": [
+              {
+                "name": "theme_id",
+                "value": "",
+                "type": "path",
+                "description": "Theme ID"
+              }
+            ]
+          },
+          "docs": "Publish the specified store theme"
+        },
+        {
+          "info": {
+            "name": "Upload Theme",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/themes/upload",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Upload the local theme file (compressed package file) to the corresponding store theme. After the upload succeeds, a new theme is generated in the theme list"
+        },
+        {
+          "info": {
+            "name": "Download Theme",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/themes/:theme_id/download",
+            "params": [
+              {
+                "name": "theme_id",
+                "value": "",
+                "type": "path",
+                "description": "Theme ID"
+              }
+            ]
+          },
+          "docs": "Download the store theme and generate a zip file"
+        },
+        {
+          "info": {
+            "name": "Get Theme Doctree",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/themes/:theme_id/doctree",
+            "params": [
+              {
+                "name": "theme_id",
+                "value": "",
+                "type": "path",
+                "description": "Theme ID"
+              }
+            ]
+          },
+          "docs": "Obtain the theme file directory, such as assets, sections, snippets, layout"
+        },
+        {
+          "info": {
+            "name": "Get Theme File",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/themes/:theme_id/doc",
+            "params": [
+              {
+                "name": "theme_id",
+                "value": "",
+                "type": "path",
+                "description": "Theme ID"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get theme files"
+        },
+        {
+          "info": {
+            "name": "Create Theme File",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/themes/:theme_id/doc",
+            "params": [
+              {
+                "name": "theme_id",
+                "value": "",
+                "type": "path",
+                "description": "Theme ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creating a theme file"
+        },
+        {
+          "info": {
+            "name": "Update Theme File",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/themes/:theme_id/doc",
+            "params": [
+              {
+                "name": "theme_id",
+                "value": "",
+                "type": "path",
+                "description": "Theme ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updating the theme file"
+        },
+        {
+          "info": {
+            "name": "Delete Theme File",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/themes/:theme_id/doc",
+            "params": [
+              {
+                "name": "theme_id",
+                "value": "",
+                "type": "path",
+                "description": "Theme ID"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Delete theme files"
+        },
+        {
+          "info": {
+            "name": "Create Theme Assets",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{subdomain}.myshoplaza.com/openapi/2022-01/themes/:theme_id/doc-asset",
+            "params": [
+              {
+                "name": "theme_id",
+                "value": "",
+                "type": "path",
+                "description": "Theme ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create theme files for static assets such as PNG, JPG, and SVG"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

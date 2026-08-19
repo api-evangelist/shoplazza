@@ -1,0 +1,1773 @@
+{
+  "item": [
+    {
+      "id": "a2eb59f1-eadb-4369-a8f6-43ca52bd002d",
+      "name": "Customer",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "960d10db-b414-4128-9ec1-5a4e303d492f",
+          "name": "Customer List",
+          "request": {
+            "name": "Customer List",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "openapi",
+                "2022-01",
+                "customers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ids",
+                  "value": "<string>",
+                  "description": "ID list, separate with comma, e.g. `701670d5-4afd-40b5-8d4f-7e0e55683849,da1bb9af-2489-40df-a15e-f54abdf7fd86`"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "10",
+                  "description": "record count in every page, maximum: `250`"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "page number"
+                },
+                {
+                  "disabled": false,
+                  "key": "created_at_min",
+                  "value": "<string>",
+                  "description": "filter customer created at after date, e.g. `2016-01-18T23:41:00Z`"
+                },
+                {
+                  "disabled": false,
+                  "key": "created_at_max",
+                  "value": "<string>",
+                  "description": "filter customer created_at before date, e.g. `2016-01-18T23:41:00Z`"
+                },
+                {
+                  "disabled": false,
+                  "key": "updated_at_min",
+                  "value": "<string>",
+                  "description": "filter customer last updated at after, e.g. `2016-01-18T23:41:00Z`"
+                },
+                {
+                  "disabled": false,
+                  "key": "updated_at_max",
+                  "value": "<string>",
+                  "description": "filter customer last updated at before date, e.g. `2016-01-18T23:41:00Z`"
+                },
+                {
+                  "disabled": false,
+                  "key": "email",
+                  "value": "<string>",
+                  "description": "filter by email, e.g. `abc@def.com`"
+                }
+              ],
+              "variable": [
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{subdomain}}",
+                  "key": "subdomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e7ae96e8-b94c-45da-81be-4751c4fbee4d",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "customers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "created_at_min",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "created_at_max",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "updated_at_min",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "updated_at_max",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "email",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"customers\\\": [\\n    {\\n      \\\"id\\\": \\\"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\\\",\\n      \\\"first_name\\\": \\\"Lee\\\",\\n      \\\"last_name\\\": \\\"Le\\\",\\n      \\\"name\\\": \\\"Lee Le\\\",\\n      \\\"email\\\": \\\"person207@example.com\\\",\\n      \\\"phone\\\": \\\"+8615323233434\\\",\\n      \\\"accepts_marketing\\\": false,\\n      \\\"subscribed_flag\\\": 6,\\n      \\\"sms_subscribed_flag\\\": 5,\\n      \\\"accepts_sms_marketing\\\": true,\\n      \\\"orders_count\\\": 10,\\n      \\\"last_order_at\\\": \\\"2022-11-15T08:43:50Z\\\",\\n      \\\"total_spent\\\": \\\"100.10\\\",\\n      \\\"tags\\\": \\\"a, b\\\",\\n      \\\"created_at\\\": \\\"2014-04-25T16:15:47Z\\\",\\n      \\\"updated_at\\\": \\\"2014-04-25T16:15:47Z\\\",\\n      \\\"default_address\\\": {\\n        \\\"id\\\": \\\"2ffa86e9-f3f4-4684-84b6-05399ef19709\\\",\\n        \\\"customer_id\\\": \\\"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\\\",\\n        \\\"first_name\\\": \\\"Lee\\\",\\n        \\\"last_name\\\": \\\"Le\\\",\\n        \\\"name\\\": \\\"Lee Le\\\",\\n        \\\"company\\\": \\\"abc company\\\",\\n        \\\"address1\\\": \\\"Chestnut Street 92\\\",\\n        \\\"address2\\\": \\\"\\\",\\n        \\\"city\\\": \\\"Louisville\\\",\\n        \\\"province\\\": \\\"Kentucky\\\",\\n        \\\"province_code\\\": \\\"KY\\\",\\n        \\\"country\\\": \\\"United States\\\",\\n        \\\"country_code\\\": \\\"US\\\",\\n        \\\"country_name\\\": \\\"United States\\\",\\n        \\\"zip\\\": \\\"40202\\\",\\n        \\\"phone\\\": \\\"+8615323233434\\\",\\n        \\\"default\\\": true\\n      },\\n      \\\"addresses\\\": [\\n        {\\n          \\\"id\\\": \\\"2ffa86e9-f3f4-4684-84b6-05399ef19709\\\",\\n          \\\"customer_id\\\": \\\"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\\\",\\n          \\\"first_name\\\": \\\"Lee\\\",\\n          \\\"last_name\\\": \\\"Le\\\",\\n          \\\"name\\\": \\\"Lee Le\\\",\\n          \\\"company\\\": \\\"abc company\\\",\\n          \\\"address1\\\": \\\"Chestnut Street 92\\\",\\n          \\\"address2\\\": \\\"\\\",\\n          \\\"city\\\": \\\"Louisville\\\",\\n          \\\"province\\\": \\\"Kentucky\\\",\\n          \\\"province_code\\\": \\\"KY\\\",\\n          \\\"country\\\": \\\"United States\\\",\\n          \\\"country_code\\\": \\\"US\\\",\\n          \\\"country_name\\\": \\\"United States\\\",\\n          \\\"zip\\\": \\\"40202\\\",\\n          \\\"phone\\\": \\\"+8615323233434\\\",\\n          \\\"default\\\": true\\n        }\\n      ]\\n    }\\n  ]\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "705c2cfc-eaea-480b-8440-0d4e568c0da8",
+          "name": "Create Customer",
+          "request": {
+            "name": "Create Customer",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "openapi",
+                "2022-01",
+                "customers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{subdomain}}",
+                  "key": "subdomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"customer\": {\n    \"contact_type\": \"<string>\",\n    \"email\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"accepts_marketing\": true,\n    \"accepts_sms_marketing\": true,\n    \"password\": \"<string>\",\n    \"password_confirmation\": \"<string>\",\n    \"tags\": \"<string>\",\n    \"registered_at\": \"<string>\",\n    \"addresses\": [\n      {\n        \"first_name\": \"<string>\",\n        \"last_name\": \"<string>\",\n        \"country\": \"<string>\",\n        \"country_code\": \"<string>\",\n        \"email\": \"<string>\",\n        \"address1\": \"<string>\",\n        \"address2\": \"<string>\",\n        \"area\": \"<string>\",\n        \"city\": \"<string>\",\n        \"province\": \"<string>\",\n        \"province_code\": \"<string>\",\n        \"company\": \"<string>\",\n        \"phone\": \"<string>\",\n        \"phone_area_code\": \"<string>\",\n        \"zip\": \"<string>\",\n        \"gender\": \"<string>\",\n        \"default\": true\n      },\n      {\n        \"first_name\": \"<string>\",\n        \"last_name\": \"<string>\",\n        \"country\": \"<string>\",\n        \"country_code\": \"<string>\",\n        \"email\": \"<string>\",\n        \"address1\": \"<string>\",\n        \"address2\": \"<string>\",\n        \"area\": \"<string>\",\n        \"city\": \"<string>\",\n        \"province\": \"<string>\",\n        \"province_code\": \"<string>\",\n        \"company\": \"<string>\",\n        \"phone\": \"<string>\",\n        \"phone_area_code\": \"<string>\",\n        \"zip\": \"<string>\",\n        \"gender\": \"<string>\",\n        \"default\": true\n      }\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b52c4449-fbfc-4e24-938e-f37136a01677",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "customers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customer\": {\n    \"contact_type\": \"<string>\",\n    \"email\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"accepts_marketing\": true,\n    \"accepts_sms_marketing\": true,\n    \"password\": \"<string>\",\n    \"password_confirmation\": \"<string>\",\n    \"tags\": \"<string>\",\n    \"registered_at\": \"2024-03-11T03:32:00Z\",\n    \"addresses\": [\n      {\n        \"first_name\": \"<string>\",\n        \"last_name\": \"<string>\",\n        \"country\": \"<string>\",\n        \"country_code\": \"<string>\",\n        \"email\": \"<string>\",\n        \"address1\": \"<string>\",\n        \"address2\": \"<string>\",\n        \"area\": \"<string>\",\n        \"city\": \"<string>\",\n        \"province\": \"<string>\",\n        \"province_code\": \"<string>\",\n        \"company\": \"<string>\",\n        \"phone\": \"<string>\",\n        \"phone_area_code\": \"<string>\",\n        \"zip\": \"<string>\",\n        \"gender\": \"<string>\",\n        \"default\": true\n      },\n      {\n        \"first_name\": \"<string>\",\n        \"last_name\": \"<string>\",\n        \"country\": \"<string>\",\n        \"country_code\": \"<string>\",\n        \"email\": \"<string>\",\n        \"address1\": \"<string>\",\n        \"address2\": \"<string>\",\n        \"area\": \"<string>\",\n        \"city\": \"<string>\",\n        \"province\": \"<string>\",\n        \"province_code\": \"<string>\",\n        \"company\": \"<string>\",\n        \"phone\": \"<string>\",\n        \"phone_area_code\": \"<string>\",\n        \"zip\": \"<string>\",\n        \"gender\": \"<string>\",\n        \"default\": true\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"customer\\\": {\\n    \\\"id\\\": \\\"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\\\",\\n    \\\"first_name\\\": \\\"Lee\\\",\\n    \\\"last_name\\\": \\\"Le\\\",\\n    \\\"name\\\": \\\"Lee Le\\\",\\n    \\\"email\\\": \\\"person@example.com\\\",\\n    \\\"phone\\\": \\\"+8615423233434\\\",\\n    \\\"accepts_marketing\\\": false,\\n    \\\"subscribed_flag\\\": 6,\\n    \\\"sms_subscribed_flag\\\": 5,\\n    \\\"accepts_sms_marketing\\\": true,\\n    \\\"orders_count\\\": 0,\\n    \\\"total_spent\\\": \\\"0.0\\\",\\n    \\\"tags\\\": \\\"New Customer,Repeat Customer\\\",\\n    \\\"created_at\\\": \\\"2014-04-25T16:15:47-04:00\\\",\\n    \\\"updated_at\\\": \\\"2014-04-25T16:15:47-04:00\\\",\\n    \\\"default_address\\\": {\\n      \\\"id\\\": \\\"2ffa86e9-f3f4-4684-84b6-05399ef19709\\\",\\n      \\\"customer_id\\\": \\\"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\\\",\\n      \\\"first_name\\\": \\\"Lee\\\",\\n      \\\"last_name\\\": \\\"Le\\\",\\n      \\\"name\\\": \\\"Lee Le\\\",\\n      \\\"company\\\": \\\"abc company\\\",\\n      \\\"address1\\\": \\\"1 Rue des Carrieres\\\",\\n      \\\"address2\\\": \\\"\\\",\\n      \\\"city\\\": \\\"Louisville\\\",\\n      \\\"province\\\": \\\"Kentucky\\\",\\n      \\\"province_code\\\": \\\"KY\\\",\\n      \\\"country\\\": \\\"United States\\\",\\n      \\\"country_code\\\": \\\"US\\\",\\n      \\\"country_name\\\": \\\"United States\\\",\\n      \\\"zip\\\": \\\"40202\\\",\\n      \\\"phone\\\": \\\"+8615323233434\\\",\\n      \\\"default\\\": true\\n    },\\n    \\\"addresses\\\": [\\n      {\\n        \\\"id\\\": \\\"2ffa86e9-f3f4-4684-84b6-05399ef19709\\\",\\n        \\\"customer_id\\\": \\\"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\\\",\\n        \\\"first_name\\\": \\\"Lee\\\",\\n        \\\"last_name\\\": \\\"Le\\\",\\n        \\\"name\\\": \\\"Lee Le\\\",\\n        \\\"company\\\": \\\"abc company\\\",\\n        \\\"address1\\\": \\\"Chestnut Street 92\\\",\\n        \\\"address2\\\": \\\"\\\",\\n        \\\"city\\\": \\\"Louisville\\\",\\n        \\\"province\\\": \\\"Kentucky\\\",\\n        \\\"province_code\\\": \\\"KY\\\",\\n        \\\"country\\\": \\\"United States\\\",\\n        \\\"country_code\\\": \\\"US\\\",\\n        \\\"country_name\\\": \\\"United States\\\",\\n        \\\"zip\\\": \\\"40202\\\",\\n        \\\"phone\\\": \\\"+8615323233434\\\",\\n        \\\"default\\\": true\\n      }\\n    ]\\n  }\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "716b95b6-07ad-4ef8-ae28-7615713aec2e",
+              "name": "422",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "customers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customer\": {\n    \"contact_type\": \"<string>\",\n    \"email\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"accepts_marketing\": true,\n    \"accepts_sms_marketing\": true,\n    \"password\": \"<string>\",\n    \"password_confirmation\": \"<string>\",\n    \"tags\": \"<string>\",\n    \"registered_at\": \"2024-03-11T03:32:00Z\",\n    \"addresses\": [\n      {\n        \"first_name\": \"<string>\",\n        \"last_name\": \"<string>\",\n        \"country\": \"<string>\",\n        \"country_code\": \"<string>\",\n        \"email\": \"<string>\",\n        \"address1\": \"<string>\",\n        \"address2\": \"<string>\",\n        \"area\": \"<string>\",\n        \"city\": \"<string>\",\n        \"province\": \"<string>\",\n        \"province_code\": \"<string>\",\n        \"company\": \"<string>\",\n        \"phone\": \"<string>\",\n        \"phone_area_code\": \"<string>\",\n        \"zip\": \"<string>\",\n        \"gender\": \"<string>\",\n        \"default\": true\n      },\n      {\n        \"first_name\": \"<string>\",\n        \"last_name\": \"<string>\",\n        \"country\": \"<string>\",\n        \"country_code\": \"<string>\",\n        \"email\": \"<string>\",\n        \"address1\": \"<string>\",\n        \"address2\": \"<string>\",\n        \"area\": \"<string>\",\n        \"city\": \"<string>\",\n        \"province\": \"<string>\",\n        \"province_code\": \"<string>\",\n        \"company\": \"<string>\",\n        \"phone\": \"<string>\",\n        \"phone_area_code\": \"<string>\",\n        \"zip\": \"<string>\",\n        \"gender\": \"<string>\",\n        \"default\": true\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"errors\\\": [\\\"Email is invalid\\\"]\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e471d313-c78d-4019-996e-a6cca24e1db7",
+          "name": "Customer Details",
+          "request": {
+            "name": "Customer Details",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "openapi",
+                "2022-01",
+                "customers",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Customer's ID"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{subdomain}}",
+                  "key": "subdomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "02f2ff97-a1f1-4daf-9f9b-662826341f72",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "customers",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Customer's ID"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"customer\\\": {\\n    \\\"id\\\": \\\"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\\\",\\n    \\\"first_name\\\": \\\"Lee\\\",\\n    \\\"last_name\\\": \\\"Le\\\",\\n    \\\"name\\\": \\\"Lee Le\\\",\\n    \\\"email\\\": \\\"person207@example.com\\\",\\n    \\\"phone\\\": \\\"+8615323233434\\\",\\n    \\\"accepts_marketing\\\": false,\\n    \\\"accepts_sms_marketing\\\": true,\\n    \\\"subscribed_flag\\\": 6,\\n    \\\"sms_subscribed_flag\\\": 5,\\n    \\\"orders_count\\\": 10,\\n    \\\"last_order_at\\\": \\\"2022-11-15T08:43:50Z\\\",\\n    \\\"total_spent\\\": \\\"100.10\\\",\\n    \\\"tags\\\": \\\"a, b\\\",\\n    \\\"created_at\\\": \\\"2014-04-25T16:15:47Z\\\",\\n    \\\"updated_at\\\": \\\"2014-04-25T16:15:47Z\\\",\\n    \\\"default_address\\\": {\\n      \\\"id\\\": \\\"2ffa86e9-f3f4-4684-84b6-05399ef19709\\\",\\n      \\\"customer_id\\\": \\\"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\\\",\\n      \\\"first_name\\\": \\\"Lee\\\",\\n      \\\"last_name\\\": \\\"Le\\\",\\n      \\\"name\\\": \\\"Lee Le\\\",\\n      \\\"company\\\": \\\"abc company\\\",\\n      \\\"address1\\\": \\\"Chestnut Street 92\\\",\\n      \\\"address2\\\": \\\"\\\",\\n      \\\"city\\\": \\\"Louisville\\\",\\n      \\\"province\\\": \\\"Kentucky\\\",\\n      \\\"province_code\\\": \\\"KY\\\",\\n      \\\"country\\\": \\\"United States\\\",\\n      \\\"country_code\\\": \\\"US\\\",\\n      \\\"country_name\\\": \\\"United States\\\",\\n      \\\"zip\\\": \\\"40202\\\",\\n      \\\"phone\\\": \\\"+8615323233434\\\",\\n      \\\"default\\\": true\\n    },\\n    \\\"addresses\\\": [\\n      {\\n        \\\"id\\\": \\\"2ffa86e9-f3f4-4684-84b6-05399ef19709\\\",\\n        \\\"customer_id\\\": \\\"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\\\",\\n        \\\"first_name\\\": \\\"Lee\\\",\\n        \\\"last_name\\\": \\\"Le\\\",\\n        \\\"name\\\": \\\"Lee Le\\\",\\n        \\\"company\\\": \\\"abc company\\\",\\n        \\\"address1\\\": \\\"Chestnut Street 92\\\",\\n        \\\"address2\\\": \\\"\\\",\\n        \\\"city\\\": \\\"Louisville\\\",\\n        \\\"province\\\": \\\"Kentucky\\\",\\n        \\\"province_code\\\": \\\"KY\\\",\\n        \\\"country\\\": \\\"United States\\\",\\n        \\\"country_code\\\": \\\"US\\\",\\n        \\\"country_name\\\": \\\"United States\\\",\\n        \\\"zip\\\": \\\"40202\\\",\\n        \\\"phone\\\": \\\"+8615323233434\\\",\\n        \\\"default\\\": true\\n      }\\n    ]\\n  }\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f5d21d02-4158-4a3f-b7bc-fc773cfa49c7",
+              "name": "404",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "customers",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Customer's ID"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"errors\\\": [\\\"record not found\\\"]\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "10b4ed0d-9517-4207-9630-bce1f812f25e",
+          "name": "Update Customer",
+          "request": {
+            "name": "Update Customer",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "openapi",
+                "2022-01",
+                "customers",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Customer's ID"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{subdomain}}",
+                  "key": "subdomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"customer\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"accepts_marketing\": true,\n    \"accepts_sms_marketing\": true,\n    \"tags\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "084a30ba-3689-47ce-8e1e-5d514e6acbe4",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "customers",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Customer's ID"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customer\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"accepts_marketing\": true,\n    \"accepts_sms_marketing\": true,\n    \"tags\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"customer\\\": {\\n    \\\"id\\\": \\\"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\\\",\\n    \\\"first_name\\\": \\\"Lee\\\",\\n    \\\"last_name\\\": \\\"Le\\\",\\n    \\\"name\\\": \\\"Lee Le\\\",\\n    \\\"email\\\": \\\"person@example.com\\\",\\n    \\\"phone\\\": \\\"+8615423233434\\\",\\n    \\\"accepts_marketing\\\": false,\\n    \\\"subscribed_flag\\\": 6,\\n    \\\"sms_subscribed_flag\\\": 5,\\n    \\\"accepts_sms_marketing\\\": true,\\n    \\\"orders_count\\\": 0,\\n    \\\"total_spent\\\": \\\"0.0\\\",\\n    \\\"tags\\\": \\\"New Customer,Repeat Customer\\\",\\n    \\\"created_at\\\": \\\"2014-04-25T16:15:47-04:00\\\",\\n    \\\"updated_at\\\": \\\"2014-04-25T16:15:47-04:00\\\",\\n    \\\"default_address\\\": {\\n      \\\"id\\\": \\\"2ffa86e9-f3f4-4684-84b6-05399ef19709\\\",\\n      \\\"customer_id\\\": \\\"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\\\",\\n      \\\"first_name\\\": \\\"Lee\\\",\\n      \\\"last_name\\\": \\\"Le\\\",\\n      \\\"name\\\": \\\"Lee Le\\\",\\n      \\\"company\\\": \\\"abc company\\\",\\n      \\\"address1\\\": \\\"1 Rue des Carrieres\\\",\\n      \\\"address2\\\": \\\"\\\",\\n      \\\"city\\\": \\\"Louisville\\\",\\n      \\\"province\\\": \\\"Kentucky\\\",\\n      \\\"province_code\\\": \\\"KY\\\",\\n      \\\"country\\\": \\\"United States\\\",\\n      \\\"country_code\\\": \\\"US\\\",\\n      \\\"country_name\\\": \\\"United States\\\",\\n      \\\"zip\\\": \\\"40202\\\",\\n      \\\"phone\\\": \\\"+8615323233434\\\",\\n      \\\"default\\\": true\\n    },\\n    \\\"addresses\\\": [\\n      {\\n        \\\"id\\\": \\\"2ffa86e9-f3f4-4684-84b6-05399ef19709\\\",\\n        \\\"customer_id\\\": \\\"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\\\",\\n        \\\"first_name\\\": \\\"Lee\\\",\\n        \\\"last_name\\\": \\\"Le\\\",\\n        \\\"name\\\": \\\"Lee Le\\\",\\n        \\\"company\\\": \\\"abc company\\\",\\n        \\\"address1\\\": \\\"Chestnut Street 92\\\",\\n        \\\"address2\\\": \\\"\\\",\\n        \\\"city\\\": \\\"Louisville\\\",\\n        \\\"province\\\": \\\"Kentucky\\\",\\n        \\\"province_code\\\": \\\"KY\\\",\\n        \\\"country\\\": \\\"United States\\\",\\n        \\\"country_code\\\": \\\"US\\\",\\n        \\\"country_name\\\": \\\"United States\\\",\\n        \\\"zip\\\": \\\"40202\\\",\\n        \\\"phone\\\": \\\"+8615323233434\\\",\\n        \\\"default\\\": true\\n      }\\n    ]\\n  }\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "09b7f0b5-7703-40ca-b468-1c4b71da3f78",
+              "name": "422",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "customers",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Customer's ID"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customer\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"accepts_marketing\": true,\n    \"accepts_sms_marketing\": true,\n    \"tags\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"errors\\\": [\\\"param is missing or the value is empty: customer\\\"]\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "12ab272f-c988-4b70-af49-2ec46e166c89",
+          "name": "Customer Count",
+          "request": {
+            "name": "Customer Count",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "openapi",
+                "2022-01",
+                "customers",
+                "count"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{subdomain}}",
+                  "key": "subdomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a831a28d-709b-464c-a2ab-08ed83f940af",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "customers",
+                    "count"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"count\\\": 1\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bfdab584-1547-4cb9-80a1-af5f411fe4b5",
+          "name": "Get Address List",
+          "request": {
+            "name": "Get Address List",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "openapi",
+                "2022-01",
+                "customers",
+                ":customer_id",
+                "addresses"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "10",
+                  "description": "result per pge, maximum: `250`"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "customer_id",
+                  "description": "(Required) customer id"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{subdomain}}",
+                  "key": "subdomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1e25c154-9fe2-4152-8d0e-650aa9fcfd18",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "customers",
+                    ":customer_id",
+                    "addresses"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "customer_id",
+                      "description": "(Required) customer id"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"addresses\\\": [\\n    {\\n      \\\"id\\\": \\\"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\\\",\\n      \\\"customer_id\\\": \\\"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\\\",\\n      \\\"first_name\\\": \\\"Lee\\\",\\n      \\\"last_name\\\": \\\"Le\\\",\\n      \\\"name\\\": \\\"Lee Le\\\",\\n      \\\"gender\\\": \\\"male\\\",\\n      \\\"email\\\": \\\"person@example.com\\\",\\n      \\\"phone\\\": \\\"+86555-625-1199\\\",\\n      \\\"company\\\": \\\"abc company\\\",\\n      \\\"address1\\\": \\\"Chestnut Street 92\\\",\\n      \\\"address2\\\": \\\"Suite 1234\\\",\\n      \\\"area\\\": \\\"\\\",\\n      \\\"city\\\": \\\"Louisville\\\",\\n      \\\"province\\\": \\\"Kentucky\\\",\\n      \\\"province_code\\\": \\\"KY\\\",\\n      \\\"country\\\": \\\"United States\\\",\\n      \\\"country_code\\\": \\\"US\\\",\\n      \\\"country_name\\\": \\\"United States\\\",\\n      \\\"zip\\\": \\\"40204\\\",\\n      \\\"default\\\": true\\n    }\\n  ]\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e82f218e-d1e3-434c-8475-8c8f609dfe35",
+          "name": "Create Address",
+          "request": {
+            "name": "Create Address",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "openapi",
+                "2022-01",
+                "customers",
+                ":customer_id",
+                "addresses"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "customer_id",
+                  "description": "(Required) Customer's ID"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{subdomain}}",
+                  "key": "subdomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"country\": \"<string>\",\n  \"country_code\": \"<string>\",\n  \"gender\": \"<string>\",\n  \"email\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"phone_area_code\": \"<string>\",\n  \"address1\": \"<string>\",\n  \"address2\": \"<string>\",\n  \"area\": \"<string>\",\n  \"city\": \"<string>\",\n  \"province\": \"<string>\",\n  \"province_code\": \"<string>\",\n  \"zip\": \"<string>\",\n  \"company\": \"<string>\",\n  \"default\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "297df211-d5a7-4984-82a7-0149e91d9c86",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "customers",
+                    ":customer_id",
+                    "addresses"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "customer_id",
+                      "description": "(Required) Customer's ID"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"country\": \"<string>\",\n  \"country_code\": \"<string>\",\n  \"gender\": \"<string>\",\n  \"email\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"phone_area_code\": \"<string>\",\n  \"address1\": \"<string>\",\n  \"address2\": \"<string>\",\n  \"area\": \"<string>\",\n  \"city\": \"<string>\",\n  \"province\": \"<string>\",\n  \"province_code\": \"<string>\",\n  \"zip\": \"<string>\",\n  \"company\": \"<string>\",\n  \"default\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"address\\\": {\\n    \\\"id\\\": \\\"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\\\",\\n    \\\"customer_id\\\": \\\"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\\\",\\n    \\\"first_name\\\": \\\"Lee\\\",\\n    \\\"last_name\\\": \\\"Le\\\",\\n    \\\"name\\\": \\\"Lee Le\\\",\\n    \\\"gender\\\": \\\"male\\\",\\n    \\\"email\\\": \\\"person@example.com\\\",\\n    \\\"phone\\\": \\\"+86555-625-1199\\\",\\n    \\\"company\\\": \\\"abc company\\\",\\n    \\\"address1\\\": \\\"Chestnut Street 92\\\",\\n    \\\"address2\\\": \\\"Suite 1234\\\",\\n    \\\"area\\\": \\\"\\\",\\n    \\\"city\\\": \\\"Louisville\\\",\\n    \\\"province\\\": \\\"Kentucky\\\",\\n    \\\"province_code\\\": \\\"KY\\\",\\n    \\\"country\\\": \\\"United States\\\",\\n    \\\"country_code\\\": \\\"US\\\",\\n    \\\"country_name\\\": \\\"United States\\\",\\n    \\\"zip\\\": \\\"40204\\\",\\n    \\\"default\\\": true\\n  }\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cbb6964b-b85a-444e-8d7e-2e740e088cd6",
+          "name": "Get Address Details",
+          "request": {
+            "name": "Get Address Details",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "openapi",
+                "2022-01",
+                "customers",
+                ":customer_id",
+                "addresses",
+                ":address_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "customer_id",
+                  "description": "(Required) Customer's ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "address_id",
+                  "description": "(Required) Address's ID"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{subdomain}}",
+                  "key": "subdomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f4ba37a3-b6be-4321-9f93-2a61c880589d",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "customers",
+                    ":customer_id",
+                    "addresses",
+                    ":address_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "customer_id",
+                      "description": "(Required) Customer's ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address_id",
+                      "description": "(Required) Address's ID"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"address\\\": {\\n    \\\"id\\\": \\\"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\\\",\\n    \\\"customer_id\\\": \\\"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\\\",\\n    \\\"first_name\\\": \\\"Lee\\\",\\n    \\\"last_name\\\": \\\"Le\\\",\\n    \\\"name\\\": \\\"Lee Le\\\",\\n    \\\"gender\\\": \\\"male\\\",\\n    \\\"email\\\": \\\"person@example.com\\\",\\n    \\\"phone\\\": \\\"+86555-625-1199\\\",\\n    \\\"company\\\": \\\"abc company\\\",\\n    \\\"address1\\\": \\\"Chestnut Street 92\\\",\\n    \\\"address2\\\": \\\"Suite 1234\\\",\\n    \\\"area\\\": \\\"\\\",\\n    \\\"city\\\": \\\"Louisville\\\",\\n    \\\"province\\\": \\\"Kentucky\\\",\\n    \\\"province_code\\\": \\\"KY\\\",\\n    \\\"country\\\": \\\"United States\\\",\\n    \\\"country_code\\\": \\\"US\\\",\\n    \\\"country_name\\\": \\\"United States\\\",\\n    \\\"zip\\\": \\\"40204\\\",\\n    \\\"default\\\": true\\n  }\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d9b6fc03-55ec-4fa1-82d7-d6c8fc155786",
+          "name": "Update Address",
+          "request": {
+            "name": "Update Address",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "openapi",
+                "2022-01",
+                "customers",
+                ":customer_id",
+                "addresses",
+                ":address_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "customer_id",
+                  "description": "(Required) Cusomer's ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "address_id",
+                  "description": "(Required) Address's ID"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{subdomain}}",
+                  "key": "subdomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"gender\": \"<string>\",\n  \"email\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"address1\": \"<string>\",\n  \"address2\": \"<string>\",\n  \"area\": \"<string>\",\n  \"city\": \"<string>\",\n  \"province\": \"<string>\",\n  \"province_code\": \"<string>\",\n  \"country\": \"<string>\",\n  \"country_code\": \"<string>\",\n  \"zip\": \"<string>\",\n  \"company\": \"<string>\",\n  \"default\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a9eb80d3-9181-4958-b193-e7aeeba965e8",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "customers",
+                    ":customer_id",
+                    "addresses",
+                    ":address_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "customer_id",
+                      "description": "(Required) Cusomer's ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address_id",
+                      "description": "(Required) Address's ID"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"gender\": \"<string>\",\n  \"email\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"address1\": \"<string>\",\n  \"address2\": \"<string>\",\n  \"area\": \"<string>\",\n  \"city\": \"<string>\",\n  \"province\": \"<string>\",\n  \"province_code\": \"<string>\",\n  \"country\": \"<string>\",\n  \"country_code\": \"<string>\",\n  \"zip\": \"<string>\",\n  \"company\": \"<string>\",\n  \"default\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"address\\\": {\\n    \\\"id\\\": \\\"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\\\",\\n    \\\"customer_id\\\": \\\"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\\\",\\n    \\\"first_name\\\": \\\"Lee\\\",\\n    \\\"last_name\\\": \\\"Le\\\",\\n    \\\"name\\\": \\\"Lee Le\\\",\\n    \\\"gender\\\": \\\"male\\\",\\n    \\\"email\\\": \\\"person@example.com\\\",\\n    \\\"phone\\\": \\\"+86555-625-1199\\\",\\n    \\\"company\\\": \\\"abc company\\\",\\n    \\\"address1\\\": \\\"Chestnut Street 92\\\",\\n    \\\"address2\\\": \\\"Suite 1234\\\",\\n    \\\"area\\\": \\\"\\\",\\n    \\\"city\\\": \\\"Louisville\\\",\\n    \\\"province\\\": \\\"Kentucky\\\",\\n    \\\"province_code\\\": \\\"KY\\\",\\n    \\\"country\\\": \\\"United States\\\",\\n    \\\"country_code\\\": \\\"US\\\",\\n    \\\"country_name\\\": \\\"United States\\\",\\n    \\\"zip\\\": \\\"40204\\\",\\n    \\\"default\\\": true\\n  }\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a942cd4b-24fb-4cae-b9e9-66b6d5ce21fd",
+          "name": "Delete Address",
+          "request": {
+            "name": "Delete Address",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "openapi",
+                "2022-01",
+                "customers",
+                ":customer_id",
+                "addresses",
+                ":address_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "customer_id",
+                  "description": "(Required) Customer's ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "address_id",
+                  "description": "(Required) Address's ID"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{subdomain}}",
+                  "key": "subdomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b56a338a-aa7e-443d-b017-65579057174f",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "customers",
+                    ":customer_id",
+                    "addresses",
+                    ":address_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "customer_id",
+                      "description": "(Required) Customer's ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address_id",
+                      "description": "(Required) Address's ID"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d5a11645-d99a-4d35-86f0-6eb297cbb97b",
+          "name": "Set Default Address",
+          "request": {
+            "name": "Set Default Address",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "openapi",
+                "2022-01",
+                "customers",
+                ":customer_id",
+                "addresses",
+                ":address_id",
+                "default"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "customer_id",
+                  "description": "(Required) Customer's ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "address_id",
+                  "description": "(Required) Address's ID"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{subdomain}}",
+                  "key": "subdomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4afb9f44-d64b-4f80-bc93-cdf3a5ae9efa",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "2022-01",
+                    "customers",
+                    ":customer_id",
+                    "addresses",
+                    ":address_id",
+                    "default"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "customer_id",
+                      "description": "(Required) Customer's ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address_id",
+                      "description": "(Required) Address's ID"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "access-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "developer",
+      "key": "subdomain"
+    },
+    {
+      "type": "string",
+      "value": "https://{{subdomain}}.myshoplaza.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "access-token"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "eaf1ab17-9ff2-4b87-a25b-13d6e5a930e4",
+    "name": "SPZ Admin Access Customer API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}
