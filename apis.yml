@@ -40,6 +40,17 @@ tags:
 - Online Store
 - Retail
 - Payments
+- Webhook
+- REST API
+- Application
+- Developer Platform
+tags_raw:
+- Company
+- Enterprise
+- E-Commerce
+- Online Store
+- Retail
+- Payments
 - Webhooks
 - REST API
 - Apps
@@ -92,6 +103,8 @@ apis:
   humanURL: https://www.shoplazza.dev/api/openapi
   baseURL: https://developer.myshoplaza.com/openapi/2022-01
   tags:
+  - Customers
+  tags_raw:
   - Customer
   properties:
   - type: OpenAPI
