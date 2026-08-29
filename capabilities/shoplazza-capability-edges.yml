@@ -1,0 +1,92 @@
+slug: shoplazza
+provider: Shoplazza
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Retail & Consumer Goods
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 7
+edges:
+- tag: Discounts
+  spec_file: shoplazza-discounts-api-openapi.yml
+  capability_id: BC-440.30
+  capability_id_l1: BC-440
+  capability_name: Discount & Promotion Management
+  confidence: 0.9
+  evidence: POST /openapi/2022-01/price_rules/{price_rule_id}/discount_codes create-discount-code Create
+    Discount Code
+  reason: The surface defines price rules and issues/manages discount codes for a store — exactly discount
+    and promotional offer administration. Not price list maintenance, since the objects are conditional
+    discount rules and redeemable codes.
+- tag: Customer
+  spec_file: shoplazza-customer-api-openapi.yml
+  capability_id: BC-420.10
+  capability_id_l1: BC-420
+  capability_name: Customer Data Management
+  confidence: 0.85
+  evidence: POST /openapi/2022-01/customers create-customer Create Customer; GET /customers/{customer_id}/addresses
+    Get Address List
+  reason: Operations maintain the merchant's customer records and their addresses — creation, update,
+    listing, counting. That is customer master data maintenance, not marketing or service. No sub-capability
+    other than Customer Data Management fits a pure CRUD customer record surface.
+- tag: Webhook
+  spec_file: shoplazza-webhook-api-openapi.yml
+  capability_id: BC-4270.80
+  capability_id_l1: BC-4270
+  capability_name: Webhook & Event Subscription Management
+  confidence: 0.85
+  evidence: POST /openapi/2022-01/webhooks  create-webhook  Create Webhook; GET /openapi/2022-01/webhooks/{id}  webhook-details
+  reason: Explicit lifecycle management of outbound webhook subscriptions for a platform's app developers,
+    which the candidate list names directly as Webhook & Event Subscription Management.
+- tag: Fullfillment
+  spec_file: shoplazza-fullfillment-api-openapi.yml
+  capability_id: BC-520.40
+  capability_id_l1: BC-520
+  capability_name: Order Fulfilment Management
+  confidence: 0.75
+  evidence: POST /openapi/2022-01/orders/{order_id}/fulfillments create_fulfillment Create Fulfillment;
+    POST .../fulfillments/{fulfillment_id}/complete complete_fulfillment
+  reason: Operations create, complete and cancel fulfilments against consumer orders — the execution of
+    shipping/fulfilment orchestration for an order. Order Fulfilment Management is the closest honest
+    fit; the retail distributed-fulfilment sub-capabilities are not evidenced (no node selection, ship-from-store
+    or drop-ship semantics).
+- tag: Product
+  spec_file: shoplazza-product-api-openapi.yml
+  capability_id: BC-2370.10
+  capability_id_l1: BC-2370
+  capability_name: Item Master Data Management
+  confidence: 0.75
+  evidence: POST /openapi/2022-01/products create_product; POST /openapi/2022-01/products/{product_id}/variants
+    create_variant; GET /openapi/2022-01/products/{product_id}/images product_image_list
+  reason: Maintains the canonical product record for a store including variants and images — item master
+    data for a retail catalogue. Some operations (images) touch content authoring, hence the L2 is Item
+    Master Data Management at moderate rather than high confidence.
+- tag: Billing API
+  spec_file: shoplazza-billing-api-api-openapi.yml
+  capability_id: BC-4250
+  capability_id_l1: BC-4250
+  capability_name: Subscription Billing & Revenue Management
+  confidence: 0.7
+  evidence: '"Create Recurring Aplication Charge"; "Create Usage Charge"; "Cancel Recurring Application
+    Charge"'
+  reason: Operations create one-time, recurring and usage-based charges for platform apps — recurring/usage-based
+    billing of a SaaS offering. L1 subscription billing is well supported; the mix of recurring charges,
+    usage charges and payment callbacks prevents a confident single L2.
+- tag: Order
+  spec_file: shoplazza-order-api-openapi.yml
+  capability_id: BC-2330
+  capability_id_l1: BC-2330
+  capability_name: Omnichannel Order & Fulfilment Management
+  confidence: 0.7
+  evidence: POST /openapi/2022-01/orders create-order; POST /openapi/2022-01/orders/{id}/cancel cancel-order;
+    GET /openapi/2022-01/orders/after_sales_list after-sales-list
+  reason: Full lifecycle of consumer orders placed in an online store — capture, update, cancellation,
+    refund and after-sales. That is consumer order management in the Retail frame. Left the L2 null because
+    the surface spans capture, refunds and after-sales rather than naming one sub-capability, and there
+    is no cross-channel routing evidence.
