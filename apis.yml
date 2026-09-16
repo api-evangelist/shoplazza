@@ -1,16 +1,12 @@
 aid: shoplazza
 name: Shoplazza
-description: >-
-  Shoplazza is a global e-commerce SaaS platform that lets merchants build and
-  run online stores, and lets partners extend the platform through public apps,
-  payment apps, storefront themes, and checkout/theme extensions. Its developer
-  surface is the versioned REST Admin API (date-based vYYYYMM versions served
-  under /openapi/YYYY-MM/), authorized with OAuth 2.0 access tokens and scoped
-  permissions, plus webhooks for store events, an app billing API, App Bridge
-  for embedded admin apps, the Shoplazza CLI, and official OAuth SDKs. Shoplazza
-  is backed by SoftBank Vision Fund. This profile was enriched from Shoplazza's
-  public developer documentation (shoplazza.dev) and its published OpenAPI 3.1
-  specification.
+description: Shoplazza is a global e-commerce SaaS platform that lets merchants build and run online stores,
+  and lets partners extend the platform through public apps, payment apps, storefront themes, and checkout/theme
+  extensions. Its developer surface is the versioned REST Admin API (date-based vYYYYMM versions served
+  under /openapi/YYYY-MM/), authorized with OAuth 2.0 access tokens and scoped permissions, plus webhooks
+  for store events, an app billing API, App Bridge for embedded admin apps, the Shoplazza CLI, and official
+  OAuth SDKs. Shoplazza is backed by SoftBank Vision Fund. This profile was enriched from Shoplazza's
+  public developer documentation (shoplazza.dev) and its published OpenAPI 3.1 specification.
 url: https://raw.githubusercontent.com/api-evangelist/shoplazza/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -44,7 +40,7 @@ accessModel:
   method: derived
 specificationVersion: '0.23'
 created: '2026-07-17'
-modified: '2026-07-21'
+modified: '2026-09-16'
 tags:
 - Company
 - Enterprise
@@ -90,7 +86,7 @@ apis:
   - type: OpenAPI
     url: openapi/shoplazza-app-proxy-api-openapi.yml
 - aid: shoplazza:shoplazza-billing-api-api
-  name: Shoplazza Billing API API
+  name: Shoplazza Billing API
   description: The Billing API API from Shoplazza — 10 operation(s) for billing api.
   humanURL: https://www.shoplazza.dev/api/openapi
   baseURL: https://developer.myshoplaza.com/openapi/2022-01
@@ -143,8 +139,7 @@ apis:
     url: openapi/shoplazza-discounts-api-openapi.yml
 - aid: shoplazza:shoplazza-file-api
   name: Shoplazza File API
-  description: >-
-    Upload image materials to the material library and the material library operations of material
+  description: Upload image materials to the material library and the material library operations of material
   humanURL: https://www.shoplazza.dev/api/openapi
   baseURL: https://developer.myshoplaza.com/openapi/2022-01
   tags:
@@ -334,7 +329,10 @@ common:
   url: cli/shoplazza-cli.yml
 - type: X-MCPServerCandidate
   url: mcp/shoplazza-mcp.yml
-  note: 'Renamed from MCPServer 2026-09-03 (roadmap#247): the manifest self-describes as status: candidate — a tool list derived from the published API contracts, not an existing server. The scorer already read the manifest and reported mcp_server correctly; the MCPServer type was crediting the artifact-type surfaces with a server that does not exist.'
+  note: 'Renamed from MCPServer 2026-09-03 (roadmap#247): the manifest self-describes as status: candidate
+    — a tool list derived from the published API contracts, not an existing server. The scorer already
+    read the manifest and reported mcp_server correctly; the MCPServer type was crediting the artifact-type
+    surfaces with a server that does not exist.'
 - type: LLMsTxt
   url: llms/shoplazza-llms.txt
 - type: Conformance
