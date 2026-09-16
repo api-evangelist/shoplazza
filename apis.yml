@@ -278,6 +278,8 @@ x-enrichment:
   artifacts_added: 23
   pass: local-v1
 common:
+- type: Website
+  url: https://shoplazza.dev
 - type: CapabilityMap
   url: capabilities/shoplazza-capability-edges.yml
   name: Shoplazza Business Capability Map
