@@ -1,26 +1,7 @@
 {
   "provider": "shoplazza",
   "sources": [
-    "shoplazza-access-api-openapi.yml",
-    "shoplazza-app-proxy-api-openapi.yml",
-    "shoplazza-billing-api-api-openapi.yml",
-    "shoplazza-custom-area-api-openapi.yml",
-    "shoplazza-customer-api-openapi.yml",
-    "shoplazza-data-api-openapi.yml",
-    "shoplazza-discounts-api-openapi.yml",
-    "shoplazza-file-api-openapi.yml",
-    "shoplazza-fullfillment-api-openapi.yml",
-    "shoplazza-gift-card-api-openapi.yml",
-    "shoplazza-meta-definition-api-openapi.yml",
-    "shoplazza-metafield-api-openapi.yml",
-    "shoplazza-order-api-openapi.yml",
-    "shoplazza-order-risk-api-openapi.yml",
-    "shoplazza-page-api-openapi.yml",
-    "shoplazza-product-api-openapi.yml",
-    "shoplazza-redirect-api-openapi.yml",
-    "shoplazza-shop-api-openapi.yml",
-    "shoplazza-theme-api-openapi.yml",
-    "shoplazza-webhook-api-openapi.yml"
+    "_original/shoplazza-admin-openapi-original.json"
   ],
   "outputs": [
     "shoplazza-access-api-openapi.yml",
@@ -47,6 +28,32 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "shoplazza-admin-openapi-original.json: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "shoplazza-admin-openapi-original.json: declared missing tag: Gift Card",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "shoplazza-access-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "shoplazza-app-proxy-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "shoplazza-billing-api-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "shoplazza-custom-area-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "shoplazza-customer-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "shoplazza-data-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "shoplazza-discounts-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "shoplazza-file-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "shoplazza-fullfillment-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "shoplazza-gift-card-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "shoplazza-meta-definition-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "shoplazza-metafield-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "shoplazza-order-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "shoplazza-order-risk-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "shoplazza-page-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "shoplazza-product-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "shoplazza-redirect-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "shoplazza-shop-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "shoplazza-theme-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "shoplazza-webhook-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

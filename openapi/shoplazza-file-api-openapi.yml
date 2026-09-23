@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: SPZ Admin Access File API
+  title: SPZ Admin File API
   version: '2022.01'
   description: Upload image materials to the material library and the material library operations of material
 servers:
@@ -151,7 +151,7 @@ paths:
     get:
       tags:
       - File
-      summary: Get Create  File Task
+      summary: Get Create File Task
       description: ''
       operationId: get-create-file-task
       parameters:

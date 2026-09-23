@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: SPZ Admin Access Product API
+  title: SPZ Admin Product API
   version: '2022.01'
 servers:
 - url: https://{subdomain}.myshoplaza.com
@@ -3166,6 +3166,8 @@ paths:
                         min_quantity: 1
                       retail_price: '10'
       security: []
+      operationId: putOpenapi202201VariantsSkuBySku
+      x-operation-id-source: derived
   /openapi/2022-01/products/sku/{sku}/variants:
     get:
       summary: Variant List By SKU
@@ -3349,6 +3351,8 @@ paths:
                         min_quantity: 1
                       extend: null
       security: []
+      operationId: getOpenapi202201ProductsSkuBySkuVariants
+      x-operation-id-source: derived
   /openapi/2022-01/collections:
     get:
       tags:
