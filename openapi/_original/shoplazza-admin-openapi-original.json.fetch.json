@@ -1,0 +1,12 @@
+{
+ "url": "https://raw.githubusercontent.com/shoplazza/shoplazza-openapi/HEAD/spz-open-api.json",
+ "requested_url": "https://raw.githubusercontent.com/shoplazza/shoplazza-openapi/HEAD/spz-open-api.json",
+ "status": 200,
+ "content_type": "text/plain; charset=utf-8",
+ "bytes": 1508567,
+ "sha256": "4adb34261791f7376102ce54a20d6abcc4a40c7fa15f534c72ee9afa3d655a3c",
+ "fetched_at": "2026-10-04",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "byte-identical",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the archived file is byte-identical to what the provider serves."
+}
