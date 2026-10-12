@@ -1,0 +1,16 @@
+generated: '2026-10-12'
+method: none
+source:
+- https://zapier.com/apps/shoplazza/integrations
+- https://n8n.io/integrations/shoplazza/
+- https://composio.dev/toolkits/shoplazza
+- https://monid.ai/tools/shoplazza
+checked:
+- https://composio.dev/toolkits/shoplazza
+- https://monid.ai/tools/shoplazza
+- https://n8n.io/integrations/shoplazza/
+- https://zapier.com/apps/shoplazza/integrations
+summary: null
+marketplace_apps: []
+edges: []
+templates: []
