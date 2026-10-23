@@ -278,6 +278,8 @@ x-enrichment:
   artifacts_added: 23
   pass: local-v1
 common:
+- type: PostmanWorkspace
+  url: https://www.postman.com/kinlaneapi/shoplazza/overview
 - url: https://www.shoplazza.dev/changelog/rss.xml
   type: BlogRSS
 - type: Website
