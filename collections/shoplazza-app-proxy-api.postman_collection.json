@@ -1,682 +1,580 @@
 {
+  "info": {
+    "_postman_id": "1985a42e-7ea3-459d-89db-43e80258f677",
+    "name": "SPZ Admin App Proxy API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T19:47:24.000Z",
+    "updatedAt": "2026-10-21T19:47:24.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-1985a42e-7ea3-459d-89db-43e80258f677"
+  },
   "item": [
     {
-      "id": "30f6383f-45e8-4223-a918-5fb7abd9ca01",
-      "name": "App Proxy",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "openapi",
       "item": [
         {
-          "id": "a415202c-49d1-4abe-83fe-eb829e327333",
-          "name": "Get App Proxy List",
-          "request": {
-            "name": "Get App Proxy List",
-            "description": {
-              "content": "",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "openapi",
-                "2022-01",
-                "app-proxies"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "page",
-                  "value": "1",
-                  "description": "Page number"
-                },
-                {
-                  "disabled": false,
-                  "key": "limit",
-                  "value": "20",
-                  "description": "Record count in every page, default: 20"
-                }
-              ],
-              "variable": [
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{subdomain}}",
-                  "key": "subdomain"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "2022-01",
+          "item": [
             {
-              "id": "63320796-accc-482b-aee1-fd80a98da7c7",
-              "name": "200",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "app-proxies"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "page",
-                      "value": "1"
-                    },
-                    {
-                      "key": "limit",
-                      "value": "20"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "app-proxies",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "count",
+                  "item": [
+                    {
+                      "name": "App Proxy Count",
+                      "id": "2355e792-33c6-4ac7-9e16-430049a28786",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/openapi/2022-01/app-proxies/count",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "openapi",
+                            "2022-01",
+                            "app-proxies",
+                            "count"
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "5ff2a493-19be-4f40-b862-f72e9d222705",
+                          "name": "200",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "access-token",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/openapi/2022-01/app-proxies/count",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "openapi",
+                                "2022-01",
+                                "app-proxies",
+                                "count"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"count\": 0\n}",
+                          "createdAt": "2026-10-21T19:47:24.000Z",
+                          "updatedAt": "2026-10-21T19:47:24.000Z",
+                          "uid": "35240-5ff2a493-19be-4f40-b862-f72e9d222705"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T19:47:24.000Z",
+                      "updatedAt": "2026-10-21T19:47:24.000Z",
+                      "uid": "35240-2355e792-33c6-4ac7-9e16-430049a28786"
+                    }
+                  ],
+                  "id": "3775080e-4790-4818-94ae-cf10168a5da5",
+                  "createdAt": "2026-10-21T19:47:24.000Z",
+                  "updatedAt": "2026-10-21T19:47:24.000Z",
+                  "uid": "35240-3775080e-4790-4818-94ae-cf10168a5da5"
+                },
+                {
+                  "name": "{id}",
+                  "item": [
+                    {
+                      "name": "Delete App Proxy",
+                      "id": "7fa8f1da-9fd7-4e8a-acc8-769fd2d79d46",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/openapi/2022-01/app-proxies/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "openapi",
+                            "2022-01",
+                            "app-proxies",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "777b86e3-5526-4f7f-80ca-803433d6ea88",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) App proxy's ID"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "ebaeb30f-48df-42de-b692-185bf17b78d5",
+                          "name": "200",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "access-token",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/openapi/2022-01/app-proxies/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "openapi",
+                                "2022-01",
+                                "app-proxies",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{}",
+                          "createdAt": "2026-10-21T19:47:24.000Z",
+                          "updatedAt": "2026-10-21T19:47:24.000Z",
+                          "uid": "35240-ebaeb30f-48df-42de-b692-185bf17b78d5"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T19:47:24.000Z",
+                      "updatedAt": "2026-10-21T19:47:24.000Z",
+                      "uid": "35240-7fa8f1da-9fd7-4e8a-acc8-769fd2d79d46"
+                    },
+                    {
+                      "name": "App Proxy Details",
+                      "id": "876571fe-f22d-4967-9816-354546b22090",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/openapi/2022-01/app-proxies/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "openapi",
+                            "2022-01",
+                            "app-proxies",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "d59c8065-eb59-44c5-88bb-1dceb37d0459",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) App proxy's ID"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "26f25f77-0ec2-4639-b500-859cdd513b2c",
+                          "name": "200",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "access-token",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/openapi/2022-01/app-proxies/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "openapi",
+                                "2022-01",
+                                "app-proxies",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"app_proxy\": {\n    \"id\": 0,\n    \"real_path\": \"<string>\",\n    \"proxy_url\": \"<string>\",\n    \"created_at\": \"<string>\",\n    \"updated_at\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-10-21T19:47:24.000Z",
+                          "updatedAt": "2026-10-21T19:47:24.000Z",
+                          "uid": "35240-26f25f77-0ec2-4639-b500-859cdd513b2c"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T19:47:24.000Z",
+                      "updatedAt": "2026-10-21T19:47:24.000Z",
+                      "uid": "35240-876571fe-f22d-4967-9816-354546b22090"
+                    }
+                  ],
+                  "id": "e67c70b3-d29b-479c-8473-c62099464ce0",
+                  "createdAt": "2026-10-21T19:47:24.000Z",
+                  "updatedAt": "2026-10-21T19:47:24.000Z",
+                  "uid": "35240-e67c70b3-d29b-479c-8473-c62099464ce0"
+                },
+                {
+                  "name": "Get App Proxy List",
+                  "id": "15419b5a-86a4-4588-af16-0d39959139c2",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/openapi/2022-01/app-proxies?page=1&limit=20",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "openapi",
+                        "2022-01",
+                        "app-proxies"
+                      ],
+                      "query": [
+                        {
+                          "description": "Page number",
+                          "key": "page",
+                          "value": "1"
+                        },
+                        {
+                          "description": "Record count in every page, default: 20",
+                          "key": "limit",
+                          "value": "20"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "37ddbcd4-a278-49b7-b4c6-ce2be5eede0f",
+                      "name": "200",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "access-token",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/openapi/2022-01/app-proxies?page=1&limit=20",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "openapi",
+                            "2022-01",
+                            "app-proxies"
+                          ],
+                          "query": [
+                            {
+                              "description": "Page number",
+                              "key": "page",
+                              "value": "1"
+                            },
+                            {
+                              "description": "Record count in every page, default: 20",
+                              "key": "limit",
+                              "value": "20"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"app_proxys\": [\n    {\n      \"id\": 0,\n      \"real_path\": \"<string>\",\n      \"proxy_url\": \"<string>\",\n      \"created_at\": \"<string>\",\n      \"updated_at\": \"<string>\"\n    },\n    {\n      \"id\": 0,\n      \"real_path\": \"<string>\",\n      \"proxy_url\": \"<string>\",\n      \"created_at\": \"<string>\",\n      \"updated_at\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-10-21T19:47:24.000Z",
+                      "updatedAt": "2026-10-21T19:47:24.000Z",
+                      "uid": "35240-37ddbcd4-a278-49b7-b4c6-ce2be5eede0f"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T19:47:24.000Z",
+                  "updatedAt": "2026-10-21T19:47:24.000Z",
+                  "uid": "35240-15419b5a-86a4-4588-af16-0d39959139c2"
+                },
+                {
+                  "name": "Create App Proxy",
+                  "id": "fd4d4338-3715-4bc7-bb5b-e2b29d901696",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"real_path\": \"<string>\",\n  \"proxy_url\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/openapi/2022-01/app-proxies",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "openapi",
+                        "2022-01",
+                        "app-proxies"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "da91bbaa-6ad8-461a-9337-4cc91f42d395",
+                      "name": "200",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "access-token",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"real_path\": \"<string>\",\n  \"proxy_url\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/openapi/2022-01/app-proxies",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "openapi",
+                            "2022-01",
+                            "app-proxies"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"app_proxy\": {\n    \"id\": 0,\n    \"real_path\": \"<string>\",\n    \"proxy_url\": \"<string>\",\n    \"created_at\": \"<string>\",\n    \"updated_at\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-10-21T19:47:24.000Z",
+                      "updatedAt": "2026-10-21T19:47:24.000Z",
+                      "uid": "35240-da91bbaa-6ad8-461a-9337-4cc91f42d395"
+                    },
+                    {
+                      "id": "a3f59353-f489-4d2f-9ef5-b8048f75d623",
+                      "name": "422",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "access-token",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"real_path\": \"<string>\",\n  \"proxy_url\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/openapi/2022-01/app-proxies",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "openapi",
+                            "2022-01",
+                            "app-proxies"
+                          ]
+                        }
+                      },
+                      "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                      "code": 422,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "createdAt": "2026-10-21T19:47:24.000Z",
+                      "updatedAt": "2026-10-21T19:47:24.000Z",
+                      "uid": "35240-a3f59353-f489-4d2f-9ef5-b8048f75d623"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T19:47:24.000Z",
+                  "updatedAt": "2026-10-21T19:47:24.000Z",
+                  "uid": "35240-fd4d4338-3715-4bc7-bb5b-e2b29d901696"
                 }
               ],
-              "body": "\"{\\n    \\\"app_proxys\\\": [\\n        {\\n            \\\"id\\\": 300,\\n            \\\"real_path\\\": \\\"abc/d/e\\\",\\n            \\\"proxy_url\\\": \\\"http://www.baidu.com/a/b\\\",\\n            \\\"created_at\\\": \\\"2020-12-30T09:40:18+08:00\\\",\\n            \\\"updated_at\\\": \\\"2020-12-30T09:40:18+08:00\\\"\\n        }\\n    ]\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "c1737e0d-9e73-43ad-a216-6a2c5df864f7",
+              "createdAt": "2026-10-21T19:47:24.000Z",
+              "updatedAt": "2026-10-21T19:47:24.000Z",
+              "uid": "35240-c1737e0d-9e73-43ad-a216-6a2c5df864f7"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "1a7102c2-bda7-4ec7-b07d-e885b91306e9",
-          "name": "Create App Proxy",
-          "request": {
-            "name": "Create App Proxy",
-            "description": {
-              "content": "",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "openapi",
-                "2022-01",
-                "app-proxies"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{subdomain}}",
-                  "key": "subdomain"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"real_path\": \"<string>\",\n  \"proxy_url\": \"<string>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "ffc018cd-488c-4d14-abdc-07d9f5f89c7e",
-              "name": "200",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "app-proxies"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"real_path\": \"<string>\",\n  \"proxy_url\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n    \\\"app_proxy\\\": {\\n        \\\"id\\\": 4,\\n        \\\"real_path\\\": \\\"test/aa\\\",\\n        \\\"proxy_url\\\": \\\"http://www.baidu.com/b/c\\\",\\n        \\\"created_at\\\": \\\"2020-12-30T10:03:36+08:00\\\",\\n        \\\"updated_at\\\": \\\"2020-12-30T10:03:36+08:00\\\"\\n    }\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "e39bfd3c-fdfc-4060-9cfa-982ac238d1a0",
-              "name": "422",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "app-proxies"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"real_path\": \"<string>\",\n  \"proxy_url\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
-              "code": 422,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n  \\\"errors\\\": [\\\"RealPath必填\\\"]\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "ec8a7eb4-75f3-41de-b0c8-a201dfa77904",
-          "name": "App Proxy Count",
-          "request": {
-            "name": "App Proxy Count",
-            "description": {
-              "content": "",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "openapi",
-                "2022-01",
-                "app-proxies",
-                "count"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{subdomain}}",
-                  "key": "subdomain"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "44b63aec-fd70-4ee6-903f-110cf6502dc7",
-              "name": "200",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "app-proxies",
-                    "count"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n  \\\"count\\\": 3\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "a2bff7ee-d18b-4b66-acb0-8a0c3254e23f",
-          "name": "Delete App Proxy",
-          "request": {
-            "name": "Delete App Proxy",
-            "description": {
-              "content": "",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "openapi",
-                "2022-01",
-                "app-proxies",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) App proxy's ID"
-                },
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{subdomain}}",
-                  "key": "subdomain"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "b3e6e61f-68b5-4069-9fae-83e024316d46",
-              "name": "200",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "app-proxies",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) App proxy's ID"
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "74b64c07-1ce6-4baa-8332-4f17f2415623",
-          "name": "App Proxy Details",
-          "request": {
-            "name": "App Proxy Details",
-            "description": {
-              "content": "",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "openapi",
-                "2022-01",
-                "app-proxies",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) App proxy's ID"
-                },
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{subdomain}}",
-                  "key": "subdomain"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "1d3bba5d-567c-43e8-b49d-612ee0895a3c",
-              "name": "200",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "app-proxies",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) App proxy's ID"
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n    \\\"app_proxy\\\": {\\n        \\\"id\\\": 300,\\n        \\\"real_path\\\": \\\"test\\\",\\n        \\\"proxy_url\\\": \\\"http://www.baidu.com/a\\\",\\n        \\\"created_at\\\": \\\"2020-12-30T09:40:18+08:00\\\",\\n        \\\"updated_at\\\": \\\"2020-12-30T09:40:18+08:00\\\"\\n    }\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "01b350ae-7f0b-4f52-bc4b-ecb3b0b82fcb",
+          "createdAt": "2026-10-21T19:47:24.000Z",
+          "updatedAt": "2026-10-21T19:47:24.000Z",
+          "uid": "35240-01b350ae-7f0b-4f52-bc4b-ecb3b0b82fcb"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "type": "any",
-      "value": "developer",
-      "key": "subdomain"
-    },
-    {
-      "type": "string",
-      "value": "https://{{subdomain}}.myshoplaza.com",
-      "key": "baseUrl"
+      "id": "d503a4c8-7d43-455c-b162-f4e6cd2dda6c",
+      "createdAt": "2026-10-21T19:47:24.000Z",
+      "updatedAt": "2026-10-21T19:47:24.000Z",
+      "uid": "35240-d503a4c8-7d43-455c-b162-f4e6cd2dda6c"
     }
   ],
   "auth": {
@@ -684,25 +582,29 @@
     "apikey": [
       {
         "key": "key",
-        "value": "access-token"
+        "value": "access-token",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "f142816c-fd4a-443a-8da5-03a0a42d326d",
-    "name": "SPZ Admin Access App Proxy API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "subdomain",
+      "value": "developer"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{subdomain}}.myshoplaza.com"
     }
-  }
+  ]
 }

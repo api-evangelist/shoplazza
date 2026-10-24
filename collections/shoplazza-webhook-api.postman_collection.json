@@ -1,1188 +1,1033 @@
 {
+  "info": {
+    "_postman_id": "466168bf-20e5-4ee5-93ab-4773fe724398",
+    "name": "SPZ Admin Webhook API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T19:49:28.000Z",
+    "updatedAt": "2026-10-21T19:49:29.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-466168bf-20e5-4ee5-93ab-4773fe724398"
+  },
   "item": [
     {
-      "id": "ceb94a2c-0801-4af4-bf08-92bc1857feb5",
-      "name": "Webhook",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "openapi",
       "item": [
         {
-          "id": "371c1be6-6b25-469a-b63f-b80446491377",
-          "name": "Webhook List",
-          "request": {
-            "name": "Webhook List",
-            "description": {
-              "content": "",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "openapi",
-                "2022-01",
-                "webhooks"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "address",
-                  "value": "<string>",
-                  "description": "Webhook notification URL, e.g. `https://example.com/webhook`"
-                },
-                {
-                  "disabled": false,
-                  "key": "topic",
-                  "value": "<string>",
-                  "description": "The event name, e.g. `orders/cancelled,orders/create`"
-                },
-                {
-                  "disabled": false,
-                  "key": "created_at_min",
-                  "value": "<string>",
-                  "description": "Filter webhook records created at after date, e.g. `2018-08-26T06:19:53Z`"
-                },
-                {
-                  "disabled": false,
-                  "key": "created_at_max",
-                  "value": "<string>",
-                  "description": "Filter webhook records created at before date, e.g. `2018-08-26T06:19:53Z`"
-                },
-                {
-                  "disabled": false,
-                  "key": "updated_at_min",
-                  "value": "<string>",
-                  "description": "Filter webhook records last update at after date, e.g. `2018-08-26T06:19:53Z`"
-                },
-                {
-                  "disabled": false,
-                  "key": "updated_at_max",
-                  "value": "<string>",
-                  "description": "Filter webhook records last update at before date, e.g. `2018-08-26T06:19:53Z`"
-                },
-                {
-                  "disabled": false,
-                  "key": "limit",
-                  "value": "50",
-                  "description": "Result per page, max: `250`"
-                },
-                {
-                  "disabled": false,
-                  "key": "page",
-                  "value": "<integer>",
-                  "description": "Page number"
-                }
-              ],
-              "variable": [
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{subdomain}}",
-                  "key": "subdomain"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "2022-01",
+          "item": [
             {
-              "id": "5bf35d1a-be9a-4a73-a1ad-41124fdf2d72",
-              "name": "200",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "webhooks"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "address",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "topic",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "created_at_min",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "created_at_max",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "updated_at_min",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "updated_at_max",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "limit",
-                      "value": "50"
-                    },
-                    {
-                      "key": "page",
-                      "value": "<integer>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "webhooks",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "count",
+                  "item": [
+                    {
+                      "name": "Webhook Count",
+                      "id": "80687a21-e82f-43f3-8292-1e2f54135d1a",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/openapi/2022-01/webhooks/count?address=<string>&topic=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "openapi",
+                            "2022-01",
+                            "webhooks",
+                            "count"
+                          ],
+                          "query": [
+                            {
+                              "description": "Webhook notification URL, e.g. `https://example.com/webhook`",
+                              "key": "address",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Event name, e.g. `orders/cancelled,orders/create`",
+                              "key": "topic",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "886c52d1-2d45-44c3-ac7a-47424dc74a3b",
+                          "name": "200",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "access-token",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/openapi/2022-01/webhooks/count?address=<string>&topic=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "openapi",
+                                "2022-01",
+                                "webhooks",
+                                "count"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Webhook notification URL, e.g. `https://example.com/webhook`",
+                                  "key": "address",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Event name, e.g. `orders/cancelled,orders/create`",
+                                  "key": "topic",
+                                  "value": "<string>"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"count\": 0\n}",
+                          "createdAt": "2026-10-21T19:49:29.000Z",
+                          "updatedAt": "2026-10-21T19:49:29.000Z",
+                          "uid": "35240-886c52d1-2d45-44c3-ac7a-47424dc74a3b"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T19:49:29.000Z",
+                      "updatedAt": "2026-10-21T19:49:29.000Z",
+                      "uid": "35240-80687a21-e82f-43f3-8292-1e2f54135d1a"
+                    }
+                  ],
+                  "id": "11d5a948-de4d-4362-92c2-304d3f4affc3",
+                  "createdAt": "2026-10-21T19:49:28.000Z",
+                  "updatedAt": "2026-10-21T19:49:28.000Z",
+                  "uid": "35240-11d5a948-de4d-4362-92c2-304d3f4affc3"
+                },
+                {
+                  "name": "{id}",
+                  "item": [
+                    {
+                      "name": "Webhook Details",
+                      "id": "2a176e53-1089-497b-96e0-0ece3c4e75e1",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/openapi/2022-01/webhooks/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "openapi",
+                            "2022-01",
+                            "webhooks",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "b31d8523-11e3-490d-80d5-791e05fdb34f",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) Webhook record ID"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "06e23876-8a4c-44be-b618-f9dea5fef47e",
+                          "name": "200",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "access-token",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/openapi/2022-01/webhooks/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "openapi",
+                                "2022-01",
+                                "webhooks",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"webhook\": {\n    \"id\": \"<string>\",\n    \"address\": \"<string>\",\n    \"topic\": \"<string>\",\n    \"created_at\": \"<string>\",\n    \"updated_at\": \"<string>\",\n    \"format\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-10-21T19:49:29.000Z",
+                          "updatedAt": "2026-10-21T19:49:29.000Z",
+                          "uid": "35240-06e23876-8a4c-44be-b618-f9dea5fef47e"
+                        },
+                        {
+                          "id": "3a91bc2e-e425-4f4e-8f3a-07a5ea7505d7",
+                          "name": "404",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "access-token",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/openapi/2022-01/webhooks/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "openapi",
+                                "2022-01",
+                                "webhooks",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"errors\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "createdAt": "2026-10-21T19:49:29.000Z",
+                          "updatedAt": "2026-10-21T19:49:29.000Z",
+                          "uid": "35240-3a91bc2e-e425-4f4e-8f3a-07a5ea7505d7"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T19:49:29.000Z",
+                      "updatedAt": "2026-10-21T19:49:29.000Z",
+                      "uid": "35240-2a176e53-1089-497b-96e0-0ece3c4e75e1"
+                    },
+                    {
+                      "name": "Update Webhook",
+                      "id": "adf913b8-7675-44f3-8329-e8431c7297ea",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"address\": \"<string>\",\n  \"topic\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/openapi/2022-01/webhooks/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "openapi",
+                            "2022-01",
+                            "webhooks",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "56b51979-7fb6-44e8-8c5f-88544adc2545",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) Webhook record ID"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "9bc46b5b-4355-486c-9151-8447b9c91ab8",
+                          "name": "200",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "access-token",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"address\": \"<string>\",\n  \"topic\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/openapi/2022-01/webhooks/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "openapi",
+                                "2022-01",
+                                "webhooks",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"webhook\": {\n    \"id\": \"<string>\",\n    \"address\": \"<string>\",\n    \"topic\": \"<string>\",\n    \"created_at\": \"<string>\",\n    \"updated_at\": \"<string>\",\n    \"format\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-10-21T19:49:29.000Z",
+                          "updatedAt": "2026-10-21T19:49:29.000Z",
+                          "uid": "35240-9bc46b5b-4355-486c-9151-8447b9c91ab8"
+                        },
+                        {
+                          "id": "bf197876-d800-4d36-927a-fe89bb3d18d2",
+                          "name": "422",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "access-token",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"address\": \"<string>\",\n  \"topic\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/openapi/2022-01/webhooks/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "openapi",
+                                "2022-01",
+                                "webhooks",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                          "code": 422,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"errors\": {\n    \"address\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"topic\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                          "createdAt": "2026-10-21T19:49:29.000Z",
+                          "updatedAt": "2026-10-21T19:49:29.000Z",
+                          "uid": "35240-bf197876-d800-4d36-927a-fe89bb3d18d2"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T19:49:29.000Z",
+                      "updatedAt": "2026-10-21T19:49:29.000Z",
+                      "uid": "35240-adf913b8-7675-44f3-8329-e8431c7297ea"
+                    },
+                    {
+                      "name": "Delete Webhook",
+                      "id": "2690fad2-b33f-4c85-8587-b612a644c6b0",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/openapi/2022-01/webhooks/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "openapi",
+                            "2022-01",
+                            "webhooks",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "2af56a29-d240-45a4-9af9-e361194371bd",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) Webhook record ID"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "143c8b58-48e4-41c5-a414-7988739be342",
+                          "name": "200",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "access-token",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/openapi/2022-01/webhooks/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "openapi",
+                                "2022-01",
+                                "webhooks",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{}",
+                          "createdAt": "2026-10-21T19:49:29.000Z",
+                          "updatedAt": "2026-10-21T19:49:29.000Z",
+                          "uid": "35240-143c8b58-48e4-41c5-a414-7988739be342"
+                        },
+                        {
+                          "id": "35d710ad-015e-403f-be4d-d5ddef8362e8",
+                          "name": "404",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "access-token",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/openapi/2022-01/webhooks/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "openapi",
+                                "2022-01",
+                                "webhooks",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"errors\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "createdAt": "2026-10-21T19:49:29.000Z",
+                          "updatedAt": "2026-10-21T19:49:29.000Z",
+                          "uid": "35240-35d710ad-015e-403f-be4d-d5ddef8362e8"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T19:49:29.000Z",
+                      "updatedAt": "2026-10-21T19:49:29.000Z",
+                      "uid": "35240-2690fad2-b33f-4c85-8587-b612a644c6b0"
+                    }
+                  ],
+                  "id": "d6cbcd77-aa0f-468e-9441-72aab23aed78",
+                  "createdAt": "2026-10-21T19:49:28.000Z",
+                  "updatedAt": "2026-10-21T19:49:28.000Z",
+                  "uid": "35240-d6cbcd77-aa0f-468e-9441-72aab23aed78"
+                },
+                {
+                  "name": "Webhook List",
+                  "id": "b9618f6a-5713-4a61-8a0c-70bc81d81f49",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/openapi/2022-01/webhooks?address=<string>&topic=<string>&created_at_min=<string>&created_at_max=<string>&updated_at_min=<string>&updated_at_max=<string>&limit=50&page=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "openapi",
+                        "2022-01",
+                        "webhooks"
+                      ],
+                      "query": [
+                        {
+                          "description": "Webhook notification URL, e.g. `https://example.com/webhook`",
+                          "key": "address",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The event name, e.g. `orders/cancelled,orders/create`",
+                          "key": "topic",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter webhook records created at after date, e.g. `2018-08-26T06:19:53Z`",
+                          "key": "created_at_min",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter webhook records created at before date, e.g. `2018-08-26T06:19:53Z`",
+                          "key": "created_at_max",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter webhook records last update at after date, e.g. `2018-08-26T06:19:53Z`",
+                          "key": "updated_at_min",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter webhook records last update at before date, e.g. `2018-08-26T06:19:53Z`",
+                          "key": "updated_at_max",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Result per page, max: `250`",
+                          "key": "limit",
+                          "value": "50"
+                        },
+                        {
+                          "description": "Page number",
+                          "key": "page",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "33c7c4ef-2150-4206-b269-8e06c8eb0e1b",
+                      "name": "200",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "access-token",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/openapi/2022-01/webhooks?address=<string>&topic=<string>&created_at_min=<string>&created_at_max=<string>&updated_at_min=<string>&updated_at_max=<string>&limit=50&page=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "openapi",
+                            "2022-01",
+                            "webhooks"
+                          ],
+                          "query": [
+                            {
+                              "description": "Webhook notification URL, e.g. `https://example.com/webhook`",
+                              "key": "address",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The event name, e.g. `orders/cancelled,orders/create`",
+                              "key": "topic",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Filter webhook records created at after date, e.g. `2018-08-26T06:19:53Z`",
+                              "key": "created_at_min",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Filter webhook records created at before date, e.g. `2018-08-26T06:19:53Z`",
+                              "key": "created_at_max",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Filter webhook records last update at after date, e.g. `2018-08-26T06:19:53Z`",
+                              "key": "updated_at_min",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Filter webhook records last update at before date, e.g. `2018-08-26T06:19:53Z`",
+                              "key": "updated_at_max",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Result per page, max: `250`",
+                              "key": "limit",
+                              "value": "50"
+                            },
+                            {
+                              "description": "Page number",
+                              "key": "page",
+                              "value": "<integer>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"webhooks\": [\n    {\n      \"id\": \"<string>\",\n      \"address\": \"<string>\",\n      \"topic\": \"<string>\",\n      \"created_at\": \"<string>\",\n      \"updated_at\": \"<string>\",\n      \"format\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"address\": \"<string>\",\n      \"topic\": \"<string>\",\n      \"created_at\": \"<string>\",\n      \"updated_at\": \"<string>\",\n      \"format\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-10-21T19:49:29.000Z",
+                      "updatedAt": "2026-10-21T19:49:29.000Z",
+                      "uid": "35240-33c7c4ef-2150-4206-b269-8e06c8eb0e1b"
+                    },
+                    {
+                      "id": "303a42fa-f41a-48d8-9729-71e92f3a8949",
+                      "name": "422",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "access-token",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/openapi/2022-01/webhooks?address=<string>&topic=<string>&created_at_min=<string>&created_at_max=<string>&updated_at_min=<string>&updated_at_max=<string>&limit=50&page=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "openapi",
+                            "2022-01",
+                            "webhooks"
+                          ],
+                          "query": [
+                            {
+                              "description": "Webhook notification URL, e.g. `https://example.com/webhook`",
+                              "key": "address",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The event name, e.g. `orders/cancelled,orders/create`",
+                              "key": "topic",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Filter webhook records created at after date, e.g. `2018-08-26T06:19:53Z`",
+                              "key": "created_at_min",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Filter webhook records created at before date, e.g. `2018-08-26T06:19:53Z`",
+                              "key": "created_at_max",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Filter webhook records last update at after date, e.g. `2018-08-26T06:19:53Z`",
+                              "key": "updated_at_min",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Filter webhook records last update at before date, e.g. `2018-08-26T06:19:53Z`",
+                              "key": "updated_at_max",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Result per page, max: `250`",
+                              "key": "limit",
+                              "value": "50"
+                            },
+                            {
+                              "description": "Page number",
+                              "key": "page",
+                              "value": "<integer>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                      "code": 422,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": {\n    \"limit\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"page\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                      "createdAt": "2026-10-21T19:49:29.000Z",
+                      "updatedAt": "2026-10-21T19:49:29.000Z",
+                      "uid": "35240-303a42fa-f41a-48d8-9729-71e92f3a8949"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T19:49:29.000Z",
+                  "updatedAt": "2026-10-21T19:49:29.000Z",
+                  "uid": "35240-b9618f6a-5713-4a61-8a0c-70bc81d81f49"
+                },
+                {
+                  "name": "Create Webhook",
+                  "id": "28f3c801-9016-4e0f-98e5-cc337d0e54d4",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"address\": \"<string>\",\n  \"topic\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/openapi/2022-01/webhooks",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "openapi",
+                        "2022-01",
+                        "webhooks"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "c663ff9a-aee8-4d53-ba13-5a9f504c57ba",
+                      "name": "200",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "access-token",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"address\": \"<string>\",\n  \"topic\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/openapi/2022-01/webhooks",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "openapi",
+                            "2022-01",
+                            "webhooks"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"webhook\": {\n    \"id\": \"<string>\",\n    \"address\": \"<string>\",\n    \"topic\": \"<string>\",\n    \"created_at\": \"<string>\",\n    \"updated_at\": \"<string>\",\n    \"format\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-10-21T19:49:29.000Z",
+                      "updatedAt": "2026-10-21T19:49:29.000Z",
+                      "uid": "35240-c663ff9a-aee8-4d53-ba13-5a9f504c57ba"
+                    },
+                    {
+                      "id": "de669f03-1d0b-41b9-96f3-34be377cf355",
+                      "name": "422",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "access-token",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"address\": \"<string>\",\n  \"topic\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/openapi/2022-01/webhooks",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "openapi",
+                            "2022-01",
+                            "webhooks"
+                          ]
+                        }
+                      },
+                      "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                      "code": 422,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": {\n    \"address\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"topic\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                      "createdAt": "2026-10-21T19:49:29.000Z",
+                      "updatedAt": "2026-10-21T19:49:29.000Z",
+                      "uid": "35240-de669f03-1d0b-41b9-96f3-34be377cf355"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T19:49:29.000Z",
+                  "updatedAt": "2026-10-21T19:49:29.000Z",
+                  "uid": "35240-28f3c801-9016-4e0f-98e5-cc337d0e54d4"
                 }
               ],
-              "body": "\"{\\n  \\\"webhooks\\\": [\\n    {\\n      \\\"id\\\": \\\"ea88df20-525b-457b-beed-d49e546be683\\\",\\n      \\\"address\\\": \\\"https://example.com/webhook\\\",\\n      \\\"topic\\\": \\\"orders/create\\\",\\n      \\\"created_at\\\": \\\"2018-08-26T06:30:55Z\\\",\\n      \\\"updated_at\\\": \\\"2018-08-26T06:30:55Z\\\",\\n      \\\"format\\\": \\\"json\\\"\\n    },\\n    {\\n      \\\"id\\\": \\\"2c3772b4-8a92-4afd-bb7b-d89cd31844c2\\\",\\n      \\\"address\\\": \\\"https://example.com/webhook\\\",\\n      \\\"topic\\\": \\\"orders/delete\\\",\\n      \\\"created_at\\\": \\\"2018-08-26T06:30:55Z\\\",\\n      \\\"updated_at\\\": \\\"2018-08-26T06:30:55Z\\\",\\n      \\\"format\\\": \\\"json\\\"\\n    }\\n  ]\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "deb2c9ac-ec59-42ca-a423-51d9949a4482",
-              "name": "422",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "webhooks"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "address",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "topic",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "created_at_min",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "created_at_max",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "updated_at_min",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "updated_at_max",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "limit",
-                      "value": "50"
-                    },
-                    {
-                      "key": "page",
-                      "value": "<integer>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
-              "code": 422,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n  \\\"errors\\\": {\\n    \\\"limit\\\": [\\n      \\\"must be less than or equal to 250\\\"\\n    ],\\n    \\\"page\\\": [\\n      \\\"must be greater than or equal to 1\\\"\\n    ]\\n  }\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "244b7434-1f4b-4efc-b5d1-d3a7b5d3c88c",
+              "createdAt": "2026-10-21T19:49:28.000Z",
+              "updatedAt": "2026-10-21T19:49:28.000Z",
+              "uid": "35240-244b7434-1f4b-4efc-b5d1-d3a7b5d3c88c"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "99c6b505-1617-4912-b791-3c89631cc4f4",
-          "name": "Create Webhook",
-          "request": {
-            "name": "Create Webhook",
-            "description": {
-              "content": "",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "openapi",
-                "2022-01",
-                "webhooks"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{subdomain}}",
-                  "key": "subdomain"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"address\": \"<string>\",\n  \"topic\": \"<string>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "610c09ad-7045-4bf5-866f-1980ecf6e1e6",
-              "name": "200",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "webhooks"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"address\": \"<string>\",\n  \"topic\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n  \\\"webhook\\\": {\\n    \\\"id\\\": \\\"37593634-c272-4ed5-9096-1a4f1212125e\\\",\\n    \\\"address\\\": \\\"https://abc.com\\\",\\n    \\\"topic\\\": \\\"order/create\\\",\\n    \\\"created_at\\\": \\\"2018-08-26T06:50:00Z\\\",\\n    \\\"updated_at\\\": \\\"2018-08-26T06:50:00Z\\\",\\n    \\\"format\\\": \\\"json\\\"\\n  }\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "0dbde57c-75f3-4cab-bef6-b12203296987",
-              "name": "422",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "webhooks"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"address\": \"<string>\",\n  \"topic\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
-              "code": 422,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n  \\\"errors\\\": {\\n    \\\"address\\\": [\\n      \\\"can't be blank\\\",\\n      \\\"is invalid\\\"\\n    ],\\n    \\\"topic\\\": [\\n      \\\"can't be blank\\\"\\n    ]\\n  }\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "b7f18ce6-c76a-40bf-8bab-788bc9acf65d",
-          "name": "Webhook Count",
-          "request": {
-            "name": "Webhook Count",
-            "description": {
-              "content": "",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "openapi",
-                "2022-01",
-                "webhooks",
-                "count"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "address",
-                  "value": "<string>",
-                  "description": "Webhook notification URL, e.g. `https://example.com/webhook`"
-                },
-                {
-                  "disabled": false,
-                  "key": "topic",
-                  "value": "<string>",
-                  "description": "Event name, e.g. `orders/cancelled,orders/create`"
-                }
-              ],
-              "variable": [
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{subdomain}}",
-                  "key": "subdomain"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "91920339-4202-4b70-978e-d73cce12f9f9",
-              "name": "200",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "webhooks",
-                    "count"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "address",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "topic",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n  \\\"count\\\": 5\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "338211a8-ebbd-4487-a89f-6f1d5211034b",
-          "name": "Webhook Details",
-          "request": {
-            "name": "Webhook Details",
-            "description": {
-              "content": "",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "openapi",
-                "2022-01",
-                "webhooks",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) Webhook record ID"
-                },
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{subdomain}}",
-                  "key": "subdomain"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "bbbdb7de-1334-4100-9e49-a94b49e1db3f",
-              "name": "200",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "webhooks",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) Webhook record ID"
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n  \\\"webhook\\\": {\\n    \\\"id\\\": \\\"37593634-c272-4ed5-9096-1a4f1212125e\\\",\\n    \\\"address\\\": \\\"https://abc.com\\\",\\n    \\\"topic\\\": \\\"order/create\\\",\\n    \\\"created_at\\\": \\\"2018-08-26T06:50:00Z\\\",\\n    \\\"updated_at\\\": \\\"2018-08-26T06:50:00Z\\\",\\n    \\\"format\\\": \\\"json\\\"\\n  }\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "d9f1b56a-53b3-438a-9336-90cd3618ff84",
-              "name": "404",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "webhooks",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) Webhook record ID"
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n  \\\"errors\\\": [\\n    \\\"record not found!\\\"\\n  ]\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "19e9cb5d-f67f-48d8-b8cf-0877fb2fa259",
-          "name": "Update Webhook",
-          "request": {
-            "name": "Update Webhook",
-            "description": {
-              "content": "",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "openapi",
-                "2022-01",
-                "webhooks",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) Webhook record ID"
-                },
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{subdomain}}",
-                  "key": "subdomain"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "PUT",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"address\": \"<string>\",\n  \"topic\": \"<string>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "68f9f1d1-fdeb-4f4a-925a-82192fc916f5",
-              "name": "200",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "webhooks",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) Webhook record ID"
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"address\": \"<string>\",\n  \"topic\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n  \\\"webhook\\\": {\\n    \\\"id\\\": \\\"37593634-c272-4ed5-9096-1a4f1212125e\\\",\\n    \\\"address\\\": \\\"https://abc.com\\\",\\n    \\\"topic\\\": \\\"order/create\\\",\\n    \\\"created_at\\\": \\\"2018-08-26T06:50:00Z\\\",\\n    \\\"updated_at\\\": \\\"2018-08-26T06:50:00Z\\\",\\n    \\\"format\\\": \\\"json\\\"\\n  }\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "a2d0762b-d2a9-4086-9f52-bb3412e73db3",
-              "name": "422",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "webhooks",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) Webhook record ID"
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"address\": \"<string>\",\n  \"topic\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
-              "code": 422,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n  \\\"errors\\\": {\\n    \\\"address\\\": [\\n      \\\"can't be blank\\\",\\n      \\\"is invalid\\\"\\n    ],\\n    \\\"topic\\\": [\\n      \\\"can't be blank\\\"\\n    ]\\n  }\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "7c97384b-a76d-4a3b-976f-1a411f5bccd6",
-          "name": "Delete Webhook",
-          "request": {
-            "name": "Delete Webhook",
-            "description": {
-              "content": "",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "openapi",
-                "2022-01",
-                "webhooks",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) Webhook record ID"
-                },
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{subdomain}}",
-                  "key": "subdomain"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "2c9db2c1-344e-4921-8a7b-5f00d4438df2",
-              "name": "200",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "webhooks",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) Webhook record ID"
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "d441737b-e779-4661-9ee0-5dc20d81e92e",
-              "name": "404",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "webhooks",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) Webhook record ID"
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n  \\\"errors\\\": [\\\"record not found!\\\"]\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "e80a7e07-81f0-45ea-9f97-f9c80c8b0ca4",
+          "createdAt": "2026-10-21T19:49:28.000Z",
+          "updatedAt": "2026-10-21T19:49:28.000Z",
+          "uid": "35240-e80a7e07-81f0-45ea-9f97-f9c80c8b0ca4"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "type": "any",
-      "value": "developer",
-      "key": "subdomain"
-    },
-    {
-      "type": "string",
-      "value": "https://{{subdomain}}.myshoplaza.com",
-      "key": "baseUrl"
+      "id": "f61fefdb-d2f2-427c-875b-1e305d347b17",
+      "createdAt": "2026-10-21T19:49:28.000Z",
+      "updatedAt": "2026-10-21T19:49:28.000Z",
+      "uid": "35240-f61fefdb-d2f2-427c-875b-1e305d347b17"
     }
   ],
   "auth": {
@@ -1190,25 +1035,29 @@
     "apikey": [
       {
         "key": "key",
-        "value": "access-token"
+        "value": "access-token",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "96e25415-d116-4cf8-b962-5c841eaf44e4",
-    "name": "SPZ Admin Access Webhook API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "subdomain",
+      "value": "developer"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{subdomain}}.myshoplaza.com"
     }
-  }
+  ]
 }

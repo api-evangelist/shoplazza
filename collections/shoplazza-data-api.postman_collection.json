@@ -1,760 +1,676 @@
 {
+  "info": {
+    "_postman_id": "4fa63469-b01a-453d-a615-ee3d97a00591",
+    "name": "SPZ Admin Data API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T19:47:53.000Z",
+    "updatedAt": "2026-10-21T19:47:54.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-4fa63469-b01a-453d-a615-ee3d97a00591"
+  },
   "item": [
     {
-      "id": "938c90fc-0047-4bfc-b532-efe69dfef65a",
-      "name": "Data",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "openapi",
       "item": [
         {
-          "id": "2626f149-bb04-4e81-b507-4b77a580e493",
-          "name": "Data Details",
-          "request": {
-            "name": "Data Details",
-            "description": {
-              "content": "",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "openapi",
-                "2022-01",
-                "data",
-                "task"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "id",
-                  "value": "<string>",
-                  "description": "Event ID to query, will query the last record if id is null"
-                }
-              ],
-              "variable": [
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{subdomain}}",
-                  "key": "subdomain"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "2022-01",
+          "item": [
             {
-              "id": "750cc1cf-e534-4d7c-ad1a-c1863561efff",
-              "name": "200",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "data",
-                    "task"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "id",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "data",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "task",
+                  "item": [
+                    {
+                      "name": "Data Details",
+                      "id": "adfc3bc8-4749-48bc-b88a-e33c1ab09b1f",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/openapi/2022-01/data/task?id=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "openapi",
+                            "2022-01",
+                            "data",
+                            "task"
+                          ],
+                          "query": [
+                            {
+                              "description": "Event ID to query, will query the last record if id is null",
+                              "key": "id",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "fefb77e9-6d9f-4a92-9d8a-6304aba56bcc",
+                          "name": "200",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "access-token",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/openapi/2022-01/data/task?id=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "openapi",
+                                "2022-01",
+                                "data",
+                                "task"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Event ID to query, will query the last record if id is null",
+                                  "key": "id",
+                                  "value": "<string>"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"query_id\": \"<string>\",\n  \"query_status\": 0,\n  \"query\": {\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-10-21T19:47:54.000Z",
+                          "updatedAt": "2026-10-21T19:47:54.000Z",
+                          "uid": "35240-fefb77e9-6d9f-4a92-9d8a-6304aba56bcc"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T19:47:54.000Z",
+                      "updatedAt": "2026-10-21T19:47:54.000Z",
+                      "uid": "35240-adfc3bc8-4749-48bc-b88a-e33c1ab09b1f"
+                    }
+                  ],
+                  "id": "bff912a7-5afb-46d3-b2bb-bda33f922f72",
+                  "createdAt": "2026-10-21T19:47:54.000Z",
+                  "updatedAt": "2026-10-21T19:47:54.000Z",
+                  "uid": "35240-bff912a7-5afb-46d3-b2bb-bda33f922f72"
+                },
+                {
+                  "name": "count",
+                  "item": [
+                    {
+                      "name": "Data Count",
+                      "id": "06e055af-c782-4046-b766-e0c398574592",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/openapi/2022-01/data/count",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "openapi",
+                            "2022-01",
+                            "data",
+                            "count"
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "6d28b881-a4c7-446d-a76c-302cf4a2990c",
+                          "name": "200",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "access-token",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/openapi/2022-01/data/count",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "openapi",
+                                "2022-01",
+                                "data",
+                                "count"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"count\": 0\n}",
+                          "createdAt": "2026-10-21T19:47:54.000Z",
+                          "updatedAt": "2026-10-21T19:47:54.000Z",
+                          "uid": "35240-6d28b881-a4c7-446d-a76c-302cf4a2990c"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T19:47:54.000Z",
+                      "updatedAt": "2026-10-21T19:47:54.000Z",
+                      "uid": "35240-06e055af-c782-4046-b766-e0c398574592"
+                    }
+                  ],
+                  "id": "acdd5089-d570-4d9c-bd05-7c6ae42046f0",
+                  "createdAt": "2026-10-21T19:47:54.000Z",
+                  "updatedAt": "2026-10-21T19:47:54.000Z",
+                  "uid": "35240-acdd5089-d570-4d9c-bd05-7c6ae42046f0"
+                },
+                {
+                  "name": "tasks",
+                  "item": [
+                    {
+                      "name": "Data List",
+                      "id": "6e4c7367-4ef6-4c9d-9789-b6a692130f85",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/openapi/2022-01/data/tasks?page=1&limit=20",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "openapi",
+                            "2022-01",
+                            "data",
+                            "tasks"
+                          ],
+                          "query": [
+                            {
+                              "description": "Page number, e.g. `2`",
+                              "key": "page",
+                              "value": "1"
+                            },
+                            {
+                              "description": "Result per page, e.g. `15`",
+                              "key": "limit",
+                              "value": "20"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "4ee7985a-424e-45bd-a475-534081c79fea",
+                          "name": "200",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "access-token",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/openapi/2022-01/data/tasks?page=1&limit=20",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "openapi",
+                                "2022-01",
+                                "data",
+                                "tasks"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Page number, e.g. `2`",
+                                  "key": "page",
+                                  "value": "1"
+                                },
+                                {
+                                  "description": "Result per page, e.g. `15`",
+                                  "key": "limit",
+                                  "value": "20"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"querys\": [\n    {\n      \"query_id\": \"<string>\",\n      \"query_status\": 0,\n      \"query\": {\n        \"url\": \"<string>\"\n      }\n    },\n    {\n      \"query_id\": \"<string>\",\n      \"query_status\": 0,\n      \"query\": {\n        \"url\": \"<string>\"\n      }\n    }\n  ]\n}",
+                          "createdAt": "2026-10-21T19:47:54.000Z",
+                          "updatedAt": "2026-10-21T19:47:54.000Z",
+                          "uid": "35240-4ee7985a-424e-45bd-a475-534081c79fea"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T19:47:54.000Z",
+                      "updatedAt": "2026-10-21T19:47:54.000Z",
+                      "uid": "35240-6e4c7367-4ef6-4c9d-9789-b6a692130f85"
+                    }
+                  ],
+                  "id": "b55ed739-48f4-4408-affc-2314e3a863f1",
+                  "createdAt": "2026-10-21T19:47:54.000Z",
+                  "updatedAt": "2026-10-21T19:47:54.000Z",
+                  "uid": "35240-b55ed739-48f4-4408-affc-2314e3a863f1"
+                },
+                {
+                  "name": "query",
+                  "item": [
+                    {
+                      "name": "Create Data",
+                      "id": "16bea36d-afab-4edf-ab77-b9ad2e809285",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/openapi/2022-01/data/query?event=<string>&beginTime=<string>&endTime=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "openapi",
+                            "2022-01",
+                            "data",
+                            "query"
+                          ],
+                          "query": [
+                            {
+                              "description": "Event type, supported types: `impressions`, `add_payment_info`, `add_to_cart`, `begin_checkout`, `pageview`, `place_order`, `product_search`, `product_view`, `purchase_product`, `refund_order`, will query all event types except `impressions`, if query params not provided.",
+                              "key": "event",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Event query at after date, e.g. `2020-12-30T15:04:05`",
+                              "key": "beginTime",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Event query at before the date, e.g. `2020-12-30T15:04:05`, the duration between beginning time and end time can not larger than 24 hours.",
+                              "key": "endTime",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "03e08c68-1e6d-4188-83dd-d8ddeaa07741",
+                          "name": "200",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "access-token",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/openapi/2022-01/data/query?event=<string>&beginTime=<string>&endTime=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "openapi",
+                                "2022-01",
+                                "data",
+                                "query"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Event type, supported types: `impressions`, `add_payment_info`, `add_to_cart`, `begin_checkout`, `pageview`, `place_order`, `product_search`, `product_view`, `purchase_product`, `refund_order`, will query all event types except `impressions`, if query params not provided.",
+                                  "key": "event",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Event query at after date, e.g. `2020-12-30T15:04:05`",
+                                  "key": "beginTime",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Event query at before the date, e.g. `2020-12-30T15:04:05`, the duration between beginning time and end time can not larger than 24 hours.",
+                                  "key": "endTime",
+                                  "value": "<string>"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"query_id\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T19:47:54.000Z",
+                          "updatedAt": "2026-10-21T19:47:54.000Z",
+                          "uid": "35240-03e08c68-1e6d-4188-83dd-d8ddeaa07741"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T19:47:54.000Z",
+                      "updatedAt": "2026-10-21T19:47:54.000Z",
+                      "uid": "35240-16bea36d-afab-4edf-ab77-b9ad2e809285"
+                    }
+                  ],
+                  "id": "be6e6d2b-0953-45ca-85ea-06b481bdad80",
+                  "createdAt": "2026-10-21T19:47:54.000Z",
+                  "updatedAt": "2026-10-21T19:47:54.000Z",
+                  "uid": "35240-be6e6d2b-0953-45ca-85ea-06b481bdad80"
+                },
+                {
+                  "name": "analysis",
+                  "item": [
+                    {
+                      "name": "Data Analysis",
+                      "id": "c0ea02fe-da2e-4bdc-a1b6-0b9409de13e5",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/openapi/2022-01/data/analysis?begin_time=<integer>&end_time=<integer>&tz=<float>&page=<integer>&limit=<integer>&sort_by=<string>&sort_direction=<string>&dt_by=<string>&dimension=<string>&dimension=<string>&indicator=<string>&indicator=<string>&filters=<string>&filters=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "openapi",
+                            "2022-01",
+                            "data",
+                            "analysis"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Begin time of analysis data, e.g. `1666512000`",
+                              "key": "begin_time",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "(Required) End time of analysis data, e.g. `1682323199`",
+                              "key": "end_time",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "(Required) Time zone, e.g. `8`",
+                              "key": "tz",
+                              "value": "<float>"
+                            },
+                            {
+                              "description": "Page number",
+                              "key": "page",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Limit per page, default `20`, max `200`",
+                              "key": "limit",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Sort, choose from field of `indicator`",
+                              "key": "sort_by",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Sort direction, choose from `asc` `desc`",
+                              "key": "sort_direction",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Time aggregation granularity, choose `dt_by_hour` `dt_by_day`",
+                              "key": "dt_by",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Analysis dimension, analysis `shop dimension` when field is empty,  analysis `country dimension` when choose  from `country_code`, analysis `utm dimension` when choose  from`utm_source` `utm_medium` `utm_term` `utm_campaign` `utm_content`",
+                              "key": "dimension",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Analysis dimension, analysis `shop dimension` when field is empty,  analysis `country dimension` when choose  from `country_code`, analysis `utm dimension` when choose  from`utm_source` `utm_medium` `utm_term` `utm_campaign` `utm_content`",
+                              "key": "dimension",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Analysis indicator,  all dimension can choose from `pv` `uv` `add_cart_uv` `begin_checkout_pv` `begin_checkout_uv` `orders` `sales`, `shop` or `country dimension` can additionally choose from `conversion_rate` `add_cart_qty` `add_payment_info_uv`",
+                              "key": "indicator",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Analysis indicator,  all dimension can choose from `pv` `uv` `add_cart_uv` `begin_checkout_pv` `begin_checkout_uv` `orders` `sales`, `shop` or `country dimension` can additionally choose from `conversion_rate` `add_cart_qty` `add_payment_info_uv`",
+                              "key": "indicator",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Analysis filters, e.g. `utm_source=google` `country_code=CN`",
+                              "key": "filters",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Analysis filters, e.g. `utm_source=google` `country_code=CN`",
+                              "key": "filters",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "4cd9a5cc-e6d6-4572-b270-fa08dc97f5b5",
+                          "name": "200",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "access-token",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/openapi/2022-01/data/analysis?begin_time=<integer>&end_time=<integer>&tz=<float>&page=<integer>&limit=<integer>&sort_by=<string>&sort_direction=<string>&dt_by=<string>&dimension=<string>&indicator=<string>&filters=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "openapi",
+                                "2022-01",
+                                "data",
+                                "analysis"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Begin time of analysis data, e.g. `1666512000`",
+                                  "key": "begin_time",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "(Required) End time of analysis data, e.g. `1682323199`",
+                                  "key": "end_time",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "(Required) Time zone, e.g. `8`",
+                                  "key": "tz",
+                                  "value": "<float>"
+                                },
+                                {
+                                  "description": "Page number",
+                                  "key": "page",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "Limit per page, default `20`, max `200`",
+                                  "key": "limit",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "Sort, choose from field of `indicator`",
+                                  "key": "sort_by",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Sort direction, choose from `asc` `desc`",
+                                  "key": "sort_direction",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Time aggregation granularity, choose `dt_by_hour` `dt_by_day`",
+                                  "key": "dt_by",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Analysis dimension, analysis `shop dimension` when field is empty,  analysis `country dimension` when choose  from `country_code`, analysis `utm dimension` when choose  from`utm_source` `utm_medium` `utm_term` `utm_campaign` `utm_content`",
+                                  "key": "dimension",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Analysis indicator,  all dimension can choose from `pv` `uv` `add_cart_uv` `begin_checkout_pv` `begin_checkout_uv` `orders` `sales`, `shop` or `country dimension` can additionally choose from `conversion_rate` `add_cart_qty` `add_payment_info_uv`",
+                                  "key": "indicator",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Analysis filters, e.g. `utm_source=google` `country_code=CN`",
+                                  "key": "filters",
+                                  "value": "<string>"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"count\": 0,\n  \"data\": [\n    {\n      \"date_time\": \"<string>\",\n      \"country_code\": \"<string>\",\n      \"utm_source\": \"<string>\",\n      \"utm_medium\": \"<string>\",\n      \"utm_campaign\": \"<string>\",\n      \"utm_term\": \"<string>\",\n      \"utm_content\": \"<string>\",\n      \"pv\": 0,\n      \"uv\": 0,\n      \"add_cart_uv\": 0,\n      \"add_cart_qty\": 0,\n      \"begin_checkout_pv\": 0,\n      \"begin_checkout_uv\": 0,\n      \"orders\": 0,\n      \"sales\": 0\n    },\n    {\n      \"date_time\": \"<string>\",\n      \"country_code\": \"<string>\",\n      \"utm_source\": \"<string>\",\n      \"utm_medium\": \"<string>\",\n      \"utm_campaign\": \"<string>\",\n      \"utm_term\": \"<string>\",\n      \"utm_content\": \"<string>\",\n      \"pv\": 0,\n      \"uv\": 0,\n      \"add_cart_uv\": 0,\n      \"add_cart_qty\": 0,\n      \"begin_checkout_pv\": 0,\n      \"begin_checkout_uv\": 0,\n      \"orders\": 0,\n      \"sales\": 0\n    }\n  ]\n}",
+                          "createdAt": "2026-10-21T19:47:54.000Z",
+                          "updatedAt": "2026-10-21T19:47:54.000Z",
+                          "uid": "35240-4cd9a5cc-e6d6-4572-b270-fa08dc97f5b5"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T19:47:54.000Z",
+                      "updatedAt": "2026-10-21T19:47:54.000Z",
+                      "uid": "35240-c0ea02fe-da2e-4bdc-a1b6-0b9409de13e5"
+                    }
+                  ],
+                  "id": "42fe2a27-3013-45b7-8cca-169c90ce0392",
+                  "createdAt": "2026-10-21T19:47:54.000Z",
+                  "updatedAt": "2026-10-21T19:47:54.000Z",
+                  "uid": "35240-42fe2a27-3013-45b7-8cca-169c90ce0392"
                 }
               ],
-              "body": "\"{\\n    \\\"query_id\\\": \\\"af36fa44-544a-44ae-abf2-91b2e5e92bd0\\\",\\n    \\\"query_status\\\": 2,\\n    \\\"query\\\": {\\n        \\\"url\\\": \\\"https://shoplazza.oss-cn-shenzhen.aliyuncs.com/73df807f-3534-44b0-8181-961cb3afd783.csv\\\"\\n    }\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "1503f03e-2d22-424c-83b1-f5246af7aaea",
+              "createdAt": "2026-10-21T19:47:54.000Z",
+              "updatedAt": "2026-10-21T19:47:54.000Z",
+              "uid": "35240-1503f03e-2d22-424c-83b1-f5246af7aaea"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "56ca6799-d2aa-4acf-8eeb-eebcdaf51c45",
-          "name": "Data Count",
-          "request": {
-            "name": "Data Count",
-            "description": {
-              "content": "",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "openapi",
-                "2022-01",
-                "data",
-                "count"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{subdomain}}",
-                  "key": "subdomain"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "f72a09f9-01fb-4668-bfa0-eb7925f3d867",
-              "name": "200",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "data",
-                    "count"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n    \\\"count\\\": 1\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "86baffb1-2571-47e2-b42a-18294cdf9727",
-          "name": "Data List",
-          "request": {
-            "name": "Data List",
-            "description": {
-              "content": "",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "openapi",
-                "2022-01",
-                "data",
-                "tasks"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "page",
-                  "value": "1",
-                  "description": "Page number, e.g. `2`"
-                },
-                {
-                  "disabled": false,
-                  "key": "limit",
-                  "value": "20",
-                  "description": "Result per page, e.g. `15`"
-                }
-              ],
-              "variable": [
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{subdomain}}",
-                  "key": "subdomain"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "d9d7a6db-9e17-4618-b426-f75538b33be8",
-              "name": "200",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "data",
-                    "tasks"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "page",
-                      "value": "1"
-                    },
-                    {
-                      "key": "limit",
-                      "value": "20"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n    \\\"querys\\\": [\\n        {\\n            \\\"query_id\\\": \\\"af36fa44-544a-44ae-abf2-91b2e5e92bd0\\\",\\n            \\\"query_status\\\": 2,\\n            \\\"query\\\": {\\n                \\\"url\\\": \\\"https://shoplazza.oss-cn-shenzhen.aliyuncs.com/73df807f-3534-44b0-8181-961cb3afd783.csv\\\"\\n            }\\n        }\\n    ]\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "b5efaea0-038d-4a40-aeb7-ca161e99ad29",
-          "name": "Create Data",
-          "request": {
-            "name": "Create Data",
-            "description": {
-              "content": "",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "openapi",
-                "2022-01",
-                "data",
-                "query"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "event",
-                  "value": "<string>",
-                  "description": "Event type, supported types: `impressions`, `add_payment_info`, `add_to_cart`, `begin_checkout`, `pageview`, `place_order`, `product_search`, `product_view`, `purchase_product`, `refund_order`, will query all event types except `impressions`, if query params not provided."
-                },
-                {
-                  "disabled": false,
-                  "key": "beginTime",
-                  "value": "<string>",
-                  "description": "(Required) Event query at after date, e.g. `2020-12-30T15:04:05`"
-                },
-                {
-                  "disabled": false,
-                  "key": "endTime",
-                  "value": "<string>",
-                  "description": "(Required) Event query at before the date, e.g. `2020-12-30T15:04:05`, the duration between beginning time and end time can not larger than 24 hours."
-                }
-              ],
-              "variable": [
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{subdomain}}",
-                  "key": "subdomain"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "b4b3c397-2088-4b4e-91cf-15e56cb982bf",
-              "name": "200",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "data",
-                    "query"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "event",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "beginTime",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "endTime",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n    \\\"query_id\\\": \\\"78aa167e-2f80-4cae-9345-85f26c2e572e\\\"\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "82f3267f-7e3f-4108-b7c5-f718b017f853",
-          "name": "Data Analysis",
-          "request": {
-            "name": "Data Analysis",
-            "description": {
-              "content": "",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "openapi",
-                "2022-01",
-                "data",
-                "analysis"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "begin_time",
-                  "value": "<integer>",
-                  "description": "(Required) Begin time of analysis data, e.g. `1666512000`"
-                },
-                {
-                  "disabled": false,
-                  "key": "end_time",
-                  "value": "<integer>",
-                  "description": "(Required) End time of analysis data, e.g. `1682323199`"
-                },
-                {
-                  "disabled": false,
-                  "key": "tz",
-                  "value": "<float>",
-                  "description": "(Required) Time zone, e.g. `8`"
-                },
-                {
-                  "disabled": false,
-                  "key": "page",
-                  "value": "<integer>",
-                  "description": "Page number"
-                },
-                {
-                  "disabled": false,
-                  "key": "limit",
-                  "value": "<integer>",
-                  "description": "Limit per page, default `20`, max `200`"
-                },
-                {
-                  "disabled": false,
-                  "key": "sort_by",
-                  "value": "<string>",
-                  "description": "Sort, choose from field of `indicator`"
-                },
-                {
-                  "disabled": false,
-                  "key": "sort_direction",
-                  "value": "<string>",
-                  "description": "Sort direction, choose from `asc` `desc`"
-                },
-                {
-                  "disabled": false,
-                  "key": "dt_by",
-                  "value": "<string>",
-                  "description": "Time aggregation granularity, choose `dt_by_hour` `dt_by_day`"
-                },
-                {
-                  "disabled": false,
-                  "key": "dimension",
-                  "value": "<string>",
-                  "description": "Analysis dimension, analysis `shop dimension` when field is empty,  analysis `country dimension` when choose  from `country_code`, analysis `utm dimension` when choose  from`utm_source` `utm_medium` `utm_term` `utm_campaign` `utm_content`"
-                },
-                {
-                  "disabled": false,
-                  "key": "dimension",
-                  "value": "<string>",
-                  "description": "Analysis dimension, analysis `shop dimension` when field is empty,  analysis `country dimension` when choose  from `country_code`, analysis `utm dimension` when choose  from`utm_source` `utm_medium` `utm_term` `utm_campaign` `utm_content`"
-                },
-                {
-                  "disabled": false,
-                  "key": "indicator",
-                  "value": "<string>",
-                  "description": "(Required) Analysis indicator,  all dimension can choose from `pv` `uv` `add_cart_uv` `begin_checkout_pv` `begin_checkout_uv` `orders` `sales`, `shop` or `country dimension` can additionally choose from `conversion_rate` `add_cart_qty` `add_payment_info_uv`"
-                },
-                {
-                  "disabled": false,
-                  "key": "indicator",
-                  "value": "<string>",
-                  "description": "(Required) Analysis indicator,  all dimension can choose from `pv` `uv` `add_cart_uv` `begin_checkout_pv` `begin_checkout_uv` `orders` `sales`, `shop` or `country dimension` can additionally choose from `conversion_rate` `add_cart_qty` `add_payment_info_uv`"
-                },
-                {
-                  "disabled": false,
-                  "key": "filters",
-                  "value": "<string>",
-                  "description": "Analysis filters, e.g. `utm_source=google` `country_code=CN`"
-                },
-                {
-                  "disabled": false,
-                  "key": "filters",
-                  "value": "<string>",
-                  "description": "Analysis filters, e.g. `utm_source=google` `country_code=CN`"
-                }
-              ],
-              "variable": [
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{subdomain}}",
-                  "key": "subdomain"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "7f26ae08-0292-4782-98e5-a6cf644a1033",
-              "name": "200",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "data",
-                    "analysis"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "begin_time",
-                      "value": "<integer>"
-                    },
-                    {
-                      "key": "end_time",
-                      "value": "<integer>"
-                    },
-                    {
-                      "key": "tz",
-                      "value": "<float>"
-                    },
-                    {
-                      "key": "page",
-                      "value": "<integer>"
-                    },
-                    {
-                      "key": "limit",
-                      "value": "<integer>"
-                    },
-                    {
-                      "key": "sort_by",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "sort_direction",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "dt_by",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "dimension",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "dimension",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "indicator",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "indicator",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "filters",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "filters",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n    \\\"count\\\": 2,\\n    \\\"data\\\": [\\n        {\\n            \\\"date_time\\\": \\\"2023-05-16T16:00:00Z\\\",\\n          \\t\\\"country_code\\\": \\\"CN\\\",\\n          \\t\\\"utm_source\\\": \\\"-\\\",\\n            \\\"utm_medium\\\": \\\"-\\\",\\n            \\\"utm_campaign\\\": \\\"-\\\",\\n            \\\"utm_term\\\": \\\"-\\\",\\n            \\\"utm_content\\\": \\\"-\\\",\\n            \\\"pv\\\": 0,\\n            \\\"uv\\\": 0,\\n            \\\"add_cart_uv\\\": 0,\\n            \\\"add_cart_qty\\\": 0,\\n            \\\"begin_checkout_pv\\\": 0,\\n            \\\"begin_checkout_uv\\\": 0,\\n            \\\"orders\\\": 1,\\n            \\\"sales\\\": 10.6\\n        },\\n        {\\n            \\\"date_time\\\": \\\"2023-05-24T16:00:00Z\\\",\\n            \\\"country_code\\\": \\\"HK\\\",\\n            \\\"utm_source\\\": \\\"-\\\",\\n            \\\"utm_medium\\\": \\\"-\\\",\\n            \\\"utm_campaign\\\": \\\"-\\\",\\n            \\\"utm_term\\\": \\\"-\\\",\\n            \\\"utm_content\\\": \\\"-\\\",\\n            \\\"pv\\\": 0,\\n            \\\"uv\\\": 0,\\n            \\\"add_cart_uv\\\": 0,\\n            \\\"add_cart_qty\\\": 0,\\n            \\\"begin_checkout_pv\\\": 0,\\n            \\\"begin_checkout_uv\\\": 0,\\n            \\\"orders\\\": 2,\\n            \\\"sales\\\": 24\\n        }\\n    ]\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "a9709d82-7e27-478c-ade4-e2ed62a0c81b",
+          "createdAt": "2026-10-21T19:47:54.000Z",
+          "updatedAt": "2026-10-21T19:47:54.000Z",
+          "uid": "35240-a9709d82-7e27-478c-ade4-e2ed62a0c81b"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "type": "any",
-      "value": "developer",
-      "key": "subdomain"
-    },
-    {
-      "type": "string",
-      "value": "https://{{subdomain}}.myshoplaza.com",
-      "key": "baseUrl"
+      "id": "3e38da81-a1d1-4b64-b50d-0dff92a2516c",
+      "createdAt": "2026-10-21T19:47:54.000Z",
+      "updatedAt": "2026-10-21T19:47:54.000Z",
+      "uid": "35240-3e38da81-a1d1-4b64-b50d-0dff92a2516c"
     }
   ],
   "auth": {
@@ -762,25 +678,29 @@
     "apikey": [
       {
         "key": "key",
-        "value": "access-token"
+        "value": "access-token",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "4474c441-f75a-4ecb-803a-d3d4aab0fc95",
-    "name": "SPZ Admin Access Data API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "subdomain",
+      "value": "developer"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{subdomain}}.myshoplaza.com"
     }
-  }
+  ]
 }

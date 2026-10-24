@@ -1,1205 +1,1039 @@
 {
+  "info": {
+    "_postman_id": "ca2d61a4-f1e5-4fda-ab8c-f01c4116f567",
+    "name": "SPZ Admin Order Risk API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T19:48:50.000Z",
+    "updatedAt": "2026-10-21T19:48:50.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-ca2d61a4-f1e5-4fda-ab8c-f01c4116f567"
+  },
   "item": [
     {
-      "id": "a6ccf37a-4fb3-4775-aaaf-2dcb56c995fd",
-      "name": "Order Risk",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "openapi",
       "item": [
         {
-          "id": "c427fc0d-04fd-43f4-bbe3-e16f5bf443ab",
-          "name": "Order Risk",
-          "request": {
-            "name": "Order Risk",
-            "description": {
-              "content": "",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "openapi",
-                "2022-01",
-                "orders",
-                ":id",
-                "risks"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) Order's ID"
-                },
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{subdomain}}",
-                  "key": "subdomain"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "2022-01",
+          "item": [
             {
-              "id": "5374729e-838a-46fd-8bb4-e2676629093e",
-              "name": "200",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "orders",
-                    ":id",
-                    "risks"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) Order's ID"
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "orders",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "{id}",
+                  "item": [
+                    {
+                      "name": "risks",
+                      "item": [
+                        {
+                          "name": "Order Risk",
+                          "id": "7381ac34-d0c3-46cb-a21d-572c6fc33695",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/openapi/2022-01/orders/:id/risks",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "openapi",
+                                "2022-01",
+                                "orders",
+                                ":id",
+                                "risks"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "93f64cdb-b63d-4484-95ad-8f075a302a3b",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) Order's ID"
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "51cc442c-2dbc-47d9-bc23-dd2bbb1113d0",
+                              "name": "200",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "access-token",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/openapi/2022-01/orders/:id/risks",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "openapi",
+                                    "2022-01",
+                                    "orders",
+                                    ":id",
+                                    "risks"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"assessment\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"info\": \"<array>\"\n}",
+                              "createdAt": "2026-10-21T19:48:50.000Z",
+                              "updatedAt": "2026-10-21T19:48:50.000Z",
+                              "uid": "35240-51cc442c-2dbc-47d9-bc23-dd2bbb1113d0"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T19:48:50.000Z",
+                          "updatedAt": "2026-10-21T19:48:50.000Z",
+                          "uid": "35240-7381ac34-d0c3-46cb-a21d-572c6fc33695"
+                        }
+                      ],
+                      "id": "86ab93dd-af14-4bbf-bb5f-13ec745ccaf6",
+                      "createdAt": "2026-10-21T19:48:50.000Z",
+                      "updatedAt": "2026-10-21T19:48:50.000Z",
+                      "uid": "35240-86ab93dd-af14-4bbf-bb5f-13ec745ccaf6"
+                    }
+                  ],
+                  "id": "244611c8-2b2a-46eb-80a2-3078ff97aed7",
+                  "createdAt": "2026-10-21T19:48:50.000Z",
+                  "updatedAt": "2026-10-21T19:48:50.000Z",
+                  "uid": "35240-244611c8-2b2a-46eb-80a2-3078ff97aed7"
+                },
+                {
+                  "name": "{order_id}",
+                  "item": [
+                    {
+                      "name": "risks",
+                      "item": [
+                        {
+                          "name": "list",
+                          "item": [
+                            {
+                              "name": "Order Risk List",
+                              "id": "9277c545-8a9e-4050-b557-bc4aff581e6e",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/openapi/2022-01/orders/:order_id/risks/list",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "openapi",
+                                    "2022-01",
+                                    "orders",
+                                    ":order_id",
+                                    "risks",
+                                    "list"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "98e74c6b-fd82-4f26-b67a-1addc3afaa93",
+                                      "key": "order_id",
+                                      "value": "<string>",
+                                      "description": "(Required) Order's ID"
+                                    }
+                                  ]
+                                }
+                              },
+                              "response": [
+                                {
+                                  "id": "8a16b7ba-0f9a-45cb-b973-f1eb77f4b34c",
+                                  "name": "200",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "access-token",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/openapi/2022-01/orders/:order_id/risks/list",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "openapi",
+                                        "2022-01",
+                                        "orders",
+                                        ":order_id",
+                                        "risks",
+                                        "list"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "order_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"total\": 0,\n  \"risks\": [\n    {\n      \"id\": 0,\n      \"order_id\": \"<string>\",\n      \"level\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"properties\": {\n        \"test\": \"<string>\",\n        \"test1\": \"<string>\"\n      },\n      \"created_at\": \"<string>\",\n      \"updated_at\": \"<string>\"\n    },\n    {\n      \"id\": 0,\n      \"order_id\": \"<string>\",\n      \"level\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"properties\": {\n        \"test\": \"<string>\",\n        \"test1\": \"<string>\"\n      },\n      \"created_at\": \"<string>\",\n      \"updated_at\": \"<string>\"\n    }\n  ]\n}",
+                                  "createdAt": "2026-10-21T19:48:50.000Z",
+                                  "updatedAt": "2026-10-21T19:48:50.000Z",
+                                  "uid": "35240-8a16b7ba-0f9a-45cb-b973-f1eb77f4b34c"
+                                },
+                                {
+                                  "id": "6ee73473-23ac-453f-9125-f9b2c4100cff",
+                                  "name": "400",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "access-token",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/openapi/2022-01/orders/:order_id/risks/list",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "openapi",
+                                        "2022-01",
+                                        "orders",
+                                        ":order_id",
+                                        "risks",
+                                        "list"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "order_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Bad Request",
+                                  "code": 400,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{}",
+                                  "createdAt": "2026-10-21T19:48:50.000Z",
+                                  "updatedAt": "2026-10-21T19:48:50.000Z",
+                                  "uid": "35240-6ee73473-23ac-453f-9125-f9b2c4100cff"
+                                }
+                              ],
+                              "createdAt": "2026-10-21T19:48:50.000Z",
+                              "updatedAt": "2026-10-21T19:48:50.000Z",
+                              "uid": "35240-9277c545-8a9e-4050-b557-bc4aff581e6e"
+                            }
+                          ],
+                          "id": "e0715235-3ca7-4601-9f4d-3a542d2875a8",
+                          "createdAt": "2026-10-21T19:48:50.000Z",
+                          "updatedAt": "2026-10-21T19:48:50.000Z",
+                          "uid": "35240-e0715235-3ca7-4601-9f4d-3a542d2875a8"
+                        },
+                        {
+                          "name": "{id}",
+                          "item": [
+                            {
+                              "name": "Order Risk Detail",
+                              "id": "1ee71fe7-4f6c-40a9-9bdd-b899f43473b7",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/openapi/2022-01/orders/:order_id/risks/:id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "openapi",
+                                    "2022-01",
+                                    "orders",
+                                    ":order_id",
+                                    "risks",
+                                    ":id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "39b90ca2-1b76-49c1-85a2-dd744024061d",
+                                      "key": "order_id",
+                                      "value": "<string>",
+                                      "description": "(Required) Order's ID"
+                                    },
+                                    {
+                                      "id": "c555b1bb-694f-403b-b64c-a9be577a957f",
+                                      "key": "id",
+                                      "value": "<string>",
+                                      "description": "(Required) Risk's ID"
+                                    }
+                                  ]
+                                }
+                              },
+                              "response": [
+                                {
+                                  "id": "7a2e8ac4-6bf8-4c7e-95c7-3d7718234c39",
+                                  "name": "200",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "access-token",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/openapi/2022-01/orders/:order_id/risks/:id",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "openapi",
+                                        "2022-01",
+                                        "orders",
+                                        ":order_id",
+                                        "risks",
+                                        ":id"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "order_id"
+                                        },
+                                        {
+                                          "key": "id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"risk\": {\n    \"id\": 0,\n    \"order_id\": \"<string>\",\n    \"level\": \"<string>\",\n    \"value\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"properties\": {\n      \"test\": \"<string>\",\n      \"test1\": \"<string>\"\n    },\n    \"created_at\": \"<string>\",\n    \"updated_at\": \"<string>\"\n  }\n}",
+                                  "createdAt": "2026-10-21T19:48:50.000Z",
+                                  "updatedAt": "2026-10-21T19:48:50.000Z",
+                                  "uid": "35240-7a2e8ac4-6bf8-4c7e-95c7-3d7718234c39"
+                                },
+                                {
+                                  "id": "08c3a821-64e8-4638-af2c-c7ecc53bef59",
+                                  "name": "400",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "access-token",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/openapi/2022-01/orders/:order_id/risks/:id",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "openapi",
+                                        "2022-01",
+                                        "orders",
+                                        ":order_id",
+                                        "risks",
+                                        ":id"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "order_id"
+                                        },
+                                        {
+                                          "key": "id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Bad Request",
+                                  "code": 400,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{}",
+                                  "createdAt": "2026-10-21T19:48:50.000Z",
+                                  "updatedAt": "2026-10-21T19:48:50.000Z",
+                                  "uid": "35240-08c3a821-64e8-4638-af2c-c7ecc53bef59"
+                                }
+                              ],
+                              "createdAt": "2026-10-21T19:48:50.000Z",
+                              "updatedAt": "2026-10-21T19:48:50.000Z",
+                              "uid": "35240-1ee71fe7-4f6c-40a9-9bdd-b899f43473b7"
+                            },
+                            {
+                              "name": "Update Order Risk",
+                              "id": "bd4369fb-dba2-488d-aa8d-9c609289826c",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"risk\": {}\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/openapi/2022-01/orders/:order_id/risks/:id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "openapi",
+                                    "2022-01",
+                                    "orders",
+                                    ":order_id",
+                                    "risks",
+                                    ":id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "12fa0985-7aeb-41ec-8509-dd1ed8cbf8c0",
+                                      "key": "order_id",
+                                      "value": "<string>",
+                                      "description": "(Required) Order's ID"
+                                    },
+                                    {
+                                      "id": "dbd4d79a-59e7-4efb-8ee5-2bc0c46d8080",
+                                      "key": "id",
+                                      "value": "<string>",
+                                      "description": "(Required) Risk's ID"
+                                    }
+                                  ]
+                                }
+                              },
+                              "response": [
+                                {
+                                  "id": "5cbccc65-e465-4f6e-b2b7-07a375fed429",
+                                  "name": "200",
+                                  "originalRequest": {
+                                    "method": "PUT",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "access-token",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"risk\": {}\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/openapi/2022-01/orders/:order_id/risks/:id",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "openapi",
+                                        "2022-01",
+                                        "orders",
+                                        ":order_id",
+                                        "risks",
+                                        ":id"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "order_id"
+                                        },
+                                        {
+                                          "key": "id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"risk\": {\n    \"id\": 0,\n    \"order_id\": \"<string>\",\n    \"level\": \"<string>\",\n    \"value\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"properties\": {\n      \"test\": \"<string>\",\n      \"test1\": \"<string>\"\n    },\n    \"created_at\": \"<string>\",\n    \"updated_at\": \"<string>\"\n  }\n}",
+                                  "createdAt": "2026-10-21T19:48:50.000Z",
+                                  "updatedAt": "2026-10-21T19:48:50.000Z",
+                                  "uid": "35240-5cbccc65-e465-4f6e-b2b7-07a375fed429"
+                                },
+                                {
+                                  "id": "d170ddec-d513-4931-990f-819029ac9b07",
+                                  "name": "400",
+                                  "originalRequest": {
+                                    "method": "PUT",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "access-token",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"risk\": {}\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/openapi/2022-01/orders/:order_id/risks/:id",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "openapi",
+                                        "2022-01",
+                                        "orders",
+                                        ":order_id",
+                                        "risks",
+                                        ":id"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "order_id"
+                                        },
+                                        {
+                                          "key": "id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Bad Request",
+                                  "code": 400,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{}",
+                                  "createdAt": "2026-10-21T19:48:50.000Z",
+                                  "updatedAt": "2026-10-21T19:48:50.000Z",
+                                  "uid": "35240-d170ddec-d513-4931-990f-819029ac9b07"
+                                }
+                              ],
+                              "createdAt": "2026-10-21T19:48:50.000Z",
+                              "updatedAt": "2026-10-21T19:48:50.000Z",
+                              "uid": "35240-bd4369fb-dba2-488d-aa8d-9c609289826c"
+                            },
+                            {
+                              "name": "Delete Order Risk",
+                              "id": "8e6c2955-f7c9-458e-a956-f348902f2ebb",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/openapi/2022-01/orders/:order_id/risks/:id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "openapi",
+                                    "2022-01",
+                                    "orders",
+                                    ":order_id",
+                                    "risks",
+                                    ":id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "4fb93976-03e0-4998-9e4a-e0ade86cbaa6",
+                                      "key": "order_id",
+                                      "value": "<string>",
+                                      "description": "(Required) Order's ID"
+                                    },
+                                    {
+                                      "id": "68bf8c78-aed5-44f0-93ca-d26497e4a04b",
+                                      "key": "id",
+                                      "value": "<string>",
+                                      "description": "(Required) Risk's ID"
+                                    }
+                                  ]
+                                }
+                              },
+                              "response": [
+                                {
+                                  "id": "fd348fc2-3d1c-47b8-a547-865e2e7166f9",
+                                  "name": "200",
+                                  "originalRequest": {
+                                    "method": "DELETE",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "access-token",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/openapi/2022-01/orders/:order_id/risks/:id",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "openapi",
+                                        "2022-01",
+                                        "orders",
+                                        ":order_id",
+                                        "risks",
+                                        ":id"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "order_id"
+                                        },
+                                        {
+                                          "key": "id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{}",
+                                  "createdAt": "2026-10-21T19:48:50.000Z",
+                                  "updatedAt": "2026-10-21T19:48:50.000Z",
+                                  "uid": "35240-fd348fc2-3d1c-47b8-a547-865e2e7166f9"
+                                },
+                                {
+                                  "id": "170f00a4-2a68-47c0-9cf0-4bcf47b32413",
+                                  "name": "400",
+                                  "originalRequest": {
+                                    "method": "DELETE",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "access-token",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/openapi/2022-01/orders/:order_id/risks/:id",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "openapi",
+                                        "2022-01",
+                                        "orders",
+                                        ":order_id",
+                                        "risks",
+                                        ":id"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "order_id"
+                                        },
+                                        {
+                                          "key": "id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Bad Request",
+                                  "code": 400,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{}",
+                                  "createdAt": "2026-10-21T19:48:50.000Z",
+                                  "updatedAt": "2026-10-21T19:48:50.000Z",
+                                  "uid": "35240-170f00a4-2a68-47c0-9cf0-4bcf47b32413"
+                                }
+                              ],
+                              "createdAt": "2026-10-21T19:48:50.000Z",
+                              "updatedAt": "2026-10-21T19:48:50.000Z",
+                              "uid": "35240-8e6c2955-f7c9-458e-a956-f348902f2ebb"
+                            }
+                          ],
+                          "id": "bd50a7c3-6d70-4d1a-9370-cdb3d87e68e6",
+                          "createdAt": "2026-10-21T19:48:50.000Z",
+                          "updatedAt": "2026-10-21T19:48:50.000Z",
+                          "uid": "35240-bd50a7c3-6d70-4d1a-9370-cdb3d87e68e6"
+                        },
+                        {
+                          "name": "Create Order Risk",
+                          "id": "b0f13421-7d7a-4aa9-87ca-68733cd4f5a9",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"risk\": {}\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/openapi/2022-01/orders/:order_id/risks",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "openapi",
+                                "2022-01",
+                                "orders",
+                                ":order_id",
+                                "risks"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "cac119d7-9d35-46d0-88be-ea113b862c2d",
+                                  "key": "order_id",
+                                  "value": "<string>",
+                                  "description": "(Required) Order's ID"
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "1df006eb-7946-49da-899e-a3259053f6cc",
+                              "name": "200",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "access-token",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"risk\": {}\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/openapi/2022-01/orders/:order_id/risks",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "openapi",
+                                    "2022-01",
+                                    "orders",
+                                    ":order_id",
+                                    "risks"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "order_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"risk\": {\n    \"id\": 0,\n    \"order_id\": \"<string>\",\n    \"level\": \"<string>\",\n    \"value\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"properties\": {\n      \"test\": \"<string>\",\n      \"test1\": \"<string>\"\n    },\n    \"created_at\": \"<string>\",\n    \"updated_at\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-10-21T19:48:50.000Z",
+                              "updatedAt": "2026-10-21T19:48:50.000Z",
+                              "uid": "35240-1df006eb-7946-49da-899e-a3259053f6cc"
+                            },
+                            {
+                              "id": "b6fe25f0-a511-4e6c-83a0-cf7407284232",
+                              "name": "400",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "access-token",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"risk\": {}\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/openapi/2022-01/orders/:order_id/risks",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "openapi",
+                                    "2022-01",
+                                    "orders",
+                                    ":order_id",
+                                    "risks"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "order_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{}",
+                              "createdAt": "2026-10-21T19:48:50.000Z",
+                              "updatedAt": "2026-10-21T19:48:50.000Z",
+                              "uid": "35240-b6fe25f0-a511-4e6c-83a0-cf7407284232"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T19:48:50.000Z",
+                          "updatedAt": "2026-10-21T19:48:50.000Z",
+                          "uid": "35240-b0f13421-7d7a-4aa9-87ca-68733cd4f5a9"
+                        }
+                      ],
+                      "id": "33ff5845-cf99-4358-a086-15fa5fb6a3a7",
+                      "createdAt": "2026-10-21T19:48:50.000Z",
+                      "updatedAt": "2026-10-21T19:48:50.000Z",
+                      "uid": "35240-33ff5845-cf99-4358-a086-15fa5fb6a3a7"
+                    }
+                  ],
+                  "id": "e6416038-4820-4674-bd66-4ddeb5ed3817",
+                  "createdAt": "2026-10-21T19:48:50.000Z",
+                  "updatedAt": "2026-10-21T19:48:50.000Z",
+                  "uid": "35240-e6416038-4820-4674-bd66-4ddeb5ed3817"
                 }
               ],
-              "body": "\"{\\n    \\\"assessment\\\": [\\n        \\\"Credit card number is entered by copy & paste\\\"\\n    ],\\n    \\\"info\\\": []\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "a2ad029f-7eba-4579-ab65-649b06c2f5cf",
+              "createdAt": "2026-10-21T19:48:50.000Z",
+              "updatedAt": "2026-10-21T19:48:50.000Z",
+              "uid": "35240-a2ad029f-7eba-4579-ab65-649b06c2f5cf"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "0be01a18-cf68-496f-bedc-e71cfac799a1",
-          "name": "Order Risk List",
-          "request": {
-            "name": "Order Risk List",
-            "description": {
-              "content": "",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "openapi",
-                "2022-01",
-                "orders",
-                ":order_id",
-                "risks",
-                "list"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "order_id",
-                  "description": "(Required) Order's ID"
-                },
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{subdomain}}",
-                  "key": "subdomain"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "8fa55b9d-40a5-4284-9217-5f883f9ded1f",
-              "name": "200",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "orders",
-                    ":order_id",
-                    "risks",
-                    "list"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "order_id",
-                      "description": "(Required) Order's ID"
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n    \\\"total\\\": 2,\\n    \\\"risks\\\": [\\n        {\\n            \\\"id\\\": 238549140194212523,\\n            \\\"order_id\\\": \\\"183211-00000011\\\",\\n            \\\"level\\\": \\\"cancel\\\",\\n            \\\"value\\\": [\\n                \\\"this is test risk  update\\\",\\n                \\\"as1dfa\\\",\\n                \\\"123aweqe\\\",\\n                \\\"123123\\\"\\n            ],\\n            \\\"properties\\\": {\\n                \\\"test\\\": \\\"123\\\",\\n                \\\"test1\\\": \\\"211llkd\\\"\\n            },\\n            \\\"created_at\\\": \\\"2023-04-20T06:29:07Z\\\",\\n            \\\"updated_at\\\": \\\"2023-04-20T06:29:07Z\\\"\\n        },\\n        {\\n            \\\"id\\\": 238549164001082027,\\n            \\\"order_id\\\": \\\"183211-00000011\\\",\\n            \\\"level\\\": \\\"cancel\\\",\\n            \\\"value\\\": [\\n                \\\"this is test risk  update\\\",\\n                \\\"as1dfa\\\",\\n                \\\"123aweqe\\\",\\n                \\\"123123\\\"\\n            ],\\n            \\\"properties\\\": {\\n                \\\"test\\\": \\\"123\\\",\\n                \\\"test1\\\": \\\"211llkd\\\"\\n            },\\n            \\\"created_at\\\": \\\"2023-04-20T06:29:12Z\\\",\\n            \\\"updated_at\\\": \\\"2023-04-20T06:29:12Z\\\"\\n        }\\n    ]\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "2c45a940-9d58-46eb-ae49-bf5f28bacda7",
-              "name": "400",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "orders",
-                    ":order_id",
-                    "risks",
-                    "list"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "order_id",
-                      "description": "(Required) Order's ID"
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "246b43a2-174b-4551-86c1-29938fe34a7f",
-          "name": "Order Risk Detail",
-          "request": {
-            "name": "Order Risk Detail",
-            "description": {
-              "content": "",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "openapi",
-                "2022-01",
-                "orders",
-                ":order_id",
-                "risks",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "order_id",
-                  "description": "(Required) Order's ID"
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) Risk's ID"
-                },
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{subdomain}}",
-                  "key": "subdomain"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "0e297d9e-7748-4d9a-9a5b-ccd9b1c31505",
-              "name": "200",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "orders",
-                    ":order_id",
-                    "risks",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "order_id",
-                      "description": "(Required) Order's ID"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) Risk's ID"
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n    \\\"risk\\\": {\\n        \\\"id\\\": 238549140194212523,\\n        \\\"order_id\\\": \\\"183211-00000011\\\",\\n        \\\"level\\\": \\\"cancel\\\",\\n        \\\"value\\\": [\\n            \\\"this is test risk  update\\\",\\n            \\\"as1dfa\\\",\\n            \\\"123aweqe\\\",\\n            \\\"123123\\\"\\n        ],\\n        \\\"properties\\\": {\\n            \\\"test\\\": \\\"123\\\",\\n            \\\"test1\\\": \\\"211llkd\\\"\\n        },\\n        \\\"created_at\\\": \\\"2023-04-20T06:29:07Z\\\",\\n        \\\"updated_at\\\": \\\"2023-04-20T06:29:07Z\\\"\\n    }\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "a6091c16-dc7f-4aa6-912f-aab95c9d853e",
-              "name": "400",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "orders",
-                    ":order_id",
-                    "risks",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "order_id",
-                      "description": "(Required) Order's ID"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) Risk's ID"
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "bad10def-c313-483c-8cee-872fa379c36b",
-          "name": "Update Order Risk",
-          "request": {
-            "name": "Update Order Risk",
-            "description": {
-              "content": "",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "openapi",
-                "2022-01",
-                "orders",
-                ":order_id",
-                "risks",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "order_id",
-                  "description": "(Required) Order's ID"
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) Risk's ID"
-                },
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{subdomain}}",
-                  "key": "subdomain"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "PUT",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"risk\": {}\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "17f2b0fd-c55a-4fd2-9236-49173c2ef163",
-              "name": "200",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "orders",
-                    ":order_id",
-                    "risks",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "order_id",
-                      "description": "(Required) Order's ID"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) Risk's ID"
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"risk\": {}\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n    \\\"risk\\\": {\\n        \\\"id\\\": 238549140194212523,\\n        \\\"order_id\\\": \\\"183211-00000011\\\",\\n        \\\"level\\\": \\\"cancel\\\",\\n        \\\"value\\\": [\\n            \\\"this is test risk  update\\\",\\n            \\\"as1dfa\\\",\\n            \\\"123aweqe\\\",\\n            \\\"123123\\\"\\n        ],\\n        \\\"properties\\\": {\\n            \\\"test\\\": \\\"123\\\",\\n            \\\"test1\\\": \\\"211llkd\\\"\\n        },\\n        \\\"created_at\\\": \\\"2023-04-20T06:29:07Z\\\",\\n        \\\"updated_at\\\": \\\"2023-04-20T06:29:07Z\\\"\\n    }\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "0f4c8d2e-2078-429f-b5d7-b4e3b8a2b21c",
-              "name": "400",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "orders",
-                    ":order_id",
-                    "risks",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "order_id",
-                      "description": "(Required) Order's ID"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) Risk's ID"
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"risk\": {}\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "ce7bf43d-be8a-45ed-b126-8ec30dabeb2a",
-          "name": "Delete Order Risk",
-          "request": {
-            "name": "Delete Order Risk",
-            "description": {
-              "content": "",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "openapi",
-                "2022-01",
-                "orders",
-                ":order_id",
-                "risks",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "order_id",
-                  "description": "(Required) Order's ID"
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) Risk's ID"
-                },
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{subdomain}}",
-                  "key": "subdomain"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "5996dd32-39e9-421f-bdc0-ef33ced10caa",
-              "name": "200",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "orders",
-                    ":order_id",
-                    "risks",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "order_id",
-                      "description": "(Required) Order's ID"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) Risk's ID"
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "2ae1cc0b-3721-4597-a53a-b6cbf75b1933",
-              "name": "400",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "orders",
-                    ":order_id",
-                    "risks",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "order_id",
-                      "description": "(Required) Order's ID"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) Risk's ID"
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "2a5f4d53-4da1-4db8-8d3d-a80374abd4ac",
-          "name": "Create Order Risk",
-          "request": {
-            "name": "Create Order Risk",
-            "description": {
-              "content": "",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "openapi",
-                "2022-01",
-                "orders",
-                ":order_id",
-                "risks"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "order_id",
-                  "description": "(Required) Order's ID"
-                },
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{subdomain}}",
-                  "key": "subdomain"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"risk\": {}\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "e6dd578b-2efc-43f3-89f3-f6c2551d0258",
-              "name": "200",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "orders",
-                    ":order_id",
-                    "risks"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "order_id",
-                      "description": "(Required) Order's ID"
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"risk\": {}\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n    \\\"risk\\\": {\\n        \\\"id\\\": 238549140194212523,\\n        \\\"order_id\\\": \\\"183211-00000011\\\",\\n        \\\"level\\\": \\\"cancel\\\",\\n        \\\"value\\\": [\\n            \\\"this is test risk  update\\\",\\n            \\\"as1dfa\\\",\\n            \\\"123aweqe\\\",\\n            \\\"123123\\\"\\n        ],\\n        \\\"properties\\\": {\\n            \\\"test\\\": \\\"123\\\",\\n            \\\"test1\\\": \\\"211llkd\\\"\\n        },\\n        \\\"created_at\\\": \\\"2023-04-20T06:29:07Z\\\",\\n        \\\"updated_at\\\": \\\"2023-04-20T06:29:07Z\\\"\\n    }\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "b8bd61e9-7583-4f98-8301-66b309b40471",
-              "name": "400",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "orders",
-                    ":order_id",
-                    "risks"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "order_id",
-                      "description": "(Required) Order's ID"
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"risk\": {}\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "35cd48ab-ed1f-44ee-b9ee-42f72b02fb44",
+          "createdAt": "2026-10-21T19:48:50.000Z",
+          "updatedAt": "2026-10-21T19:48:50.000Z",
+          "uid": "35240-35cd48ab-ed1f-44ee-b9ee-42f72b02fb44"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "type": "any",
-      "value": "developer",
-      "key": "subdomain"
-    },
-    {
-      "type": "string",
-      "value": "https://{{subdomain}}.myshoplaza.com",
-      "key": "baseUrl"
+      "id": "ada25909-a8c5-468a-884b-4c3d99d29608",
+      "createdAt": "2026-10-21T19:48:50.000Z",
+      "updatedAt": "2026-10-21T19:48:50.000Z",
+      "uid": "35240-ada25909-a8c5-468a-884b-4c3d99d29608"
     }
   ],
   "auth": {
@@ -1207,25 +1041,29 @@
     "apikey": [
       {
         "key": "key",
-        "value": "access-token"
+        "value": "access-token",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "3f04083c-9436-47b8-9581-05588255988e",
-    "name": "SPZ Admin Access Order Risk API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "subdomain",
+      "value": "developer"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{subdomain}}.myshoplaza.com"
     }
-  }
+  ]
 }

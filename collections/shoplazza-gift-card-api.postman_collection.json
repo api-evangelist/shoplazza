@@ -1,832 +1,706 @@
 {
+  "info": {
+    "_postman_id": "b70a638d-7bc0-4f28-86d1-670afc862a0f",
+    "name": "SPZ Admin Gift Card API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T19:48:19.000Z",
+    "updatedAt": "2026-10-21T19:48:19.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-b70a638d-7bc0-4f28-86d1-670afc862a0f"
+  },
   "item": [
     {
-      "id": "126b00e8-e696-40fd-ac1c-9c4300353aed",
-      "name": "Gift Card",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "openapi",
       "item": [
         {
-          "id": "b44ab73f-f63d-4906-ae98-72a63e1bf088",
-          "name": "Authentication",
-          "request": {
-            "name": "Authentication",
-            "description": {
-              "content": "",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "openapi",
-                "2022-01",
-                "gift_cards"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{subdomain}}",
-                  "key": "subdomain"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "2022-01",
+          "item": [
             {
-              "id": "9885fa5f-c96f-4463-ae26-fbbb820ba3c1",
-              "name": "200",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "gift_cards"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "gift_cards",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "{id}",
+                  "item": [
+                    {
+                      "name": "disable",
+                      "item": [
+                        {
+                          "name": "Disable Gift Card",
+                          "id": "b08eda6d-8044-4aa8-b024-739bce0df13e",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/openapi/2022-01/gift_cards/:id/disable",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "openapi",
+                                "2022-01",
+                                "gift_cards",
+                                ":id",
+                                "disable"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "530d916c-a1b8-4713-9548-23b915c46532",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) Gift card's ID"
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "b6f1c633-bf11-4028-9025-f4150b99d78d",
+                              "name": "200",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "access-token",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/openapi/2022-01/gift_cards/:id/disable",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "openapi",
+                                    "2022-01",
+                                    "gift_cards",
+                                    ":id",
+                                    "disable"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"gift_card\": {\n    \"id\": \"<string>\",\n    \"last_characters\": \"<string>\",\n    \"balance\": \"<string>\",\n    \"initial_value\": \"<string>\",\n    \"note\": \"<string>\",\n    \"expires_on\": \"<string>\",\n    \"disabled_at\": \"<string>\",\n    \"enabled\": true,\n    \"created_at\": \"<string>\",\n    \"updated_at\": \"<string>\",\n    \"status\": \"<string>\",\n    \"currency\": \"<string>\",\n    \"line_item_id\": \"<string>\",\n    \"order_id\": \"<string>\",\n    \"user_id\": \"<string>\",\n    \"template_suffix\": \"<string>\",\n    \"customer_id\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-10-21T19:48:19.000Z",
+                              "updatedAt": "2026-10-21T19:48:19.000Z",
+                              "uid": "35240-b6f1c633-bf11-4028-9025-f4150b99d78d"
+                            },
+                            {
+                              "id": "6e25032c-6da7-4c0a-be50-8d19858538db",
+                              "name": "404",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "access-token",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/openapi/2022-01/gift_cards/:id/disable",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "openapi",
+                                    "2022-01",
+                                    "gift_cards",
+                                    ":id",
+                                    "disable"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"errors\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                              "createdAt": "2026-10-21T19:48:19.000Z",
+                              "updatedAt": "2026-10-21T19:48:19.000Z",
+                              "uid": "35240-6e25032c-6da7-4c0a-be50-8d19858538db"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T19:48:19.000Z",
+                          "updatedAt": "2026-10-21T19:48:19.000Z",
+                          "uid": "35240-b08eda6d-8044-4aa8-b024-739bce0df13e"
+                        }
+                      ],
+                      "id": "b6c27cfd-905d-4e21-833f-ce9b2369b927",
+                      "createdAt": "2026-10-21T19:48:19.000Z",
+                      "updatedAt": "2026-10-21T19:48:19.000Z",
+                      "uid": "35240-b6c27cfd-905d-4e21-833f-ce9b2369b927"
+                    },
+                    {
+                      "name": "Get Gift Card Details",
+                      "id": "59114943-cadc-4451-8032-063b6fe6785b",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/openapi/2022-01/gift_cards/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "openapi",
+                            "2022-01",
+                            "gift_cards",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "6b9bf1ab-ed83-4316-b01d-a77d710c01ad",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) Gift card's ID"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "21904d03-ad00-4f26-baa1-1498b266129b",
+                          "name": "200",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "access-token",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/openapi/2022-01/gift_cards/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "openapi",
+                                "2022-01",
+                                "gift_cards",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"gift_card\": {\n    \"id\": \"<string>\",\n    \"last_characters\": \"<string>\",\n    \"balance\": \"<string>\",\n    \"initial_value\": \"<string>\",\n    \"note\": \"<string>\",\n    \"expires_on\": \"<string>\",\n    \"disabled_at\": {},\n    \"enabled\": true,\n    \"created_at\": \"<string>\",\n    \"updated_at\": \"<string>\",\n    \"status\": \"<string>\",\n    \"currency\": \"<string>\",\n    \"line_item_id\": \"<string>\",\n    \"order_id\": \"<string>\",\n    \"user_id\": \"<string>\",\n    \"template_suffix\": \"<string>\",\n    \"customer_id\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-10-21T19:48:19.000Z",
+                          "updatedAt": "2026-10-21T19:48:19.000Z",
+                          "uid": "35240-21904d03-ad00-4f26-baa1-1498b266129b"
+                        },
+                        {
+                          "id": "c21f0c21-2807-4066-b9f2-9630d320170a",
+                          "name": "404",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "access-token",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/openapi/2022-01/gift_cards/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "openapi",
+                                "2022-01",
+                                "gift_cards",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"errors\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "createdAt": "2026-10-21T19:48:19.000Z",
+                          "updatedAt": "2026-10-21T19:48:19.000Z",
+                          "uid": "35240-c21f0c21-2807-4066-b9f2-9630d320170a"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T19:48:19.000Z",
+                      "updatedAt": "2026-10-21T19:48:19.000Z",
+                      "uid": "35240-59114943-cadc-4451-8032-063b6fe6785b"
+                    },
+                    {
+                      "name": "Update Gift Card",
+                      "id": "ceb05435-1472-425b-8983-7f553189608a",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"gift_card\": {\n    \"expires_on\": \"<string>\",\n    \"note\": \"<string>\",\n    \"template_suffix\": \"<string>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/openapi/2022-01/gift_cards/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "openapi",
+                            "2022-01",
+                            "gift_cards",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "3bd693e1-70cc-4dfc-9721-51e1aa0c8bca",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) Gift card's ID"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "34f78775-7cc3-446c-aec4-5ff24673ae88",
+                          "name": "200",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "access-token",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"gift_card\": {\n    \"expires_on\": \"<string>\",\n    \"note\": \"<string>\",\n    \"template_suffix\": \"<string>\"\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/openapi/2022-01/gift_cards/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "openapi",
+                                "2022-01",
+                                "gift_cards",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"gift_card\": {\n    \"id\": \"<string>\",\n    \"last_characters\": \"<string>\",\n    \"balance\": \"<string>\",\n    \"initial_value\": \"<string>\",\n    \"note\": \"<string>\",\n    \"expires_on\": \"<string>\",\n    \"disabled_at\": {},\n    \"enabled\": true,\n    \"created_at\": \"<string>\",\n    \"updated_at\": \"<string>\",\n    \"status\": \"<string>\",\n    \"currency\": \"<string>\",\n    \"line_item_id\": \"<string>\",\n    \"order_id\": \"<string>\",\n    \"user_id\": \"<string>\",\n    \"template_suffix\": \"<string>\",\n    \"customer_id\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-10-21T19:48:19.000Z",
+                          "updatedAt": "2026-10-21T19:48:19.000Z",
+                          "uid": "35240-34f78775-7cc3-446c-aec4-5ff24673ae88"
+                        },
+                        {
+                          "id": "68701987-e6b2-4aec-998c-33ab486bc6ef",
+                          "name": "404",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "access-token",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"gift_card\": {\n    \"expires_on\": \"<string>\",\n    \"note\": \"<string>\",\n    \"template_suffix\": \"<string>\"\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/openapi/2022-01/gift_cards/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "openapi",
+                                "2022-01",
+                                "gift_cards",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"errors\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "createdAt": "2026-10-21T19:48:19.000Z",
+                          "updatedAt": "2026-10-21T19:48:19.000Z",
+                          "uid": "35240-68701987-e6b2-4aec-998c-33ab486bc6ef"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T19:48:19.000Z",
+                      "updatedAt": "2026-10-21T19:48:19.000Z",
+                      "uid": "35240-ceb05435-1472-425b-8983-7f553189608a"
+                    }
+                  ],
+                  "id": "9316fcda-2638-4b4e-8625-a345fed7a2b7",
+                  "createdAt": "2026-10-21T19:48:19.000Z",
+                  "updatedAt": "2026-10-21T19:48:19.000Z",
+                  "uid": "35240-9316fcda-2638-4b4e-8625-a345fed7a2b7"
+                },
+                {
+                  "name": "Authentication",
+                  "id": "0effdd2d-eba0-450c-9942-bdbefbdc7ef9",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/openapi/2022-01/gift_cards",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "openapi",
+                        "2022-01",
+                        "gift_cards"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "2a22e1ec-22ce-4eab-b7ad-7f2145409558",
+                      "name": "200",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "access-token",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/openapi/2022-01/gift_cards",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "openapi",
+                            "2022-01",
+                            "gift_cards"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"gift_cards\": [\n    {\n      \"id\": \"<string>\",\n      \"last_characters\": \"<string>\",\n      \"balance\": \"<string>\",\n      \"initial_value\": \"<string>\",\n      \"note\": \"<string>\",\n      \"expires_on\": \"<string>\",\n      \"disabled_at\": {},\n      \"enabled\": true,\n      \"created_at\": \"<string>\",\n      \"updated_at\": \"<string>\",\n      \"status\": \"<string>\",\n      \"currency\": \"<string>\",\n      \"line_item_id\": \"<string>\",\n      \"order_id\": \"<string>\",\n      \"user_id\": \"<string>\",\n      \"template_suffix\": \"<string>\",\n      \"customer_id\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"last_characters\": \"<string>\",\n      \"balance\": \"<string>\",\n      \"initial_value\": \"<string>\",\n      \"note\": \"<string>\",\n      \"expires_on\": \"<string>\",\n      \"disabled_at\": {},\n      \"enabled\": true,\n      \"created_at\": \"<string>\",\n      \"updated_at\": \"<string>\",\n      \"status\": \"<string>\",\n      \"currency\": \"<string>\",\n      \"line_item_id\": \"<string>\",\n      \"order_id\": \"<string>\",\n      \"user_id\": \"<string>\",\n      \"template_suffix\": \"<string>\",\n      \"customer_id\": \"<string>\"\n    }\n  ],\n  \"total\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T19:48:19.000Z",
+                      "updatedAt": "2026-10-21T19:48:19.000Z",
+                      "uid": "35240-2a22e1ec-22ce-4eab-b7ad-7f2145409558"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T19:48:19.000Z",
+                  "updatedAt": "2026-10-21T19:48:19.000Z",
+                  "uid": "35240-0effdd2d-eba0-450c-9942-bdbefbdc7ef9"
+                },
+                {
+                  "name": "Create Gift Card",
+                  "id": "d8821673-286f-49ce-8cca-741380472a19",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"gift_card\": {\n    \"code\": \"<string>\",\n    \"initial_value\": \"<string>\",\n    \"expires_on\": \"<string>\",\n    \"note\": \"<string>\",\n    \"customer_id\": \"<string>\",\n    \"template_suffix\": \"<string>\",\n    \"send_email\": true\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/openapi/2022-01/gift_cards",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "openapi",
+                        "2022-01",
+                        "gift_cards"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "5d5e0054-dd15-4c05-aa60-c043d775b537",
+                      "name": "200",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "access-token",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"gift_card\": {\n    \"code\": \"<string>\",\n    \"initial_value\": \"<string>\",\n    \"expires_on\": \"<string>\",\n    \"note\": \"<string>\",\n    \"customer_id\": \"<string>\",\n    \"template_suffix\": \"<string>\",\n    \"send_email\": true\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/openapi/2022-01/gift_cards",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "openapi",
+                            "2022-01",
+                            "gift_cards"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"gift_card\": {\n    \"id\": \"<string>\",\n    \"last_characters\": \"<string>\",\n    \"balance\": \"<string>\",\n    \"initial_value\": \"<string>\",\n    \"note\": \"<string>\",\n    \"expires_on\": \"<string>\",\n    \"disabled_at\": {},\n    \"enabled\": true,\n    \"created_at\": \"<string>\",\n    \"updated_at\": \"<string>\",\n    \"status\": \"<string>\",\n    \"currency\": \"<string>\",\n    \"line_item_id\": \"<string>\",\n    \"order_id\": \"<string>\",\n    \"user_id\": \"<string>\",\n    \"template_suffix\": \"<string>\",\n    \"code\": \"<string>\",\n    \"customer_id\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-10-21T19:48:19.000Z",
+                      "updatedAt": "2026-10-21T19:48:19.000Z",
+                      "uid": "35240-5d5e0054-dd15-4c05-aa60-c043d775b537"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T19:48:19.000Z",
+                  "updatedAt": "2026-10-21T19:48:19.000Z",
+                  "uid": "35240-d8821673-286f-49ce-8cca-741380472a19"
                 }
               ],
-              "body": "\"{\\n    \\\"gift_cards\\\": [\\n        {\\n            \\\"id\\\": \\\"179882653468593874\\\",\\n            \\\"last_characters\\\": \\\"abcd\\\",\\n            \\\"balance\\\": \\\"108.99\\\",\\n            \\\"initial_value\\\": \\\"200.00\\\",\\n            \\\"note\\\": \\\"Note\\\",\\n            \\\"expires_on\\\": \\\"2022-11-05T12:00:00Z\\\",\\n            \\\"disabled_at\\\": null,\\n            \\\"enabled\\\": true,\\n            \\\"created_at\\\": \\\"2022-11-01T10:00:00Z\\\",\\n            \\\"updated_at\\\": \\\"2022-11-03T10:00:00Z\\\",\\n            \\\"status\\\": \\\"enable\\\",\\n            \\\"currency\\\": \\\"USD\\\",\\n            \\\"line_item_id\\\": \\\"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\\\",\\n            \\\"order_id\\\": \\\"1121890668917975533\\\",\\n            \\\"user_id\\\": \\\"b9664ac3-daf1-41ff-8235-1523012b1b47\\\",\\n            \\\"template_suffix\\\": \\\"new_customer\\\",\\n            \\\"customer_id\\\": \\\"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\\\"\\n        }\\n    ],\\n    \\\"total\\\": \\\"1\\\"\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "1b9d5248-ea4b-44a9-af49-ce8ac6cb0951",
+              "createdAt": "2026-10-21T19:48:19.000Z",
+              "updatedAt": "2026-10-21T19:48:19.000Z",
+              "uid": "35240-1b9d5248-ea4b-44a9-af49-ce8ac6cb0951"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "d021f771-2977-4761-b3a0-a211b99ff26f",
-          "name": "Create Gift Card",
-          "request": {
-            "name": "Create Gift Card",
-            "description": {
-              "content": "",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "openapi",
-                "2022-01",
-                "gift_cards"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{subdomain}}",
-                  "key": "subdomain"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"gift_card\": {\n    \"code\": \"<string>\",\n    \"initial_value\": \"<string>\",\n    \"expires_on\": \"<string>\",\n    \"note\": \"<string>\",\n    \"customer_id\": \"<string>\",\n    \"template_suffix\": \"<string>\",\n    \"send_email\": true\n  }\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "30465b9c-b7b1-497f-831f-a346e0a48289",
-              "name": "200",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "gift_cards"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"gift_card\": {\n    \"code\": \"<string>\",\n    \"initial_value\": \"<string>\",\n    \"expires_on\": \"<string>\",\n    \"note\": \"<string>\",\n    \"customer_id\": \"<string>\",\n    \"template_suffix\": \"<string>\",\n    \"send_email\": true\n  }\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n    \\\"gift_card\\\": {\\n        \\\"id\\\": \\\"179882653468593874\\\",\\n        \\\"last_characters\\\": \\\"4da7\\\",\\n        \\\"balance\\\": \\\"200.00\\\",\\n        \\\"initial_value\\\": \\\"200.00\\\",\\n        \\\"note\\\": \\\"Note\\\",\\n        \\\"expires_on\\\": \\\"2022-11-05T12:00:00Z\\\",\\n        \\\"disabled_at\\\": null,\\n        \\\"enabled\\\": true,\\n        \\\"created_at\\\": \\\"2022-11-01T10:00:00Z\\\",\\n        \\\"updated_at\\\": \\\"2022-11-03T10:00:00Z\\\",\\n        \\\"status\\\": \\\"enable\\\",\\n        \\\"currency\\\": \\\"USD\\\",\\n        \\\"line_item_id\\\": \\\"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\\\",\\n        \\\"order_id\\\": \\\"1121890668917975533\\\",\\n        \\\"user_id\\\": \\\"b9664ac3-daf1-41ff-8235-1523012b1b47\\\",\\n        \\\"template_suffix\\\": \\\"new_customer\\\",\\n        \\\"code\\\": \\\"a4f44da7\\\",\\n        \\\"customer_id\\\": \\\"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\\\"\\n    }\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "3a977162-7066-4cc6-8f75-e701c3f50551",
-          "name": "Get Gift Card Details",
-          "request": {
-            "name": "Get Gift Card Details",
-            "description": {
-              "content": "",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "openapi",
-                "2022-01",
-                "gift_cards",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) Gift card's ID"
-                },
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{subdomain}}",
-                  "key": "subdomain"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "4456cd96-2478-4887-9bd9-ca506928d211",
-              "name": "200",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "gift_cards",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) Gift card's ID"
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n    \\\"gift_card\\\": {\\n        \\\"id\\\": \\\"179882653468593874\\\",\\n        \\\"last_characters\\\": \\\"abcd\\\",\\n        \\\"balance\\\": \\\"108.99\\\",\\n        \\\"initial_value\\\": \\\"200.00\\\",\\n        \\\"note\\\": \\\"Note\\\",\\n        \\\"expires_on\\\": \\\"2022-11-05T12:00:00Z\\\",\\n        \\\"disabled_at\\\": null,\\n        \\\"enabled\\\": true,\\n        \\\"created_at\\\": \\\"2022-11-01T10:00:00Z\\\",\\n        \\\"updated_at\\\": \\\"2022-11-03T10:00:00Z\\\",\\n        \\\"status\\\": \\\"enable\\\",\\n        \\\"currency\\\": \\\"USD\\\",\\n        \\\"line_item_id\\\": \\\"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\\\",\\n        \\\"order_id\\\": \\\"1121890668917975533\\\",\\n        \\\"user_id\\\": \\\"b9664ac3-daf1-41ff-8235-1523012b1b47\\\",\\n        \\\"template_suffix\\\": \\\"new_customer\\\",\\n        \\\"customer_id\\\": \\\"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\\\"\\n    }\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "0d3a5049-6536-4794-98a6-b4a491bc2d29",
-              "name": "404",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "gift_cards",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) Gift card's ID"
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n    \\\"errors\\\": [\\\"Record not found\\\"]\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "9564b34c-24ae-430b-b34e-e81898dedaff",
-          "name": "Update Gift Card",
-          "request": {
-            "name": "Update Gift Card",
-            "description": {
-              "content": "",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "openapi",
-                "2022-01",
-                "gift_cards",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) Gift card's ID"
-                },
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{subdomain}}",
-                  "key": "subdomain"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "PUT",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"gift_card\": {\n    \"expires_on\": \"<string>\",\n    \"note\": \"<string>\",\n    \"template_suffix\": \"<string>\"\n  }\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "220ac945-d839-495a-bae5-22042705b6cc",
-              "name": "200",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "gift_cards",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) Gift card's ID"
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"gift_card\": {\n    \"expires_on\": \"<string>\",\n    \"note\": \"<string>\",\n    \"template_suffix\": \"<string>\"\n  }\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n    \\\"gift_card\\\": {\\n        \\\"id\\\": \\\"179882653468593874\\\",\\n        \\\"last_characters\\\": \\\"abcd\\\",\\n        \\\"balance\\\": \\\"200.00\\\",\\n        \\\"initial_value\\\": \\\"200.00\\\",\\n        \\\"note\\\": \\\"Note\\\",\\n        \\\"expires_on\\\": \\\"2022-11-05T12:00:00Z\\\",\\n        \\\"disabled_at\\\": null,\\n        \\\"enabled\\\": true,\\n        \\\"created_at\\\": \\\"2022-11-01T10:00:00Z\\\",\\n        \\\"updated_at\\\": \\\"2022-11-03T10:00:00Z\\\",\\n        \\\"status\\\": \\\"enable\\\",\\n        \\\"currency\\\": \\\"USD\\\",\\n        \\\"line_item_id\\\": \\\"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\\\",\\n        \\\"order_id\\\": \\\"1121890668917975533\\\",\\n        \\\"user_id\\\": \\\"b9664ac3-daf1-41ff-8235-1523012b1b47\\\",\\n        \\\"template_suffix\\\": \\\"new_customer\\\",\\n        \\\"customer_id\\\": \\\"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\\\"\\n    }\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "16a7bceb-6b88-48b3-90c1-4da56720b39a",
-              "name": "404",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "gift_cards",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) Gift card's ID"
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"gift_card\": {\n    \"expires_on\": \"<string>\",\n    \"note\": \"<string>\",\n    \"template_suffix\": \"<string>\"\n  }\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n    \\\"errors\\\": [\\\"Record not found\\\"]\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "50c1a54a-571e-484e-aeb9-35a7c31fa93d",
-          "name": "Disable Gift Card",
-          "request": {
-            "name": "Disable Gift Card",
-            "description": {
-              "content": "",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "openapi",
-                "2022-01",
-                "gift_cards",
-                ":id",
-                "disable"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) Gift card's ID"
-                },
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{subdomain}}",
-                  "key": "subdomain"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "541517a1-79b4-4122-86f7-8f053ce4498d",
-              "name": "200",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "gift_cards",
-                    ":id",
-                    "disable"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) Gift card's ID"
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n    \\\"gift_card\\\": {\\n        \\\"id\\\": \\\"179882653468593874\\\",\\n        \\\"last_characters\\\": \\\"abcd\\\",\\n        \\\"balance\\\": \\\"200.00\\\",\\n        \\\"initial_value\\\": \\\"200.00\\\",\\n        \\\"note\\\": \\\"Note\\\",\\n        \\\"expires_on\\\": \\\"2022-11-05T12:00:00Z\\\",\\n        \\\"disabled_at\\\": \\\"2022-11-04T12:00:00Z\\\",\\n        \\\"enabled\\\": true,\\n        \\\"created_at\\\": \\\"2022-11-01T10:00:00Z\\\",\\n        \\\"updated_at\\\": \\\"2022-11-03T10:00:00Z\\\",\\n        \\\"status\\\": \\\"disable\\\",\\n        \\\"currency\\\": \\\"USD\\\",\\n        \\\"line_item_id\\\": \\\"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\\\",\\n        \\\"order_id\\\": \\\"1121890668917975533\\\",\\n        \\\"user_id\\\": \\\"b9664ac3-daf1-41ff-8235-1523012b1b47\\\",\\n        \\\"template_suffix\\\": \\\"new_customer\\\",\\n        \\\"customer_id\\\": \\\"db4469f3-5e56-4c69-a2b6-03e81d24d5b5\\\"\\n    }\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "a4416993-89bc-4cea-bd36-5cf64e6d7e2e",
-              "name": "404",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "gift_cards",
-                    ":id",
-                    "disable"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) Gift card's ID"
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n    \\\"errors\\\": [\\\"Record not found\\\"]\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "e8710dad-0adc-4767-b80b-fe7a992125ce",
+          "createdAt": "2026-10-21T19:48:19.000Z",
+          "updatedAt": "2026-10-21T19:48:19.000Z",
+          "uid": "35240-e8710dad-0adc-4767-b80b-fe7a992125ce"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "type": "any",
-      "value": "developer",
-      "key": "subdomain"
-    },
-    {
-      "type": "string",
-      "value": "https://{{subdomain}}.myshoplaza.com",
-      "key": "baseUrl"
+      "id": "72124585-ada5-4e5b-9238-99035e3f5ec9",
+      "createdAt": "2026-10-21T19:48:19.000Z",
+      "updatedAt": "2026-10-21T19:48:19.000Z",
+      "uid": "35240-72124585-ada5-4e5b-9238-99035e3f5ec9"
     }
   ],
   "auth": {
@@ -834,25 +708,29 @@
     "apikey": [
       {
         "key": "key",
-        "value": "access-token"
+        "value": "access-token",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "74523786-0057-4165-b685-0e46bee0e8be",
-    "name": "SPZ Admin Access Gift Card API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "subdomain",
+      "value": "developer"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{subdomain}}.myshoplaza.com"
     }
-  }
+  ]
 }

@@ -1,192 +1,172 @@
 {
+  "info": {
+    "_postman_id": "4cf27181-a179-4ae5-b534-e7c3ba44a6d9",
+    "name": "SPZ Admin Access API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T19:47:12.000Z",
+    "updatedAt": "2026-10-21T19:47:12.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-4cf27181-a179-4ae5-b534-e7c3ba44a6d9"
+  },
   "item": [
     {
-      "id": "f23dcd2d-5e20-453f-a040-b34a1ac30a10",
-      "name": "Access",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "openapi",
       "item": [
         {
-          "id": "996ffa37-4a24-4673-b116-c521806d77a4",
-          "name": "Get Access Scopes",
-          "request": {
-            "name": "Get Access Scopes",
-            "description": {
-              "content": "",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "openapi",
-                "2022-01",
-                "oauth",
-                "access_scopes"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{subdomain}}",
-                  "key": "subdomain"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "2022-01",
+          "item": [
             {
-              "id": "846462b3-e525-46d7-bb6c-c88ef89c357c",
-              "name": "200",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "oauth",
-                    "access_scopes"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "oauth",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "access_scopes",
+                  "item": [
+                    {
+                      "name": "Get Access Scopes",
+                      "id": "355346ec-6c9c-4900-bb7e-1ebac47d4eac",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/openapi/2022-01/oauth/access_scopes",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "openapi",
+                            "2022-01",
+                            "oauth",
+                            "access_scopes"
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "991e36ee-d757-43d6-a0e8-5c38dba2a528",
+                          "name": "200",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "access-token",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/openapi/2022-01/oauth/access_scopes",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "openapi",
+                                "2022-01",
+                                "oauth",
+                                "access_scopes"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"access_scopes\": [\n    {\n      \"handle\": \"<string>\"\n    },\n    {\n      \"handle\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-10-21T19:47:12.000Z",
+                          "updatedAt": "2026-10-21T19:47:12.000Z",
+                          "uid": "35240-991e36ee-d757-43d6-a0e8-5c38dba2a528"
+                        },
+                        {
+                          "id": "98a4daf3-0f1a-4dd3-a513-9f36c917b631",
+                          "name": "400",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "access-token",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/openapi/2022-01/oauth/access_scopes",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "openapi",
+                                "2022-01",
+                                "oauth",
+                                "access_scopes"
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{}",
+                          "createdAt": "2026-10-21T19:47:12.000Z",
+                          "updatedAt": "2026-10-21T19:47:12.000Z",
+                          "uid": "35240-98a4daf3-0f1a-4dd3-a513-9f36c917b631"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T19:47:12.000Z",
+                      "updatedAt": "2026-10-21T19:47:12.000Z",
+                      "uid": "35240-355346ec-6c9c-4900-bb7e-1ebac47d4eac"
+                    }
+                  ],
+                  "id": "10d40e32-449e-46e2-ba8e-4f253d1f06c1",
+                  "createdAt": "2026-10-21T19:47:12.000Z",
+                  "updatedAt": "2026-10-21T19:47:12.000Z",
+                  "uid": "35240-10d40e32-449e-46e2-ba8e-4f253d1f06c1"
                 }
               ],
-              "body": "\"{\\n    \\\"access_scopes\\\": [\\n        {\\n            \\\"handle\\\": \\\"read_product\\\"\\n        },\\n        {\\n            \\\"handle\\\": \\\"write_product\\\"\\n        },\\n        {\\n            \\\"handle\\\": \\\"read_order\\\"\\n        },\\n        {\\n            \\\"handle\\\": \\\"write_order\\\"\\n        },\\n        {\\n            \\\"handle\\\": \\\"read_comments\\\"\\n        },\\n        {\\n            \\\"handle\\\": \\\"write_comments\\\"\\n        },\\n        {\\n            \\\"handle\\\": \\\"read_script_tags\\\"\\n        },\\n        {\\n            \\\"handle\\\": \\\"write_script_tags\\\"\\n        },\\n        {\\n            \\\"handle\\\": \\\"read_collection\\\"\\n        },\\n        {\\n            \\\"handle\\\": \\\"write_collection\\\"\\n        },\\n        {\\n            \\\"handle\\\": \\\"read_shop\\\"\\n        },\\n        {\\n            \\\"handle\\\": \\\"read_customer\\\"\\n        },\\n        {\\n            \\\"handle\\\": \\\"write_customer\\\"\\n        },\\n        {\\n            \\\"handle\\\": \\\"read_app_proxy\\\"\\n        },\\n        {\\n            \\\"handle\\\": \\\"write_app_proxy\\\"\\n        },\\n        {\\n            \\\"handle\\\": \\\"read_data\\\"\\n        },\\n        {\\n            \\\"handle\\\": \\\"write_data\\\"\\n        },\\n        {\\n            \\\"handle\\\": \\\"read_price_rules\\\"\\n        },\\n        {\\n            \\\"handle\\\": \\\"write_price_rules\\\"\\n        },\\n        {\\n            \\\"handle\\\": \\\"read_shop_navigation\\\"\\n        },\\n        {\\n            \\\"handle\\\": \\\"write_shop_navigation\\\"\\n        },\\n        {\\n            \\\"handle\\\": \\\"read_search_api\\\"\\n        },\\n        {\\n            \\\"handle\\\": \\\"write_search_api\\\"\\n        }\\n    ]\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "d68e0fa3-870d-4528-b873-8aadda4a185a",
-              "name": "400",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "oauth",
-                    "access_scopes"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "6846b4ee-40cc-4542-97a4-205dab54806b",
+              "createdAt": "2026-10-21T19:47:12.000Z",
+              "updatedAt": "2026-10-21T19:47:12.000Z",
+              "uid": "35240-6846b4ee-40cc-4542-97a4-205dab54806b"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "017d493a-e5f4-4f30-ac61-3550bff82212",
+          "createdAt": "2026-10-21T19:47:12.000Z",
+          "updatedAt": "2026-10-21T19:47:12.000Z",
+          "uid": "35240-017d493a-e5f4-4f30-ac61-3550bff82212"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "type": "any",
-      "value": "developer",
-      "key": "subdomain"
-    },
-    {
-      "type": "string",
-      "value": "https://{{subdomain}}.myshoplaza.com",
-      "key": "baseUrl"
+      "id": "59246714-2a40-4d79-b78f-355a6ee87d55",
+      "createdAt": "2026-10-21T19:47:12.000Z",
+      "updatedAt": "2026-10-21T19:47:12.000Z",
+      "uid": "35240-59246714-2a40-4d79-b78f-355a6ee87d55"
     }
   ],
   "auth": {
@@ -194,25 +174,29 @@
     "apikey": [
       {
         "key": "key",
-        "value": "access-token"
+        "value": "access-token",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "9358ed97-1fff-431c-bb18-3788bab0741b",
-    "name": "SPZ Admin Access API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "subdomain",
+      "value": "developer"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{subdomain}}.myshoplaza.com"
     }
-  }
+  ]
 }

@@ -1,1363 +1,1158 @@
 {
+  "info": {
+    "_postman_id": "e06558c2-6488-4442-9771-35b3e608b33f",
+    "name": "SPZ Admin Meta Definition API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T19:48:25.000Z",
+    "updatedAt": "2026-10-21T19:48:26.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-e06558c2-6488-4442-9771-35b3e608b33f"
+  },
   "item": [
     {
-      "id": "f6358170-877c-40ee-b190-8affc0068dca",
-      "name": "Meta Definition",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "openapi",
       "item": [
         {
-          "id": "225e27e4-043a-49a2-af5e-921112eabb8e",
-          "name": "Metafield Definition List",
-          "request": {
-            "name": "Metafield Definition List",
-            "description": {
-              "content": "",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "openapi",
-                "2022-01",
-                "metafield_definition",
-                ":owner_resource"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "owner_resource",
-                  "description": "(Required) Owner resource type of meta field definition, including 'product_variant' , 'product' , and 'collection'"
-                },
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{subdomain}}",
-                  "key": "subdomain"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "2022-01",
+          "item": [
             {
-              "id": "aac17195-0701-4cdd-a699-4af90c660596",
-              "name": "200",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "metafield_definition",
-                    ":owner_resource"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "owner_resource",
-                      "description": "(Required) Owner resource type of meta field definition, including 'product_variant' , 'product' , and 'collection'"
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "metafield_definition",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "{owner_resource}",
+                  "item": [
+                    {
+                      "name": "count",
+                      "item": [
+                        {
+                          "name": "Metafield Definition Count",
+                          "id": "41c5cf8b-487f-49fd-bc49-a0faa4b2b963",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/openapi/2022-01/metafield_definition/:owner_resource/count?definition_ids=<string>&definition_ids=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "openapi",
+                                "2022-01",
+                                "metafield_definition",
+                                ":owner_resource",
+                                "count"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Meta field definition ids",
+                                  "key": "definition_ids",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Meta field definition ids",
+                                  "key": "definition_ids",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "79d39025-67ea-4509-9825-9722de09793c",
+                                  "key": "owner_resource",
+                                  "value": "<string>",
+                                  "description": "(Required) Owner resource type of meta field definition, including 'product_variant' , 'product' , and 'collection'"
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "e37a7584-3e1d-4a8b-8d55-5c88223041ce",
+                              "name": "200",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "access-token",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/openapi/2022-01/metafield_definition/:owner_resource/count?definition_ids=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "openapi",
+                                    "2022-01",
+                                    "metafield_definition",
+                                    ":owner_resource",
+                                    "count"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) Meta field definition ids",
+                                      "key": "definition_ids",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "owner_resource"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"items\": [\n    {\n      \"metafield_count\": 0,\n      \"definition_id\": \"<string>\"\n    },\n    {\n      \"metafield_count\": 0,\n      \"definition_id\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-10-21T19:48:26.000Z",
+                              "updatedAt": "2026-10-21T19:48:26.000Z",
+                              "uid": "35240-e37a7584-3e1d-4a8b-8d55-5c88223041ce"
+                            },
+                            {
+                              "id": "79908674-34b0-4a48-94b1-166cc4d91006",
+                              "name": "400",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "access-token",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/openapi/2022-01/metafield_definition/:owner_resource/count?definition_ids=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "openapi",
+                                    "2022-01",
+                                    "metafield_definition",
+                                    ":owner_resource",
+                                    "count"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) Meta field definition ids",
+                                      "key": "definition_ids",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "owner_resource"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{}",
+                              "createdAt": "2026-10-21T19:48:26.000Z",
+                              "updatedAt": "2026-10-21T19:48:26.000Z",
+                              "uid": "35240-79908674-34b0-4a48-94b1-166cc4d91006"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T19:48:26.000Z",
+                          "updatedAt": "2026-10-21T19:48:26.000Z",
+                          "uid": "35240-41c5cf8b-487f-49fd-bc49-a0faa4b2b963"
+                        }
+                      ],
+                      "id": "7b281fef-95dc-404c-98ca-f957603af279",
+                      "createdAt": "2026-10-21T19:48:26.000Z",
+                      "updatedAt": "2026-10-21T19:48:26.000Z",
+                      "uid": "35240-7b281fef-95dc-404c-98ca-f957603af279"
+                    },
+                    {
+                      "name": "Metafield Definition List",
+                      "id": "9ac71378-5841-41f3-855f-d66b92c281d5",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/openapi/2022-01/metafield_definition/:owner_resource",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "openapi",
+                            "2022-01",
+                            "metafield_definition",
+                            ":owner_resource"
+                          ],
+                          "variable": [
+                            {
+                              "id": "f8219636-e03f-44ae-9a84-5dc83b583400",
+                              "key": "owner_resource",
+                              "value": "<string>",
+                              "description": "(Required) Owner resource type of meta field definition, including 'product_variant' , 'product' , and 'collection'"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "23f57d55-cea7-4bcf-90f4-0219e1688045",
+                          "name": "200",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "access-token",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/openapi/2022-01/metafield_definition/:owner_resource",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "openapi",
+                                "2022-01",
+                                "metafield_definition",
+                                ":owner_resource"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "owner_resource"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"definitions\": {\n    \"type\": \"array\",\n    \"items\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"id\": {\n          \"type\": \"string\",\n          \"example\": \"257688239354176808\",\n          \"default\": \"<string>\"\n        },\n        \"key\": {\n          \"type\": \"string\",\n          \"example\": \"productint3key\",\n          \"default\": \"<string>\"\n        },\n        \"name\": {\n          \"type\": \"string\",\n          \"example\": \"productint3key\",\n          \"default\": \"<string>\"\n        },\n        \"namespace\": {\n          \"type\": \"string\",\n          \"example\": \"name\",\n          \"default\": \"<string>\"\n        },\n        \"owner_resource\": {\n          \"type\": \"string\",\n          \"example\": \"product\",\n          \"default\": \"<string>\"\n        },\n        \"type\": {\n          \"type\": \"string\",\n          \"example\": \"multi_line_text_field\",\n          \"default\": \"<string>\"\n        },\n        \"description\": {\n          \"type\": \"string\",\n          \"example\": \"productint3key\",\n          \"default\": \"<string>\"\n        },\n        \"create_at\": {\n          \"type\": \"string\",\n          \"example\": \"2023-06-12T06:04:26Z\",\n          \"default\": \"<string>\"\n        },\n        \"updated_at\": {\n          \"type\": \"string\",\n          \"example\": \"2023-06-12T06:04:26Z\",\n          \"default\": \"<string>\"\n        }\n      }\n    }\n  },\n  \"total\": 0\n}",
+                          "createdAt": "2026-10-21T19:48:26.000Z",
+                          "updatedAt": "2026-10-21T19:48:26.000Z",
+                          "uid": "35240-23f57d55-cea7-4bcf-90f4-0219e1688045"
+                        },
+                        {
+                          "id": "805f4419-1372-448d-8631-15b1252da0a1",
+                          "name": "400",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "access-token",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/openapi/2022-01/metafield_definition/:owner_resource",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "openapi",
+                                "2022-01",
+                                "metafield_definition",
+                                ":owner_resource"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "owner_resource"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{}",
+                          "createdAt": "2026-10-21T19:48:26.000Z",
+                          "updatedAt": "2026-10-21T19:48:26.000Z",
+                          "uid": "35240-805f4419-1372-448d-8631-15b1252da0a1"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T19:48:26.000Z",
+                      "updatedAt": "2026-10-21T19:48:26.000Z",
+                      "uid": "35240-9ac71378-5841-41f3-855f-d66b92c281d5"
+                    },
+                    {
+                      "name": "Create Metafield Definition",
+                      "id": "ad183d62-778b-4944-a041-bb7f36884d79",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"namespace\": \"<string>\",\n  \"key\": \"<string>\",\n  \"type\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/openapi/2022-01/metafield_definition/:owner_resource",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "openapi",
+                            "2022-01",
+                            "metafield_definition",
+                            ":owner_resource"
+                          ],
+                          "variable": [
+                            {
+                              "id": "10ada1e4-4a1c-445e-b835-041967c0f2e1",
+                              "key": "owner_resource",
+                              "value": "<string>",
+                              "description": "(Required) Owner resource type of meta field definition, including 'product_variant' , 'product' , and 'collection'"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "ef42ccb9-dcf2-489d-8214-baa6d3037253",
+                          "name": "200",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "access-token",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"namespace\": \"<string>\",\n  \"key\": \"<string>\",\n  \"type\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/openapi/2022-01/metafield_definition/:owner_resource",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "openapi",
+                                "2022-01",
+                                "metafield_definition",
+                                ":owner_resource"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "owner_resource"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"key\": \"<string>\",\n  \"name\": \"<string>\",\n  \"namespace\": \"<string>\",\n  \"owner_resource\": \"<string>\",\n  \"type\": \"<string>\",\n  \"description\": \"<string>\",\n  \"create_at\": \"<string>\",\n  \"updated_at\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T19:48:26.000Z",
+                          "updatedAt": "2026-10-21T19:48:26.000Z",
+                          "uid": "35240-ef42ccb9-dcf2-489d-8214-baa6d3037253"
+                        },
+                        {
+                          "id": "c1c589cb-d3b2-4b8f-b47d-9575fab072b7",
+                          "name": "400",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "access-token",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"namespace\": \"<string>\",\n  \"key\": \"<string>\",\n  \"type\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/openapi/2022-01/metafield_definition/:owner_resource",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "openapi",
+                                "2022-01",
+                                "metafield_definition",
+                                ":owner_resource"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "owner_resource"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{}",
+                          "createdAt": "2026-10-21T19:48:26.000Z",
+                          "updatedAt": "2026-10-21T19:48:26.000Z",
+                          "uid": "35240-c1c589cb-d3b2-4b8f-b47d-9575fab072b7"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T19:48:26.000Z",
+                      "updatedAt": "2026-10-21T19:48:26.000Z",
+                      "uid": "35240-ad183d62-778b-4944-a041-bb7f36884d79"
+                    }
+                  ],
+                  "id": "9169208f-bfdd-47f9-b447-fbff373879a4",
+                  "createdAt": "2026-10-21T19:48:26.000Z",
+                  "updatedAt": "2026-10-21T19:48:26.000Z",
+                  "uid": "35240-9169208f-bfdd-47f9-b447-fbff373879a4"
+                },
+                {
+                  "name": "{id}",
+                  "item": [
+                    {
+                      "name": "Update Metafield Definition",
+                      "id": "1613595b-9f5f-4e43-b5ee-8aa8843ef30a",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"description\": \"<string>\",\n  \"name\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/openapi/2022-01/metafield_definition/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "openapi",
+                            "2022-01",
+                            "metafield_definition",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "d15415e8-2424-4177-b219-ee8ed28d7dcf",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "d2a34949-dfa2-40ca-92cf-0aa8d0d93857",
+                          "name": "200",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "access-token",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"description\": \"<string>\",\n  \"name\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/openapi/2022-01/metafield_definition/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "openapi",
+                                "2022-01",
+                                "metafield_definition",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"key\": \"<string>\",\n  \"name\": \"<string>\",\n  \"namespace\": \"<string>\",\n  \"owner_resource\": \"<string>\",\n  \"type\": \"<string>\",\n  \"description\": \"<string>\",\n  \"create_at\": \"<string>\",\n  \"updated_at\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T19:48:26.000Z",
+                          "updatedAt": "2026-10-21T19:48:26.000Z",
+                          "uid": "35240-d2a34949-dfa2-40ca-92cf-0aa8d0d93857"
+                        },
+                        {
+                          "id": "17b3930c-5bda-4650-b1dc-62512fc93a65",
+                          "name": "400",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "access-token",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"description\": \"<string>\",\n  \"name\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/openapi/2022-01/metafield_definition/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "openapi",
+                                "2022-01",
+                                "metafield_definition",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{}",
+                          "createdAt": "2026-10-21T19:48:26.000Z",
+                          "updatedAt": "2026-10-21T19:48:26.000Z",
+                          "uid": "35240-17b3930c-5bda-4650-b1dc-62512fc93a65"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T19:48:26.000Z",
+                      "updatedAt": "2026-10-21T19:48:26.000Z",
+                      "uid": "35240-1613595b-9f5f-4e43-b5ee-8aa8843ef30a"
+                    },
+                    {
+                      "name": "Delete Metafield Definition",
+                      "id": "ef8d8edd-d2c3-45c2-bfff-a10dd1588ab0",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "text/plain"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/openapi/2022-01/metafield_definition/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "openapi",
+                            "2022-01",
+                            "metafield_definition",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "a3281fc5-9918-467d-a37d-d9d978de4ab1",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) Meta field definition id"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "6faccc9c-ca5f-4ad6-b8e6-0d0a18fa0dba",
+                          "name": "200",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "text/plain"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "access-token",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/openapi/2022-01/metafield_definition/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "openapi",
+                                "2022-01",
+                                "metafield_definition",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "text/plain"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{}",
+                          "createdAt": "2026-10-21T19:48:26.000Z",
+                          "updatedAt": "2026-10-21T19:48:26.000Z",
+                          "uid": "35240-6faccc9c-ca5f-4ad6-b8e6-0d0a18fa0dba"
+                        },
+                        {
+                          "id": "0cc9428e-f670-476f-a37a-279a620aa65f",
+                          "name": "400",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "access-token",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/openapi/2022-01/metafield_definition/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "openapi",
+                                "2022-01",
+                                "metafield_definition",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{}",
+                          "createdAt": "2026-10-21T19:48:26.000Z",
+                          "updatedAt": "2026-10-21T19:48:26.000Z",
+                          "uid": "35240-0cc9428e-f670-476f-a37a-279a620aa65f"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T19:48:26.000Z",
+                      "updatedAt": "2026-10-21T19:48:26.000Z",
+                      "uid": "35240-ef8d8edd-d2c3-45c2-bfff-a10dd1588ab0"
+                    }
+                  ],
+                  "id": "5b04eff1-3339-4d85-8bdb-2c0a0cf7bdea",
+                  "createdAt": "2026-10-21T19:48:26.000Z",
+                  "updatedAt": "2026-10-21T19:48:26.000Z",
+                  "uid": "35240-5b04eff1-3339-4d85-8bdb-2c0a0cf7bdea"
+                },
+                {
+                  "name": "group_count",
+                  "item": [
+                    {
+                      "name": "Metafield Definition By Group Count",
+                      "id": "7191306a-d8d5-40e4-9eff-809778e6d294",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/openapi/2022-01/metafield_definition/group_count",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "openapi",
+                            "2022-01",
+                            "metafield_definition",
+                            "group_count"
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "ec059a72-0537-4ab8-9ca4-6cd1b4811edc",
+                          "name": "200",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "access-token",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/openapi/2022-01/metafield_definition/group_count",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "openapi",
+                                "2022-01",
+                                "metafield_definition",
+                                "group_count"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"items\": [\n    {\n      \"owner_resource\": \"<string>\",\n      \"count\": 0\n    },\n    {\n      \"owner_resource\": \"<string>\",\n      \"count\": 0\n    }\n  ]\n}",
+                          "createdAt": "2026-10-21T19:48:26.000Z",
+                          "updatedAt": "2026-10-21T19:48:26.000Z",
+                          "uid": "35240-ec059a72-0537-4ab8-9ca4-6cd1b4811edc"
+                        },
+                        {
+                          "id": "095565c1-4318-4c21-8912-9d9cde9d2c93",
+                          "name": "400",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "access-token",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/openapi/2022-01/metafield_definition/group_count",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "openapi",
+                                "2022-01",
+                                "metafield_definition",
+                                "group_count"
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{}",
+                          "createdAt": "2026-10-21T19:48:26.000Z",
+                          "updatedAt": "2026-10-21T19:48:26.000Z",
+                          "uid": "35240-095565c1-4318-4c21-8912-9d9cde9d2c93"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T19:48:26.000Z",
+                      "updatedAt": "2026-10-21T19:48:26.000Z",
+                      "uid": "35240-7191306a-d8d5-40e4-9eff-809778e6d294"
+                    }
+                  ],
+                  "id": "78dd067f-ac0c-4e4b-8f49-2c907c67d6e5",
+                  "createdAt": "2026-10-21T19:48:26.000Z",
+                  "updatedAt": "2026-10-21T19:48:26.000Z",
+                  "uid": "35240-78dd067f-ac0c-4e4b-8f49-2c907c67d6e5"
+                },
+                {
+                  "name": "Metafield Definition Detail",
+                  "id": "a191d8c8-11e2-4660-b0a8-b8403675f407",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/openapi/2022-01/metafield_definition?id=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "openapi",
+                        "2022-01",
+                        "metafield_definition"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Metafield definition id",
+                          "key": "id",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "7f49bb2e-ff72-428b-894f-02b718ed8c96",
+                      "name": "200",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "access-token",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/openapi/2022-01/metafield_definition?id=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "openapi",
+                            "2022-01",
+                            "metafield_definition"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Metafield definition id",
+                              "key": "id",
+                              "value": "<integer>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"key\": \"<string>\",\n  \"name\": \"<string>\",\n  \"namespace\": \"<string>\",\n  \"owner_resource\": \"<string>\",\n  \"type\": \"<string>\",\n  \"description\": \"<string>\",\n  \"create_at\": \"<string>\",\n  \"updated_at\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T19:48:26.000Z",
+                      "updatedAt": "2026-10-21T19:48:26.000Z",
+                      "uid": "35240-7f49bb2e-ff72-428b-894f-02b718ed8c96"
+                    },
+                    {
+                      "id": "8f503756-4739-467c-926a-379278dfd094",
+                      "name": "400",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "access-token",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/openapi/2022-01/metafield_definition?id=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "openapi",
+                            "2022-01",
+                            "metafield_definition"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Metafield definition id",
+                              "key": "id",
+                              "value": "<integer>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-10-21T19:48:26.000Z",
+                      "updatedAt": "2026-10-21T19:48:26.000Z",
+                      "uid": "35240-8f503756-4739-467c-926a-379278dfd094"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T19:48:26.000Z",
+                  "updatedAt": "2026-10-21T19:48:26.000Z",
+                  "uid": "35240-a191d8c8-11e2-4660-b0a8-b8403675f407"
                 }
               ],
-              "body": "\"{\\n    \\\"definitions\\\": [\\n        {\\n            \\\"id\\\": \\\"257688239354176808\\\",\\n            \\\"key\\\": \\\"productint3key\\\",\\n            \\\"name\\\": \\\"productint3key\\\",\\n            \\\"namespace\\\": \\\"name\\\",\\n            \\\"owner_resource\\\": \\\"product\\\",\\n            \\\"type\\\": \\\"multi_line_text_field\\\",\\n            \\\"description\\\": \\\"productint3key\\\",\\n            \\\"create_at\\\": \\\"2023-06-12T06:04:26Z\\\",\\n            \\\"updated_at\\\": \\\"2023-06-12T06:04:26Z\\\"\\n        },\\n        {\\n            \\\"id\\\": \\\"256682217130974760\\\",\\n            \\\"key\\\": \\\"product2key\\\",\\n            \\\"name\\\": \\\"product2key\\\",\\n            \\\"namespace\\\": \\\"name\\\",\\n            \\\"owner_resource\\\": \\\"product\\\",\\n            \\\"type\\\": \\\"integer\\\",\\n            \\\"description\\\": \\\"string\\\",\\n            \\\"create_at\\\": \\\"2023-06-09T08:22:55Z\\\",\\n            \\\"updated_at\\\": \\\"2023-06-09T08:22:55Z\\\"\\n        }\\n    ],\\n    \\\"total\\\": 2\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "1c34ee7a-2442-4c75-b347-63d4b7324cd0",
-              "name": "400",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "metafield_definition",
-                    ":owner_resource"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "owner_resource",
-                      "description": "(Required) Owner resource type of meta field definition, including 'product_variant' , 'product' , and 'collection'"
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "a60db035-af36-496d-87ac-95b7ff5351df",
+              "createdAt": "2026-10-21T19:48:26.000Z",
+              "updatedAt": "2026-10-21T19:48:26.000Z",
+              "uid": "35240-a60db035-af36-496d-87ac-95b7ff5351df"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "7fb8a2c3-1f67-415d-87fb-195dc6226533",
-          "name": "Create Metafield Definition",
-          "request": {
-            "name": "Create Metafield Definition",
-            "description": {
-              "content": "",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "openapi",
-                "2022-01",
-                "metafield_definition",
-                ":owner_resource"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "owner_resource",
-                  "description": "(Required) Owner resource type of meta field definition, including 'product_variant' , 'product' , and 'collection'"
-                },
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{subdomain}}",
-                  "key": "subdomain"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"namespace\": \"<string>\",\n  \"key\": \"<string>\",\n  \"type\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "546d8719-bac6-4cb2-811a-4a1b2f64a8f0",
-              "name": "200",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "metafield_definition",
-                    ":owner_resource"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "owner_resource",
-                      "description": "(Required) Owner resource type of meta field definition, including 'product_variant' , 'product' , and 'collection'"
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"namespace\": \"<string>\",\n  \"key\": \"<string>\",\n  \"type\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n  \\\"id\\\": \\\"256682217130974760\\\",\\n  \\\"key\\\": \\\"product2key\\\",\\n  \\\"name\\\": \\\"product2key\\\",\\n  \\\"namespace\\\": \\\"name\\\",\\n  \\\"owner_resource\\\": \\\"product\\\",\\n  \\\"type\\\": \\\"integer\\\",\\n  \\\"description\\\": \\\"string\\\",\\n  \\\"create_at\\\": \\\"2023-06-12T06:04:26Z\\\",\\n  \\\"updated_at\\\": \\\"2023-06-12T06:47:05Z\\\"\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "7913f19d-ab55-49f4-af18-4d51b36d9b5f",
-              "name": "400",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "metafield_definition",
-                    ":owner_resource"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "owner_resource",
-                      "description": "(Required) Owner resource type of meta field definition, including 'product_variant' , 'product' , and 'collection'"
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"namespace\": \"<string>\",\n  \"key\": \"<string>\",\n  \"type\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "37acf92d-8273-4e20-935b-c39fa9d42d51",
-          "name": "Metafield Definition Detail",
-          "request": {
-            "name": "Metafield Definition Detail",
-            "description": {
-              "content": "",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "openapi",
-                "2022-01",
-                "metafield_definition"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "id",
-                  "value": "<integer>",
-                  "description": "(Required) Metafield definition id"
-                }
-              ],
-              "variable": [
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{subdomain}}",
-                  "key": "subdomain"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "967a1d2d-33f5-4f2b-b0ce-32d092c03ce3",
-              "name": "200",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "metafield_definition"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "id",
-                      "value": "<integer>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n    \\\"id\\\": \\\"256602195351325992\\\",\\n    \\\"key\\\": \\\"productint2key\\\",\\n    \\\"name\\\": \\\"productint2key\\\",\\n    \\\"namespace\\\": \\\"name\\\",\\n    \\\"owner_resource\\\": \\\"product\\\",\\n    \\\"type\\\": \\\"integer\\\",\\n    \\\"description\\\": \\\"productint2key\\\",\\n    \\\"create_at\\\": \\\"2023-06-12T06:04:26Z\\\",\\n    \\\"updated_at\\\": \\\"2023-06-12T06:04:26Z\\\"\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "e3ad4f8e-ebd2-44d5-8356-0ee5d08907d5",
-              "name": "400",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "metafield_definition"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "id",
-                      "value": "<integer>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "c07f6317-7abd-419f-beec-1a31ea8659b8",
-          "name": "Update Metafield Definition",
-          "request": {
-            "name": "Update Metafield Definition",
-            "description": {
-              "content": "",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "openapi",
-                "2022-01",
-                "metafield_definition",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                },
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{subdomain}}",
-                  "key": "subdomain"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "PUT",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"description\": \"<string>\",\n  \"name\": \"<string>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "718e5b6e-4d0b-4a96-8181-d0a7577e9af9",
-              "name": "200",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "metafield_definition",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"description\": \"<string>\",\n  \"name\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n    \\\"id\\\": \\\"256602195351325992\\\",\\n    \\\"key\\\": \\\"productint2key\\\",\\n    \\\"name\\\": \\\"string\\\",\\n    \\\"namespace\\\": \\\"name\\\",\\n    \\\"owner_resource\\\": \\\"product\\\",\\n    \\\"type\\\": \\\"integer\\\",\\n    \\\"description\\\": \\\"string\\\",\\n    \\\"create_at\\\": \\\"2023-06-12T06:04:26Z\\\",\\n    \\\"updated_at\\\": \\\"2023-06-12T06:47:05Z\\\"\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "09cfa0f6-0fc6-42db-8202-4c9ca06606fc",
-              "name": "400",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "metafield_definition",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"description\": \"<string>\",\n  \"name\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "2cf1faa8-e03f-4697-9b6f-d1eb6fcd7532",
-          "name": "Delete Metafield Definition",
-          "request": {
-            "name": "Delete Metafield Definition",
-            "description": {
-              "content": "",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "openapi",
-                "2022-01",
-                "metafield_definition",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) Meta field definition id"
-                },
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{subdomain}}",
-                  "key": "subdomain"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "text/plain"
-              }
-            ],
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "803557e2-a6f8-447d-abc4-9392de2cfedc",
-              "name": "200",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "metafield_definition",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) Meta field definition id"
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "text/plain"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "null",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "20a3bfb0-e78c-45de-99c9-372646aeeca7",
-              "name": "400",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "metafield_definition",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) Meta field definition id"
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "e0c248c2-62e2-49fe-a9a4-7c0d0373e894",
-          "name": "Metafield Definition Count",
-          "request": {
-            "name": "Metafield Definition Count",
-            "description": {
-              "content": "",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "openapi",
-                "2022-01",
-                "metafield_definition",
-                ":owner_resource",
-                "count"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "definition_ids",
-                  "value": "<string>",
-                  "description": "(Required) Meta field definition ids"
-                },
-                {
-                  "disabled": false,
-                  "key": "definition_ids",
-                  "value": "<string>",
-                  "description": "(Required) Meta field definition ids"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "owner_resource",
-                  "description": "(Required) Owner resource type of meta field definition, including 'product_variant' , 'product' , and 'collection'"
-                },
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{subdomain}}",
-                  "key": "subdomain"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "39c93aca-2d4c-4085-8f0c-d1aa7e371b22",
-              "name": "200",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "metafield_definition",
-                    ":owner_resource",
-                    "count"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "definition_ids",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "definition_ids",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "owner_resource",
-                      "description": "(Required) Owner resource type of meta field definition, including 'product_variant' , 'product' , and 'collection'"
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n    \\\"items\\\": [\\n        {\\n            \\\"metafield_count\\\": 1,\\n            \\\"definition_id\\\": \\\"256602195351325992\\\"\\n        }\\n    ]\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "ef4210e7-c9e7-44ec-923b-078b752f19cb",
-              "name": "400",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "metafield_definition",
-                    ":owner_resource",
-                    "count"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "definition_ids",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "definition_ids",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "owner_resource",
-                      "description": "(Required) Owner resource type of meta field definition, including 'product_variant' , 'product' , and 'collection'"
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "fe0afcc4-22a6-40de-b1e3-09b3255eb599",
-          "name": "Metafield Definition By Group Count",
-          "request": {
-            "name": "Metafield Definition By Group Count",
-            "description": {
-              "content": "",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "openapi",
-                "2022-01",
-                "metafield_definition",
-                "group_count"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{subdomain}}",
-                  "key": "subdomain"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "c9d20850-2bb8-46d3-8f89-0006902ac87b",
-              "name": "200",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "metafield_definition",
-                    "group_count"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n    \\\"items\\\": [\\n        {\\n            \\\"owner_resource\\\": \\\"product\\\",\\n            \\\"count\\\": 2\\n        }\\n    ]\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "a27185e3-f915-4553-a877-ede6e300f78e",
-              "name": "400",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "metafield_definition",
-                    "group_count"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "f9c94ea1-6be3-4513-844b-6930e0b7e947",
+          "createdAt": "2026-10-21T19:48:26.000Z",
+          "updatedAt": "2026-10-21T19:48:26.000Z",
+          "uid": "35240-f9c94ea1-6be3-4513-844b-6930e0b7e947"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "type": "any",
-      "value": "developer",
-      "key": "subdomain"
-    },
-    {
-      "type": "string",
-      "value": "https://{{subdomain}}.myshoplaza.com",
-      "key": "baseUrl"
+      "id": "e244e141-8728-47e5-a89b-102a921c1c32",
+      "createdAt": "2026-10-21T19:48:26.000Z",
+      "updatedAt": "2026-10-21T19:48:26.000Z",
+      "uid": "35240-e244e141-8728-47e5-a89b-102a921c1c32"
     }
   ],
   "auth": {
@@ -1365,25 +1160,29 @@
     "apikey": [
       {
         "key": "key",
-        "value": "access-token"
+        "value": "access-token",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "f8d3db29-8988-4f84-a485-15f4ad9e11b2",
-    "name": "SPZ Admin Access Meta Definition API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "subdomain",
+      "value": "developer"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{subdomain}}.myshoplaza.com"
     }
-  }
+  ]
 }

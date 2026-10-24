@@ -1,1073 +1,912 @@
 {
+  "info": {
+    "_postman_id": "f034650e-c33a-4bf5-ba17-2704be90baef",
+    "name": "SPZ Admin Redirect API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T19:49:09.000Z",
+    "updatedAt": "2026-10-21T19:49:10.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-f034650e-c33a-4bf5-ba17-2704be90baef"
+  },
   "item": [
     {
-      "id": "c3eb4e4b-874e-4eef-836b-c52628b3e1b8",
-      "name": "Redirect",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "openapi",
       "item": [
         {
-          "id": "216d4169-e717-4f1d-b694-a1e0ae09fc63",
-          "name": "Create Redirect",
-          "request": {
-            "name": "Create Redirect",
-            "description": {
-              "content": "",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "openapi",
-                "2022-01",
-                "redirects"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{subdomain}}",
-                  "key": "subdomain"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"from_url\": \"<string>\",\n  \"redirect_url\": \"<string>\",\n  \"status\": \"open\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
+          "name": "2022-01",
+          "item": [
             {
-              "id": "a0296bb5-58c4-4ace-a189-f4e2273eec57",
-              "name": "200",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "redirects"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
+              "name": "redirects",
+              "item": [
+                {
+                  "name": "{id}",
+                  "item": [
                     {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
+                      "name": "Redirect Detail",
+                      "id": "a49b63a0-b4db-4a39-9ffd-6583cd1a14db",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
                       },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"from_url\": \"<string>\",\n  \"redirect_url\": \"<string>\",\n  \"status\": \"open\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n    \\\"id\\\": 128741725479905746,\\n    \\\"store_id\\\": 11218,\\n    \\\"status\\\": \\\"open\\\",\\n    \\\"from_url\\\": \\\"/test\\\",\\n    \\\"redirect_url\\\": \\\"https://www.shoplazza.dev/\\\"\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "5ce741f5-75c4-4c42-8812-4bdc938d9d74",
-          "name": "Redirect List",
-          "request": {
-            "name": "Redirect List",
-            "description": {
-              "content": "",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "openapi",
-                "2022-01",
-                "redirects"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{subdomain}}",
-                  "key": "subdomain"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "9020ed1f-02d2-4698-a6f4-04ceab1f1e20",
-              "name": "200",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "redirects"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/openapi/2022-01/redirects/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "openapi",
+                            "2022-01",
+                            "redirects",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "7e78bf12-90df-48b9-8a2e-aff67e9a7f6c",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) Redirect ID"
+                            }
+                          ]
+                        }
                       },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
+                      "response": [
+                        {
+                          "id": "c840d326-bd46-4e2e-a4b2-dde893622e83",
+                          "name": "200",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "access-token",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/openapi/2022-01/redirects/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "openapi",
+                                "2022-01",
+                                "redirects",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": 0,\n  \"store_id\": 0,\n  \"status\": \"<string>\",\n  \"from_url\": \"<string>\",\n  \"redirect_url\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T19:49:10.000Z",
+                          "updatedAt": "2026-10-21T19:49:10.000Z",
+                          "uid": "35240-c840d326-bd46-4e2e-a4b2-dde893622e83"
+                        },
+                        {
+                          "id": "b5f25d8f-7c33-4d2a-803c-3c98d84e565f",
+                          "name": "404",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "access-token",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/openapi/2022-01/redirects/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "openapi",
+                                "2022-01",
+                                "redirects",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"errors\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "createdAt": "2026-10-21T19:49:10.000Z",
+                          "updatedAt": "2026-10-21T19:49:10.000Z",
+                          "uid": "35240-b5f25d8f-7c33-4d2a-803c-3c98d84e565f"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T19:49:10.000Z",
+                      "updatedAt": "2026-10-21T19:49:10.000Z",
+                      "uid": "35240-a49b63a0-b4db-4a39-9ffd-6583cd1a14db"
                     },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n    \\\"count\\\": 2,\\n    \\\"redirects\\\": [\\n        {\\n            \\\"id\\\": 128741725479905746,\\n            \\\"store_id\\\": 11218,\\n            \\\"status\\\": \\\"open\\\",\\n            \\\"from_url\\\": \\\"/test\\\",\\n            \\\"redirect_url\\\": \\\"https://www.shoplazza.dev/\\\"\\n        },\\n        {\\n            \\\"id\\\": 127235391118911698,\\n            \\\"store_id\\\": 11218,\\n            \\\"status\\\": \\\"close\\\",\\n            \\\"from_url\\\": \\\"/test/b\\\",\\n            \\\"redirect_url\\\": \\\"https://www.shoplazza.com/\\\"\\n        }\\n    ]\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "781677de-ff54-49d8-b672-5a8ece2a02d8",
-              "name": "404",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "redirects"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
                     {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
+                      "name": "Update Redirect",
+                      "id": "c24c8c0c-da6e-49aa-9f1e-79023cb428f5",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
                       },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n    \\\"errors\\\": [\\n        \\\"Record not found\\\"\\n    ]\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "6853d9aa-ae25-41a6-9959-ed4ded2fa679",
-          "name": "Redirect Detail",
-          "request": {
-            "name": "Redirect Detail",
-            "description": {
-              "content": "",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "openapi",
-                "2022-01",
-                "redirects",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) Redirect ID"
-                },
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{subdomain}}",
-                  "key": "subdomain"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "82f85686-e8cf-4cc4-844f-3b216565b793",
-              "name": "200",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "redirects",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) Redirect ID"
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
+                      "request": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"from_url\": \"<string>\",\n  \"redirect_url\": \"<string>\",\n  \"status\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/openapi/2022-01/redirects/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "openapi",
+                            "2022-01",
+                            "redirects",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "3a24b048-7639-46a2-a00b-48edc7facef1",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) Redirect ID"
+                            }
+                          ]
+                        }
                       },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
+                      "response": [
+                        {
+                          "id": "58e21bfe-48a9-4492-9628-73ec10635393",
+                          "name": "200",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "access-token",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"from_url\": \"<string>\",\n  \"redirect_url\": \"<string>\",\n  \"status\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/openapi/2022-01/redirects/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "openapi",
+                                "2022-01",
+                                "redirects",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{}",
+                          "createdAt": "2026-10-21T19:49:10.000Z",
+                          "updatedAt": "2026-10-21T19:49:10.000Z",
+                          "uid": "35240-58e21bfe-48a9-4492-9628-73ec10635393"
+                        },
+                        {
+                          "id": "08d7bd28-66f6-410d-87c6-0313aa5dc45a",
+                          "name": "404",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "access-token",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"from_url\": \"<string>\",\n  \"redirect_url\": \"<string>\",\n  \"status\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/openapi/2022-01/redirects/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "openapi",
+                                "2022-01",
+                                "redirects",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"errors\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "createdAt": "2026-10-21T19:49:10.000Z",
+                          "updatedAt": "2026-10-21T19:49:10.000Z",
+                          "uid": "35240-08d7bd28-66f6-410d-87c6-0313aa5dc45a"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T19:49:10.000Z",
+                      "updatedAt": "2026-10-21T19:49:10.000Z",
+                      "uid": "35240-c24c8c0c-da6e-49aa-9f1e-79023cb428f5"
                     },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n    \\\"id\\\": 128741725479905746,\\n    \\\"store_id\\\": 11218,\\n    \\\"status\\\": \\\"open\\\",\\n    \\\"from_url\\\": \\\"/test\\\",\\n    \\\"redirect_url\\\": \\\"https://www.shoplazza.dev/\\\"\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "00b4e3dd-81e4-4637-bcf8-6fadfdd7a8b3",
-              "name": "404",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "redirects",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
                     {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) Redirect ID"
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
+                      "name": "Delete Redirect",
+                      "id": "e005acac-eee5-4a3d-85eb-6eab15097cf8",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
                       },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n    \\\"errors\\\": [\\n        \\\"Record not found\\\"\\n    ]\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "3f379c1a-ae95-41e8-820a-82ab80f6fbb7",
-          "name": "Update Redirect",
-          "request": {
-            "name": "Update Redirect",
-            "description": {
-              "content": "",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "openapi",
-                "2022-01",
-                "redirects",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) Redirect ID"
-                },
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{subdomain}}",
-                  "key": "subdomain"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "PUT",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"from_url\": \"<string>\",\n  \"redirect_url\": \"<string>\",\n  \"status\": \"<string>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "c18c0eee-0fc4-4486-9401-dafb9894bf5d",
-              "name": "200",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "redirects",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) Redirect ID"
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
+                      "request": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/openapi/2022-01/redirects/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "openapi",
+                            "2022-01",
+                            "redirects",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "be142c8f-1bf9-49c9-988f-81cd347d3655",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) Redirect ID"
+                            }
+                          ]
+                        }
                       },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
+                      "response": [
+                        {
+                          "id": "df1b4703-0bd5-4e4f-afa5-017a9f1108d1",
+                          "name": "200",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "access-token",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/openapi/2022-01/redirects/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "openapi",
+                                "2022-01",
+                                "redirects",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{}",
+                          "createdAt": "2026-10-21T19:49:10.000Z",
+                          "updatedAt": "2026-10-21T19:49:10.000Z",
+                          "uid": "35240-df1b4703-0bd5-4e4f-afa5-017a9f1108d1"
+                        },
+                        {
+                          "id": "c411507e-b9f1-46cd-8df4-f7419d06ab45",
+                          "name": "404",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "access-token",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/openapi/2022-01/redirects/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "openapi",
+                                "2022-01",
+                                "redirects",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"errors\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "createdAt": "2026-10-21T19:49:10.000Z",
+                          "updatedAt": "2026-10-21T19:49:10.000Z",
+                          "uid": "35240-c411507e-b9f1-46cd-8df4-f7419d06ab45"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T19:49:10.000Z",
+                      "updatedAt": "2026-10-21T19:49:10.000Z",
+                      "uid": "35240-e005acac-eee5-4a3d-85eb-6eab15097cf8"
                     }
-                  ]
+                  ],
+                  "id": "c5b45265-17c8-4600-b3eb-288c7d158d42",
+                  "createdAt": "2026-10-21T19:49:10.000Z",
+                  "updatedAt": "2026-10-21T19:49:10.000Z",
+                  "uid": "35240-c5b45265-17c8-4600-b3eb-288c7d158d42"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"from_url\": \"<string>\",\n  \"redirect_url\": \"<string>\",\n  \"status\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "ed67b8c5-4b6f-4dd7-8fc3-d89ea0462c03",
-              "name": "404",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "redirects",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
+                  "name": "detail",
+                  "item": [
                     {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) Redirect ID"
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
+                      "name": "Search Redirect",
+                      "id": "0d711365-a8b2-47df-bda2-1dde1a9a4b4b",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
                       },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"from_url\": \"<string>\",\n  \"redirect_url\": \"<string>\",\n  \"status\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n    \\\"errors\\\": [\\n        \\\"Record not found\\\"\\n    ]\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "0e1fe628-6e70-42ad-af07-8d71e884e7c9",
-          "name": "Delete Redirect",
-          "request": {
-            "name": "Delete Redirect",
-            "description": {
-              "content": "",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "openapi",
-                "2022-01",
-                "redirects",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) Redirect ID"
-                },
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{subdomain}}",
-                  "key": "subdomain"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "d8a29978-71f4-42d3-a5ef-22fcbb5690b9",
-              "name": "200",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "redirects",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) Redirect ID"
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"from_url\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/openapi/2022-01/redirects/detail",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "openapi",
+                            "2022-01",
+                            "redirects",
+                            "detail"
+                          ]
+                        }
                       },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
+                      "response": [
+                        {
+                          "id": "4913c211-8574-4ab8-b1b2-844a4c5120c5",
+                          "name": "200",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "access-token",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"from_url\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/openapi/2022-01/redirects/detail",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "openapi",
+                                "2022-01",
+                                "redirects",
+                                "detail"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": 0,\n  \"store_id\": 0,\n  \"status\": \"<string>\",\n  \"from_url\": \"<string>\",\n  \"redirect_url\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T19:49:10.000Z",
+                          "updatedAt": "2026-10-21T19:49:10.000Z",
+                          "uid": "35240-4913c211-8574-4ab8-b1b2-844a4c5120c5"
+                        },
+                        {
+                          "id": "c461e1a1-d8e1-4d7e-995c-96ab108403f7",
+                          "name": "404",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "access-token",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"from_url\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/openapi/2022-01/redirects/detail",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "openapi",
+                                "2022-01",
+                                "redirects",
+                                "detail"
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"errors\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "createdAt": "2026-10-21T19:49:10.000Z",
+                          "updatedAt": "2026-10-21T19:49:10.000Z",
+                          "uid": "35240-c461e1a1-d8e1-4d7e-995c-96ab108403f7"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T19:49:10.000Z",
+                      "updatedAt": "2026-10-21T19:49:10.000Z",
+                      "uid": "35240-0d711365-a8b2-47df-bda2-1dde1a9a4b4b"
                     }
-                  ]
+                  ],
+                  "id": "e097e503-fda3-4231-ad1a-d10dfccdeb64",
+                  "createdAt": "2026-10-21T19:49:10.000Z",
+                  "updatedAt": "2026-10-21T19:49:10.000Z",
+                  "uid": "35240-e097e503-fda3-4231-ad1a-d10dfccdeb64"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "f6dd070f-4ddc-4b1a-a800-b49ecbed4ddc",
-              "name": "404",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "redirects",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) Redirect ID"
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
+                  "name": "Create Redirect",
+                  "id": "7f54cec6-2574-4e65-9aa5-24d81f599753",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
                       },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"from_url\": \"<string>\",\n  \"redirect_url\": \"<string>\",\n  \"status\": \"open\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
                     },
-                    "key": "access-token",
-                    "value": "<API Key>"
+                    "url": {
+                      "raw": "{{baseUrl}}/openapi/2022-01/redirects",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "openapi",
+                        "2022-01",
+                        "redirects"
+                      ]
+                    }
                   },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n    \\\"errors\\\": [\\n        \\\"Record not found\\\"\\n    ]\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "69611632-7c22-4baa-bfc2-59329fbb5c4a",
-          "name": "Search Redirect",
-          "request": {
-            "name": "Search Redirect",
-            "description": {
-              "content": "",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "openapi",
-                "2022-01",
-                "redirects",
-                "detail"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{subdomain}}",
-                  "key": "subdomain"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"from_url\": \"<string>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "7acfb754-2cc2-49ed-9fef-bd6a191b29cf",
-              "name": "200",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "redirects",
-                    "detail"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
+                  "response": [
                     {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
+                      "id": "cc449a44-35b6-4fd8-9f48-e436717fc249",
+                      "name": "200",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "access-token",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"from_url\": \"<string>\",\n  \"redirect_url\": \"<string>\",\n  \"status\": \"open\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/openapi/2022-01/redirects",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "openapi",
+                            "2022-01",
+                            "redirects"
+                          ]
+                        }
                       },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": 0,\n  \"store_id\": 0,\n  \"status\": \"<string>\",\n  \"from_url\": \"<string>\",\n  \"redirect_url\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T19:49:10.000Z",
+                      "updatedAt": "2026-10-21T19:49:10.000Z",
+                      "uid": "35240-cc449a44-35b6-4fd8-9f48-e436717fc249"
                     }
-                  ]
+                  ],
+                  "createdAt": "2026-10-21T19:49:10.000Z",
+                  "updatedAt": "2026-10-21T19:49:10.000Z",
+                  "uid": "35240-7f54cec6-2574-4e65-9aa5-24d81f599753"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"from_url\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n    \\\"id\\\": 128741725479905746,\\n    \\\"store_id\\\": 11218,\\n    \\\"status\\\": \\\"open\\\",\\n    \\\"from_url\\\": \\\"/test\\\",\\n    \\\"redirect_url\\\": \\\"https://www.shoplazza.dev/\\\"\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "c300ec0b-3060-441b-918a-06aab30b8e3a",
-              "name": "404",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "redirects",
-                    "detail"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
+                  "name": "Redirect List",
+                  "id": "d44d5cb1-e9fa-4dd6-acd2-38d9cf44e40a",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/openapi/2022-01/redirects",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "openapi",
+                        "2022-01",
+                        "redirects"
+                      ]
+                    }
+                  },
+                  "response": [
                     {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
+                      "id": "a154b1ef-aa67-4a03-9d4f-8dd983fe4c54",
+                      "name": "200",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "access-token",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/openapi/2022-01/redirects",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "openapi",
+                            "2022-01",
+                            "redirects"
+                          ]
+                        }
                       },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"count\": 0,\n  \"redirects\": [\n    {\n      \"id\": 0,\n      \"store_id\": 0,\n      \"status\": \"<string>\",\n      \"from_url\": \"<string>\",\n      \"redirect_url\": \"<string>\"\n    },\n    {\n      \"id\": 0,\n      \"store_id\": 0,\n      \"status\": \"<string>\",\n      \"from_url\": \"<string>\",\n      \"redirect_url\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-10-21T19:49:10.000Z",
+                      "updatedAt": "2026-10-21T19:49:10.000Z",
+                      "uid": "35240-a154b1ef-aa67-4a03-9d4f-8dd983fe4c54"
                     },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"from_url\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
+                    {
+                      "id": "938e4bc0-cc21-4a98-9cab-232027c3f36d",
+                      "name": "404",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "access-token",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/openapi/2022-01/redirects",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "openapi",
+                            "2022-01",
+                            "redirects"
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "createdAt": "2026-10-21T19:49:10.000Z",
+                      "updatedAt": "2026-10-21T19:49:10.000Z",
+                      "uid": "35240-938e4bc0-cc21-4a98-9cab-232027c3f36d"
                     }
-                  }
-                }
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  ],
+                  "createdAt": "2026-10-21T19:49:10.000Z",
+                  "updatedAt": "2026-10-21T19:49:10.000Z",
+                  "uid": "35240-d44d5cb1-e9fa-4dd6-acd2-38d9cf44e40a"
                 }
               ],
-              "body": "\"{\\n    \\\"errors\\\": [\\n        \\\"Record not found\\\"\\n    ]\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "378baccd-3b35-4a3e-bcab-30a814d0cefd",
+              "createdAt": "2026-10-21T19:49:10.000Z",
+              "updatedAt": "2026-10-21T19:49:10.000Z",
+              "uid": "35240-378baccd-3b35-4a3e-bcab-30a814d0cefd"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "29bdfe91-ecb8-4e5e-b700-32d29d93bfee",
+          "createdAt": "2026-10-21T19:49:10.000Z",
+          "updatedAt": "2026-10-21T19:49:10.000Z",
+          "uid": "35240-29bdfe91-ecb8-4e5e-b700-32d29d93bfee"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "type": "any",
-      "value": "developer",
-      "key": "subdomain"
-    },
-    {
-      "type": "string",
-      "value": "https://{{subdomain}}.myshoplaza.com",
-      "key": "baseUrl"
+      "id": "da897075-c735-4bf4-bb12-9313898fd889",
+      "createdAt": "2026-10-21T19:49:10.000Z",
+      "updatedAt": "2026-10-21T19:49:10.000Z",
+      "uid": "35240-da897075-c735-4bf4-bb12-9313898fd889"
     }
   ],
   "auth": {
@@ -1075,25 +914,29 @@
     "apikey": [
       {
         "key": "key",
-        "value": "access-token"
+        "value": "access-token",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "c164187f-78d3-44ad-a99f-0c2df2a15941",
-    "name": "SPZ Admin Access Redirect API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "subdomain",
+      "value": "developer"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{subdomain}}.myshoplaza.com"
     }
-  }
+  ]
 }

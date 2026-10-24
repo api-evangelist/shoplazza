@@ -1,964 +1,821 @@
 {
+  "info": {
+    "_postman_id": "c5286c36-788c-49cc-a8e6-ef81b1ead7b6",
+    "name": "SPZ Admin File API",
+    "description": "Upload image materials to the material library and the material library operations of material",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T19:48:07.000Z",
+    "updatedAt": "2026-10-21T19:48:08.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-c5286c36-788c-49cc-a8e6-ef81b1ead7b6"
+  },
   "item": [
     {
-      "id": "1ec0baa1-5ab5-4b92-bfa2-dafe2e830764",
-      "name": "File",
-      "description": {
-        "content": "Upload image materials to the material library and the material library operations of material",
-        "type": "text/plain"
-      },
+      "name": "openapi",
       "item": [
         {
-          "id": "f1552a52-fead-4747-860c-eeb14b82ddec",
-          "name": "Create File",
-          "request": {
-            "name": "Create File",
-            "description": {
-              "content": "",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "openapi",
-                "2022-01",
-                "file"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{subdomain}}",
-                  "key": "subdomain"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"original_source_list\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
+          "name": "2022-01",
+          "item": [
             {
-              "id": "689ec097-45ca-437f-b8c1-9036c7abcd72",
-              "name": "200",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "file"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
+              "name": "file",
+              "item": [
+                {
+                  "name": "task",
+                  "item": [
                     {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
+                      "name": "{task_id}",
+                      "item": [
+                        {
+                          "name": "Get Create File Task",
+                          "id": "0e8f461e-819a-4842-9e83-1580d406e339",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/openapi/2022-01/file/task/:task_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "openapi",
+                                "2022-01",
+                                "file",
+                                "task",
+                                ":task_id"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "c04d5c44-0979-4afe-9346-81b294869599",
+                                  "key": "task_id",
+                                  "value": "<string>",
+                                  "description": "(Required) Task id"
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "5ae47735-148a-48e6-9c85-9d5e902226f1",
+                              "name": "200",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "access-token",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/openapi/2022-01/file/task/:task_id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "openapi",
+                                    "2022-01",
+                                    "file",
+                                    "task",
+                                    ":task_id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "task_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"task_id\": \"<string>\",\n  \"total\": 0,\n  \"finished\": 0,\n  \"status\": 0,\n  \"success_list\": [\n    {\n      \"file_uri\": \"<string>\",\n      \"origin_link\": \"<string>\",\n      \"upload_link\": \"<string>\"\n    },\n    {\n      \"file_uri\": \"<string>\",\n      \"origin_link\": \"<string>\",\n      \"upload_link\": \"<string>\"\n    }\n  ],\n  \"failure_list\": \"<array>\",\n  \"origin_list\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                              "createdAt": "2026-10-21T19:48:08.000Z",
+                              "updatedAt": "2026-10-21T19:48:08.000Z",
+                              "uid": "35240-5ae47735-148a-48e6-9c85-9d5e902226f1"
+                            },
+                            {
+                              "id": "abf04259-87fe-43ca-a7c9-5d651a138b46",
+                              "name": "400",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "access-token",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/openapi/2022-01/file/task/:task_id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "openapi",
+                                    "2022-01",
+                                    "file",
+                                    "task",
+                                    ":task_id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "task_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{}",
+                              "createdAt": "2026-10-21T19:48:08.000Z",
+                              "updatedAt": "2026-10-21T19:48:08.000Z",
+                              "uid": "35240-abf04259-87fe-43ca-a7c9-5d651a138b46"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T19:48:08.000Z",
+                          "updatedAt": "2026-10-21T19:48:08.000Z",
+                          "uid": "35240-0e8f461e-819a-4842-9e83-1580d406e339"
+                        }
+                      ],
+                      "id": "87e215fb-0b1c-4968-ac1a-48a18a6ad453",
+                      "createdAt": "2026-10-21T19:48:08.000Z",
+                      "updatedAt": "2026-10-21T19:48:08.000Z",
+                      "uid": "35240-87e215fb-0b1c-4968-ac1a-48a18a6ad453"
+                    }
+                  ],
+                  "id": "e12f2796-caf2-43d1-ada6-37cc9a4520b3",
+                  "createdAt": "2026-10-21T19:48:08.000Z",
+                  "updatedAt": "2026-10-21T19:48:08.000Z",
+                  "uid": "35240-e12f2796-caf2-43d1-ada6-37cc9a4520b3"
+                },
+                {
+                  "name": "{file_uri}",
+                  "item": [
+                    {
+                      "name": "Delete File",
+                      "id": "ef3a509e-6b0c-4a9e-a1f0-172b9c99220e",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
                       },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"original_source_list\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n\\t\\t\\t\\t\\t\\\"task_id\\\": \\\"a1882a2e-55bd-4acd-b079-a1c47cbee30d\\\"\\n\\t\\t\\t\\t}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "4394dd75-6d4a-4108-b6b7-a74be578176b",
-              "name": "400",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "file"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
+                      "request": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/openapi/2022-01/file/:file_uri",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "openapi",
+                            "2022-01",
+                            "file",
+                            ":file_uri"
+                          ],
+                          "variable": [
+                            {
+                              "id": "24d3d567-a12e-4718-86d8-6da14b57053e",
+                              "key": "file_uri",
+                              "value": "<string>",
+                              "description": "(Required) File uri"
+                            }
+                          ]
+                        }
                       },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"original_source_list\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "f17bf3b4-ee14-4aae-a6f5-7b040a0f02bd",
-          "name": "Get File List",
-          "request": {
-            "name": "Get File List",
-            "description": {
-              "content": "",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "openapi",
-                "2022-01",
-                "file"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "page",
-                  "value": "<integer>"
-                },
-                {
-                  "disabled": false,
-                  "key": "limit",
-                  "value": "<integer>"
-                },
-                {
-                  "disabled": false,
-                  "key": "folder",
-                  "value": "<string>",
-                  "description": "File type, choose from：`product`、`all_upload`"
-                }
-              ],
-              "variable": [
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{subdomain}}",
-                  "key": "subdomain"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "4ec215c6-881a-4750-af46-c0ddd6a1cb8a",
-              "name": "200",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "file"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "page",
-                      "value": "<integer>"
+                      "response": [
+                        {
+                          "id": "a88b86d8-c05f-4638-838f-167dcb70e2c1",
+                          "name": "200",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "access-token",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/openapi/2022-01/file/:file_uri",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "openapi",
+                                "2022-01",
+                                "file",
+                                ":file_uri"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "file_uri"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"examples\": {\n    \"Result\": {\n      \"value\": \"\"\n    }\n  }\n}",
+                          "createdAt": "2026-10-21T19:48:08.000Z",
+                          "updatedAt": "2026-10-21T19:48:08.000Z",
+                          "uid": "35240-a88b86d8-c05f-4638-838f-167dcb70e2c1"
+                        },
+                        {
+                          "id": "afe8958f-3464-4888-9399-3c1f3e50555d",
+                          "name": "400",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "access-token",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/openapi/2022-01/file/:file_uri",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "openapi",
+                                "2022-01",
+                                "file",
+                                ":file_uri"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "file_uri"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{}",
+                          "createdAt": "2026-10-21T19:48:08.000Z",
+                          "updatedAt": "2026-10-21T19:48:08.000Z",
+                          "uid": "35240-afe8958f-3464-4888-9399-3c1f3e50555d"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T19:48:08.000Z",
+                      "updatedAt": "2026-10-21T19:48:08.000Z",
+                      "uid": "35240-ef3a509e-6b0c-4a9e-a1f0-172b9c99220e"
                     },
                     {
-                      "key": "limit",
-                      "value": "<integer>"
-                    },
-                    {
-                      "key": "folder",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
+                      "name": "Get File Details",
+                      "id": "7c1d1c04-330c-4458-b519-8b651ead2efe",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
                       },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n    \\\"files\\\": [\\n        {\\n            \\\"upload_link\\\": \\\"https://cdn.shoplazza.com/6cea629488b0afdc5cafe5437d42592e.jpeg\\\",\\n            \\\"file_uri\\\": \\\"6cea629488b0afdc5cafe5437d42592e.jpeg\\\",\\n            \\\"folder\\\": \\\"url_upload\\\",\\n            \\\"size\\\": 0,\\n            \\\"type\\\": \\\"\\\",\\n            \\\"origin_link\\\": \\\"\\\",\\n            \\\"desc\\\": \\\"\\\",\\n            \\\"aspect_ratio\\\": \\\"0.6658333\\\",\\n            \\\"width\\\": 799,\\n            \\\"height\\\": 1200,\\n            \\\"created_at\\\": \\\"2023-07-03T16:48:49+08:00\\\",\\n            \\\"updated_at\\\": \\\"2023-07-03T16:48:49+08:00\\\"\\n        }\\n    ]\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "5faca360-4329-40f9-8a26-34275c801c47",
-              "name": "400",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "file"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "page",
-                      "value": "<integer>"
-                    },
-                    {
-                      "key": "limit",
-                      "value": "<integer>"
-                    },
-                    {
-                      "key": "folder",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/openapi/2022-01/file/:file_uri",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "openapi",
+                            "2022-01",
+                            "file",
+                            ":file_uri"
+                          ],
+                          "variable": [
+                            {
+                              "id": "44638891-662f-42cd-b9eb-4f8e8c68d660",
+                              "key": "file_uri",
+                              "value": "<string>",
+                              "description": "(Required) File uri"
+                            }
+                          ]
+                        }
                       },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
+                      "response": [
+                        {
+                          "id": "4dd0d944-55a5-4f3f-a3d8-d51add6baf9c",
+                          "name": "200",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "access-token",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/openapi/2022-01/file/:file_uri",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "openapi",
+                                "2022-01",
+                                "file",
+                                ":file_uri"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "file_uri"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"upload_link\": \"<string>\",\n  \"file_uri\": \"<string>\",\n  \"folder\": \"<string>\",\n  \"size\": 0,\n  \"type\": \"<string>\",\n  \"origin_link\": \"<string>\",\n  \"desc\": \"<string>\",\n  \"aspect_ratio\": \"<string>\",\n  \"width\": 0,\n  \"height\": 0,\n  \"created_at\": \"<string>\",\n  \"updated_at\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T19:48:08.000Z",
+                          "updatedAt": "2026-10-21T19:48:08.000Z",
+                          "uid": "35240-4dd0d944-55a5-4f3f-a3d8-d51add6baf9c"
+                        },
+                        {
+                          "id": "27d2ae9f-9ffd-4522-95ed-b316967fef59",
+                          "name": "400",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "access-token",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/openapi/2022-01/file/:file_uri",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "openapi",
+                                "2022-01",
+                                "file",
+                                ":file_uri"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "file_uri"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{}",
+                          "createdAt": "2026-10-21T19:48:08.000Z",
+                          "updatedAt": "2026-10-21T19:48:08.000Z",
+                          "uid": "35240-27d2ae9f-9ffd-4522-95ed-b316967fef59"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T19:48:08.000Z",
+                      "updatedAt": "2026-10-21T19:48:08.000Z",
+                      "uid": "35240-7c1d1c04-330c-4458-b519-8b651ead2efe"
                     }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "a64c6b6d-83bb-49e8-be89-84a7b075a90c",
-          "name": "Get Create  File Task",
-          "request": {
-            "name": "Get Create  File Task",
-            "description": {
-              "content": "",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "openapi",
-                "2022-01",
-                "file",
-                "task",
-                ":task_id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "task_id",
-                  "description": "(Required) Task id"
+                  ],
+                  "id": "e99c2890-522e-4242-b56c-028701e59ca8",
+                  "createdAt": "2026-10-21T19:48:08.000Z",
+                  "updatedAt": "2026-10-21T19:48:08.000Z",
+                  "uid": "35240-e99c2890-522e-4242-b56c-028701e59ca8"
                 },
                 {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
+                  "name": "Create File",
+                  "id": "348a4323-02f0-4d0b-8b28-a998394092b7",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
                   },
-                  "type": "any",
-                  "value": "{{subdomain}}",
-                  "key": "subdomain"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "03662743-9828-4957-9bd7-3038ce7cef63",
-              "name": "200",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "file",
-                    "task",
-                    ":task_id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "task_id",
-                      "description": "(Required) Task id"
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
                       },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"original_source_list\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/openapi/2022-01/file",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "openapi",
+                        "2022-01",
+                        "file"
+                      ]
                     }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
                   },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n  \\n        \\\"task_id\\\": \\\"c569f4fd-3fcd-4219-b13d-7c847475602c\\\",\\n        \\\"total\\\": 1,\\n        \\\"finished\\\": 1,\\n        \\\"status\\\": 0,\\n        \\\"success_list\\\": [\\n            {\\n                \\\"file_uri\\\": \\\"20444bd80653493a1dc9570da9a71c96.jpeg\\\",\\n                \\\"origin_link\\\": \\\"https://img2.baidu.com/it/u=3539883481,2694279601&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=129\\\",\\n                \\\"upload_link\\\": \\\"https://cdn.shoplazza.com/20444bd80653493a1dc9570da9a71c96.jpeg\\\"\\n            }\\n        ],\\n        \\\"failure_list\\\": [],\\n        \\\"origin_list\\\": [\\n            \\\"https://img2.baidu.com/it/u=3539883481,2694279601&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=129\\\"\\n        ]\\n    \\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "b160784e-d6bf-44f5-9d4e-abfbc4082b52",
-              "name": "400",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "file",
-                    "task",
-                    ":task_id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
+                  "response": [
                     {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "task_id",
-                      "description": "(Required) Task id"
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
+                      "id": "00c7949c-6a20-4801-9537-bb2fcb26b4aa",
+                      "name": "200",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "access-token",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"original_source_list\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/openapi/2022-01/file",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "openapi",
+                            "2022-01",
+                            "file"
+                          ]
+                        }
                       },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "11076c82-8332-4e28-b1f9-e2ae20dfbdcf",
-          "name": "Delete File",
-          "request": {
-            "name": "Delete File",
-            "description": {
-              "content": "",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "openapi",
-                "2022-01",
-                "file",
-                ":file_uri"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "file_uri",
-                  "description": "(Required) File uri"
-                },
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{subdomain}}",
-                  "key": "subdomain"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "2da56b38-018c-4039-ad48-0b26a8c4df12",
-              "name": "200",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "file",
-                    ":file_uri"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "file_uri",
-                      "description": "(Required) File uri"
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"task_id\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T19:48:08.000Z",
+                      "updatedAt": "2026-10-21T19:48:08.000Z",
+                      "uid": "35240-00c7949c-6a20-4801-9537-bb2fcb26b4aa"
                     },
                     {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
+                      "id": "04cb6d32-2ec5-4f7a-a811-b93b8889cb5d",
+                      "name": "400",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "access-token",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"original_source_list\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/openapi/2022-01/file",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "openapi",
+                            "2022-01",
+                            "file"
+                          ]
+                        }
                       },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-10-21T19:48:08.000Z",
+                      "updatedAt": "2026-10-21T19:48:08.000Z",
+                      "uid": "35240-04cb6d32-2ec5-4f7a-a811-b93b8889cb5d"
                     }
-                  ]
+                  ],
+                  "createdAt": "2026-10-21T19:48:08.000Z",
+                  "updatedAt": "2026-10-21T19:48:08.000Z",
+                  "uid": "35240-348a4323-02f0-4d0b-8b28-a998394092b7"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "d067a187-c90a-4965-a4c1-ccd194ea6195",
-              "name": "400",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "file",
-                    ":file_uri"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
+                  "name": "Get File List",
+                  "id": "caa7da60-2993-48a9-b24b-b21361c45de8",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/openapi/2022-01/file?page=<integer>&limit=<integer>&folder=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "openapi",
+                        "2022-01",
+                        "file"
+                      ],
+                      "query": [
+                        {
+                          "key": "page",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "limit",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "File type, choose from\uff1a`product`\u3001`all_upload`",
+                          "key": "folder",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
                     {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "file_uri",
-                      "description": "(Required) File uri"
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
+                      "id": "9d688f7e-f6e3-4e8f-80be-ebda7155d2c5",
+                      "name": "200",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "access-token",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/openapi/2022-01/file?page=<integer>&limit=<integer>&folder=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "openapi",
+                            "2022-01",
+                            "file"
+                          ],
+                          "query": [
+                            {
+                              "key": "page",
+                              "value": "<integer>"
+                            },
+                            {
+                              "key": "limit",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "File type, choose from\uff1a`product`\u3001`all_upload`",
+                              "key": "folder",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
                       },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "ead9c1cc-1441-4f8c-bf4e-002cd4e566ad",
-          "name": "Get File Details",
-          "request": {
-            "name": "Get File Details",
-            "description": {
-              "content": "",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "openapi",
-                "2022-01",
-                "file",
-                ":file_uri"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "file_uri",
-                  "description": "(Required) File uri"
-                },
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{subdomain}}",
-                  "key": "subdomain"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "2ebb2b6c-2a6b-4da4-a205-81356114860c",
-              "name": "200",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "file",
-                    ":file_uri"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "file_uri",
-                      "description": "(Required) File uri"
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"files\": [\n    {\n      \"upload_link\": \"<string>\",\n      \"file_uri\": \"<string>\",\n      \"folder\": \"<string>\",\n      \"size\": 0,\n      \"type\": \"<string>\",\n      \"origin_link\": \"<string>\",\n      \"desc\": \"<string>\",\n      \"aspect_ratio\": \"<string>\",\n      \"width\": 0,\n      \"height\": 0,\n      \"created_at\": \"<string>\",\n      \"updated_at\": \"<string>\"\n    },\n    {\n      \"upload_link\": \"<string>\",\n      \"file_uri\": \"<string>\",\n      \"folder\": \"<string>\",\n      \"size\": 0,\n      \"type\": \"<string>\",\n      \"origin_link\": \"<string>\",\n      \"desc\": \"<string>\",\n      \"aspect_ratio\": \"<string>\",\n      \"width\": 0,\n      \"height\": 0,\n      \"created_at\": \"<string>\",\n      \"updated_at\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-10-21T19:48:08.000Z",
+                      "updatedAt": "2026-10-21T19:48:08.000Z",
+                      "uid": "35240-9d688f7e-f6e3-4e8f-80be-ebda7155d2c5"
                     },
                     {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
+                      "id": "c776627d-36bf-414d-8c69-27ae555e73ac",
+                      "name": "400",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "access-token",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/openapi/2022-01/file?page=<integer>&limit=<integer>&folder=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "openapi",
+                            "2022-01",
+                            "file"
+                          ],
+                          "query": [
+                            {
+                              "key": "page",
+                              "value": "<integer>"
+                            },
+                            {
+                              "key": "limit",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "File type, choose from\uff1a`product`\u3001`all_upload`",
+                              "key": "folder",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
                       },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-10-21T19:48:08.000Z",
+                      "updatedAt": "2026-10-21T19:48:08.000Z",
+                      "uid": "35240-c776627d-36bf-414d-8c69-27ae555e73ac"
                     }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  ],
+                  "createdAt": "2026-10-21T19:48:08.000Z",
+                  "updatedAt": "2026-10-21T19:48:08.000Z",
+                  "uid": "35240-caa7da60-2993-48a9-b24b-b21361c45de8"
                 }
               ],
-              "body": "\"{\\n    \\\"upload_link\\\": \\\"https://cdn.shoplazza.com/6cea629488b0afdc5cafe5437d42592e.jpeg\\\",\\n    \\\"file_uri\\\": \\\"6cea629488b0afdc5cafe5437d42592e.jpeg\\\",\\n    \\\"folder\\\": \\\"url_upload\\\",\\n    \\\"size\\\": 0,\\n    \\\"type\\\": \\\"\\\",\\n    \\\"origin_link\\\": \\\"\\\",\\n    \\\"desc\\\": \\\"\\\",\\n    \\\"aspect_ratio\\\": \\\"0.6658333\\\",\\n    \\\"width\\\": 799,\\n    \\\"height\\\": 1200,\\n    \\\"created_at\\\": \\\"2023-07-03T16:48:48.934303886+08:00\\\",\\n    \\\"updated_at\\\": \\\"2023-07-03T16:48:48.934303886+08:00\\\"\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "54baae84-44ea-449f-baf0-4f65035410db",
-              "name": "400",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "file",
-                    ":file_uri"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "file_uri",
-                      "description": "(Required) File uri"
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "bd9b698d-30e0-4fa2-8764-775417f0c03d",
+              "createdAt": "2026-10-21T19:48:08.000Z",
+              "updatedAt": "2026-10-21T19:48:08.000Z",
+              "uid": "35240-bd9b698d-30e0-4fa2-8764-775417f0c03d"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "a7a4df70-ea4e-44bd-bd8c-1563c3e47b4b",
+          "createdAt": "2026-10-21T19:48:08.000Z",
+          "updatedAt": "2026-10-21T19:48:08.000Z",
+          "uid": "35240-a7a4df70-ea4e-44bd-bd8c-1563c3e47b4b"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "type": "any",
-      "value": "developer",
-      "key": "subdomain"
-    },
-    {
-      "type": "string",
-      "value": "https://{{subdomain}}.myshoplaza.com",
-      "key": "baseUrl"
+      "id": "93655943-3bf6-45d6-a2f9-f6ff51db04a4",
+      "createdAt": "2026-10-21T19:48:08.000Z",
+      "updatedAt": "2026-10-21T19:48:08.000Z",
+      "uid": "35240-93655943-3bf6-45d6-a2f9-f6ff51db04a4"
     }
   ],
   "auth": {
@@ -966,25 +823,29 @@
     "apikey": [
       {
         "key": "key",
-        "value": "access-token"
+        "value": "access-token",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "dc79243a-38c3-4c3f-8c76-5dd47f2c5d89",
-    "name": "SPZ Admin Access File API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Upload image materials to the material library and the material library operations of material",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "subdomain",
+      "value": "developer"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{subdomain}}.myshoplaza.com"
     }
-  }
+  ]
 }

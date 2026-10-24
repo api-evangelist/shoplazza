@@ -1,1598 +1,1398 @@
 {
+  "info": {
+    "_postman_id": "3f9def95-7580-4f06-a17b-85fb22e2161b",
+    "name": "SPZ Admin Shop API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T19:49:16.000Z",
+    "updatedAt": "2026-10-21T19:49:17.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-3f9def95-7580-4f06-a17b-85fb22e2161b"
+  },
   "item": [
     {
-      "id": "cee88d91-3431-4446-86b0-6371b28a6848",
-      "name": "Shop",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "openapi",
       "item": [
         {
-          "id": "30875848-4b82-49f1-907a-16b658084067",
-          "name": "Shop Details",
-          "request": {
-            "name": "Shop Details",
-            "description": {
-              "content": "",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "openapi",
-                "2022-01",
-                "shop"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "fields",
-                  "value": "<string>",
-                  "description": "To specify which fields you wanna get, separated by comma, e.g. `id,name,email`, possible fields are: `id`, `name`, `email`, `domain`, `address1`, `zip`, `city`, `phone`, `primary_locale`, `address2`, `created_at`, `updated_at`, `country_code`, `currency`, `customer_email`, `timezone`, `shop_owner`, `account`, `province_code`, `icon`, `system_domain`, `root_url`"
-                }
-              ],
-              "variable": [
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{subdomain}}",
-                  "key": "subdomain"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "2022-01",
+          "item": [
             {
-              "id": "1acd4ab3-396b-43b5-ab46-bab23d3842c4",
-              "name": "200",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "shop"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "fields",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "shop",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "{shop_id}",
+                  "item": [
+                    {
+                      "name": "Update Shop",
+                      "id": "9e772506-1a05-4368-a8a9-d99298a0ee2c",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"shop\": {\n    \"customer_email\": \"<string>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/openapi/2022-01/shop/:shop_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "openapi",
+                            "2022-01",
+                            "shop",
+                            ":shop_id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "ada5a69f-76b2-46d1-9c13-a2af86f9f68e",
+                              "key": "shop_id",
+                              "value": "<string>",
+                              "description": "(Required) Shop's ID"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "1326124e-6bd2-43ef-bf5a-257a7e282f61",
+                          "name": "200",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "access-token",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"shop\": {\n    \"customer_email\": \"<string>\"\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/openapi/2022-01/shop/:shop_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "openapi",
+                                "2022-01",
+                                "shop",
+                                ":shop_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "shop_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"shop\": {\n    \"id\": 0,\n    \"name\": \"<string>\",\n    \"email\": \"<string>\",\n    \"domain\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"city\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"primary_locale\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"created_at\": \"<string>\",\n    \"updated_at\": \"<string>\",\n    \"country_code\": \"<string>\",\n    \"currency\": \"<string>\",\n    \"customer_email\": \"<string>\",\n    \"timezone\": \"<string>\",\n    \"shop_owner\": \"<string>\",\n    \"account\": \"<string>\",\n    \"province_code\": \"<string>\",\n    \"icon\": {\n      \"src\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    \"root_url\": \"<string>\",\n    \"system_domain\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-10-21T19:49:17.000Z",
+                          "updatedAt": "2026-10-21T19:49:17.000Z",
+                          "uid": "35240-1326124e-6bd2-43ef-bf5a-257a7e282f61"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T19:49:17.000Z",
+                      "updatedAt": "2026-10-21T19:49:17.000Z",
+                      "uid": "35240-9e772506-1a05-4368-a8a9-d99298a0ee2c"
+                    }
+                  ],
+                  "id": "4cb13f10-945a-4863-8b1f-dcb85af691dc",
+                  "createdAt": "2026-10-21T19:49:17.000Z",
+                  "updatedAt": "2026-10-21T19:49:17.000Z",
+                  "uid": "35240-4cb13f10-945a-4863-8b1f-dcb85af691dc"
+                },
+                {
+                  "name": "Shop Details",
+                  "id": "14277707-bf5d-4cdd-b454-906925a9f53a",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/openapi/2022-01/shop?fields=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "openapi",
+                        "2022-01",
+                        "shop"
+                      ],
+                      "query": [
+                        {
+                          "description": "To specify which fields you wanna get, separated by comma, e.g. `id,name,email`, possible fields are: `id`, `name`, `email`, `domain`, `address1`, `zip`, `city`, `phone`, `primary_locale`, `address2`, `created_at`, `updated_at`, `country_code`, `currency`, `customer_email`, `timezone`, `shop_owner`, `account`, `province_code`, `icon`, `system_domain`, `root_url`",
+                          "key": "fields",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "2f13563b-b95a-40d4-93cd-0c65d89ac00c",
+                      "name": "200",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "access-token",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/openapi/2022-01/shop?fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "openapi",
+                            "2022-01",
+                            "shop"
+                          ],
+                          "query": [
+                            {
+                              "description": "To specify which fields you wanna get, separated by comma, e.g. `id,name,email`, possible fields are: `id`, `name`, `email`, `domain`, `address1`, `zip`, `city`, `phone`, `primary_locale`, `address2`, `created_at`, `updated_at`, `country_code`, `currency`, `customer_email`, `timezone`, `shop_owner`, `account`, `province_code`, `icon`, `system_domain`, `root_url`",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"shop\": {\n    \"id\": 0,\n    \"name\": \"<string>\",\n    \"email\": \"<string>\",\n    \"domain\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"city\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"primary_locale\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"created_at\": \"<string>\",\n    \"updated_at\": \"<string>\",\n    \"country_code\": \"<string>\",\n    \"currency\": \"<string>\",\n    \"customer_email\": \"<string>\",\n    \"timezone\": \"<string>\",\n    \"shop_owner\": \"<string>\",\n    \"account\": \"<string>\",\n    \"province_code\": \"<string>\",\n    \"icon\": {\n      \"alt\": \"<string>\",\n      \"src\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    \"root_url\": \"<string>\",\n    \"system_domain\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-10-21T19:49:17.000Z",
+                      "updatedAt": "2026-10-21T19:49:17.000Z",
+                      "uid": "35240-2f13563b-b95a-40d4-93cd-0c65d89ac00c"
+                    },
+                    {
+                      "id": "502e286a-dff7-4796-83a5-615bef1bc1aa",
+                      "name": "404",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "access-token",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/openapi/2022-01/shop?fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "openapi",
+                            "2022-01",
+                            "shop"
+                          ],
+                          "query": [
+                            {
+                              "description": "To specify which fields you wanna get, separated by comma, e.g. `id,name,email`, possible fields are: `id`, `name`, `email`, `domain`, `address1`, `zip`, `city`, `phone`, `primary_locale`, `address2`, `created_at`, `updated_at`, `country_code`, `currency`, `customer_email`, `timezone`, `shop_owner`, `account`, `province_code`, `icon`, `system_domain`, `root_url`",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "createdAt": "2026-10-21T19:49:17.000Z",
+                      "updatedAt": "2026-10-21T19:49:17.000Z",
+                      "uid": "35240-502e286a-dff7-4796-83a5-615bef1bc1aa"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T19:49:17.000Z",
+                  "updatedAt": "2026-10-21T19:49:17.000Z",
+                  "uid": "35240-14277707-bf5d-4cdd-b454-906925a9f53a"
                 }
               ],
-              "body": "\"{\\n  \\\"shop\\\":{\\n    \\\"id\\\": 2019,\\n    \\\"name\\\": \\\"Nike Store\\\",\\n    \\\"email\\\": \\\"steve@nike.com\\\",\\n    \\\"domain\\\": \\\"shop.nike.com\\\",\\n    \\\"address1\\\": \\\"1 Infinite Loop\\\",\\n    \\\"zip\\\": \\\"95014\\\",\\n    \\\"city\\\": \\\"Cupertino\\\",\\n    \\\"phone\\\": \\\"1231231234\\\",\\n    \\\"primary_locale\\\": \\\"en-US\\\",\\n    \\\"address2\\\": \\\"Suite 100\\\",\\n    \\\"created_at\\\": \\\"2022-04-18T15:26:22Z\\\",\\n    \\\"updated_at\\\": \\\"2022-04-18T15:26:22Z\\\",\\n    \\\"country_code\\\": \\\"US\\\",\\n    \\\"currency\\\": \\\"USD\\\",\\n    \\\"customer_email\\\": \\\"customers@nike.com\\\",\\n    \\\"timezone\\\": \\\"+0800\\\",\\n    \\\"shop_owner\\\": \\\"nick\\\",\\n    \\\"account\\\": \\\"account@nike.com\\\",\\n    \\\"province_code\\\": \\\"CA\\\",\\n    \\\"icon\\\": {\\n      \\\"alt\\\": \\\"\\\",\\n      \\\"src\\\": \\\"https://cn.cdn.shoplazza.com/0d42d239eb4a6a6e07652b24219e62b9.jpg\\\",\\n      \\\"path\\\": \\\"0d42d239eb4a6a6e07652b24219e62b9.jpg\\\"\\n    },\\n    \\\"root_url\\\": \\\"\\\",\\n    \\\"system_domain\\\": \\\"shop.nike.com\\\"\\n  }\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "9866b52f-b971-4a14-81c5-f4b44763439e",
+              "createdAt": "2026-10-21T19:49:17.000Z",
+              "updatedAt": "2026-10-21T19:49:17.000Z",
+              "uid": "35240-9866b52f-b971-4a14-81c5-f4b44763439e"
             },
             {
-              "id": "febfa995-bf62-492b-9c39-89f55cd68829",
-              "name": "404",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "shop"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "fields",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
+              "name": "comments",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "batch",
+                  "item": [
+                    {
+                      "name": "Batch Create Comment",
+                      "id": "bc04474c-9348-4559-90c7-d176d69c1b86",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"comments\": [\n    {\n      \"product_id\": \"<string>\",\n      \"username\": \"<string>\",\n      \"content\": \"<string>\",\n      \"star\": \"<integer>\",\n      \"like\": \"<integer>\",\n      \"created_at\": \"<string>\",\n      \"image\": \"<string>\",\n      \"country\": \"<string>\"\n    },\n    {\n      \"product_id\": \"<string>\",\n      \"username\": \"<string>\",\n      \"content\": \"<string>\",\n      \"star\": \"<integer>\",\n      \"like\": \"<integer>\",\n      \"created_at\": \"<string>\",\n      \"image\": \"<string>\",\n      \"country\": \"<string>\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/openapi/2022-01/comments/batch",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "openapi",
+                            "2022-01",
+                            "comments",
+                            "batch"
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "20deb67e-f75a-4b09-a621-82b198d74d31",
+                          "name": "200",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "access-token",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"comments\": [\n    {\n      \"product_id\": \"<string>\",\n      \"username\": \"<string>\",\n      \"content\": \"<string>\",\n      \"star\": \"<integer>\",\n      \"like\": \"<integer>\",\n      \"created_at\": \"<string>\",\n      \"image\": \"<string>\",\n      \"country\": \"<string>\"\n    },\n    {\n      \"product_id\": \"<string>\",\n      \"username\": \"<string>\",\n      \"content\": \"<string>\",\n      \"star\": \"<integer>\",\n      \"like\": \"<integer>\",\n      \"created_at\": \"<string>\",\n      \"image\": \"<string>\",\n      \"country\": \"<string>\"\n    }\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/openapi/2022-01/comments/batch",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "openapi",
+                                "2022-01",
+                                "comments",
+                                "batch"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"examples\": {\n    \"Result\": {\n      \"value\": \"{\\n    \\\"success_count\\\": 12,\\n    \\\"error_count\\\": 3,\\n    \\\"error_info\\\": [\\n        {\\n          \\\"product_id\\\": \\\"...\\\",\\n          \\\"username\\\": \\\"...\\\",\\n          ...\\n          \\\"error_message\\\": \\\"\\\"\\n        }\\n    ]\\n}\"\n    }\n  }\n}",
+                          "createdAt": "2026-10-21T19:49:17.000Z",
+                          "updatedAt": "2026-10-21T19:49:17.000Z",
+                          "uid": "35240-20deb67e-f75a-4b09-a621-82b198d74d31"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T19:49:17.000Z",
+                      "updatedAt": "2026-10-21T19:49:17.000Z",
+                      "uid": "35240-bc04474c-9348-4559-90c7-d176d69c1b86"
+                    }
+                  ],
+                  "id": "744a3e79-b107-45f3-b371-815b1955b162",
+                  "createdAt": "2026-10-21T19:49:17.000Z",
+                  "updatedAt": "2026-10-21T19:49:17.000Z",
+                  "uid": "35240-744a3e79-b107-45f3-b371-815b1955b162"
+                },
+                {
+                  "name": "list",
+                  "item": [
+                    {
+                      "name": "Get Comment List",
+                      "id": "1a63aa00-2b86-4a1e-905f-6b9e1896ef9d",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/openapi/2022-01/comments/list?product_id=<string>&created_at_min=<string>&created_at_max=<string>&updated_at_min=<string>&updated_at_max=<string>&sort_by=star&sort_direction=asc&page=1&limit=20&status=1",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "openapi",
+                            "2022-01",
+                            "comments",
+                            "list"
+                          ],
+                          "query": [
+                            {
+                              "description": "Product's IDs, e.g. `9e79ca1f-9ff2-409b-976f-98be343d38a3`",
+                              "key": "product_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Filter comments created at or after date, for example: `2018-10-01T16:15:47-04:00`",
+                              "key": "created_at_min",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Filter comments created at or before date, for example: `2018-10-01T16:15:47-04:00`",
+                              "key": "created_at_max",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Filter comments last updated at or after date, for example: `2018-10-01T16:15:47-04:00`",
+                              "key": "updated_at_min",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Filter comments last updated at or before date, for example: `2018-10-01T16:15:47-04:00`",
+                              "key": "updated_at_max",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Specify the sort field, e.g. `star` or `created_at`",
+                              "key": "sort_by",
+                              "value": "star"
+                            },
+                            {
+                              "description": "Specify the sort direction, e.g. `asc` or `desc`",
+                              "key": "sort_direction",
+                              "value": "asc"
+                            },
+                            {
+                              "description": "Page number",
+                              "key": "page",
+                              "value": "1"
+                            },
+                            {
+                              "description": "Limit per page, 10, 20, 50, 100 allowed",
+                              "key": "limit",
+                              "value": "20"
+                            },
+                            {
+                              "description": "Comment status, `1`: published, `0`: unpublished",
+                              "key": "status",
+                              "value": "1"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "b72ef9ab-008a-4ac0-9d94-632128b224c5",
+                          "name": "200",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "access-token",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/openapi/2022-01/comments/list?product_id=<string>&created_at_min=<string>&created_at_max=<string>&updated_at_min=<string>&updated_at_max=<string>&sort_by=star&sort_direction=asc&page=1&limit=20&status=1",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "openapi",
+                                "2022-01",
+                                "comments",
+                                "list"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Product's IDs, e.g. `9e79ca1f-9ff2-409b-976f-98be343d38a3`",
+                                  "key": "product_id",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Filter comments created at or after date, for example: `2018-10-01T16:15:47-04:00`",
+                                  "key": "created_at_min",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Filter comments created at or before date, for example: `2018-10-01T16:15:47-04:00`",
+                                  "key": "created_at_max",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Filter comments last updated at or after date, for example: `2018-10-01T16:15:47-04:00`",
+                                  "key": "updated_at_min",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Filter comments last updated at or before date, for example: `2018-10-01T16:15:47-04:00`",
+                                  "key": "updated_at_max",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Specify the sort field, e.g. `star` or `created_at`",
+                                  "key": "sort_by",
+                                  "value": "star"
+                                },
+                                {
+                                  "description": "Specify the sort direction, e.g. `asc` or `desc`",
+                                  "key": "sort_direction",
+                                  "value": "asc"
+                                },
+                                {
+                                  "description": "Page number",
+                                  "key": "page",
+                                  "value": "1"
+                                },
+                                {
+                                  "description": "Limit per page, 10, 20, 50, 100 allowed",
+                                  "key": "limit",
+                                  "value": "20"
+                                },
+                                {
+                                  "description": "Comment status, `1`: published, `0`: unpublished",
+                                  "key": "status",
+                                  "value": "1"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"comments\": [\n    {\n      \"id\": \"<string>\",\n      \"store_id\": \"<string>\",\n      \"username\": \"<string>\",\n      \"email\": \"<string>\",\n      \"star\": \"<string>\",\n      \"like\": \"<string>\",\n      \"content\": \"<string>\",\n      \"img\": \"<string>\",\n      \"status\": \"<string>\",\n      \"type\": \"<string>\",\n      \"product_id\": \"<string>\",\n      \"created_at\": \"<string>\",\n      \"updated_at\": \"<string>\",\n      \"country\": \"<string>\",\n      \"is_featured\": \"<string>\",\n      \"is_verified\": \"<string>\",\n      \"client_id\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"store_id\": \"<string>\",\n      \"username\": \"<string>\",\n      \"email\": \"<string>\",\n      \"star\": \"<string>\",\n      \"like\": \"<string>\",\n      \"content\": \"<string>\",\n      \"img\": \"<string>\",\n      \"status\": \"<string>\",\n      \"type\": \"<string>\",\n      \"product_id\": \"<string>\",\n      \"created_at\": \"<string>\",\n      \"updated_at\": \"<string>\",\n      \"country\": \"<string>\",\n      \"is_featured\": \"<string>\",\n      \"is_verified\": \"<string>\",\n      \"client_id\": \"<string>\"\n    }\n  ],\n  \"total\": \"<string>\",\n  \"page\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T19:49:17.000Z",
+                          "updatedAt": "2026-10-21T19:49:17.000Z",
+                          "uid": "35240-b72ef9ab-008a-4ac0-9d94-632128b224c5"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T19:49:17.000Z",
+                      "updatedAt": "2026-10-21T19:49:17.000Z",
+                      "uid": "35240-1a63aa00-2b86-4a1e-905f-6b9e1896ef9d"
+                    }
+                  ],
+                  "id": "0124868e-58e2-4e26-a6d0-ad8fed98ab20",
+                  "createdAt": "2026-10-21T19:49:17.000Z",
+                  "updatedAt": "2026-10-21T19:49:17.000Z",
+                  "uid": "35240-0124868e-58e2-4e26-a6d0-ad8fed98ab20"
+                },
+                {
+                  "name": "Create Comment",
+                  "id": "b7efcb68-f5cd-4add-bb3b-506eea06bd9b",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"product_id\": \"<string>\",\n  \"username\": \"<string>\",\n  \"content\": \"<string>\",\n  \"star\": \"<integer>\",\n  \"like\": \"<integer>\",\n  \"created_at\": \"<string>\",\n  \"image\": \"<string>\",\n  \"country\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/openapi/2022-01/comments",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "openapi",
+                        "2022-01",
+                        "comments"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "9979f8a9-3c49-4447-b468-c225aa6a690b",
+                      "name": "200",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "access-token",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"product_id\": \"<string>\",\n  \"username\": \"<string>\",\n  \"content\": \"<string>\",\n  \"star\": \"<integer>\",\n  \"like\": \"<integer>\",\n  \"created_at\": \"<string>\",\n  \"image\": \"<string>\",\n  \"country\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/openapi/2022-01/comments",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "openapi",
+                            "2022-01",
+                            "comments"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"comment\": {\n    \"id\": \"<string>\",\n    \"store_id\": \"<string>\",\n    \"username\": \"<string>\",\n    \"email\": \"<string>\",\n    \"star\": \"<string>\",\n    \"like\": \"<string>\",\n    \"content\": \"<string>\",\n    \"img\": \"<string>\",\n    \"status\": \"<string>\",\n    \"type\": \"<string>\",\n    \"product_id\": \"<string>\",\n    \"created_at\": \"<string>\",\n    \"updated_at\": \"<string>\",\n    \"country\": \"<string>\",\n    \"is_featured\": \"<string>\",\n    \"is_verified\": \"<string>\",\n    \"client_id\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-10-21T19:49:17.000Z",
+                      "updatedAt": "2026-10-21T19:49:17.000Z",
+                      "uid": "35240-9979f8a9-3c49-4447-b468-c225aa6a690b"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T19:49:17.000Z",
+                  "updatedAt": "2026-10-21T19:49:17.000Z",
+                  "uid": "35240-b7efcb68-f5cd-4add-bb3b-506eea06bd9b"
                 }
               ],
-              "body": "\"{\\n  \\\"errors\\\": [\\n    \\\"record not found!\\\"\\n  ]\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "7b0859c3-f32d-43ff-8816-6e26e5273f8d",
+              "createdAt": "2026-10-21T19:49:17.000Z",
+              "updatedAt": "2026-10-21T19:49:17.000Z",
+              "uid": "35240-7b0859c3-f32d-43ff-8816-6e26e5273f8d"
+            },
+            {
+              "name": "script_tags",
+              "item": [
+                {
+                  "name": "{id}",
+                  "item": [
+                    {
+                      "name": "Update Script Tag",
+                      "id": "bd51b43c-dbfa-4639-be2d-24780d0649e9",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"src\": \"<string>\",\n  \"display_scope\": \"all\",\n  \"event_type\": \"app\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/openapi/2022-01/script_tags/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "openapi",
+                            "2022-01",
+                            "script_tags",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "df7cdd26-aea7-4295-9d42-6951bd49bee2",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) Script's ID"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "c63b66f2-72a1-4605-b0f4-0d4c4d77313e",
+                          "name": "200",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "access-token",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"src\": \"<string>\",\n  \"display_scope\": \"all\",\n  \"event_type\": \"app\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/openapi/2022-01/script_tags/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "openapi",
+                                "2022-01",
+                                "script_tags",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"script_tag\": {\n    \"id\": \"<string>\",\n    \"display_scope\": \"<string>\",\n    \"src\": \"<string>\",\n    \"event_type\": \"<string>\",\n    \"created_at\": \"<string>\",\n    \"updated_at\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-10-21T19:49:17.000Z",
+                          "updatedAt": "2026-10-21T19:49:17.000Z",
+                          "uid": "35240-c63b66f2-72a1-4605-b0f4-0d4c4d77313e"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T19:49:17.000Z",
+                      "updatedAt": "2026-10-21T19:49:17.000Z",
+                      "uid": "35240-bd51b43c-dbfa-4639-be2d-24780d0649e9"
+                    },
+                    {
+                      "name": "Delete Script Tag",
+                      "id": "ec319582-045b-4150-a420-7ee717c36321",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/openapi/2022-01/script_tags/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "openapi",
+                            "2022-01",
+                            "script_tags",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "0c3b73ed-0e53-4f01-8e0c-e40bf5f4649d",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) Script's ID"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "956b547e-42f2-4635-93e6-b903135a3418",
+                          "name": "200",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "access-token",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/openapi/2022-01/script_tags/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "openapi",
+                                "2022-01",
+                                "script_tags",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{}",
+                          "createdAt": "2026-10-21T19:49:17.000Z",
+                          "updatedAt": "2026-10-21T19:49:17.000Z",
+                          "uid": "35240-956b547e-42f2-4635-93e6-b903135a3418"
+                        },
+                        {
+                          "id": "8eac7f21-29f0-44f6-bbd9-b8010593cd2c",
+                          "name": "404",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "access-token",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/openapi/2022-01/script_tags/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "openapi",
+                                "2022-01",
+                                "script_tags",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"errors\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "createdAt": "2026-10-21T19:49:17.000Z",
+                          "updatedAt": "2026-10-21T19:49:17.000Z",
+                          "uid": "35240-8eac7f21-29f0-44f6-bbd9-b8010593cd2c"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T19:49:17.000Z",
+                      "updatedAt": "2026-10-21T19:49:17.000Z",
+                      "uid": "35240-ec319582-045b-4150-a420-7ee717c36321"
+                    },
+                    {
+                      "name": "Get Script Tag",
+                      "id": "f2a0558d-bb11-485b-9e9b-1781367ec882",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/openapi/2022-01/script_tags/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "openapi",
+                            "2022-01",
+                            "script_tags",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "fd5e86dc-f7bb-4634-9951-1062ac956197",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) Script's ID"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "0e586f96-25ef-4ca7-b151-d971dfac30bf",
+                          "name": "200",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "access-token",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/openapi/2022-01/script_tags/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "openapi",
+                                "2022-01",
+                                "script_tags",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"script_tag\": {\n    \"id\": \"<string>\",\n    \"display_scope\": \"<string>\",\n    \"src\": \"<string>\",\n    \"event_type\": \"<string>\",\n    \"created_at\": \"<string>\",\n    \"updated_at\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-10-21T19:49:17.000Z",
+                          "updatedAt": "2026-10-21T19:49:17.000Z",
+                          "uid": "35240-0e586f96-25ef-4ca7-b151-d971dfac30bf"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T19:49:17.000Z",
+                      "updatedAt": "2026-10-21T19:49:17.000Z",
+                      "uid": "35240-f2a0558d-bb11-485b-9e9b-1781367ec882"
+                    }
+                  ],
+                  "id": "b0d66edc-d834-4736-b489-e3790550dbdd",
+                  "createdAt": "2026-10-21T19:49:17.000Z",
+                  "updatedAt": "2026-10-21T19:49:17.000Z",
+                  "uid": "35240-b0d66edc-d834-4736-b489-e3790550dbdd"
+                },
+                {
+                  "name": "count",
+                  "item": [
+                    {
+                      "name": "Get Script Tag Count",
+                      "id": "0257c083-5711-4b89-8b61-3f7a60991aed",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/openapi/2022-01/script_tags/count",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "openapi",
+                            "2022-01",
+                            "script_tags",
+                            "count"
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "1277ca1c-0ecb-488a-84bf-1eac1ee63c7a",
+                          "name": "200",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "access-token",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/openapi/2022-01/script_tags/count",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "openapi",
+                                "2022-01",
+                                "script_tags",
+                                "count"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"count\": 0\n}",
+                          "createdAt": "2026-10-21T19:49:17.000Z",
+                          "updatedAt": "2026-10-21T19:49:17.000Z",
+                          "uid": "35240-1277ca1c-0ecb-488a-84bf-1eac1ee63c7a"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T19:49:17.000Z",
+                      "updatedAt": "2026-10-21T19:49:17.000Z",
+                      "uid": "35240-0257c083-5711-4b89-8b61-3f7a60991aed"
+                    }
+                  ],
+                  "id": "893212b0-3585-4297-a59f-ffb8ac424d24",
+                  "createdAt": "2026-10-21T19:49:17.000Z",
+                  "updatedAt": "2026-10-21T19:49:17.000Z",
+                  "uid": "35240-893212b0-3585-4297-a59f-ffb8ac424d24"
+                },
+                {
+                  "name": "Create Script Tag",
+                  "id": "baf16afc-c791-4a48-b240-c0d22ed9f74b",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"src\": \"<string>\",\n  \"display_scope\": \"all\",\n  \"event_type\": \"app\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/openapi/2022-01/script_tags",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "openapi",
+                        "2022-01",
+                        "script_tags"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "2eeb0796-7f10-4ef1-a372-eb5a54ad9f3b",
+                      "name": "200",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "access-token",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"src\": \"<string>\",\n  \"display_scope\": \"all\",\n  \"event_type\": \"app\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/openapi/2022-01/script_tags",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "openapi",
+                            "2022-01",
+                            "script_tags"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"script_tag\": {\n    \"id\": \"<string>\",\n    \"display_scope\": \"<string>\",\n    \"src\": \"<string>\",\n    \"event_type\": \"<string>\",\n    \"created_at\": \"<string>\",\n    \"updated_at\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-10-21T19:49:17.000Z",
+                      "updatedAt": "2026-10-21T19:49:17.000Z",
+                      "uid": "35240-2eeb0796-7f10-4ef1-a372-eb5a54ad9f3b"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T19:49:17.000Z",
+                  "updatedAt": "2026-10-21T19:49:17.000Z",
+                  "uid": "35240-baf16afc-c791-4a48-b240-c0d22ed9f74b"
+                },
+                {
+                  "name": "Get Script Tag List",
+                  "id": "d9c77f8f-6067-4c3d-9d8d-4a1857d503cb",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/openapi/2022-01/script_tags?event_type=app&page=1&limit=50",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "openapi",
+                        "2022-01",
+                        "script_tags"
+                      ],
+                      "query": [
+                        {
+                          "description": "Event type, e.g. `myapp`",
+                          "key": "event_type",
+                          "value": "app"
+                        },
+                        {
+                          "description": "Page number, e.g. `1`",
+                          "key": "page",
+                          "value": "1"
+                        },
+                        {
+                          "description": "result per page, e.g. `50`",
+                          "key": "limit",
+                          "value": "50"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "664d9e5b-e194-4f7e-9165-c661bbd0f9d2",
+                      "name": "200",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "access-token",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/openapi/2022-01/script_tags?event_type=app&page=1&limit=50",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "openapi",
+                            "2022-01",
+                            "script_tags"
+                          ],
+                          "query": [
+                            {
+                              "description": "Event type, e.g. `myapp`",
+                              "key": "event_type",
+                              "value": "app"
+                            },
+                            {
+                              "description": "Page number, e.g. `1`",
+                              "key": "page",
+                              "value": "1"
+                            },
+                            {
+                              "description": "result per page, e.g. `50`",
+                              "key": "limit",
+                              "value": "50"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"script_tags\": [\n    {\n      \"id\": \"<string>\",\n      \"display_scope\": \"<string>\",\n      \"src\": \"<string>\",\n      \"event_type\": \"<string>\",\n      \"created_at\": \"<string>\",\n      \"updated_at\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"display_scope\": \"<string>\",\n      \"src\": \"<string>\",\n      \"event_type\": \"<string>\",\n      \"created_at\": \"<string>\",\n      \"updated_at\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-10-21T19:49:17.000Z",
+                      "updatedAt": "2026-10-21T19:49:17.000Z",
+                      "uid": "35240-664d9e5b-e194-4f7e-9165-c661bbd0f9d2"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T19:49:17.000Z",
+                  "updatedAt": "2026-10-21T19:49:17.000Z",
+                  "uid": "35240-d9c77f8f-6067-4c3d-9d8d-4a1857d503cb"
+                }
+              ],
+              "id": "2bdccc95-a7d1-4bad-a2a2-47c65d4ba092",
+              "createdAt": "2026-10-21T19:49:17.000Z",
+              "updatedAt": "2026-10-21T19:49:17.000Z",
+              "uid": "35240-2bdccc95-a7d1-4bad-a2a2-47c65d4ba092"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "1ced61cf-972b-49bc-a604-0b578f1d6263",
-          "name": "Update Shop",
-          "request": {
-            "name": "Update Shop",
-            "description": {
-              "content": "",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "openapi",
-                "2022-01",
-                "shop",
-                ":shop_id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "shop_id",
-                  "description": "(Required) Shop's ID"
-                },
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{subdomain}}",
-                  "key": "subdomain"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "PATCH",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"shop\": {\n    \"customer_email\": \"<string>\"\n  }\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "2e9e9b2a-e395-46b4-ac26-8b77f1d5ca0f",
-              "name": "200",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "shop",
-                    ":shop_id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "shop_id",
-                      "description": "(Required) Shop's ID"
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PATCH",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"shop\": {\n    \"customer_email\": \"<string>\"\n  }\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n  \\\"shop\\\":{\\n    \\\"id\\\": 2019,\\n    \\\"name\\\": \\\"Nike Store\\\",\\n    \\\"email\\\": \\\"steve@nike.com\\\",\\n    \\\"domain\\\": \\\"shop.nike.com\\\",\\n    \\\"address1\\\": \\\"1 Infinite Loop\\\",\\n    \\\"zip\\\": \\\"95014\\\",\\n    \\\"city\\\": \\\"Cupertino\\\",\\n    \\\"phone\\\": \\\"1231231234\\\",\\n    \\\"primary_locale\\\": \\\"en-US\\\",\\n    \\\"address2\\\": \\\"Suite 100\\\",\\n    \\\"created_at\\\": \\\"2022-04-18T15:26:22Z\\\",\\n    \\\"updated_at\\\": \\\"2022-04-18T15:26:22Z\\\",\\n    \\\"country_code\\\": \\\"US\\\",\\n    \\\"currency\\\": \\\"USD\\\",\\n    \\\"customer_email\\\": \\\"customers@nike.com\\\",\\n    \\\"timezone\\\": \\\"+0800\\\",\\n    \\\"shop_owner\\\": \\\"nick\\\",\\n    \\\"account\\\": \\\"account@nike.com\\\",\\n    \\\"province_code\\\": \\\"CA\\\",\\n    \\\"icon\\\": {\\n      \\\"src\\\": \\\"https://cn.cdn.shoplazza.com/0d42d239eb4a6a6e07652b24219e62b9.jpg\\\",\\n      \\\"path\\\": \\\"0d42d239eb4a6a6e07652b24219e62b9.jpg\\\"\\n    },\\n    \\\"root_url\\\": \\\"\\\",\\n    \\\"system_domain\\\": \\\"nick.dev.myshoplaza.com\\\"\\n  }\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "4ef455da-3ba4-4b5c-ac35-fa2798b0971f",
-          "name": "Create Comment",
-          "request": {
-            "name": "Create Comment",
-            "description": {
-              "content": "",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "openapi",
-                "2022-01",
-                "comments"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{subdomain}}",
-                  "key": "subdomain"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"product_id\": \"<string>\",\n  \"username\": \"<string>\",\n  \"content\": \"<string>\",\n  \"star\": \"<integer>\",\n  \"like\": \"<integer>\",\n  \"created_at\": \"<string>\",\n  \"image\": \"<string>\",\n  \"country\": \"<string>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "75a053ef-62c9-4e8c-a6fc-27c85d75b4a6",
-              "name": "200",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "comments"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"product_id\": \"<string>\",\n  \"username\": \"<string>\",\n  \"content\": \"<string>\",\n  \"star\": \"<integer>\",\n  \"like\": \"<integer>\",\n  \"created_at\": \"<string>\",\n  \"image\": \"<string>\",\n  \"country\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n    \\\"comment\\\": {\\n        \\\"id\\\": \\\"23359196\\\",\\n        \\\"store_id\\\": \\\"11218\\\",\\n        \\\"username\\\": \\\"Jack\\\",\\n        \\\"email\\\": \\\"developer@example.com\\\",\\n        \\\"star\\\": \\\"5.0\\\",\\n        \\\"like\\\": \\\"1\\\",\\n        \\\"content\\\": \\\"Great!\\\",\\n        \\\"img\\\": \\\"[\\\\\\\"example.png\\\\\\\"]\\\",\\n        \\\"status\\\": \\\"1\\\",\\n        \\\"type\\\": \\\"1\\\",\\n        \\\"product_id\\\": \\\"f9dec889-8b4c-44a9-b9b6-3fe8edb94467\\\",\\n        \\\"created_at\\\": \\\"2022-11-08 05:42:41\\\",\\n        \\\"updated_at\\\": \\\"2022-11-09 09:24:47\\\",\\n        \\\"country\\\": \\\"CN\\\",\\n        \\\"is_featured\\\": \\\"0\\\",\\n        \\\"is_verified\\\": \\\"1\\\",\\n        \\\"client_id\\\": \\\"1666840484639148\\\"\\n    }\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "daa54a9c-c801-4d36-90b4-8f931ab92d29",
-          "name": "Batch Create Comment",
-          "request": {
-            "name": "Batch Create Comment",
-            "description": {
-              "content": "",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "openapi",
-                "2022-01",
-                "comments",
-                "batch"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{subdomain}}",
-                  "key": "subdomain"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"comments\": [\n    {\n      \"product_id\": \"<string>\",\n      \"username\": \"<string>\",\n      \"content\": \"<string>\",\n      \"star\": \"<integer>\",\n      \"like\": \"<integer>\",\n      \"created_at\": \"<string>\",\n      \"image\": \"<string>\",\n      \"country\": \"<string>\"\n    },\n    {\n      \"product_id\": \"<string>\",\n      \"username\": \"<string>\",\n      \"content\": \"<string>\",\n      \"star\": \"<integer>\",\n      \"like\": \"<integer>\",\n      \"created_at\": \"<string>\",\n      \"image\": \"<string>\",\n      \"country\": \"<string>\"\n    }\n  ]\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "565f8557-124a-47dd-9749-435722bd6fba",
-              "name": "200",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "comments",
-                    "batch"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"comments\": [\n    {\n      \"product_id\": \"<string>\",\n      \"username\": \"<string>\",\n      \"content\": \"<string>\",\n      \"star\": \"<integer>\",\n      \"like\": \"<integer>\",\n      \"created_at\": \"<string>\",\n      \"image\": \"<string>\",\n      \"country\": \"<string>\"\n    },\n    {\n      \"product_id\": \"<string>\",\n      \"username\": \"<string>\",\n      \"content\": \"<string>\",\n      \"star\": \"<integer>\",\n      \"like\": \"<integer>\",\n      \"created_at\": \"<string>\",\n      \"image\": \"<string>\",\n      \"country\": \"<string>\"\n    }\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n    \\\"success_count\\\": 12,\\n    \\\"error_count\\\": 3,\\n    \\\"error_info\\\": [\\n        {\\n          \\\"product_id\\\": \\\"...\\\",\\n          \\\"username\\\": \\\"...\\\",\\n          ...\\n          \\\"error_message\\\": \\\"\\\"\\n        }\\n    ]\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "6e9400d6-b3ac-43d7-a250-51f55fbbccc3",
-          "name": "Create Script Tag",
-          "request": {
-            "name": "Create Script Tag",
-            "description": {
-              "content": "",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "openapi",
-                "2022-01",
-                "script_tags"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{subdomain}}",
-                  "key": "subdomain"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"src\": \"<string>\",\n  \"display_scope\": \"all\",\n  \"event_type\": \"app\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "59c66bdc-2a58-4c8f-a37e-cd1bec85b742",
-              "name": "200",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "script_tags"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"src\": \"<string>\",\n  \"display_scope\": \"all\",\n  \"event_type\": \"app\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n  \\\"script_tag\\\":{\\n    \\\"id\\\": \\\"0510dace-34da-4555-a896-495e0cb1ed6e\\\",\\n    \\\"display_scope\\\": \\\"all\\\",\\n    \\\"src\\\": \\\"<script src=\\\\\\\"https://assets.shoplazza.com/add_to_cart.07fb91d6064f1902127d.js\\\\\\\"></script>\\\",\\n    \\\"event_type\\\": \\\"myapp\\\",\\n    \\\"created_at\\\": \\\"2018-08-26T06:50:00Z\\\",\\n    \\\"updated_at\\\": \\\"2018-08-26T06:50:00Z\\\"\\n  }\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "10985b3d-ca99-44fc-afdb-4e00bc736f23",
-          "name": "Get Script Tag List",
-          "request": {
-            "name": "Get Script Tag List",
-            "description": {
-              "content": "",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "openapi",
-                "2022-01",
-                "script_tags"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "event_type",
-                  "value": "app",
-                  "description": "Event type, e.g. `myapp`"
-                },
-                {
-                  "disabled": false,
-                  "key": "page",
-                  "value": "1",
-                  "description": "Page number, e.g. `1`"
-                },
-                {
-                  "disabled": false,
-                  "key": "limit",
-                  "value": "50",
-                  "description": "result per page, e.g. `50`"
-                }
-              ],
-              "variable": [
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{subdomain}}",
-                  "key": "subdomain"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "8bfb008a-1120-4969-8986-bd0cdab03dbd",
-              "name": "200",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "script_tags"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "event_type",
-                      "value": "app"
-                    },
-                    {
-                      "key": "page",
-                      "value": "1"
-                    },
-                    {
-                      "key": "limit",
-                      "value": "50"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n  \\\"script_tags\\\":[{\\n    \\\"id\\\":\\\"0510dace-34da-4555-a896-495e0cb1ed6e\\\",\\n    \\\"display_scope\\\":\\\"all\\\",\\n    \\\"src\\\": \\\"<script src=\\\\\\\"https://assets.shoplazza.com/add_to_cart.07fb91d6064f1902127d.js\\\\\\\"></script>\\\",\\n    \\\"event_type\\\": \\\"myapp\\\",\\n    \\\"created_at\\\": \\\"2018-08-26T06:50:00Z\\\",\\n    \\\"updated_at\\\": \\\"2018-08-26T06:50:00Z\\\"\\n  }]\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "409189c2-98b8-401b-a1e6-48014fda04d3",
-          "name": "Update Script Tag",
-          "request": {
-            "name": "Update Script Tag",
-            "description": {
-              "content": "",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "openapi",
-                "2022-01",
-                "script_tags",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) Script's ID"
-                },
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{subdomain}}",
-                  "key": "subdomain"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "PUT",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"src\": \"<string>\",\n  \"display_scope\": \"all\",\n  \"event_type\": \"app\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "13316d6d-e8f9-49a3-8058-9906af3695b1",
-              "name": "200",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "script_tags",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) Script's ID"
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"src\": \"<string>\",\n  \"display_scope\": \"all\",\n  \"event_type\": \"app\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n  \\\"script_tag\\\":{\\n    \\\"id\\\":\\\"0510dace-34da-4555-a896-495e0cb1ed6e\\\",\\n    \\\"display_scope\\\":\\\"all\\\",\\n    \\\"src\\\": \\\"<script src=\\\\\\\"https://assets.shoplazza.com/add_to_cart.07fb91d6064f1902127d.js\\\\\\\"></script>\\\",\\n    \\\"event_type\\\": \\\"myapp\\\",\\n    \\\"created_at\\\": \\\"2018-08-26T06:50:00Z\\\",\\n    \\\"updated_at\\\": \\\"2018-08-26T06:50:00Z\\\"\\n   }\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "4da83bae-ad11-4ee7-91d9-74b739a57241",
-          "name": "Delete Script Tag",
-          "request": {
-            "name": "Delete Script Tag",
-            "description": {
-              "content": "",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "openapi",
-                "2022-01",
-                "script_tags",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) Script's ID"
-                },
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{subdomain}}",
-                  "key": "subdomain"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "e1040583-3771-46aa-963d-218fd0128d32",
-              "name": "200",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "script_tags",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) Script's ID"
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "3c58b6c9-47c8-4db8-a1d3-cefe3f2041b2",
-              "name": "404",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "script_tags",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) Script's ID"
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n  \\\"errors\\\": [\\n    \\\"record not found!\\\"\\n  ]\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "fd772049-a8b1-4058-acf3-acd911fb3aec",
-          "name": "Get Script Tag",
-          "request": {
-            "name": "Get Script Tag",
-            "description": {
-              "content": "",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "openapi",
-                "2022-01",
-                "script_tags",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) Script's ID"
-                },
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{subdomain}}",
-                  "key": "subdomain"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "df618de6-38d1-4c4a-936e-8f8fd98d3c09",
-              "name": "200",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "script_tags",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) Script's ID"
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n  \\\"script_tag\\\":{\\n    \\\"id\\\":\\\"0510dace-34da-4555-a896-495e0cb1ed6e\\\",\\n    \\\"display_scope\\\":\\\"all\\\",\\n    \\\"src\\\": \\\"<script src=\\\\\\\"https://assets.shoplazza.com/add_to_cart.07fb91d6064f1902127d.js\\\\\\\"></script>\\\",\\n    \\\"event_type\\\": \\\"myapp”\\\",\\n    \\\"created_at\\\": \\\"2018-08-26T06:50:00Z\\\",\\n    \\\"updated_at\\\": \\\"2018-08-26T06:50:00Z\\\"\\n  }\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "c6bcf9bc-4a22-4530-95d5-ac434d40ee6d",
-          "name": "Get Script Tag Count",
-          "request": {
-            "name": "Get Script Tag Count",
-            "description": {
-              "content": "",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "openapi",
-                "2022-01",
-                "script_tags",
-                "count"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{subdomain}}",
-                  "key": "subdomain"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "9e4c843d-6a11-4850-b6d9-3b2acf16e616",
-              "name": "200",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "script_tags",
-                    "count"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n  \\\"count\\\": 5\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "3148c0c2-e6fb-46af-b0df-af9689642c4d",
-          "name": "Get Comment List",
-          "request": {
-            "name": "Get Comment List",
-            "description": {
-              "content": "",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "openapi",
-                "2022-01",
-                "comments",
-                "list"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "product_id",
-                  "value": "<string>",
-                  "description": "Product's IDs, e.g. `9e79ca1f-9ff2-409b-976f-98be343d38a3`"
-                },
-                {
-                  "disabled": false,
-                  "key": "created_at_min",
-                  "value": "<string>",
-                  "description": "Filter comments created at or after date, for example: `2018-10-01T16:15:47-04:00`"
-                },
-                {
-                  "disabled": false,
-                  "key": "created_at_max",
-                  "value": "<string>",
-                  "description": "Filter comments created at or before date, for example: `2018-10-01T16:15:47-04:00`"
-                },
-                {
-                  "disabled": false,
-                  "key": "updated_at_min",
-                  "value": "<string>",
-                  "description": "Filter comments last updated at or after date, for example: `2018-10-01T16:15:47-04:00`"
-                },
-                {
-                  "disabled": false,
-                  "key": "updated_at_max",
-                  "value": "<string>",
-                  "description": "Filter comments last updated at or before date, for example: `2018-10-01T16:15:47-04:00`"
-                },
-                {
-                  "disabled": false,
-                  "key": "sort_by",
-                  "value": "star",
-                  "description": "Specify the sort field, e.g. `star` or `created_at`"
-                },
-                {
-                  "disabled": false,
-                  "key": "sort_direction",
-                  "value": "asc",
-                  "description": "Specify the sort direction, e.g. `asc` or `desc`"
-                },
-                {
-                  "disabled": false,
-                  "key": "page",
-                  "value": "1",
-                  "description": "Page number"
-                },
-                {
-                  "disabled": false,
-                  "key": "limit",
-                  "value": "20",
-                  "description": "Limit per page, 10, 20, 50, 100 allowed"
-                },
-                {
-                  "disabled": false,
-                  "key": "status",
-                  "value": "1",
-                  "description": "Comment status, `1`: published, `0`: unpublished"
-                }
-              ],
-              "variable": [
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{subdomain}}",
-                  "key": "subdomain"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "3a8724cb-289c-4137-906a-1a09c503d3a3",
-              "name": "200",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "comments",
-                    "list"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "product_id",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "created_at_min",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "created_at_max",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "updated_at_min",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "updated_at_max",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "sort_by",
-                      "value": "star"
-                    },
-                    {
-                      "key": "sort_direction",
-                      "value": "asc"
-                    },
-                    {
-                      "key": "page",
-                      "value": "1"
-                    },
-                    {
-                      "key": "limit",
-                      "value": "20"
-                    },
-                    {
-                      "key": "status",
-                      "value": "1"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n    \\\"comments\\\": [\\n        {\\n            \\\"id\\\": \\\"23359196\\\",\\n            \\\"store_id\\\": \\\"11218\\\",\\n            \\\"username\\\": \\\"Jack\\\",\\n            \\\"email\\\": \\\"developer@example.com\\\",\\n            \\\"star\\\": \\\"5.0\\\",\\n            \\\"like\\\": \\\"1\\\",\\n            \\\"content\\\": \\\"Great!\\\",\\n            \\\"img\\\": \\\"[\\\\\\\"example.png\\\\\\\"]\\\",\\n            \\\"status\\\": \\\"1\\\",\\n            \\\"type\\\": \\\"1\\\",\\n            \\\"product_id\\\": \\\"f9dec889-8b4c-44a9-b9b6-3fe8edb94467\\\",\\n            \\\"created_at\\\": \\\"2022-11-08 05:42:41\\\",\\n            \\\"updated_at\\\": \\\"2022-11-09 09:24:47\\\",\\n            \\\"country\\\": \\\"CN\\\",\\n            \\\"is_featured\\\": \\\"0\\\",\\n            \\\"is_verified\\\": \\\"1\\\",\\n            \\\"client_id\\\": \\\"1666840484639148\\\"\\n        },\\n        {\\n            \\\"id\\\": \\\"23359198\\\",\\n            \\\"store_id\\\": \\\"11218\\\",\\n            \\\"username\\\": \\\"Joey\\\",\\n            \\\"email\\\": \\\"\\\",\\n            \\\"star\\\": \\\"4.0\\\",\\n            \\\"like\\\": \\\"199\\\",\\n            \\\"content\\\": \\\"Good!\\\",\\n            \\\"img\\\": \\\"[]\\\",\\n            \\\"status\\\": \\\"1\\\",\\n            \\\"type\\\": \\\"1\\\",\\n            \\\"product_id\\\": \\\"424ec2e4-880a-4231-ba8b-e6ad955a7845\\\",\\n            \\\"created_at\\\": \\\"2022-10-10 15:00:00\\\",\\n            \\\"updated_at\\\": \\\"2022-11-10 06:57:15\\\",\\n            \\\"country\\\": \\\"\\\",\\n            \\\"is_featured\\\": \\\"0\\\",\\n            \\\"is_verified\\\": \\\"0\\\",\\n            \\\"client_id\\\": null\\n        }\\n    ],\\n    \\\"total\\\": \\\"2\\\",\\n    \\\"page\\\": \\\"1\\\"\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "4c0ff695-501c-4384-8f2f-256324e21d06",
+          "createdAt": "2026-10-21T19:49:17.000Z",
+          "updatedAt": "2026-10-21T19:49:17.000Z",
+          "uid": "35240-4c0ff695-501c-4384-8f2f-256324e21d06"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "type": "any",
-      "value": "developer",
-      "key": "subdomain"
-    },
-    {
-      "type": "string",
-      "value": "https://{{subdomain}}.myshoplaza.com",
-      "key": "baseUrl"
+      "id": "fc301b79-c424-4d03-9890-1cddcf46e58b",
+      "createdAt": "2026-10-21T19:49:17.000Z",
+      "updatedAt": "2026-10-21T19:49:17.000Z",
+      "uid": "35240-fc301b79-c424-4d03-9890-1cddcf46e58b"
     }
   ],
   "auth": {
@@ -1600,25 +1400,29 @@
     "apikey": [
       {
         "key": "key",
-        "value": "access-token"
+        "value": "access-token",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "625f107d-3504-43e2-901d-0c1daba2a566",
-    "name": "SPZ Admin Access Shop API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "subdomain",
+      "value": "developer"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{subdomain}}.myshoplaza.com"
     }
-  }
+  ]
 }

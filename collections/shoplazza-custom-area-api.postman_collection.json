@@ -1,597 +1,545 @@
 {
+  "info": {
+    "_postman_id": "570f12dc-a7f9-4397-b225-519110130da5",
+    "name": "SPZ Admin Custom Area API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T19:47:37.000Z",
+    "updatedAt": "2026-10-21T19:47:37.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-570f12dc-a7f9-4397-b225-519110130da5"
+  },
   "item": [
     {
-      "id": "ad8498d8-c9a9-4931-b15a-93fdd995e977",
-      "name": "Custom Area",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "openapi",
       "item": [
         {
-          "id": "71bb84d1-f431-4856-b9f2-cdd5801550ab",
-          "name": "Get Province List",
-          "request": {
-            "name": "Get Province List",
-            "description": {
-              "content": "",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "openapi",
-                "2022-01",
-                "areas",
-                "country",
-                ":country_code",
-                "province"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "country_code",
-                  "description": "(Required) Country code, eg. US"
-                },
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{subdomain}}",
-                  "key": "subdomain"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "2022-01",
+          "item": [
             {
-              "id": "5aba6324-a757-4845-bf09-6b3adfce5c60",
-              "name": "200",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "areas",
-                    "country",
-                    ":country_code",
-                    "province"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "country_code",
-                      "description": "(Required) Country code, eg. US"
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "areas",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "country",
+                  "item": [
+                    {
+                      "name": "{country_code}",
+                      "item": [
+                        {
+                          "name": "province",
+                          "item": [
+                            {
+                              "name": "Get Province List",
+                              "id": "ca803085-3541-462d-b38e-8d1b699935a1",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/openapi/2022-01/areas/country/:country_code/province",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "openapi",
+                                    "2022-01",
+                                    "areas",
+                                    "country",
+                                    ":country_code",
+                                    "province"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "bd2d802b-de06-4742-a041-988e7c7e2598",
+                                      "key": "country_code",
+                                      "value": "<string>",
+                                      "description": "(Required) Country code, eg. US"
+                                    }
+                                  ]
+                                }
+                              },
+                              "response": [
+                                {
+                                  "id": "b4c0a722-c596-46ab-bf2f-885c5186a78b",
+                                  "name": "200",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "access-token",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/openapi/2022-01/areas/country/:country_code/province",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "openapi",
+                                        "2022-01",
+                                        "areas",
+                                        "country",
+                                        ":country_code",
+                                        "province"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "country_code"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "[\n  {\n    \"cn_name\": \"<string>\",\n    \"code\": \"<string>\",\n    \"name\": \"<string>\",\n    \"old_code\": \"<string>\",\n    \"province_id\": 0\n  },\n  {\n    \"cn_name\": \"<string>\",\n    \"code\": \"<string>\",\n    \"name\": \"<string>\",\n    \"old_code\": \"<string>\",\n    \"province_id\": 0\n  }\n]",
+                                  "createdAt": "2026-10-21T19:47:38.000Z",
+                                  "updatedAt": "2026-10-21T19:47:38.000Z",
+                                  "uid": "35240-b4c0a722-c596-46ab-bf2f-885c5186a78b"
+                                }
+                              ],
+                              "createdAt": "2026-10-21T19:47:38.000Z",
+                              "updatedAt": "2026-10-21T19:47:38.000Z",
+                              "uid": "35240-ca803085-3541-462d-b38e-8d1b699935a1"
+                            },
+                            {
+                              "name": "Create Custom Areas",
+                              "id": "44231bec-782e-4a0b-85de-162ff499afa5",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"RAW_BODY\": \"{\\\"provinces\\\":[{\\\"name\\\":\\\"Province name\\\",\\\"cities\\\":[{\\\"name\\\":\\\"City name\\\",\\\"addresses\\\":[{\\\"name\\\":\\\"Addreess name\\\",\\\"address1s\\\":[\\\"Area name\\\",\\\"Another area name\\\"]}]}]}]}\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/openapi/2022-01/areas/country/:country_code/province",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "openapi",
+                                    "2022-01",
+                                    "areas",
+                                    "country",
+                                    ":country_code",
+                                    "province"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "f382dc42-3e70-4904-97cf-149271a3cc9e",
+                                      "key": "country_code",
+                                      "value": "<string>",
+                                      "description": "(Required) Country code, eg. US"
+                                    }
+                                  ]
+                                }
+                              },
+                              "response": [
+                                {
+                                  "id": "2ae3410b-e569-424e-aa32-ad87be7a55d8",
+                                  "name": "200",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "access-token",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"RAW_BODY\": \"{\\\"provinces\\\":[{\\\"name\\\":\\\"Province name\\\",\\\"cities\\\":[{\\\"name\\\":\\\"City name\\\",\\\"addresses\\\":[{\\\"name\\\":\\\"Addreess name\\\",\\\"address1s\\\":[\\\"Area name\\\",\\\"Another area name\\\"]}]}]}]}\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/openapi/2022-01/areas/country/:country_code/province",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "openapi",
+                                        "2022-01",
+                                        "areas",
+                                        "country",
+                                        ":country_code",
+                                        "province"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "country_code"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{}",
+                                  "createdAt": "2026-10-21T19:47:38.000Z",
+                                  "updatedAt": "2026-10-21T19:47:38.000Z",
+                                  "uid": "35240-2ae3410b-e569-424e-aa32-ad87be7a55d8"
+                                }
+                              ],
+                              "createdAt": "2026-10-21T19:47:38.000Z",
+                              "updatedAt": "2026-10-21T19:47:38.000Z",
+                              "uid": "35240-44231bec-782e-4a0b-85de-162ff499afa5"
+                            },
+                            {
+                              "name": "Delete Custom Areas",
+                              "id": "fe477ca0-1e89-4e55-ae4a-7351865e6f51",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/openapi/2022-01/areas/country/:country_code/province",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "openapi",
+                                    "2022-01",
+                                    "areas",
+                                    "country",
+                                    ":country_code",
+                                    "province"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "8ab094ae-3b40-4bc6-bb58-218265686fc6",
+                                      "key": "country_code",
+                                      "value": "<string>",
+                                      "description": "(Required) Country code, eg. US"
+                                    }
+                                  ]
+                                }
+                              },
+                              "response": [
+                                {
+                                  "id": "7d2aedb8-16d2-45db-b6f9-baa491b8b29c",
+                                  "name": "200",
+                                  "originalRequest": {
+                                    "method": "DELETE",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "access-token",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/openapi/2022-01/areas/country/:country_code/province",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "openapi",
+                                        "2022-01",
+                                        "areas",
+                                        "country",
+                                        ":country_code",
+                                        "province"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "country_code"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{}",
+                                  "createdAt": "2026-10-21T19:47:38.000Z",
+                                  "updatedAt": "2026-10-21T19:47:38.000Z",
+                                  "uid": "35240-7d2aedb8-16d2-45db-b6f9-baa491b8b29c"
+                                }
+                              ],
+                              "createdAt": "2026-10-21T19:47:38.000Z",
+                              "updatedAt": "2026-10-21T19:47:38.000Z",
+                              "uid": "35240-fe477ca0-1e89-4e55-ae4a-7351865e6f51"
+                            }
+                          ],
+                          "id": "05a2814d-7ab1-4ede-99af-4f9ba1be4a21",
+                          "createdAt": "2026-10-21T19:47:38.000Z",
+                          "updatedAt": "2026-10-21T19:47:38.000Z",
+                          "uid": "35240-05a2814d-7ab1-4ede-99af-4f9ba1be4a21"
+                        }
+                      ],
+                      "id": "f14e8d1a-7e39-4f98-ae66-5c4a2181d164",
+                      "createdAt": "2026-10-21T19:47:38.000Z",
+                      "updatedAt": "2026-10-21T19:47:38.000Z",
+                      "uid": "35240-f14e8d1a-7e39-4f98-ae66-5c4a2181d164"
+                    }
+                  ],
+                  "id": "7d341753-6860-4e72-9713-a54da2155b5d",
+                  "createdAt": "2026-10-21T19:47:38.000Z",
+                  "updatedAt": "2026-10-21T19:47:38.000Z",
+                  "uid": "35240-7d341753-6860-4e72-9713-a54da2155b5d"
                 }
               ],
-              "body": "\"[\\n    {\\n        \\\"cn_name\\\": \\\"阿拉斯加州\\\",\\n        \\\"code\\\": \\\"US-AK\\\",\\n        \\\"name\\\": \\\"Alaska\\\",\\n        \\\"old_code\\\": \\\"AK\\\",\\n        \\\"province_id\\\": 3502\\n    },\\n    {\\n        \\\"cn_name\\\": \\\"亚拉巴马州\\\",\\n        \\\"code\\\": \\\"US-AL\\\",\\n        \\\"name\\\": \\\"Alabama\\\",\\n        \\\"old_code\\\": \\\"AL\\\",\\n        \\\"province_id\\\": 3503\\n    },\\n    {\\n        \\\"cn_name\\\": \\\"阿肯色州\\\",\\n        \\\"code\\\": \\\"US-AR\\\",\\n        \\\"name\\\": \\\"Arkansas\\\",\\n        \\\"old_code\\\": \\\"AR\\\",\\n        \\\"province_id\\\": 3504\\n    }\\n]\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "f9684dfa-ef8a-41ba-b1cb-d83700cac199",
+              "createdAt": "2026-10-21T19:47:38.000Z",
+              "updatedAt": "2026-10-21T19:47:38.000Z",
+              "uid": "35240-f9684dfa-ef8a-41ba-b1cb-d83700cac199"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "d907a94b-bf72-4a70-8a38-5e4e195ee0c4",
-          "name": "Create Custom Areas",
-          "request": {
-            "name": "Create Custom Areas",
-            "description": {
-              "content": "",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "openapi",
-                "2022-01",
-                "areas",
-                "country",
-                ":country_code",
-                "province"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "country_code",
-                  "description": "(Required) Country code, eg. US"
-                },
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{subdomain}}",
-                  "key": "subdomain"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"RAW_BODY\": \"{\\\"provinces\\\":[{\\\"name\\\":\\\"Province name\\\",\\\"cities\\\":[{\\\"name\\\":\\\"City name\\\",\\\"addresses\\\":[{\\\"name\\\":\\\"Addreess name\\\",\\\"address1s\\\":[\\\"Area name\\\",\\\"Another area name\\\"]}]}]}]}\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "e1c07841-fc8e-4a26-96ac-6dc9166e3feb",
-              "name": "200",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "areas",
-                    "country",
-                    ":country_code",
-                    "province"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "country_code",
-                      "description": "(Required) Country code, eg. US"
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"RAW_BODY\": \"{\\\"provinces\\\":[{\\\"name\\\":\\\"Province name\\\",\\\"cities\\\":[{\\\"name\\\":\\\"City name\\\",\\\"addresses\\\":[{\\\"name\\\":\\\"Addreess name\\\",\\\"address1s\\\":[\\\"Area name\\\",\\\"Another area name\\\"]}]}]}]}\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "38d7dc16-a67d-465d-aa2c-17c84514c018",
-          "name": "Delete Custom Areas",
-          "request": {
-            "name": "Delete Custom Areas",
-            "description": {
-              "content": "",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "openapi",
-                "2022-01",
-                "areas",
-                "country",
-                ":country_code",
-                "province"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "country_code",
-                  "description": "(Required) Country code, eg. US"
-                },
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{subdomain}}",
-                  "key": "subdomain"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "5abe59df-550e-4c4f-9281-3f87ec34f5ba",
-              "name": "200",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "openapi",
-                    "2022-01",
-                    "areas",
-                    "country",
-                    ":country_code",
-                    "province"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "country_code",
-                      "description": "(Required) Country code, eg. US"
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "236bfc1a-4a4b-4fdb-abfa-a5c1f834b00a",
-          "name": "Get Custom Children Areas",
-          "request": {
-            "name": "Get Custom Children Areas",
-            "description": {
-              "content": "",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "areas",
-                ":area_code",
-                "children"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "area_code",
-                  "description": "(Required) Area code, eg. US-CA"
-                },
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{subdomain}}",
-                  "key": "subdomain"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "6903c236-174d-4c16-9b15-cfca8aeebd12",
-              "name": "200",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "areas",
-                    ":area_code",
-                    "children"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "area_code",
-                      "description": "(Required) Area code, eg. US-CA"
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n    \\\"type\\\": \\\"city\\\",\\n    \\\"list\\\": [\\n        {\\n            \\\"code\\\": \\\"US-CA-1\\\",\\n            \\\"name\\\": \\\"Custom city name\\\"\\n        },\\n        {\\n            \\\"code\\\": \\\"US-CA-a\\\",\\n            \\\"name\\\": \\\"Another custom city name\\\"\\n        }\\n    ]\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "38e37305-604f-446e-8dbd-559cb6088282",
-              "name": "400",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "areas",
-                    ":area_code",
-                    "children"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "area_code",
-                      "description": "(Required) Area code, eg. US-CA"
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{subdomain}}",
-                      "key": "subdomain"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "access-token",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "fd60d602-bd01-4753-8302-357c721679c9",
+          "createdAt": "2026-10-21T19:47:38.000Z",
+          "updatedAt": "2026-10-21T19:47:38.000Z",
+          "uid": "35240-fd60d602-bd01-4753-8302-357c721679c9"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "type": "any",
-      "value": "developer",
-      "key": "subdomain"
+      "id": "746f4e8d-64fe-40c7-90d4-60d203c1a1d2",
+      "createdAt": "2026-10-21T19:47:38.000Z",
+      "updatedAt": "2026-10-21T19:47:38.000Z",
+      "uid": "35240-746f4e8d-64fe-40c7-90d4-60d203c1a1d2"
     },
     {
-      "type": "string",
-      "value": "https://{{subdomain}}.myshoplaza.com",
-      "key": "baseUrl"
+      "name": "areas",
+      "item": [
+        {
+          "name": "{area_code}",
+          "item": [
+            {
+              "name": "children",
+              "item": [
+                {
+                  "name": "Get Custom Children Areas",
+                  "id": "9fb17588-3433-4056-9af0-916d37266546",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/areas/:area_code/children",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "areas",
+                        ":area_code",
+                        "children"
+                      ],
+                      "variable": [
+                        {
+                          "id": "4b6af427-96da-43c1-bcbc-a1238992f6bd",
+                          "key": "area_code",
+                          "value": "<string>",
+                          "description": "(Required) Area code, eg. US-CA"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "337579aa-c758-4dcd-ba41-6905bc2cbda0",
+                      "name": "200",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "access-token",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/areas/:area_code/children",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "areas",
+                            ":area_code",
+                            "children"
+                          ],
+                          "variable": [
+                            {
+                              "key": "area_code"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": \"<string>\",\n  \"list\": [\n    {\n      \"code\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"name\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-10-21T19:47:38.000Z",
+                      "updatedAt": "2026-10-21T19:47:38.000Z",
+                      "uid": "35240-337579aa-c758-4dcd-ba41-6905bc2cbda0"
+                    },
+                    {
+                      "id": "9fdf90f2-700c-4474-a42c-6ab410215830",
+                      "name": "400",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "access-token",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/areas/:area_code/children",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "areas",
+                            ":area_code",
+                            "children"
+                          ],
+                          "variable": [
+                            {
+                              "key": "area_code"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-10-21T19:47:38.000Z",
+                      "updatedAt": "2026-10-21T19:47:38.000Z",
+                      "uid": "35240-9fdf90f2-700c-4474-a42c-6ab410215830"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T19:47:38.000Z",
+                  "updatedAt": "2026-10-21T19:47:38.000Z",
+                  "uid": "35240-9fb17588-3433-4056-9af0-916d37266546"
+                }
+              ],
+              "id": "c3cab8df-1ba0-4b87-8b38-e8f198bf7c84",
+              "createdAt": "2026-10-21T19:47:38.000Z",
+              "updatedAt": "2026-10-21T19:47:38.000Z",
+              "uid": "35240-c3cab8df-1ba0-4b87-8b38-e8f198bf7c84"
+            }
+          ],
+          "id": "bafe31f2-6c0e-487f-bdf1-33fb6fbc3159",
+          "createdAt": "2026-10-21T19:47:38.000Z",
+          "updatedAt": "2026-10-21T19:47:38.000Z",
+          "uid": "35240-bafe31f2-6c0e-487f-bdf1-33fb6fbc3159"
+        }
+      ],
+      "id": "82bc22e8-262e-45d3-ba5e-d97956279ada",
+      "createdAt": "2026-10-21T19:47:38.000Z",
+      "updatedAt": "2026-10-21T19:47:38.000Z",
+      "uid": "35240-82bc22e8-262e-45d3-ba5e-d97956279ada"
     }
   ],
   "auth": {
@@ -599,25 +547,29 @@
     "apikey": [
       {
         "key": "key",
-        "value": "access-token"
+        "value": "access-token",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "07e9c140-876f-41b9-98d6-4f34e87d4ece",
-    "name": "SPZ Admin Access Custom Area API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "subdomain",
+      "value": "developer"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{subdomain}}.myshoplaza.com"
     }
-  }
+  ]
 }
